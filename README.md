@@ -13,5 +13,6 @@ Use cases:
 * Integration with the [GitLab](https://github.com/Nasdanika-Models/gitlab) model - scan repositories, load module-info.java, parse, establish cross-repository dependencies, use [CODEOWNERS](https://docs.gitlab.com/ee/user/project/codeowners/), project contributors and other means to map to the org structure and infer org units/teams dependencies
     * Automated governance, e.g. naming conventions - group/project name, Maven artifacts name, module name, package names.
 * Code generation
+* Loading of ``.class`` files using [ASM](https://asm.ow2.io/). JarResource and JarResource factory to load from jars. Can be used with [Maven](https://github.com/Nasdanika-Models/maven) URI handler. ``java://...`` URI for proxies. Can be used for deep analysis. 
     
     
