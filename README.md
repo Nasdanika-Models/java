@@ -5,7 +5,7 @@ Ecore model, graph nodes, and processors for Java - module, package, class, fiel
 * Module - model after the Java API for modules - https://github.com/Nasdanika-Models/echarts/blob/main/generator/src/test/java/org/nasdanika/models/echarts/generator/tests/TestEchartsModelDocGen.java#L232. 
 Loading using Java lang API and from sources - http://javaparser.org/, https://github.com/javaparser/javaparser, Eclipse JDT
 
-* Class, Package, CompilationUnit, ... - model after https://github.com/Nasdanika/core/tree/maven-2021.7.3/exec/src/main/java/org/nasdanika/exec/java
+* Class, Package, CompilationUnit, ... - model after https://github.com/Nasdanika/core/tree/maven-2021.7.3/exec/src/main/java/org/nasdanika/exec/java, add Module.
 
 Use cases:
 
