@@ -7,5 +7,6 @@ module org.nasdanika.models.java {
 	requires transitive org.eclipse.emf.ecore;
 	requires transitive org.eclipse.emf.common;
 	requires transitive org.nasdanika.ncore;
+	requires com.github.javaparser.core;
 
 }

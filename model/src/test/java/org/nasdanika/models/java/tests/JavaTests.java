@@ -4,8 +4,14 @@ import static com.github.javaparser.ParseStart.COMPILATION_UNIT;
 import static com.github.javaparser.Providers.provider;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTParser;
@@ -14,21 +20,18 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.ModuleDeclaration;
 import org.junit.jupiter.api.Test;
+import org.nasdanika.models.java.util.JavaParserResourceFactory;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.Provider;
-import com.github.javaparser.resolution.TypeSolver;
-import com.github.javaparser.resolution.types.ResolvedType;
-import com.github.javaparser.symbolsolver.JavaSymbolSolver;
-import com.github.javaparser.symbolsolver.resolution.typesolvers.MemoryTypeSolver;
 import com.github.javaparser.utils.SourceRoot;
 
 public class JavaTests {
 	
 	@Test
-	public void testASTParser() throws Exception {
+	public void testJDTASTParser() throws Exception {
 		ASTParser parser = ASTParser.newParser(AST.getJLSLatest());
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
 		String source = Files.readString(new File("src/main/java/org/nasdanika/models/java/JavaPackage.java").toPath());
@@ -103,6 +106,18 @@ public class JavaTests {
 		com.github.javaparser.ast.CompilationUnit compilationUnit = result.getResult().get();
 		System.out.println(compilationUnit.getClass());
 	}	
+	
+	@Test
+	public void testJavaResourceFactory() throws IOException {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("java", new JavaParserResourceFactory());
+		
+		String javaPackagePath = new File("src/main/java/org/nasdanika/models/java/JavaPackage.java").getCanonicalPath();
+		Resource javaPackageResource = resourceSet.getResource(URI.createFileURI(javaPackagePath), true);
+		for (EObject root: javaPackageResource.getContents()) {
+			System.out.println(root);
+		}		
+	}
 	
 //	/**
 //	 * A working parsing code using Java parser.

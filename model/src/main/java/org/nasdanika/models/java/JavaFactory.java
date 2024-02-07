@@ -112,6 +112,15 @@ public interface JavaFactory extends EFactory {
 	Source createSource();
 
 	/**
+	 * Returns a new object of class '<em>Record</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Record</em>'.
+	 * @generated
+	 */
+	Record createRecord();
+
+	/**
 	 * Returns a new object of class '<em>Compilation Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,6 +128,15 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	CompilationUnit createCompilationUnit();
+
+	/**
+	 * Returns a new object of class '<em>Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Comment</em>'.
+	 * @generated
+	 */
+	Comment createComment();
 
 	/**
 	 * Returns the package supported by this factory.

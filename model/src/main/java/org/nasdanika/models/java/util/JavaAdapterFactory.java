@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.nasdanika.models.java.Annotation;
+import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.Field;
@@ -80,6 +81,22 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	protected JavaSwitch<Adapter> modelSwitch =
 		new JavaSwitch<Adapter>() {
 			@Override
+			public Adapter caseCompilationUnit(CompilationUnit object) {
+				return createCompilationUnitAdapter();
+			}
+			@Override
+			public Adapter caseComment(Comment object) {
+				return createCommentAdapter();
+			}
+			@Override
+			public Adapter caseMember(Member object) {
+				return createMemberAdapter();
+			}
+			@Override
+			public Adapter caseType(Type object) {
+				return createTypeAdapter();
+			}
+			@Override
 			public Adapter caseAnnotation(Annotation object) {
 				return createAnnotationAdapter();
 			}
@@ -108,10 +125,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createModuleAdapter();
 			}
 			@Override
-			public Adapter caseMember(Member object) {
-				return createMemberAdapter();
-			}
-			@Override
 			public Adapter caseMethod(Method object) {
 				return createMethodAdapter();
 			}
@@ -128,12 +141,8 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createSourceAdapter();
 			}
 			@Override
-			public Adapter caseType(Type object) {
-				return createTypeAdapter();
-			}
-			@Override
-			public Adapter caseCompilationUnit(CompilationUnit object) {
-				return createCompilationUnitAdapter();
+			public Adapter caseRecord(org.nasdanika.models.java.Record object) {
+				return createRecordAdapter();
 			}
 			@Override
 			public Adapter caseIMarked(Marked object) {
@@ -290,6 +299,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Record <em>Record</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.Record
+	 * @generated
+	 */
+	public Adapter createRecordAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Member <em>Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -356,6 +379,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompilationUnitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Comment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.Comment
+	 * @generated
+	 */
+	public Adapter createCommentAdapter() {
 		return null;
 	}
 

@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.nasdanika.models.java.Annotation;
+import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.Field;
@@ -78,6 +79,40 @@ public class JavaSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case JavaPackage.COMPILATION_UNIT: {
+				CompilationUnit compilationUnit = (CompilationUnit)theEObject;
+				T result = caseCompilationUnit(compilationUnit);
+				if (result == null) result = caseSource(compilationUnit);
+				if (result == null) result = caseMarked(compilationUnit);
+				if (result == null) result = caseIMarked(compilationUnit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.COMMENT: {
+				Comment comment = (Comment)theEObject;
+				T result = caseComment(comment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.MEMBER: {
+				Member member = (Member)theEObject;
+				T result = caseMember(member);
+				if (result == null) result = caseSource(member);
+				if (result == null) result = caseMarked(member);
+				if (result == null) result = caseIMarked(member);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.TYPE: {
+				Type type = (Type)theEObject;
+				T result = caseType(type);
+				if (result == null) result = caseMember(type);
+				if (result == null) result = caseSource(type);
+				if (result == null) result = caseMarked(type);
+				if (result == null) result = caseIMarked(type);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.ANNOTATION: {
 				Annotation annotation = (Annotation)theEObject;
 				T result = caseAnnotation(annotation);
@@ -152,15 +187,6 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.MEMBER: {
-				Member member = (Member)theEObject;
-				T result = caseMember(member);
-				if (result == null) result = caseSource(member);
-				if (result == null) result = caseMarked(member);
-				if (result == null) result = caseIMarked(member);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JavaPackage.METHOD: {
 				Method method = (Method)theEObject;
 				T result = caseMethod(method);
@@ -198,22 +224,14 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.TYPE: {
-				Type type = (Type)theEObject;
-				T result = caseType(type);
-				if (result == null) result = caseMember(type);
-				if (result == null) result = caseSource(type);
-				if (result == null) result = caseMarked(type);
-				if (result == null) result = caseIMarked(type);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaPackage.COMPILATION_UNIT: {
-				CompilationUnit compilationUnit = (CompilationUnit)theEObject;
-				T result = caseCompilationUnit(compilationUnit);
-				if (result == null) result = caseSource(compilationUnit);
-				if (result == null) result = caseMarked(compilationUnit);
-				if (result == null) result = caseIMarked(compilationUnit);
+			case JavaPackage.RECORD: {
+				org.nasdanika.models.java.Record record = (org.nasdanika.models.java.Record)theEObject;
+				T result = caseRecord(record);
+				if (result == null) result = caseType(record);
+				if (result == null) result = caseMember(record);
+				if (result == null) result = caseSource(record);
+				if (result == null) result = caseMarked(record);
+				if (result == null) result = caseIMarked(record);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -357,6 +375,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Record</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Record</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecord(org.nasdanika.models.java.Record object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -428,6 +461,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCompilationUnit(CompilationUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Comment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComment(Comment object) {
 		return null;
 	}
 

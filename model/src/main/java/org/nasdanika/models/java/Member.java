@@ -12,6 +12,7 @@ package org.nasdanika.models.java;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.Member#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Member#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getMember()
@@ -41,4 +42,26 @@ public interface Member extends Source {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(Comment)
+	 * @see org.nasdanika.models.java.JavaPackage#getMember_Comment()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Comment getComment();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.java.Member#getComment <em>Comment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(Comment value);
 } // Member

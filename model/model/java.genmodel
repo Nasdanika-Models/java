@@ -9,6 +9,15 @@
   <foreignModel>java.ecore</foreignModel>
   <genPackages prefix="Java" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="java.ecore#/">
+    <genClasses ecoreClass="java.ecore#//CompilationUnit"/>
+    <genClasses ecoreClass="java.ecore#//Comment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Comment/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="java.ecore#//Member">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Member/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="java.ecore#//Type"/>
     <genClasses ecoreClass="java.ecore#//Annotation"/>
     <genClasses ecoreClass="java.ecore#//Class"/>
     <genClasses ecoreClass="java.ecore#//Constructor"/>
@@ -16,9 +25,6 @@
     <genClasses ecoreClass="java.ecore#//Field"/>
     <genClasses ecoreClass="java.ecore#//Interface"/>
     <genClasses ecoreClass="java.ecore#//Module"/>
-    <genClasses ecoreClass="java.ecore#//Member">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Member/name"/>
-    </genClasses>
     <genClasses ecoreClass="java.ecore#//Method"/>
     <genClasses image="false" ecoreClass="java.ecore#//Operation"/>
     <genClasses ecoreClass="java.ecore#//Package">
@@ -27,7 +33,6 @@
     <genClasses ecoreClass="java.ecore#//Source">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Source/source"/>
     </genClasses>
-    <genClasses ecoreClass="java.ecore#//Type"/>
-    <genClasses ecoreClass="java.ecore#//CompilationUnit"/>
+    <genClasses ecoreClass="java.ecore#//Record"/>
   </genPackages>
 </genmodel:GenModel>

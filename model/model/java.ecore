@@ -4,6 +4,16 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="A model of Java language - modules, packages, classes, compilation units, methods, statements, ..."/>
   </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" eSuperTypes="#//Source"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Comment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="#//Source">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comment" eType="#//Comment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//Member"/>
   <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//Operation"/>
@@ -11,9 +21,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//Member"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//Source"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="#//Source">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Operation"/>
   <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//Member"/>
   <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//Marked">
@@ -22,6 +29,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//Marked">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//Member"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" eSuperTypes="#//Source"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Record" eSuperTypes="#//Type"/>
 </ecore:EPackage>

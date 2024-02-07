@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.nasdanika.models.java.Annotation;
+import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.Field;
@@ -64,6 +65,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
+			case JavaPackage.COMMENT: return createComment();
 			case JavaPackage.ANNOTATION: return createAnnotation();
 			case JavaPackage.CLASS: return createClass();
 			case JavaPackage.CONSTRUCTOR: return createConstructor();
@@ -74,7 +77,7 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.METHOD: return createMethod();
 			case JavaPackage.PACKAGE: return createPackage();
 			case JavaPackage.SOURCE: return createSource();
-			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
+			case JavaPackage.RECORD: return createRecord();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -196,9 +199,31 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
+	public org.nasdanika.models.java.Record createRecord() {
+		RecordImpl record = new RecordImpl();
+		return record;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public CompilationUnit createCompilationUnit() {
 		CompilationUnitImpl compilationUnit = new CompilationUnitImpl();
 		return compilationUnit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Comment createComment() {
+		CommentImpl comment = new CommentImpl();
+		return comment;
 	}
 
 	/**

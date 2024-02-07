@@ -2,7 +2,10 @@
  */
 package org.nasdanika.models.java.impl;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
 
@@ -15,6 +18,7 @@ import org.nasdanika.models.java.Member;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.MemberImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.MemberImpl#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,10 +79,56 @@ public abstract class MemberImpl extends SourceImpl implements Member {
 	 * @generated
 	 */
 	@Override
+	public Comment getComment() {
+		return (Comment)eDynamicGet(JavaPackage.MEMBER__COMMENT, JavaPackage.Literals.MEMBER__COMMENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComment(Comment newComment, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newComment, JavaPackage.MEMBER__COMMENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComment(Comment newComment) {
+		eDynamicSet(JavaPackage.MEMBER__COMMENT, JavaPackage.Literals.MEMBER__COMMENT, newComment);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaPackage.MEMBER__COMMENT:
+				return basicSetComment(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JavaPackage.MEMBER__NAME:
 				return getName();
+			case JavaPackage.MEMBER__COMMENT:
+				return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -95,6 +145,9 @@ public abstract class MemberImpl extends SourceImpl implements Member {
 			case JavaPackage.MEMBER__NAME:
 				setName((String)newValue);
 				return;
+			case JavaPackage.MEMBER__COMMENT:
+				setComment((Comment)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -110,6 +163,9 @@ public abstract class MemberImpl extends SourceImpl implements Member {
 			case JavaPackage.MEMBER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case JavaPackage.MEMBER__COMMENT:
+				setComment((Comment)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -124,6 +180,8 @@ public abstract class MemberImpl extends SourceImpl implements Member {
 		switch (featureID) {
 			case JavaPackage.MEMBER__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case JavaPackage.MEMBER__COMMENT:
+				return getComment() != null;
 		}
 		return super.eIsSet(featureID);
 	}
