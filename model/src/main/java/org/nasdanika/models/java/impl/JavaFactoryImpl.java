@@ -11,10 +11,14 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.nasdanika.models.java.Annotation;
+import org.nasdanika.models.java.AnnotationMember;
+import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
+import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.JavaPackage;
@@ -68,13 +72,17 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
 			case JavaPackage.COMMENT: return createComment();
 			case JavaPackage.ANNOTATION: return createAnnotation();
+			case JavaPackage.ANNOTATION_MEMBER: return createAnnotationMember();
 			case JavaPackage.CLASS: return createClass();
 			case JavaPackage.CONSTRUCTOR: return createConstructor();
 			case JavaPackage.ENUM: return createEnum();
+			case JavaPackage.ENUM_CONSTANT: return createEnumConstant();
 			case JavaPackage.FIELD: return createField();
 			case JavaPackage.INTERFACE: return createInterface();
 			case JavaPackage.MODULE: return createModule();
 			case JavaPackage.METHOD: return createMethod();
+			case JavaPackage.INITIALIZER: return createInitializer();
+			case JavaPackage.CLASS_INITIALIZER: return createClassInitializer();
 			case JavaPackage.PACKAGE: return createPackage();
 			case JavaPackage.SOURCE: return createSource();
 			case JavaPackage.RECORD: return createRecord();
@@ -92,6 +100,17 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public Annotation createAnnotation() {
 		AnnotationImpl annotation = new AnnotationImpl();
 		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AnnotationMember createAnnotationMember() {
+		AnnotationMemberImpl annotationMember = new AnnotationMemberImpl();
+		return annotationMember;
 	}
 
 	/**
@@ -125,6 +144,17 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public org.nasdanika.models.java.Enum createEnum() {
 		EnumImpl enum_ = new EnumImpl();
 		return enum_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EnumConstant createEnumConstant() {
+		EnumConstantImpl enumConstant = new EnumConstantImpl();
+		return enumConstant;
 	}
 
 	/**
@@ -169,6 +199,28 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public Method createMethod() {
 		MethodImpl method = new MethodImpl();
 		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Initializer createInitializer() {
+		InitializerImpl initializer = new InitializerImpl();
+		return initializer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassInitializer createClassInitializer() {
+		ClassInitializerImpl classInitializer = new ClassInitializerImpl();
+		return classInitializer;
 	}
 
 	/**

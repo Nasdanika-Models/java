@@ -10,10 +10,15 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.nasdanika.models.java.Annotation;
+import org.nasdanika.models.java.AnnotationMember;
+import org.nasdanika.models.java.ClassInitializer;
+import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
+import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.JavaPackage;
@@ -44,6 +49,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass annotationMemberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass classEClass = null;
 
 	/**
@@ -59,6 +71,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass enumEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumConstantEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,6 +134,27 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass methodEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass codeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass initializerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classInitializerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,6 +263,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAnnotationMember() {
+		return annotationMemberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getClass_() {
 		return classEClass;
 	}
@@ -245,6 +295,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EClass getEnum() {
 		return enumEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEnumConstant() {
+		return enumConstantEClass;
 	}
 
 	/**
@@ -373,6 +433,36 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getCode() {
+		return codeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getInitializer() {
+		return initializerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getClassInitializer() {
+		return classInitializerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperation() {
 		return operationEClass;
 	}
@@ -393,8 +483,28 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getType_Members() {
+		return (EReference)typeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCompilationUnit() {
 		return compilationUnitEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCompilationUnit_Types() {
+		return (EReference)compilationUnitEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -447,6 +557,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		// Create classes and their features
 		compilationUnitEClass = createEClass(COMPILATION_UNIT);
+		createEReference(compilationUnitEClass, COMPILATION_UNIT__TYPES);
 
 		commentEClass = createEClass(COMMENT);
 		createEAttribute(commentEClass, COMMENT__COMMENT);
@@ -456,14 +567,19 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEReference(memberEClass, MEMBER__COMMENT);
 
 		typeEClass = createEClass(TYPE);
+		createEReference(typeEClass, TYPE__MEMBERS);
 
 		annotationEClass = createEClass(ANNOTATION);
+
+		annotationMemberEClass = createEClass(ANNOTATION_MEMBER);
 
 		classEClass = createEClass(CLASS);
 
 		constructorEClass = createEClass(CONSTRUCTOR);
 
 		enumEClass = createEClass(ENUM);
+
+		enumConstantEClass = createEClass(ENUM_CONSTANT);
 
 		fieldEClass = createEClass(FIELD);
 
@@ -472,6 +588,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		moduleEClass = createEClass(MODULE);
 
 		methodEClass = createEClass(METHOD);
+
+		codeEClass = createEClass(CODE);
+
+		initializerEClass = createEClass(INITIALIZER);
+
+		classInitializerEClass = createEClass(CLASS_INITIALIZER);
 
 		operationEClass = createEClass(OPERATION);
 
@@ -519,20 +641,26 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		memberEClass.getESuperTypes().add(this.getSource());
 		typeEClass.getESuperTypes().add(this.getMember());
 		annotationEClass.getESuperTypes().add(this.getType());
+		annotationMemberEClass.getESuperTypes().add(this.getMember());
 		classEClass.getESuperTypes().add(this.getType());
 		constructorEClass.getESuperTypes().add(this.getOperation());
 		enumEClass.getESuperTypes().add(this.getType());
+		enumConstantEClass.getESuperTypes().add(this.getMember());
 		fieldEClass.getESuperTypes().add(this.getMember());
 		interfaceEClass.getESuperTypes().add(this.getType());
 		moduleEClass.getESuperTypes().add(this.getSource());
 		methodEClass.getESuperTypes().add(this.getOperation());
-		operationEClass.getESuperTypes().add(this.getMember());
+		codeEClass.getESuperTypes().add(this.getMember());
+		initializerEClass.getESuperTypes().add(this.getCode());
+		classInitializerEClass.getESuperTypes().add(this.getCode());
+		operationEClass.getESuperTypes().add(this.getCode());
 		packageEClass.getESuperTypes().add(theNcorePackage.getMarked());
 		sourceEClass.getESuperTypes().add(theNcorePackage.getMarked());
 		recordEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompilationUnit_Types(), this.getType(), null, "types", null, 0, -1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComment_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -542,14 +670,19 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getMember_Comment(), this.getComment(), null, "comment", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getType_Members(), this.getMember(), null, "members", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(annotationMemberEClass, AnnotationMember.class, "AnnotationMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(classEClass, org.nasdanika.models.java.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(constructorEClass, Constructor.class, "Constructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(enumEClass, org.nasdanika.models.java.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(enumConstantEClass, EnumConstant.class, "EnumConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -558,6 +691,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEClass(moduleEClass, org.nasdanika.models.java.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(codeEClass, Code.class, "Code", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(initializerEClass, Initializer.class, "Initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(classInitializerEClass, ClassInitializer.class, "ClassInitializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(operationEClass, Operation.class, "Operation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -3,23 +3,24 @@
 package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
+import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.JavaPackage;
-import org.nasdanika.models.java.Operation;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Operation</b></em>'.
+ * An implementation of the model object '<em><b>Initializer</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class OperationImpl extends CodeImpl implements Operation {
+public class InitializerImpl extends CodeImpl implements Initializer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OperationImpl() {
+	protected InitializerImpl() {
 		super();
 	}
 
@@ -30,7 +31,7 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaPackage.Literals.OPERATION;
+		return JavaPackage.Literals.INITIALIZER;
 	}
 
-} //OperationImpl
+} //InitializerImpl

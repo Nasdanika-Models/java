@@ -8,10 +8,15 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.nasdanika.models.java.Annotation;
+import org.nasdanika.models.java.AnnotationMember;
+import org.nasdanika.models.java.ClassInitializer;
+import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
+import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
@@ -124,6 +129,16 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaPackage.ANNOTATION_MEMBER: {
+				AnnotationMember annotationMember = (AnnotationMember)theEObject;
+				T result = caseAnnotationMember(annotationMember);
+				if (result == null) result = caseMember(annotationMember);
+				if (result == null) result = caseSource(annotationMember);
+				if (result == null) result = caseMarked(annotationMember);
+				if (result == null) result = caseIMarked(annotationMember);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.CLASS: {
 				org.nasdanika.models.java.Class class_ = (org.nasdanika.models.java.Class)theEObject;
 				T result = caseClass(class_);
@@ -139,6 +154,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				Constructor constructor = (Constructor)theEObject;
 				T result = caseConstructor(constructor);
 				if (result == null) result = caseOperation(constructor);
+				if (result == null) result = caseCode(constructor);
 				if (result == null) result = caseMember(constructor);
 				if (result == null) result = caseSource(constructor);
 				if (result == null) result = caseMarked(constructor);
@@ -154,6 +170,16 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSource(enum_);
 				if (result == null) result = caseMarked(enum_);
 				if (result == null) result = caseIMarked(enum_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.ENUM_CONSTANT: {
+				EnumConstant enumConstant = (EnumConstant)theEObject;
+				T result = caseEnumConstant(enumConstant);
+				if (result == null) result = caseMember(enumConstant);
+				if (result == null) result = caseSource(enumConstant);
+				if (result == null) result = caseMarked(enumConstant);
+				if (result == null) result = caseIMarked(enumConstant);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -191,6 +217,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				Method method = (Method)theEObject;
 				T result = caseMethod(method);
 				if (result == null) result = caseOperation(method);
+				if (result == null) result = caseCode(method);
 				if (result == null) result = caseMember(method);
 				if (result == null) result = caseSource(method);
 				if (result == null) result = caseMarked(method);
@@ -198,9 +225,42 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaPackage.CODE: {
+				Code code = (Code)theEObject;
+				T result = caseCode(code);
+				if (result == null) result = caseMember(code);
+				if (result == null) result = caseSource(code);
+				if (result == null) result = caseMarked(code);
+				if (result == null) result = caseIMarked(code);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.INITIALIZER: {
+				Initializer initializer = (Initializer)theEObject;
+				T result = caseInitializer(initializer);
+				if (result == null) result = caseCode(initializer);
+				if (result == null) result = caseMember(initializer);
+				if (result == null) result = caseSource(initializer);
+				if (result == null) result = caseMarked(initializer);
+				if (result == null) result = caseIMarked(initializer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.CLASS_INITIALIZER: {
+				ClassInitializer classInitializer = (ClassInitializer)theEObject;
+				T result = caseClassInitializer(classInitializer);
+				if (result == null) result = caseCode(classInitializer);
+				if (result == null) result = caseMember(classInitializer);
+				if (result == null) result = caseSource(classInitializer);
+				if (result == null) result = caseMarked(classInitializer);
+				if (result == null) result = caseIMarked(classInitializer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.OPERATION: {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
+				if (result == null) result = caseCode(operation);
 				if (result == null) result = caseMember(operation);
 				if (result == null) result = caseSource(operation);
 				if (result == null) result = caseMarked(operation);
@@ -255,6 +315,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotationMember(AnnotationMember object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -296,6 +371,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEnum(org.nasdanika.models.java.Enum object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enum Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enum Constant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnumConstant(EnumConstant object) {
 		return null;
 	}
 
@@ -416,6 +506,51 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMethod(Method object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Code</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Code</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCode(Code object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Initializer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInitializer(Initializer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Class Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Class Initializer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassInitializer(ClassInitializer object) {
 		return null;
 	}
 

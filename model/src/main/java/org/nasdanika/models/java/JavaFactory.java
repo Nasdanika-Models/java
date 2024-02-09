@@ -31,6 +31,15 @@ public interface JavaFactory extends EFactory {
 	Annotation createAnnotation();
 
 	/**
+	 * Returns a new object of class '<em>Annotation Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Annotation Member</em>'.
+	 * @generated
+	 */
+	AnnotationMember createAnnotationMember();
+
+	/**
 	 * Returns a new object of class '<em>Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +65,15 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	Enum createEnum();
+
+	/**
+	 * Returns a new object of class '<em>Enum Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum Constant</em>'.
+	 * @generated
+	 */
+	EnumConstant createEnumConstant();
 
 	/**
 	 * Returns a new object of class '<em>Field</em>'.
@@ -92,6 +110,24 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	Method createMethod();
+
+	/**
+	 * Returns a new object of class '<em>Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Initializer</em>'.
+	 * @generated
+	 */
+	Initializer createInitializer();
+
+	/**
+	 * Returns a new object of class '<em>Class Initializer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class Initializer</em>'.
+	 * @generated
+	 */
+	ClassInitializer createClassInitializer();
 
 	/**
 	 * Returns a new object of class '<em>Package</em>'.

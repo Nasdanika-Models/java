@@ -9,7 +9,9 @@
   <foreignModel>java.ecore</foreignModel>
   <genPackages prefix="Java" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="java.ecore#/">
-    <genClasses ecoreClass="java.ecore#//CompilationUnit"/>
+    <genClasses ecoreClass="java.ecore#//CompilationUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//CompilationUnit/types"/>
+    </genClasses>
     <genClasses ecoreClass="java.ecore#//Comment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Comment/comment"/>
     </genClasses>
@@ -17,15 +19,22 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Member/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/comment"/>
     </genClasses>
-    <genClasses ecoreClass="java.ecore#//Type"/>
+    <genClasses ecoreClass="java.ecore#//Type">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Type/members"/>
+    </genClasses>
     <genClasses ecoreClass="java.ecore#//Annotation"/>
+    <genClasses ecoreClass="java.ecore#//AnnotationMember"/>
     <genClasses ecoreClass="java.ecore#//Class"/>
     <genClasses ecoreClass="java.ecore#//Constructor"/>
     <genClasses ecoreClass="java.ecore#//Enum"/>
+    <genClasses ecoreClass="java.ecore#//EnumConstant"/>
     <genClasses ecoreClass="java.ecore#//Field"/>
     <genClasses ecoreClass="java.ecore#//Interface"/>
     <genClasses ecoreClass="java.ecore#//Module"/>
     <genClasses ecoreClass="java.ecore#//Method"/>
+    <genClasses ecoreClass="java.ecore#//Code"/>
+    <genClasses image="false" ecoreClass="java.ecore#//Initializer"/>
+    <genClasses image="false" ecoreClass="java.ecore#//ClassInitializer"/>
     <genClasses image="false" ecoreClass="java.ecore#//Operation"/>
     <genClasses ecoreClass="java.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Package/name"/>

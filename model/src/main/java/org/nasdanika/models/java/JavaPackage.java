@@ -69,7 +69,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 14;
+	int SOURCE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -115,7 +115,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 10;
+	int MODULE = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.MethodImpl <em>Method</em>}' class.
@@ -125,7 +125,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 11;
+	int METHOD = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PackageImpl <em>Package</em>}' class.
@@ -135,7 +135,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 13;
+	int PACKAGE = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
@@ -157,6 +157,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAnnotation();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.AnnotationMember <em>Annotation Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation Member</em>'.
+	 * @see org.nasdanika.models.java.AnnotationMember
+	 * @generated
+	 */
+	EClass getAnnotationMember();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Class <em>Class</em>}'.
@@ -187,6 +197,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEnum();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.EnumConstant <em>Enum Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enum Constant</em>'.
+	 * @see org.nasdanika.models.java.EnumConstant
+	 * @generated
+	 */
+	EClass getEnumConstant();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Field <em>Field</em>}'.
@@ -246,7 +266,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 5;
+	int CLASS = 6;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.OperationImpl <em>Operation</em>}' class.
@@ -256,7 +276,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 12;
+	int OPERATION = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -266,7 +286,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 6;
+	int CONSTRUCTOR = 7;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumImpl <em>Enum</em>}' class.
@@ -276,7 +296,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnum()
 	 * @generated
 	 */
-	int ENUM = 7;
+	int ENUM = 8;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
@@ -286,7 +306,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 8;
+	int FIELD = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -296,7 +316,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 9;
+	int INTERFACE = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
@@ -306,7 +326,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 15;
+	int RECORD = 20;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -327,13 +347,22 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__SOURCE = SOURCE__SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__TYPES = SOURCE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Compilation Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 0;
+	int COMPILATION_UNIT_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Compilation Unit</em>' class.
@@ -473,13 +502,22 @@ public interface JavaPackage extends EPackage {
 	int TYPE__COMMENT = MEMBER__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__MEMBERS = MEMBER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
+	int TYPE_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Type</em>' class.
@@ -527,6 +565,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__COMMENT = TYPE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__MEMBERS = TYPE__MEMBERS;
+
+	/**
 	 * The number of structural features of the '<em>Annotation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,6 +590,70 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationMemberImpl <em>Annotation Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.AnnotationMemberImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationMember()
+	 * @generated
+	 */
+	int ANNOTATION_MEMBER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER__MARKERS = MEMBER__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER__SOURCE = MEMBER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER__NAME = MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER__COMMENT = MEMBER__COMMENT;
+
+	/**
+	 * The number of structural features of the '<em>Annotation Member</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Annotation Member</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -581,6 +692,15 @@ public interface JavaPackage extends EPackage {
 	int CLASS__COMMENT = TYPE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__MEMBERS = TYPE__MEMBERS;
+
+	/**
 	 * The number of structural features of the '<em>Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -599,13 +719,23 @@ public interface JavaPackage extends EPackage {
 	int CLASS_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.CodeImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
+	 * @generated
+	 */
+	int CODE = 14;
+
+	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__MARKERS = MEMBER__MARKERS;
+	int CODE__MARKERS = MEMBER__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -614,7 +744,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SOURCE = MEMBER__SOURCE;
+	int CODE__SOURCE = MEMBER__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -623,7 +753,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__NAME = MEMBER__NAME;
+	int CODE__NAME = MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -632,7 +762,61 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__COMMENT = MEMBER__COMMENT;
+	int CODE__COMMENT = MEMBER__COMMENT;
+
+	/**
+	 * The number of structural features of the '<em>Code</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Code</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__MARKERS = CODE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__SOURCE = CODE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__NAME = CODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__COMMENT = CODE__COMMENT;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -641,7 +825,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
+	int OPERATION_FEATURE_COUNT = CODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Operation</em>' class.
@@ -650,7 +834,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
+	int OPERATION_OPERATION_COUNT = CODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -743,6 +927,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM__COMMENT = TYPE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__MEMBERS = TYPE__MEMBERS;
+
+	/**
 	 * The number of structural features of the '<em>Enum</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -759,6 +952,70 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumConstantImpl <em>Enum Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.EnumConstantImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
+	 * @generated
+	 */
+	int ENUM_CONSTANT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__MARKERS = MEMBER__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__SOURCE = MEMBER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__NAME = MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__COMMENT = MEMBER__COMMENT;
+
+	/**
+	 * The number of structural features of the '<em>Enum Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Enum Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -849,6 +1106,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE__COMMENT = TYPE__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__MEMBERS = TYPE__MEMBERS;
 
 	/**
 	 * The number of structural features of the '<em>Interface</em>' class.
@@ -959,6 +1225,134 @@ public interface JavaPackage extends EPackage {
 	int METHOD_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InitializerImpl <em>Initializer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.InitializerImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
+	 * @generated
+	 */
+	int INITIALIZER = 15;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__MARKERS = CODE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__SOURCE = CODE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__NAME = CODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__COMMENT = CODE__COMMENT;
+
+	/**
+	 * The number of structural features of the '<em>Initializer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER_FEATURE_COUNT = CODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Initializer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER_OPERATION_COUNT = CODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassInitializerImpl <em>Class Initializer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.ClassInitializerImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
+	 * @generated
+	 */
+	int CLASS_INITIALIZER = 16;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__MARKERS = CODE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__SOURCE = CODE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__NAME = CODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__COMMENT = CODE__COMMENT;
+
+	/**
+	 * The number of structural features of the '<em>Class Initializer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER_FEATURE_COUNT = CODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Class Initializer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER_OPERATION_COUNT = CODE_OPERATION_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1029,6 +1423,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD__COMMENT = TYPE__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__MEMBERS = TYPE__MEMBERS;
 
 	/**
 	 * The number of structural features of the '<em>Record</em>' class.
@@ -1154,6 +1557,36 @@ public interface JavaPackage extends EPackage {
 	EClass getMethod();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.Code <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Code</em>'.
+	 * @see org.nasdanika.models.java.Code
+	 * @generated
+	 */
+	EClass getCode();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.Initializer <em>Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Initializer</em>'.
+	 * @see org.nasdanika.models.java.Initializer
+	 * @generated
+	 */
+	EClass getInitializer();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.ClassInitializer <em>Class Initializer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class Initializer</em>'.
+	 * @see org.nasdanika.models.java.ClassInitializer
+	 * @generated
+	 */
+	EClass getClassInitializer();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Operation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1174,6 +1607,17 @@ public interface JavaPackage extends EPackage {
 	EClass getType();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.Type#getMembers <em>Members</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Members</em>'.
+	 * @see org.nasdanika.models.java.Type#getMembers()
+	 * @see #getType()
+	 * @generated
+	 */
+	EReference getType_Members();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.CompilationUnit <em>Compilation Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1182,6 +1626,17 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCompilationUnit();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.CompilationUnit#getTypes <em>Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Types</em>'.
+	 * @see org.nasdanika.models.java.CompilationUnit#getTypes()
+	 * @see #getCompilationUnit()
+	 * @generated
+	 */
+	EReference getCompilationUnit_Types();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Comment <em>Comment</em>}'.
@@ -1238,6 +1693,16 @@ public interface JavaPackage extends EPackage {
 		EClass ANNOTATION = eINSTANCE.getAnnotation();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.AnnotationMemberImpl <em>Annotation Member</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.AnnotationMemberImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationMember()
+		 * @generated
+		 */
+		EClass ANNOTATION_MEMBER = eINSTANCE.getAnnotationMember();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1266,6 +1731,16 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ENUM = eINSTANCE.getEnum();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.EnumConstantImpl <em>Enum Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.EnumConstantImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
+		 * @generated
+		 */
+		EClass ENUM_CONSTANT = eINSTANCE.getEnumConstant();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
@@ -1380,6 +1855,36 @@ public interface JavaPackage extends EPackage {
 		EClass METHOD = eINSTANCE.getMethod();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.CodeImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
+		 * @generated
+		 */
+		EClass CODE = eINSTANCE.getCode();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.InitializerImpl <em>Initializer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.InitializerImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
+		 * @generated
+		 */
+		EClass INITIALIZER = eINSTANCE.getInitializer();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.ClassInitializerImpl <em>Class Initializer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.ClassInitializerImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
+		 * @generated
+		 */
+		EClass CLASS_INITIALIZER = eINSTANCE.getClassInitializer();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.OperationImpl <em>Operation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1400,6 +1905,14 @@ public interface JavaPackage extends EPackage {
 		EClass TYPE = eINSTANCE.getType();
 
 		/**
+		 * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE__MEMBERS = eINSTANCE.getType_Members();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1408,6 +1921,14 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPILATION_UNIT = eINSTANCE.getCompilationUnit();
+
+		/**
+		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPILATION_UNIT__TYPES = eINSTANCE.getCompilationUnit_Types();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.

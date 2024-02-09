@@ -12,5 +12,5 @@ package org.nasdanika.models.java;
  * @model abstract="true"
  * @generated
  */
-public interface Operation extends Member {
+public interface Operation extends Code {
 } // Operation
