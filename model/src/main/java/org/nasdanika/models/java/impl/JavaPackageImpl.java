@@ -2,13 +2,17 @@
  */
 package org.nasdanika.models.java.impl;
 
+import static org.nasdanika.models.java.JavaPackage.CLASS;
+
+import java.util.function.Function;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationMember;
 import org.nasdanika.models.java.ClassInitializer;
@@ -27,7 +31,6 @@ import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
-
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -120,6 +123,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass recordEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType importManagerEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -383,8 +393,38 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getSource_Children() {
+		return (EReference)sourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSource__Update__Function() {
+		return sourceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRecord() {
 		return recordEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getImportManager() {
+		return importManagerEDataType;
 	}
 
 	/**
@@ -513,6 +553,26 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getCompilationUnit__Merge__String_String() {
+		return compilationUnitEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getCompilationUnit__Merge__String() {
+		return compilationUnitEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getComment() {
 		return commentEClass;
 	}
@@ -556,8 +616,15 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		sourceEClass = createEClass(SOURCE);
+		createEAttribute(sourceEClass, SOURCE__SOURCE);
+		createEReference(sourceEClass, SOURCE__CHILDREN);
+		createEOperation(sourceEClass, SOURCE___UPDATE__FUNCTION);
+
 		compilationUnitEClass = createEClass(COMPILATION_UNIT);
 		createEReference(compilationUnitEClass, COMPILATION_UNIT__TYPES);
+		createEOperation(compilationUnitEClass, COMPILATION_UNIT___MERGE__STRING_STRING);
+		createEOperation(compilationUnitEClass, COMPILATION_UNIT___MERGE__STRING);
 
 		commentEClass = createEClass(COMMENT);
 		createEAttribute(commentEClass, COMMENT__COMMENT);
@@ -600,10 +667,10 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
 
-		sourceEClass = createEClass(SOURCE);
-		createEAttribute(sourceEClass, SOURCE__SOURCE);
-
 		recordEClass = createEClass(RECORD);
+
+		// Create data types
+		importManagerEDataType = createEDataType(IMPORT_MANAGER);
 	}
 
 	/**
@@ -637,6 +704,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sourceEClass.getESuperTypes().add(theNcorePackage.getMarked());
 		compilationUnitEClass.getESuperTypes().add(this.getSource());
 		memberEClass.getESuperTypes().add(this.getSource());
 		typeEClass.getESuperTypes().add(this.getMember());
@@ -655,12 +723,25 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		classInitializerEClass.getESuperTypes().add(this.getCode());
 		operationEClass.getESuperTypes().add(this.getCode());
 		packageEClass.getESuperTypes().add(theNcorePackage.getMarked());
-		sourceEClass.getESuperTypes().add(theNcorePackage.getMarked());
 		recordEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSource_Source(), ecorePackage.getEString(), "source", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSource_Children(), this.getSource(), null, "children", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getSource__Update__Function(), ecorePackage.getEString(), "update", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getImportManager(), "importManager", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompilationUnit_Types(), this.getType(), null, "types", null, 0, -1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getCompilationUnit__Merge__String_String(), null, "merge", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "complianceLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCompilationUnit__Merge__String(), null, "merge", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "complianceLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComment_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -703,10 +784,10 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEClass(packageEClass, org.nasdanika.models.java.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.nasdanika.models.java.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSource_Source(), ecorePackage.getEString(), "source", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(recordEClass, org.nasdanika.models.java.Record.class, "Record", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		// Initialize data types
+		initEDataType(importManagerEDataType, Function.class, "ImportManager", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.function.Function<String, String>");
 
 		// Create resource
 		createResource(eNS_URI);
@@ -729,6 +810,42 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "A model of Java language - modules, packages, classes, compilation units, methods, statements, ..."
+		   });
+		addAnnotation
+		  (getSource__Update__Function(),
+		   source,
+		   new String[] {
+			   "documentation", "Calls update on children and then updates source code using children source code. Returns updated source code. "
+		   });
+		addAnnotation
+		  (getCompilationUnit__Merge__String_String(),
+		   source,
+		   new String[] {
+			   "documentation", "Merges new source code with the current code preserving manual changes in the current code"
+		   });
+		addAnnotation
+		  ((getCompilationUnit__Merge__String_String()).getEParameters().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Source code to merge with the current code"
+		   });
+		addAnnotation
+		  ((getCompilationUnit__Merge__String_String()).getEParameters().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "Language compliance level, e.g. \"17\""
+		   });
+		addAnnotation
+		  (getCompilationUnit__Merge__String(),
+		   source,
+		   new String[] {
+			   "documentation", "Collects  new source code from children and merges with the current code preserving manual changes in the current code"
+		   });
+		addAnnotation
+		  ((getCompilationUnit__Merge__String()).getEParameters().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Language compliance level, e.g. \"17\""
 		   });
 	}
 

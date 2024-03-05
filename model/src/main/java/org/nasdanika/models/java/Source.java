@@ -2,6 +2,9 @@
  */
 package org.nasdanika.models.java;
 
+import java.util.function.Function;
+
+import org.eclipse.emf.common.util.EList;
 import org.nasdanika.ncore.Marked;
 
 /**
@@ -14,6 +17,7 @@ import org.nasdanika.ncore.Marked;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.Source#getSource <em>Source</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Source#getChildren <em>Children</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getSource()
@@ -42,5 +46,28 @@ public interface Source extends Marked {
 	 * @generated
 	 */
 	void setSource(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.java.Source}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Children</em>' containment reference list.
+	 * @see org.nasdanika.models.java.JavaPackage#getSource_Children()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Source> getChildren();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Calls update on children and then updates source code using children source code. Returns updated source code. 
+	 * <!-- end-model-doc -->
+	 * @model importManagerDataType="org.nasdanika.models.java.ImportManager"
+	 * @generated
+	 */
+	String update(Function<Object, Object> importManager);
 
 } // Source

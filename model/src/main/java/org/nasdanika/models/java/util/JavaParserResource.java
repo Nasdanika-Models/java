@@ -2,14 +2,19 @@ package org.nasdanika.models.java.util;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.nasdanika.models.java.JavaFactory;
+import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
 
 import com.github.javaparser.ast.body.AnnotationMemberDeclaration;
@@ -28,14 +33,29 @@ import com.github.javaparser.ast.expr.SimpleName;
 
 public class JavaParserResource extends ResourceImpl {
 
-	protected JavaParserResource(URI uri) {
+	private String complianceLevel;
+
+	protected JavaParserResource(URI uri, String complianceLevel) {
 		super(uri);
+		this.complianceLevel = complianceLevel;
 	}
 	
 	@Override
 	protected void doLoad(InputStream inputStream, Map<?, ?> options) throws IOException {
+		// TODO - language level in configuration
 		com.github.javaparser.ast.CompilationUnit jpCompilationUnit = com.github.javaparser.StaticJavaParser.parse(inputStream);
 		getContents().add(loadCompilationUnit(jpCompilationUnit));
+	}
+	
+	@Override
+	protected void doSave(OutputStream outputStream, Map<?, ?> options) throws IOException {
+		try (Writer writer = new OutputStreamWriter(outputStream)) {
+			for (EObject root: getContents()) {
+				if (root instanceof Source) {
+					writer.write(((Source) root).getSource());
+				}
+			}
+		}
 	}
 	
 	protected org.nasdanika.models.java.CompilationUnit createCompilationUnit() {

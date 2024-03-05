@@ -4,9 +4,7 @@ package org.nasdanika.models.java.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationMember;
 import org.nasdanika.models.java.ClassInitializer;
@@ -24,7 +22,6 @@ import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
-
 import org.nasdanika.persistence.Marked;
 
 /**
@@ -84,6 +81,14 @@ public class JavaSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case JavaPackage.SOURCE: {
+				Source source = (Source)theEObject;
+				T result = caseSource(source);
+				if (result == null) result = caseMarked(source);
+				if (result == null) result = caseIMarked(source);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.COMPILATION_UNIT: {
 				CompilationUnit compilationUnit = (CompilationUnit)theEObject;
 				T result = caseCompilationUnit(compilationUnit);
@@ -273,14 +278,6 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = casePackage(package_);
 				if (result == null) result = caseMarked(package_);
 				if (result == null) result = caseIMarked(package_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaPackage.SOURCE: {
-				Source source = (Source)theEObject;
-				T result = caseSource(source);
-				if (result == null) result = caseMarked(source);
-				if (result == null) result = caseIMarked(source);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

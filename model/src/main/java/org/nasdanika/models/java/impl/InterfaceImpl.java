@@ -3,7 +3,6 @@
 package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaPackage;
 

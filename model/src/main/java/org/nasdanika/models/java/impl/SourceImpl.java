@@ -2,22 +2,18 @@
  */
 package org.nasdanika.models.java.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.function.Function;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Source;
-
 import org.nasdanika.ncore.Marker;
 import org.nasdanika.ncore.NcorePackage;
 
@@ -31,6 +27,7 @@ import org.nasdanika.ncore.NcorePackage;
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getMarkers <em>Markers</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getChildren <em>Children</em>}</li>
  * </ul>
  *
  * @generated
@@ -111,11 +108,36 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Source> getChildren() {
+		return (EList<Source>)eDynamicGet(JavaPackage.SOURCE__CHILDREN, JavaPackage.Literals.SOURCE__CHILDREN, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String update(Function<Object, Object> importManager) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.SOURCE__MARKERS:
 				return ((InternalEList<?>)getMarkers()).basicRemove(otherEnd, msgs);
+			case JavaPackage.SOURCE__CHILDREN:
+				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -132,6 +154,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 				return getMarkers();
 			case JavaPackage.SOURCE__SOURCE:
 				return getSource();
+			case JavaPackage.SOURCE__CHILDREN:
+				return getChildren();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,6 +176,10 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 			case JavaPackage.SOURCE__SOURCE:
 				setSource((String)newValue);
 				return;
+			case JavaPackage.SOURCE__CHILDREN:
+				getChildren().clear();
+				getChildren().addAll((Collection<? extends Source>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -170,6 +198,9 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 			case JavaPackage.SOURCE__SOURCE:
 				setSource(SOURCE_EDEFAULT);
 				return;
+			case JavaPackage.SOURCE__CHILDREN:
+				getChildren().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -186,8 +217,25 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 				return !getMarkers().isEmpty();
 			case JavaPackage.SOURCE__SOURCE:
 				return SOURCE_EDEFAULT == null ? getSource() != null : !SOURCE_EDEFAULT.equals(getSource());
+			case JavaPackage.SOURCE__CHILDREN:
+				return !getChildren().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JavaPackage.SOURCE___UPDATE__FUNCTION:
+				return update((Function<Object, Object>)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //SourceImpl

@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>model</artifactId>
 	<packaging>jar</packaging>
-	<name>Ecore Family Model</name>
+	<name>Ecore Java Model</name>
 	<build>
 		<plugins>
 			<plugin>
@@ -76,6 +76,11 @@
 		    <groupId>com.github.javaparser</groupId>
 		    <artifactId>javaparser-symbol-solver-core</artifactId>
 		    <version>3.25.8</version>
-		</dependency>						
+		</dependency>			
+		<dependency>
+		  <groupId>org.eclipse.platform</groupId>
+		  <artifactId>org.eclipse.core.runtime</artifactId>
+		  <version>3.30.0</version>			
+		</dependency>			
 	</dependencies>
 </project>

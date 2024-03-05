@@ -2,14 +2,14 @@
  */
 package org.nasdanika.models.java.impl;
 
+import java.util.function.Function;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationMember;
 import org.nasdanika.models.java.ClassInitializer;
@@ -69,6 +69,7 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case JavaPackage.SOURCE: return createSource();
 			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
 			case JavaPackage.COMMENT: return createComment();
 			case JavaPackage.ANNOTATION: return createAnnotation();
@@ -84,10 +85,39 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.INITIALIZER: return createInitializer();
 			case JavaPackage.CLASS_INITIALIZER: return createClassInitializer();
 			case JavaPackage.PACKAGE: return createPackage();
-			case JavaPackage.SOURCE: return createSource();
 			case JavaPackage.RECORD: return createRecord();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case JavaPackage.IMPORT_MANAGER:
+				return createImportManagerFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case JavaPackage.IMPORT_MANAGER:
+				return convertImportManagerToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -254,6 +284,25 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public org.nasdanika.models.java.Record createRecord() {
 		RecordImpl record = new RecordImpl();
 		return record;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public Function<Object, Object> createImportManagerFromString(EDataType eDataType, String initialValue) {
+		return (Function<Object, Object>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertImportManagerToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

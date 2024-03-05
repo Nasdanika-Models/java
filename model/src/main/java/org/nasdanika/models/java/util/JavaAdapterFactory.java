@@ -4,11 +4,8 @@ package org.nasdanika.models.java.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationMember;
 import org.nasdanika.models.java.ClassInitializer;
@@ -26,7 +23,6 @@ import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
-
 import org.nasdanika.persistence.Marked;
 
 /**
@@ -85,6 +81,10 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected JavaSwitch<Adapter> modelSwitch =
 		new JavaSwitch<Adapter>() {
+			@Override
+			public Adapter caseSource(Source object) {
+				return createSourceAdapter();
+			}
 			@Override
 			public Adapter caseCompilationUnit(CompilationUnit object) {
 				return createCompilationUnitAdapter();
@@ -160,10 +160,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePackage(org.nasdanika.models.java.Package object) {
 				return createPackageAdapter();
-			}
-			@Override
-			public Adapter caseSource(Source object) {
-				return createSourceAdapter();
 			}
 			@Override
 			public Adapter caseRecord(org.nasdanika.models.java.Record object) {

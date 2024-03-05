@@ -4,8 +4,9 @@ package org.nasdanika.models.java;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
 
@@ -69,7 +70,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 19;
+	int SOURCE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -90,13 +91,31 @@ public interface JavaPackage extends EPackage {
 	int SOURCE__SOURCE = NcorePackage.MARKED_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__CHILDREN = NcorePackage.MARKED_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Source</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 1;
+	int SOURCE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___UPDATE__FUNCTION = NcorePackage.MARKED_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Source</em>' class.
@@ -105,7 +124,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 0;
+	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ModuleImpl <em>Module</em>}' class.
@@ -115,7 +134,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 12;
+	int MODULE = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.MethodImpl <em>Method</em>}' class.
@@ -125,7 +144,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 13;
+	int METHOD = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PackageImpl <em>Package</em>}' class.
@@ -135,7 +154,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 18;
+	int PACKAGE = 19;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
@@ -145,7 +164,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCompilationUnit()
 	 * @generated
 	 */
-	int COMPILATION_UNIT = 0;
+	int COMPILATION_UNIT = 1;
 
 
 	/**
@@ -236,7 +255,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMember()
 	 * @generated
 	 */
-	int MEMBER = 2;
+	int MEMBER = 3;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.TypeImpl <em>Type</em>}' class.
@@ -246,7 +265,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 3;
+	int TYPE = 4;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationImpl <em>Annotation</em>}' class.
@@ -256,7 +275,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotation()
 	 * @generated
 	 */
-	int ANNOTATION = 4;
+	int ANNOTATION = 5;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
@@ -266,7 +285,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 6;
+	int CLASS = 7;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.OperationImpl <em>Operation</em>}' class.
@@ -276,7 +295,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 17;
+	int OPERATION = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -286,7 +305,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 7;
+	int CONSTRUCTOR = 8;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumImpl <em>Enum</em>}' class.
@@ -296,7 +315,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnum()
 	 * @generated
 	 */
-	int ENUM = 8;
+	int ENUM = 9;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
@@ -306,7 +325,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 10;
+	int FIELD = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -316,7 +335,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 11;
+	int INTERFACE = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
@@ -347,6 +366,15 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__SOURCE = SOURCE__SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__CHILDREN = SOURCE__CHILDREN;
+
+	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -365,13 +393,40 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Merge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___MERGE__STRING_STRING = SOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Merge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___MERGE__STRING = SOURCE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Compilation Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_OPERATION_COUNT = SOURCE_OPERATION_COUNT + 0;
+	int COMPILATION_UNIT_OPERATION_COUNT = SOURCE_OPERATION_COUNT + 2;
 
 
 	/**
@@ -382,7 +437,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComment()
 	 * @generated
 	 */
-	int COMMENT = 1;
+	int COMMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -430,6 +485,15 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__SOURCE = SOURCE__SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__CHILDREN = SOURCE__CHILDREN;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -457,6 +521,15 @@ public interface JavaPackage extends EPackage {
 	int MEMBER_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,6 +555,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE__SOURCE = MEMBER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__CHILDREN = MEMBER__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -520,6 +602,15 @@ public interface JavaPackage extends EPackage {
 	int TYPE_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -545,6 +636,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION__SOURCE = TYPE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__CHILDREN = TYPE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -583,6 +683,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Annotation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -599,7 +708,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationMember()
 	 * @generated
 	 */
-	int ANNOTATION_MEMBER = 5;
+	int ANNOTATION_MEMBER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -618,6 +727,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_MEMBER__SOURCE = MEMBER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER__CHILDREN = MEMBER__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -647,6 +765,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_MEMBER_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Annotation Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -672,6 +799,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS__SOURCE = TYPE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__CHILDREN = TYPE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -710,6 +846,15 @@ public interface JavaPackage extends EPackage {
 	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -726,7 +871,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
 	 * @generated
 	 */
-	int CODE = 14;
+	int CODE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -745,6 +890,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CODE__SOURCE = MEMBER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__CHILDREN = MEMBER__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -774,6 +928,15 @@ public interface JavaPackage extends EPackage {
 	int CODE_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Code</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -799,6 +962,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION__SOURCE = CODE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__CHILDREN = CODE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -828,6 +1000,15 @@ public interface JavaPackage extends EPackage {
 	int OPERATION_FEATURE_COUNT = CODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -853,6 +1034,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR__SOURCE = OPERATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__CHILDREN = OPERATION__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -882,6 +1072,15 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR___UPDATE__FUNCTION = OPERATION___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Constructor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -907,6 +1106,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM__SOURCE = TYPE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__CHILDREN = TYPE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -945,6 +1153,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Enum</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -961,7 +1178,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
 	 * @generated
 	 */
-	int ENUM_CONSTANT = 9;
+	int ENUM_CONSTANT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -980,6 +1197,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_CONSTANT__SOURCE = MEMBER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__CHILDREN = MEMBER__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1009,6 +1235,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Enum Constant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1034,6 +1269,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD__SOURCE = MEMBER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__CHILDREN = MEMBER__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1063,6 +1307,15 @@ public interface JavaPackage extends EPackage {
 	int FIELD_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1088,6 +1341,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE__SOURCE = TYPE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__CHILDREN = TYPE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1126,6 +1388,15 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1153,6 +1424,15 @@ public interface JavaPackage extends EPackage {
 	int MODULE__SOURCE = SOURCE__SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__CHILDREN = SOURCE__CHILDREN;
+
+	/**
 	 * The number of structural features of the '<em>Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1160,6 +1440,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULE_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Module</em>' class.
@@ -1189,6 +1478,15 @@ public interface JavaPackage extends EPackage {
 	int METHOD__SOURCE = OPERATION__SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__CHILDREN = OPERATION__CHILDREN;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1216,6 +1514,15 @@ public interface JavaPackage extends EPackage {
 	int METHOD_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___UPDATE__FUNCTION = OPERATION___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Method</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1232,7 +1539,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
 	 * @generated
 	 */
-	int INITIALIZER = 15;
+	int INITIALIZER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1251,6 +1558,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZER__SOURCE = CODE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__CHILDREN = CODE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1280,6 +1596,15 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER_FEATURE_COUNT = CODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Initializer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1296,7 +1621,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
 	 * @generated
 	 */
-	int CLASS_INITIALIZER = 16;
+	int CLASS_INITIALIZER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1315,6 +1640,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_INITIALIZER__SOURCE = CODE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__CHILDREN = CODE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1342,6 +1676,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_INITIALIZER_FEATURE_COUNT = CODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Class Initializer</em>' class.
@@ -1407,6 +1750,15 @@ public interface JavaPackage extends EPackage {
 	int RECORD__SOURCE = TYPE__SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__CHILDREN = TYPE__CHILDREN;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1443,6 +1795,15 @@ public interface JavaPackage extends EPackage {
 	int RECORD_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
+
+	/**
 	 * The number of operations of the '<em>Record</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1450,6 +1811,17 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '<em>Import Manager</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.function.Function
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getImportManager()
+	 * @generated
+	 */
+	int IMPORT_MANAGER = 21;
 
 
 	/**
@@ -1505,6 +1877,27 @@ public interface JavaPackage extends EPackage {
 	EAttribute getSource_Source();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.Source#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.nasdanika.models.java.Source#getChildren()
+	 * @see #getSource()
+	 * @generated
+	 */
+	EReference getSource_Children();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.Source#update(java.util.function.Function) <em>Update</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update</em>' operation.
+	 * @see org.nasdanika.models.java.Source#update(java.util.function.Function)
+	 * @generated
+	 */
+	EOperation getSource__Update__Function();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Record <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1513,6 +1906,17 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRecord();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.function.Function <em>Import Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Import Manager</em>'.
+	 * @see java.util.function.Function
+	 * @model instanceClass="java.util.function.Function&lt;java.lang.Object, java.lang.Object&gt;"
+	 * @generated
+	 */
+	EDataType getImportManager();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Member <em>Member</em>}'.
@@ -1637,6 +2041,26 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompilationUnit_Types();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.CompilationUnit#merge(java.lang.String, java.lang.String) <em>Merge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Merge</em>' operation.
+	 * @see org.nasdanika.models.java.CompilationUnit#merge(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getCompilationUnit__Merge__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.CompilationUnit#merge(java.lang.String) <em>Merge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Merge</em>' operation.
+	 * @see org.nasdanika.models.java.CompilationUnit#merge(java.lang.String)
+	 * @generated
+	 */
+	EOperation getCompilationUnit__Merge__String();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Comment <em>Comment</em>}'.
@@ -1809,6 +2233,22 @@ public interface JavaPackage extends EPackage {
 		EAttribute SOURCE__SOURCE = eINSTANCE.getSource_Source();
 
 		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE__CHILDREN = eINSTANCE.getSource_Children();
+
+		/**
+		 * The meta object literal for the '<em><b>Update</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOURCE___UPDATE__FUNCTION = eINSTANCE.getSource__Update__Function();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1817,6 +2257,16 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RECORD = eINSTANCE.getRecord();
+
+		/**
+		 * The meta object literal for the '<em>Import Manager</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.function.Function
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getImportManager()
+		 * @generated
+		 */
+		EDataType IMPORT_MANAGER = eINSTANCE.getImportManager();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.MemberImpl <em>Member</em>}' class.
@@ -1929,6 +2379,22 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPILATION_UNIT__TYPES = eINSTANCE.getCompilationUnit_Types();
+
+		/**
+		 * The meta object literal for the '<em><b>Merge</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPILATION_UNIT___MERGE__STRING_STRING = eINSTANCE.getCompilationUnit__Merge__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Merge</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPILATION_UNIT___MERGE__STRING = eINSTANCE.getCompilationUnit__Merge__String();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.
