@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java.util;
 
+import java.util.function.BiFunction;
+import java.util.function.Function;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -81,6 +83,18 @@ public class JavaSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case JavaPackage.IMPORT_MANAGER: {
+				@SuppressWarnings("unchecked") Function<String, String> importManager = (Function<String, String>)theEObject;
+				T result = caseImportManager(importManager);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.MERGER: {
+				@SuppressWarnings("unchecked") BiFunction<String, String, String> merger = (BiFunction<String, String, String>)theEObject;
+				T result = caseMerger(merger);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.SOURCE: {
 				Source source = (Source)theEObject;
 				T result = caseSource(source);
@@ -294,6 +308,36 @@ public class JavaSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Import Manager</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Import Manager</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImportManager(Function<String, String> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Merger</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Merger</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMerger(BiFunction<String, String, String> object) {
+		return null;
 	}
 
 	/**

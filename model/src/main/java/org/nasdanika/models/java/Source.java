@@ -65,9 +65,9 @@ public interface Source extends Marked {
 	 * <!-- begin-model-doc -->
 	 * Calls update on children and then updates source code using children source code. Returns updated source code. 
 	 * <!-- end-model-doc -->
-	 * @model importManagerDataType="org.nasdanika.models.java.ImportManager"
+	 * @model importManagerType="org.nasdanika.models.java.ImportManager"
 	 * @generated
 	 */
-	String update(Function<Object, Object> importManager);
+	String update(Function<String, String> importManager);
 
 } // Source

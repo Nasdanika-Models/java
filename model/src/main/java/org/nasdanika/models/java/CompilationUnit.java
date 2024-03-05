@@ -2,6 +2,7 @@
  */
 package org.nasdanika.models.java;
 
+import java.util.function.BiFunction;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -40,22 +41,20 @@ public interface CompilationUnit extends Source {
 	 * <!-- begin-model-doc -->
 	 * Merges new source code with the current code preserving manual changes in the current code
 	 * @param source Source code to merge with the current code
-	 * @param complianceLevel Language compliance level, e.g. "17"
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model mergerType="org.nasdanika.models.java.Merger"
 	 * @generated
 	 */
-	void merge(String source, String complianceLevel);
+	void merge(String source, BiFunction<String, String, String> merger);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Collects  new source code from children and merges with the current code preserving manual changes in the current code
-	 * @param complianceLevel Language compliance level, e.g. "17"
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model mergerType="org.nasdanika.models.java.Merger"
 	 * @generated
 	 */
-	void merge(String complianceLevel);
+	void merge(BiFunction<String, String, String> merger);
 } // CompilationUnit

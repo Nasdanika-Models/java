@@ -4,7 +4,6 @@ package org.nasdanika.models.java;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -70,61 +69,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE__MARKERS = NcorePackage.MARKED__MARKERS;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE__SOURCE = NcorePackage.MARKED_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE__CHILDREN = NcorePackage.MARKED_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Source</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Update</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE___UPDATE__FUNCTION = NcorePackage.MARKED_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Source</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 1;
+	int SOURCE = 2;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ModuleImpl <em>Module</em>}' class.
@@ -134,7 +79,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 13;
+	int MODULE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.MethodImpl <em>Method</em>}' class.
@@ -144,7 +89,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 14;
+	int METHOD = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PackageImpl <em>Package</em>}' class.
@@ -154,7 +99,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 19;
+	int PACKAGE = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
@@ -164,7 +109,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCompilationUnit()
 	 * @generated
 	 */
-	int COMPILATION_UNIT = 1;
+	int COMPILATION_UNIT = 3;
 
 
 	/**
@@ -255,7 +200,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMember()
 	 * @generated
 	 */
-	int MEMBER = 3;
+	int MEMBER = 5;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.TypeImpl <em>Type</em>}' class.
@@ -265,7 +210,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 4;
+	int TYPE = 6;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationImpl <em>Annotation</em>}' class.
@@ -275,7 +220,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotation()
 	 * @generated
 	 */
-	int ANNOTATION = 5;
+	int ANNOTATION = 7;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
@@ -285,7 +230,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 7;
+	int CLASS = 9;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.OperationImpl <em>Operation</em>}' class.
@@ -295,7 +240,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 18;
+	int OPERATION = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -305,7 +250,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 8;
+	int CONSTRUCTOR = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumImpl <em>Enum</em>}' class.
@@ -315,7 +260,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnum()
 	 * @generated
 	 */
-	int ENUM = 9;
+	int ENUM = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
@@ -325,7 +270,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 11;
+	int FIELD = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -335,7 +280,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 12;
+	int INTERFACE = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
@@ -345,7 +290,179 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 20;
+	int RECORD = 22;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.CommentImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComment()
+	 * @generated
+	 */
+	int COMMENT = 4;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationMemberImpl <em>Annotation Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.AnnotationMemberImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationMember()
+	 * @generated
+	 */
+	int ANNOTATION_MEMBER = 8;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.CodeImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
+	 * @generated
+	 */
+	int CODE = 17;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumConstantImpl <em>Enum Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.EnumConstantImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
+	 * @generated
+	 */
+	int ENUM_CONSTANT = 12;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InitializerImpl <em>Initializer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.InitializerImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
+	 * @generated
+	 */
+	int INITIALIZER = 18;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassInitializerImpl <em>Class Initializer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.ClassInitializerImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
+	 * @generated
+	 */
+	int CLASS_INITIALIZER = 19;
+
+	/**
+	 * The meta object id for the '{@link java.util.function.Function <em>Import Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.function.Function
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getImportManager()
+	 * @generated
+	 */
+	int IMPORT_MANAGER = 0;
+
+
+	/**
+	 * The number of structural features of the '<em>Import Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_MANAGER_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Import Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_MANAGER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link java.util.function.BiFunction <em>Merger</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.function.BiFunction
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMerger()
+	 * @generated
+	 */
+	int MERGER = 1;
+
+
+	/**
+	 * The number of structural features of the '<em>Merger</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGER_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Merger</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGER_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__MARKERS = NcorePackage.MARKED__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__SOURCE = NcorePackage.MARKED_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__CHILDREN = NcorePackage.MARKED_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___UPDATE__FUNCTION = NcorePackage.MARKED_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -408,7 +525,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT___MERGE__STRING_STRING = SOURCE_OPERATION_COUNT + 0;
+	int COMPILATION_UNIT___MERGE__STRING_BIFUNCTION = SOURCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Merge</em>' operation.
@@ -417,7 +534,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT___MERGE__STRING = SOURCE_OPERATION_COUNT + 1;
+	int COMPILATION_UNIT___MERGE__BIFUNCTION = SOURCE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Compilation Unit</em>' class.
@@ -427,17 +544,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT_OPERATION_COUNT = SOURCE_OPERATION_COUNT + 2;
-
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.CommentImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComment()
-	 * @generated
-	 */
-	int COMMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -701,16 +807,6 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationMemberImpl <em>Annotation Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.AnnotationMemberImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationMember()
-	 * @generated
-	 */
-	int ANNOTATION_MEMBER = 6;
-
-	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -862,16 +958,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.CodeImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
-	 * @generated
-	 */
-	int CODE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1169,16 +1255,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumConstantImpl <em>Enum Constant</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.EnumConstantImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
-	 * @generated
-	 */
-	int ENUM_CONSTANT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1532,16 +1608,6 @@ public interface JavaPackage extends EPackage {
 	int METHOD_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InitializerImpl <em>Initializer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.InitializerImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
-	 * @generated
-	 */
-	int INITIALIZER = 16;
-
-	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1612,16 +1678,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZER_OPERATION_COUNT = CODE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassInitializerImpl <em>Class Initializer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.ClassInitializerImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
-	 * @generated
-	 */
-	int CLASS_INITIALIZER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1814,17 +1870,6 @@ public interface JavaPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '<em>Import Manager</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.util.function.Function
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getImportManager()
-	 * @generated
-	 */
-	int IMPORT_MANAGER = 21;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Module <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1908,15 +1953,26 @@ public interface JavaPackage extends EPackage {
 	EClass getRecord();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.function.Function <em>Import Manager</em>}'.
+	 * Returns the meta object for class '{@link java.util.function.Function <em>Import Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Import Manager</em>'.
+	 * @return the meta object for class '<em>Import Manager</em>'.
 	 * @see java.util.function.Function
-	 * @model instanceClass="java.util.function.Function&lt;java.lang.Object, java.lang.Object&gt;"
+	 * @model instanceClass="java.util.function.Function&lt;String, String&gt;"
 	 * @generated
 	 */
-	EDataType getImportManager();
+	EClass getImportManager();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.function.BiFunction <em>Merger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Merger</em>'.
+	 * @see java.util.function.BiFunction
+	 * @model instanceClass="java.util.function.BiFunction&lt;String, String, String&gt;"
+	 * @generated
+	 */
+	EClass getMerger();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Member <em>Member</em>}'.
@@ -2043,24 +2099,24 @@ public interface JavaPackage extends EPackage {
 	EReference getCompilationUnit_Types();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.models.java.CompilationUnit#merge(java.lang.String, java.lang.String) <em>Merge</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.CompilationUnit#merge(java.lang.String, java.util.function.BiFunction) <em>Merge</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Merge</em>' operation.
-	 * @see org.nasdanika.models.java.CompilationUnit#merge(java.lang.String, java.lang.String)
+	 * @see org.nasdanika.models.java.CompilationUnit#merge(java.lang.String, java.util.function.BiFunction)
 	 * @generated
 	 */
-	EOperation getCompilationUnit__Merge__String_String();
+	EOperation getCompilationUnit__Merge__String_BiFunction();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.models.java.CompilationUnit#merge(java.lang.String) <em>Merge</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.CompilationUnit#merge(java.util.function.BiFunction) <em>Merge</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Merge</em>' operation.
-	 * @see org.nasdanika.models.java.CompilationUnit#merge(java.lang.String)
+	 * @see org.nasdanika.models.java.CompilationUnit#merge(java.util.function.BiFunction)
 	 * @generated
 	 */
-	EOperation getCompilationUnit__Merge__String();
+	EOperation getCompilationUnit__Merge__BiFunction();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Comment <em>Comment</em>}'.
@@ -2259,14 +2315,24 @@ public interface JavaPackage extends EPackage {
 		EClass RECORD = eINSTANCE.getRecord();
 
 		/**
-		 * The meta object literal for the '<em>Import Manager</em>' data type.
+		 * The meta object literal for the '{@link java.util.function.Function <em>Import Manager</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see java.util.function.Function
 		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getImportManager()
 		 * @generated
 		 */
-		EDataType IMPORT_MANAGER = eINSTANCE.getImportManager();
+		EClass IMPORT_MANAGER = eINSTANCE.getImportManager();
+
+		/**
+		 * The meta object literal for the '{@link java.util.function.BiFunction <em>Merger</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.function.BiFunction
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMerger()
+		 * @generated
+		 */
+		EClass MERGER = eINSTANCE.getMerger();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.MemberImpl <em>Member</em>}' class.
@@ -2386,7 +2452,7 @@ public interface JavaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COMPILATION_UNIT___MERGE__STRING_STRING = eINSTANCE.getCompilationUnit__Merge__String_String();
+		EOperation COMPILATION_UNIT___MERGE__STRING_BIFUNCTION = eINSTANCE.getCompilationUnit__Merge__String_BiFunction();
 
 		/**
 		 * The meta object literal for the '<em><b>Merge</b></em>' operation.
@@ -2394,7 +2460,7 @@ public interface JavaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COMPILATION_UNIT___MERGE__STRING = eINSTANCE.getCompilationUnit__Merge__String();
+		EOperation COMPILATION_UNIT___MERGE__BIFUNCTION = eINSTANCE.getCompilationUnit__Merge__BiFunction();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.

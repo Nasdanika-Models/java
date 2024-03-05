@@ -9,7 +9,8 @@
   <foreignModel>java.ecore</foreignModel>
   <genPackages prefix="Java" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="java.ecore#/">
-    <genDataTypes ecoreDataType="java.ecore#//ImportManager"/>
+    <genClasses image="false" ecoreClass="java.ecore#//ImportManager"/>
+    <genClasses image="false" ecoreClass="java.ecore#//Merger"/>
     <genClasses ecoreClass="java.ecore#//Source">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Source/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/children"/>
@@ -21,10 +22,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//CompilationUnit/types"/>
       <genOperations ecoreOperation="java.ecore#//CompilationUnit/merge">
         <genParameters ecoreParameter="java.ecore#//CompilationUnit/merge/source"/>
-        <genParameters ecoreParameter="java.ecore#//CompilationUnit/merge/complianceLevel"/>
+        <genParameters ecoreParameter="java.ecore#//CompilationUnit/merge/merger"/>
       </genOperations>
       <genOperations ecoreOperation="java.ecore#//CompilationUnit/merge.1">
-        <genParameters ecoreParameter="java.ecore#//CompilationUnit/merge.1/complianceLevel"/>
+        <genParameters ecoreParameter="java.ecore#//CompilationUnit/merge.1/merger"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//Comment">

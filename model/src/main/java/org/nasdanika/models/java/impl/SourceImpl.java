@@ -120,7 +120,7 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @generated
 	 */
 	@Override
-	public String update(Function<Object, Object> importManager) {
+	public String update(Function<String, String> importManager) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -233,7 +233,7 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JavaPackage.SOURCE___UPDATE__FUNCTION:
-				return update((Function<Object, Object>)arguments.get(0));
+				return update((Function<String, String>)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

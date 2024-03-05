@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java.util;
 
+import java.util.function.BiFunction;
+import java.util.function.Function;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -81,6 +83,14 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected JavaSwitch<Adapter> modelSwitch =
 		new JavaSwitch<Adapter>() {
+			@Override
+			public Adapter caseImportManager(Function<String, String> object) {
+				return createImportManagerAdapter();
+			}
+			@Override
+			public Adapter caseMerger(BiFunction<String, String, String> object) {
+				return createMergerAdapter();
+			}
 			@Override
 			public Adapter caseSource(Source object) {
 				return createSourceAdapter();
@@ -192,6 +202,34 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.function.Function <em>Import Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.function.Function
+	 * @generated
+	 */
+	public Adapter createImportManagerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.function.BiFunction <em>Merger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.function.BiFunction
+	 * @generated
+	 */
+	public Adapter createMergerAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Annotation <em>Annotation</em>}'.
