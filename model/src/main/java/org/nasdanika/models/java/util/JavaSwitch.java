@@ -4,6 +4,7 @@ package org.nasdanika.models.java.util;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -92,6 +93,12 @@ public class JavaSwitch<T> extends Switch<T> {
 			case JavaPackage.MERGER: {
 				@SuppressWarnings("unchecked") BiFunction<String, String, String> merger = (BiFunction<String, String, String>)theEObject;
 				T result = caseMerger(merger);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.DIGEST_PREDICATE: {
+				@SuppressWarnings("unchecked") Predicate<EObject> digestPredicate = (Predicate<EObject>)theEObject;
+				T result = caseDigestPredicate(digestPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -337,6 +344,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMerger(BiFunction<String, String, String> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Digest Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Digest Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDigestPredicate(Predicate<EObject> object) {
 		return null;
 	}
 

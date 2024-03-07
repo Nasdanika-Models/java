@@ -69,7 +69,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 2;
+	int SOURCE = 3;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ModuleImpl <em>Module</em>}' class.
@@ -79,7 +79,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 15;
+	int MODULE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.MethodImpl <em>Method</em>}' class.
@@ -89,7 +89,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 16;
+	int METHOD = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PackageImpl <em>Package</em>}' class.
@@ -99,7 +99,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 21;
+	int PACKAGE = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
@@ -109,7 +109,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCompilationUnit()
 	 * @generated
 	 */
-	int COMPILATION_UNIT = 3;
+	int COMPILATION_UNIT = 4;
 
 
 	/**
@@ -200,7 +200,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMember()
 	 * @generated
 	 */
-	int MEMBER = 5;
+	int MEMBER = 6;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.TypeImpl <em>Type</em>}' class.
@@ -210,7 +210,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 6;
+	int TYPE = 7;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationImpl <em>Annotation</em>}' class.
@@ -220,7 +220,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotation()
 	 * @generated
 	 */
-	int ANNOTATION = 7;
+	int ANNOTATION = 8;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
@@ -230,7 +230,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 9;
+	int CLASS = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.OperationImpl <em>Operation</em>}' class.
@@ -240,7 +240,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 20;
+	int OPERATION = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -250,7 +250,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 10;
+	int CONSTRUCTOR = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumImpl <em>Enum</em>}' class.
@@ -260,7 +260,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnum()
 	 * @generated
 	 */
-	int ENUM = 11;
+	int ENUM = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
@@ -270,7 +270,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 13;
+	int FIELD = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -280,7 +280,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 14;
+	int INTERFACE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
@@ -290,7 +290,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 22;
+	int RECORD = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.
@@ -300,7 +300,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComment()
 	 * @generated
 	 */
-	int COMMENT = 4;
+	int COMMENT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationMemberImpl <em>Annotation Member</em>}' class.
@@ -310,7 +310,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationMember()
 	 * @generated
 	 */
-	int ANNOTATION_MEMBER = 8;
+	int ANNOTATION_MEMBER = 9;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
@@ -320,7 +320,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
 	 * @generated
 	 */
-	int CODE = 17;
+	int CODE = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumConstantImpl <em>Enum Constant</em>}' class.
@@ -330,7 +330,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
 	 * @generated
 	 */
-	int ENUM_CONSTANT = 12;
+	int ENUM_CONSTANT = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InitializerImpl <em>Initializer</em>}' class.
@@ -340,7 +340,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
 	 * @generated
 	 */
-	int INITIALIZER = 18;
+	int INITIALIZER = 19;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassInitializerImpl <em>Class Initializer</em>}' class.
@@ -350,7 +350,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
 	 * @generated
 	 */
-	int CLASS_INITIALIZER = 19;
+	int CLASS_INITIALIZER = 20;
 
 	/**
 	 * The meta object id for the '{@link java.util.function.Function <em>Import Manager</em>}' class.
@@ -411,6 +411,34 @@ public interface JavaPackage extends EPackage {
 	int MERGER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link java.util.function.Predicate <em>Digest Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.function.Predicate
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getDigestPredicate()
+	 * @generated
+	 */
+	int DIGEST_PREDICATE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Digest Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIGEST_PREDICATE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Digest Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIGEST_PREDICATE_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -456,13 +484,22 @@ public interface JavaPackage extends EPackage {
 	int SOURCE___UPDATE__FUNCTION = NcorePackage.MARKED_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___DIGEST__PREDICATE = NcorePackage.MARKED_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Source</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 1;
+	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -517,6 +554,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___DIGEST__PREDICATE = SOURCE___DIGEST__PREDICATE;
 
 	/**
 	 * The operation id for the '<em>Merge</em>' operation.
@@ -636,6 +682,15 @@ public interface JavaPackage extends EPackage {
 	int MEMBER___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER___DIGEST__PREDICATE = SOURCE___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -715,6 +770,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
 
 	/**
 	 * The number of operations of the '<em>Type</em>' class.
@@ -798,6 +862,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Annotation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -868,6 +941,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_MEMBER___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MEMBER___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
 
 	/**
 	 * The number of operations of the '<em>Annotation Member</em>' class.
@@ -951,6 +1033,15 @@ public interface JavaPackage extends EPackage {
 	int CLASS___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1021,6 +1112,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CODE___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
 
 	/**
 	 * The number of operations of the '<em>Code</em>' class.
@@ -1095,6 +1195,15 @@ public interface JavaPackage extends EPackage {
 	int OPERATION___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___DIGEST__PREDICATE = CODE___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1165,6 +1274,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR___UPDATE__FUNCTION = OPERATION___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR___DIGEST__PREDICATE = OPERATION___DIGEST__PREDICATE;
 
 	/**
 	 * The number of operations of the '<em>Constructor</em>' class.
@@ -1248,6 +1366,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Enum</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1320,6 +1447,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Enum Constant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1390,6 +1526,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -1473,6 +1618,15 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1525,6 +1679,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULE___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE___DIGEST__PREDICATE = SOURCE___DIGEST__PREDICATE;
 
 	/**
 	 * The number of operations of the '<em>Module</em>' class.
@@ -1599,6 +1762,15 @@ public interface JavaPackage extends EPackage {
 	int METHOD___UPDATE__FUNCTION = OPERATION___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___DIGEST__PREDICATE = OPERATION___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Method</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1671,6 +1843,15 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER___DIGEST__PREDICATE = CODE___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Initializer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1741,6 +1922,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_INITIALIZER___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER___DIGEST__PREDICATE = CODE___DIGEST__PREDICATE;
 
 	/**
 	 * The number of operations of the '<em>Class Initializer</em>' class.
@@ -1860,6 +2050,15 @@ public interface JavaPackage extends EPackage {
 	int RECORD___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
 
 	/**
+	 * The operation id for the '<em>Digest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Record</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1943,6 +2142,16 @@ public interface JavaPackage extends EPackage {
 	EOperation getSource__Update__Function();
 
 	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.Source#digest(java.util.function.Predicate) <em>Digest</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Digest</em>' operation.
+	 * @see org.nasdanika.models.java.Source#digest(java.util.function.Predicate)
+	 * @generated
+	 */
+	EOperation getSource__Digest__Predicate();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Record <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1973,6 +2182,17 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMerger();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.function.Predicate <em>Digest Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Digest Predicate</em>'.
+	 * @see java.util.function.Predicate
+	 * @model instanceClass="java.util.function.Predicate&lt;org.eclipse.emf.ecore.EObject&gt;"
+	 * @generated
+	 */
+	EClass getDigestPredicate();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Member <em>Member</em>}'.
@@ -2305,6 +2525,14 @@ public interface JavaPackage extends EPackage {
 		EOperation SOURCE___UPDATE__FUNCTION = eINSTANCE.getSource__Update__Function();
 
 		/**
+		 * The meta object literal for the '<em><b>Digest</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOURCE___DIGEST__PREDICATE = eINSTANCE.getSource__Digest__Predicate();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2333,6 +2561,16 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MERGER = eINSTANCE.getMerger();
+
+		/**
+		 * The meta object literal for the '{@link java.util.function.Predicate <em>Digest Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.function.Predicate
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getDigestPredicate()
+		 * @generated
+		 */
+		EClass DIGEST_PREDICATE = eINSTANCE.getDigestPredicate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.MemberImpl <em>Member</em>}' class.

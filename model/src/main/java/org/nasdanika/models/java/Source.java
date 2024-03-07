@@ -4,7 +4,9 @@ package org.nasdanika.models.java;
 
 import java.util.function.Function;
 
+import java.util.function.Predicate;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.ncore.Marked;
 
 /**
@@ -69,5 +71,17 @@ public interface Source extends Marked {
 	 * @generated
 	 */
 	String update(Function<String, String> importManager);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Computes digest to be used by generators to detect manual changes
+	 * @param predicate Predicate allows to exclude model element for digest computation, e.g. Generated annotation
+	 * <!-- end-model-doc -->
+	 * @model predicateType="org.nasdanika.models.java.DigestPredicate"
+	 * @generated
+	 */
+	String digest(Predicate<EObject> predicate);
 
 } // Source

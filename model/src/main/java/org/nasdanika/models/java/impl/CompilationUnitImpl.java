@@ -63,13 +63,11 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void merge(String source, BiFunction<String, String, String> merger) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		setSource(merger.apply(source, getSource()));
 	}
 
 	/**

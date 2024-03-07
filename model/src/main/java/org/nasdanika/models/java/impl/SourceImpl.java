@@ -6,9 +6,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.function.Function;
 
+import java.util.function.Predicate;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -132,6 +134,18 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @generated
 	 */
 	@Override
+	public String digest(Predicate<EObject> predicate) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.SOURCE__MARKERS:
@@ -234,6 +248,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 		switch (operationID) {
 			case JavaPackage.SOURCE___UPDATE__FUNCTION:
 				return update((Function<String, String>)arguments.get(0));
+			case JavaPackage.SOURCE___DIGEST__PREDICATE:
+				return digest((Predicate<EObject>)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

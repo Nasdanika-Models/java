@@ -7,6 +7,7 @@ import static org.nasdanika.models.java.JavaPackage.CLASS;
 
 import java.util.function.Function;
 
+import java.util.function.Predicate;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -53,6 +54,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass mergerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass digestPredicateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -420,6 +428,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getSource__Digest__Predicate() {
+		return sourceEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRecord() {
 		return recordEClass;
 	}
@@ -442,6 +460,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EClass getMerger() {
 		return mergerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDigestPredicate() {
+		return digestPredicateEClass;
 	}
 
 	/**
@@ -637,10 +665,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		mergerEClass = createEClass(MERGER);
 
+		digestPredicateEClass = createEClass(DIGEST_PREDICATE);
+
 		sourceEClass = createEClass(SOURCE);
 		createEAttribute(sourceEClass, SOURCE__SOURCE);
 		createEReference(sourceEClass, SOURCE__CHILDREN);
 		createEOperation(sourceEClass, SOURCE___UPDATE__FUNCTION);
+		createEOperation(sourceEClass, SOURCE___DIGEST__PREDICATE);
 
 		compilationUnitEClass = createEClass(COMPILATION_UNIT);
 		createEReference(compilationUnitEClass, COMPILATION_UNIT__TYPES);
@@ -748,12 +779,17 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(mergerEClass, BiFunction.class, "Merger", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.util.function.BiFunction<String, String, String>");
 
+		initEClass(digestPredicateEClass, Predicate.class, "DigestPredicate", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.util.function.Predicate<org.eclipse.emf.ecore.EObject>");
+
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSource_Source(), ecorePackage.getEString(), "source", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_Children(), this.getSource(), null, "children", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getSource__Update__Function(), ecorePackage.getEString(), "update", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getImportManager(), "importManager", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSource__Digest__Predicate(), ecorePackage.getEString(), "digest", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDigestPredicate(), "predicate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompilationUnit_Types(), this.getType(), null, "types", null, 0, -1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -835,6 +871,18 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Calls update on children and then updates source code using children source code. Returns updated source code. "
+		   });
+		addAnnotation
+		  (getSource__Digest__Predicate(),
+		   source,
+		   new String[] {
+			   "documentation", "Computes digest to be used by generators to detect manual changes"
+		   });
+		addAnnotation
+		  ((getSource__Digest__Predicate()).getEParameters().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Predicate allows to exclude model element for digest computation, e.g. Generated annotation"
 		   });
 		addAnnotation
 		  (getCompilationUnit__Merge__String_BiFunction(),

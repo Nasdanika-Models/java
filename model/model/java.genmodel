@@ -11,11 +11,15 @@
       ecorePackage="java.ecore#/">
     <genClasses image="false" ecoreClass="java.ecore#//ImportManager"/>
     <genClasses image="false" ecoreClass="java.ecore#//Merger"/>
+    <genClasses image="false" ecoreClass="java.ecore#//DigestPredicate"/>
     <genClasses ecoreClass="java.ecore#//Source">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Source/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/children"/>
       <genOperations ecoreOperation="java.ecore#//Source/update">
         <genParameters ecoreParameter="java.ecore#//Source/update/importManager"/>
+      </genOperations>
+      <genOperations ecoreOperation="java.ecore#//Source/digest">
+        <genParameters ecoreParameter="java.ecore#//Source/digest/predicate"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//CompilationUnit">

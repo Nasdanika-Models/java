@@ -8,12 +8,24 @@
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Merger" instanceTypeName="java.util.function.BiFunction&lt;String, String, String>"
       abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DigestPredicate" instanceTypeName="java.util.function.Predicate&lt;org.eclipse.emf.ecore.EObject>"
+      abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//Marked">
     <eOperations name="update" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Calls update on children and then updates source code using children source code. Returns updated source code. "/>
       </eAnnotations>
       <eParameters name="importManager" eType="#//ImportManager"/>
+    </eOperations>
+    <eOperations name="digest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Computes digest to be used by generators to detect manual changes"/>
+      </eAnnotations>
+      <eParameters name="predicate" eType="#//DigestPredicate">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Predicate allows to exclude model element for digest computation, e.g. Generated annotation"/>
+        </eAnnotations>
+      </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
