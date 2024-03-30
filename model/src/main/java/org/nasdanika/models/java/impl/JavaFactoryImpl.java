@@ -15,12 +15,16 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Method;
+import org.nasdanika.models.java.NamedElement;
+import org.nasdanika.models.java.Parameter;
 import org.nasdanika.models.java.Source;
+import org.nasdanika.models.java.TypedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +73,9 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.SOURCE: return createSource();
 			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
 			case JavaPackage.COMMENT: return createComment();
+			case JavaPackage.NAMED_ELEMENT: return createNamedElement();
+			case JavaPackage.GENERIC_TYPE: return createGenericType();
+			case JavaPackage.TYPED_ELEMENT: return createTypedElement();
 			case JavaPackage.ANNOTATION: return createAnnotation();
 			case JavaPackage.ANNOTATION_MEMBER: return createAnnotationMember();
 			case JavaPackage.CLASS: return createClass();
@@ -81,6 +88,7 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.METHOD: return createMethod();
 			case JavaPackage.INITIALIZER: return createInitializer();
 			case JavaPackage.CLASS_INITIALIZER: return createClassInitializer();
+			case JavaPackage.PARAMETER: return createParameter();
 			case JavaPackage.PACKAGE: return createPackage();
 			case JavaPackage.RECORD: return createRecord();
 			default:
@@ -226,6 +234,17 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public org.nasdanika.models.java.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
@@ -273,6 +292,39 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public Comment createComment() {
 		CommentImpl comment = new CommentImpl();
 		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NamedElement createNamedElement() {
+		NamedElementImpl namedElement = new NamedElementImpl();
+		return namedElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public GenericType createGenericType() {
+		GenericTypeImpl genericType = new GenericTypeImpl();
+		return genericType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TypedElement createTypedElement() {
+		TypedElementImpl typedElement = new TypedElementImpl();
+		return typedElement;
 	}
 
 	/**

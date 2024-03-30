@@ -13,5 +13,5 @@ package org.nasdanika.models.java;
  * @model
  * @generated
  */
-public interface Field extends Member {
+public interface Field extends Member, TypedElement {
 } // Field

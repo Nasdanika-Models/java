@@ -24,6 +24,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.html.model.app.Action;
 import org.nasdanika.html.model.app.gen.ActionSiteGenerator;
+import org.nasdanika.models.coverage.CoveragePackage;
 import org.nasdanika.models.ecore.graph.processors.EcoreActionGenerator;
 import org.nasdanika.models.ecore.graph.processors.EcoreNodeProcessorFactory;
 import org.nasdanika.models.java.JavaPackage;
@@ -65,7 +66,8 @@ public class TestJavaModelDocGen {
 		
 		Map<EPackage, URI> packageURIMap = Map.ofEntries(
 				Map.entry(EcorePackage.eINSTANCE, URI.createURI("https://ecore.models.nasdanika.org/")),	
-				Map.entry(NcorePackage.eINSTANCE, URI.createURI("https://ncore.models.nasdanika.org/"))	
+				Map.entry(NcorePackage.eINSTANCE, URI.createURI("https://ncore.models.nasdanika.org/")),	
+				Map.entry(CoveragePackage.eINSTANCE, URI.createURI("https://coverage.models.nasdanika.org/"))	
 			);
 			
 		EcoreActionGenerator eCoreActionGenerator = new EcoreActionGenerator(

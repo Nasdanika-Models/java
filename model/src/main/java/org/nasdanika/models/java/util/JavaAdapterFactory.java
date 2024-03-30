@@ -18,14 +18,18 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
 import org.nasdanika.models.java.Method;
+import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Operation;
+import org.nasdanika.models.java.Parameter;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
+import org.nasdanika.models.java.TypedElement;
 import org.nasdanika.persistence.Marked;
 
 /**
@@ -109,8 +113,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createCommentAdapter();
 			}
 			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
 			public Adapter caseMember(Member object) {
 				return createMemberAdapter();
+			}
+			@Override
+			public Adapter caseGenericType(GenericType object) {
+				return createGenericTypeAdapter();
+			}
+			@Override
+			public Adapter caseTypedElement(TypedElement object) {
+				return createTypedElementAdapter();
 			}
 			@Override
 			public Adapter caseType(Type object) {
@@ -167,6 +183,10 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseClassInitializer(ClassInitializer object) {
 				return createClassInitializerAdapter();
+			}
+			@Override
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
 			}
 			@Override
 			public Adapter caseOperation(Operation object) {
@@ -433,6 +453,34 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.GenericType <em>Generic Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.GenericType
+	 * @generated
+	 */
+	public Adapter createGenericTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.TypedElement <em>Typed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.TypedElement
+	 * @generated
+	 */
+	public Adapter createTypedElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Method <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -489,6 +537,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Operation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -541,6 +603,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCommentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 

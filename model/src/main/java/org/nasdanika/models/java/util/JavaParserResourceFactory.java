@@ -1,28 +1,47 @@
 package org.nasdanika.models.java.util;
 
+import java.util.function.Function;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.JavaFactory;
+import org.nasdanika.models.java.Source;
+
+import com.github.javaparser.ParserConfiguration;
+import com.github.javaparser.ParserConfiguration.LanguageLevel;
 
 public class JavaParserResourceFactory implements Resource.Factory {
 	
-	private String complianceLevel;
+	public static final LanguageLevel DEFAULT_LANGUAGE_LEVEL = LanguageLevel.JAVA_17;
+	
+	private ParserConfiguration parserConfiguration;
+	private Function<Source, Coverage> coverageProvider;
 	
 	public JavaParserResourceFactory() {
-		this("17");
+		this(DEFAULT_LANGUAGE_LEVEL, null);
 	}
 
-	/**
-	 * @param complianceLevel Compliance level. E.g. "1.4", "17" (default)
-	 */
-	public JavaParserResourceFactory(String complianceLevel) {
-		this.complianceLevel = complianceLevel;
+	public JavaParserResourceFactory(Function<Source,Coverage> coverageProvider) {
+		parserConfiguration = new ParserConfiguration();
+		parserConfiguration.setLanguageLevel(DEFAULT_LANGUAGE_LEVEL);
+		this.coverageProvider = coverageProvider;
+	}
+	
+	public JavaParserResourceFactory(LanguageLevel languageLevel, Function<Source,Coverage> coverageProvider) {
+		parserConfiguration = new ParserConfiguration();
+		parserConfiguration.setLanguageLevel(languageLevel);
+		this.coverageProvider = coverageProvider;
+	}
+	
+	public JavaParserResourceFactory(ParserConfiguration parserConfiguration) {
+		this.parserConfiguration = parserConfiguration;
 	}
 
 	@Override
 	public Resource createResource(URI uri) {
-		return new JavaParserResource(uri, getComplianceLevel()) {
+		return new JavaParserResource(uri, getParserConfiguration(), coverageProvider) {
 			
 			@Override
 			protected CompilationUnit createCompilationUnit() {
@@ -40,9 +59,9 @@ public class JavaParserResourceFactory implements Resource.Factory {
 	protected org.nasdanika.models.java.CompilationUnit createCompilationUnit(JavaParserResource resource) {
 		return JavaFactory.eINSTANCE.createCompilationUnit();
 	}
-	
-	public String getComplianceLevel() {
-		return complianceLevel;
+
+	public ParserConfiguration getParserConfiguration() {
+		return parserConfiguration;
 	}
 
 }

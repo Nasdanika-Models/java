@@ -30,6 +30,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//Source" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coverage" eType="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" eSuperTypes="#//Source">
     <eOperations name="merge">
@@ -51,13 +52,27 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Type" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="#//Source">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" eSuperTypes="#//Source">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="comment" eType="#//Comment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullyQualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullyQualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedElement" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//GenericType"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//Member">
@@ -70,15 +85,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//Operation"/>
   <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="EnumConstant" eSuperTypes="#//Member"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//Member"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//Member #//TypedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//Source"/>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Operation"/>
   <eClassifiers xsi:type="ecore:EClass" name="Code" abstract="true" eSuperTypes="#//Member"/>
   <eClassifiers xsi:type="ecore:EClass" name="Initializer" eSuperTypes="#//Code"/>
   <eClassifiers xsi:type="ecore:EClass" name="ClassInitializer" eSuperTypes="#//Code"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//Code"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//Marked">
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//TypedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//Code #//TypedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
+        eType="#//GenericType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//Source">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Record" eSuperTypes="#//Type"/>

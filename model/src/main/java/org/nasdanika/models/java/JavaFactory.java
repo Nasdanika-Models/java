@@ -130,6 +130,15 @@ public interface JavaFactory extends EFactory {
 	ClassInitializer createClassInitializer();
 
 	/**
+	 * Returns a new object of class '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter</em>'.
+	 * @generated
+	 */
+	Parameter createParameter();
+
+	/**
 	 * Returns a new object of class '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,6 +182,33 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	Comment createComment();
+
+	/**
+	 * Returns a new object of class '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Named Element</em>'.
+	 * @generated
+	 */
+	NamedElement createNamedElement();
+
+	/**
+	 * Returns a new object of class '<em>Generic Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generic Type</em>'.
+	 * @generated
+	 */
+	GenericType createGenericType();
+
+	/**
+	 * Returns a new object of class '<em>Typed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Typed Element</em>'.
+	 * @generated
+	 */
+	TypedElement createTypedElement();
 
 	/**
 	 * Returns the package supported by this factory.

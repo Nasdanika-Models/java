@@ -17,14 +17,18 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
 import org.nasdanika.models.java.Method;
+import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Operation;
+import org.nasdanika.models.java.Parameter;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
+import org.nasdanika.models.java.TypedElement;
 import org.nasdanika.persistence.Marked;
 
 /**
@@ -125,12 +129,38 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaPackage.NAMED_ELEMENT: {
+				NamedElement namedElement = (NamedElement)theEObject;
+				T result = caseNamedElement(namedElement);
+				if (result == null) result = caseSource(namedElement);
+				if (result == null) result = caseMarked(namedElement);
+				if (result == null) result = caseIMarked(namedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.MEMBER: {
 				Member member = (Member)theEObject;
 				T result = caseMember(member);
+				if (result == null) result = caseNamedElement(member);
 				if (result == null) result = caseSource(member);
 				if (result == null) result = caseMarked(member);
 				if (result == null) result = caseIMarked(member);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.GENERIC_TYPE: {
+				GenericType genericType = (GenericType)theEObject;
+				T result = caseGenericType(genericType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.TYPED_ELEMENT: {
+				TypedElement typedElement = (TypedElement)theEObject;
+				T result = caseTypedElement(typedElement);
+				if (result == null) result = caseNamedElement(typedElement);
+				if (result == null) result = caseSource(typedElement);
+				if (result == null) result = caseMarked(typedElement);
+				if (result == null) result = caseIMarked(typedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,6 +168,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				Type type = (Type)theEObject;
 				T result = caseType(type);
 				if (result == null) result = caseMember(type);
+				if (result == null) result = caseNamedElement(type);
 				if (result == null) result = caseSource(type);
 				if (result == null) result = caseMarked(type);
 				if (result == null) result = caseIMarked(type);
@@ -149,6 +180,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseAnnotation(annotation);
 				if (result == null) result = caseType(annotation);
 				if (result == null) result = caseMember(annotation);
+				if (result == null) result = caseNamedElement(annotation);
 				if (result == null) result = caseSource(annotation);
 				if (result == null) result = caseMarked(annotation);
 				if (result == null) result = caseIMarked(annotation);
@@ -159,6 +191,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				AnnotationMember annotationMember = (AnnotationMember)theEObject;
 				T result = caseAnnotationMember(annotationMember);
 				if (result == null) result = caseMember(annotationMember);
+				if (result == null) result = caseNamedElement(annotationMember);
 				if (result == null) result = caseSource(annotationMember);
 				if (result == null) result = caseMarked(annotationMember);
 				if (result == null) result = caseIMarked(annotationMember);
@@ -170,6 +203,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseClass(class_);
 				if (result == null) result = caseType(class_);
 				if (result == null) result = caseMember(class_);
+				if (result == null) result = caseNamedElement(class_);
 				if (result == null) result = caseSource(class_);
 				if (result == null) result = caseMarked(class_);
 				if (result == null) result = caseIMarked(class_);
@@ -181,7 +215,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseConstructor(constructor);
 				if (result == null) result = caseOperation(constructor);
 				if (result == null) result = caseCode(constructor);
+				if (result == null) result = caseTypedElement(constructor);
 				if (result == null) result = caseMember(constructor);
+				if (result == null) result = caseNamedElement(constructor);
 				if (result == null) result = caseSource(constructor);
 				if (result == null) result = caseMarked(constructor);
 				if (result == null) result = caseIMarked(constructor);
@@ -193,6 +229,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseEnum(enum_);
 				if (result == null) result = caseType(enum_);
 				if (result == null) result = caseMember(enum_);
+				if (result == null) result = caseNamedElement(enum_);
 				if (result == null) result = caseSource(enum_);
 				if (result == null) result = caseMarked(enum_);
 				if (result == null) result = caseIMarked(enum_);
@@ -203,6 +240,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				EnumConstant enumConstant = (EnumConstant)theEObject;
 				T result = caseEnumConstant(enumConstant);
 				if (result == null) result = caseMember(enumConstant);
+				if (result == null) result = caseNamedElement(enumConstant);
 				if (result == null) result = caseSource(enumConstant);
 				if (result == null) result = caseMarked(enumConstant);
 				if (result == null) result = caseIMarked(enumConstant);
@@ -213,6 +251,8 @@ public class JavaSwitch<T> extends Switch<T> {
 				Field field = (Field)theEObject;
 				T result = caseField(field);
 				if (result == null) result = caseMember(field);
+				if (result == null) result = caseTypedElement(field);
+				if (result == null) result = caseNamedElement(field);
 				if (result == null) result = caseSource(field);
 				if (result == null) result = caseMarked(field);
 				if (result == null) result = caseIMarked(field);
@@ -224,6 +264,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseInterface(interface_);
 				if (result == null) result = caseType(interface_);
 				if (result == null) result = caseMember(interface_);
+				if (result == null) result = caseNamedElement(interface_);
 				if (result == null) result = caseSource(interface_);
 				if (result == null) result = caseMarked(interface_);
 				if (result == null) result = caseIMarked(interface_);
@@ -244,7 +285,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseMethod(method);
 				if (result == null) result = caseOperation(method);
 				if (result == null) result = caseCode(method);
+				if (result == null) result = caseTypedElement(method);
 				if (result == null) result = caseMember(method);
+				if (result == null) result = caseNamedElement(method);
 				if (result == null) result = caseSource(method);
 				if (result == null) result = caseMarked(method);
 				if (result == null) result = caseIMarked(method);
@@ -255,6 +298,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				Code code = (Code)theEObject;
 				T result = caseCode(code);
 				if (result == null) result = caseMember(code);
+				if (result == null) result = caseNamedElement(code);
 				if (result == null) result = caseSource(code);
 				if (result == null) result = caseMarked(code);
 				if (result == null) result = caseIMarked(code);
@@ -266,6 +310,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseInitializer(initializer);
 				if (result == null) result = caseCode(initializer);
 				if (result == null) result = caseMember(initializer);
+				if (result == null) result = caseNamedElement(initializer);
 				if (result == null) result = caseSource(initializer);
 				if (result == null) result = caseMarked(initializer);
 				if (result == null) result = caseIMarked(initializer);
@@ -277,9 +322,21 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseClassInitializer(classInitializer);
 				if (result == null) result = caseCode(classInitializer);
 				if (result == null) result = caseMember(classInitializer);
+				if (result == null) result = caseNamedElement(classInitializer);
 				if (result == null) result = caseSource(classInitializer);
 				if (result == null) result = caseMarked(classInitializer);
 				if (result == null) result = caseIMarked(classInitializer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
+				if (result == null) result = caseTypedElement(parameter);
+				if (result == null) result = caseNamedElement(parameter);
+				if (result == null) result = caseSource(parameter);
+				if (result == null) result = caseMarked(parameter);
+				if (result == null) result = caseIMarked(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -287,7 +344,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
 				if (result == null) result = caseCode(operation);
+				if (result == null) result = caseTypedElement(operation);
 				if (result == null) result = caseMember(operation);
+				if (result == null) result = caseNamedElement(operation);
 				if (result == null) result = caseSource(operation);
 				if (result == null) result = caseMarked(operation);
 				if (result == null) result = caseIMarked(operation);
@@ -297,6 +356,7 @@ public class JavaSwitch<T> extends Switch<T> {
 			case JavaPackage.PACKAGE: {
 				org.nasdanika.models.java.Package package_ = (org.nasdanika.models.java.Package)theEObject;
 				T result = casePackage(package_);
+				if (result == null) result = caseSource(package_);
 				if (result == null) result = caseMarked(package_);
 				if (result == null) result = caseIMarked(package_);
 				if (result == null) result = defaultCase(theEObject);
@@ -307,6 +367,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				T result = caseRecord(record);
 				if (result == null) result = caseType(record);
 				if (result == null) result = caseMember(record);
+				if (result == null) result = caseNamedElement(record);
 				if (result == null) result = caseSource(record);
 				if (result == null) result = caseMarked(record);
 				if (result == null) result = caseIMarked(record);
@@ -558,6 +619,36 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generic Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generic Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenericType(GenericType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypedElement(TypedElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -618,6 +709,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -674,6 +780,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComment(Comment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 

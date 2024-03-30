@@ -7,6 +7,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.ncore.Marked;
 
 /**
@@ -20,6 +21,7 @@ import org.nasdanika.ncore.Marked;
  * <ul>
  *   <li>{@link org.nasdanika.models.java.Source#getSource <em>Source</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getSource()
@@ -60,6 +62,28 @@ public interface Source extends Marked {
 	 * @generated
 	 */
 	EList<Source> getChildren();
+
+	/**
+	 * Returns the value of the '<em><b>Coverage</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Coverage</em>' reference.
+	 * @see #setCoverage(Coverage)
+	 * @see org.nasdanika.models.java.JavaPackage#getSource_Coverage()
+	 * @model
+	 * @generated
+	 */
+	Coverage getCoverage();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Coverage</em>' reference.
+	 * @see #getCoverage()
+	 * @generated
+	 */
+	void setCoverage(Coverage value);
 
 	/**
 	 * <!-- begin-user-doc -->

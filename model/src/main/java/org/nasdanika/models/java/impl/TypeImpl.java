@@ -3,12 +3,16 @@
 package org.nasdanika.models.java.impl;
 
 import java.util.Collection;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
 import org.nasdanika.models.java.Type;
@@ -129,6 +133,35 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 				return !getMembers().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public String getFullyQualifiedName() {
+		EObject c = eContainer();
+		if (c == null || c instanceof CompilationUnit || c instanceof Type) {
+			return super.getFullyQualifiedName();
+		}
+		// Anonymous and nested types - some semblance of a qualified name, not exact.
+		for (EObject ancestor = c; ancestor != null; ancestor = ancestor.eContainer()) {
+			if (ancestor instanceof Type) {
+				AtomicInteger counter = new AtomicInteger();
+				TreeIterator<EObject> cit = ancestor.eAllContents();
+				while (cit.hasNext()) {
+					EObject next = cit.next();
+					if (next instanceof Type) {
+						if (next == this) {
+							return ((Type) ancestor).getFullyQualifiedName() + "$" + counter; 
+						}
+						if (next.eContainer() != ancestor) {
+							counter.incrementAndGet(); // Indirectly contained types, e.g. in methods
+						}
+						cit.prune();
+					}
+				}
+			}
+		}
+		
+		return getName();
 	}
 
 } //TypeImpl

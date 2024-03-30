@@ -25,11 +25,22 @@ import org.nasdanika.models.java.Type;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.CompilationUnitImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.CompilationUnitImpl#getPackageName <em>Package Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
+	/**
+	 * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackageName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PACKAGE_NAME_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,6 +69,26 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 	@Override
 	public EList<Type> getTypes() {
 		return (EList<Type>)eDynamicGet(JavaPackage.COMPILATION_UNIT__TYPES, JavaPackage.Literals.COMPILATION_UNIT__TYPES, true, true);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPackageName() {
+		return (String)eDynamicGet(JavaPackage.COMPILATION_UNIT__PACKAGE_NAME, JavaPackage.Literals.COMPILATION_UNIT__PACKAGE_NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPackageName(String newPackageName) {
+		eDynamicSet(JavaPackage.COMPILATION_UNIT__PACKAGE_NAME, JavaPackage.Literals.COMPILATION_UNIT__PACKAGE_NAME, newPackageName);
 	}
 
 /**
@@ -151,6 +182,8 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 		switch (featureID) {
 			case JavaPackage.COMPILATION_UNIT__TYPES:
 				return getTypes();
+			case JavaPackage.COMPILATION_UNIT__PACKAGE_NAME:
+				return getPackageName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,6 +201,9 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 				getTypes().clear();
 				getTypes().addAll((Collection<? extends Type>)newValue);
 				return;
+			case JavaPackage.COMPILATION_UNIT__PACKAGE_NAME:
+				setPackageName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +219,9 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 			case JavaPackage.COMPILATION_UNIT__TYPES:
 				getTypes().clear();
 				return;
+			case JavaPackage.COMPILATION_UNIT__PACKAGE_NAME:
+				setPackageName(PACKAGE_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -197,6 +236,8 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 		switch (featureID) {
 			case JavaPackage.COMPILATION_UNIT__TYPES:
 				return !getTypes().isEmpty();
+			case JavaPackage.COMPILATION_UNIT__PACKAGE_NAME:
+				return PACKAGE_NAME_EDEFAULT == null ? getPackageName() != null : !PACKAGE_NAME_EDEFAULT.equals(getPackageName());
 		}
 		return super.eIsSet(featureID);
 	}

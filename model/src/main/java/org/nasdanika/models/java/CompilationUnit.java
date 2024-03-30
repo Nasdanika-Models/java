@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.CompilationUnit#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.CompilationUnit#getPackageName <em>Package Name</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getCompilationUnit()
@@ -34,6 +35,28 @@ public interface CompilationUnit extends Source {
 	 * @generated
 	 */
 	EList<Type> getTypes();
+
+	/**
+	 * Returns the value of the '<em><b>Package Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Package Name</em>' attribute.
+	 * @see #setPackageName(String)
+	 * @see org.nasdanika.models.java.JavaPackage#getCompilationUnit_PackageName()
+	 * @model
+	 * @generated
+	 */
+	String getPackageName();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.java.CompilationUnit#getPackageName <em>Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Package Name</em>' attribute.
+	 * @see #getPackageName()
+	 * @generated
+	 */
+	void setPackageName(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

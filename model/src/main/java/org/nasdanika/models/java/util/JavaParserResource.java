@@ -9,14 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
 
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParseResult;
+import com.github.javaparser.ParserConfiguration;
+import com.github.javaparser.Problem;
+import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.AnnotationMemberDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
 import com.github.javaparser.ast.body.CallableDeclaration;
@@ -33,18 +41,56 @@ import com.github.javaparser.ast.expr.SimpleName;
 
 public class JavaParserResource extends ResourceImpl {
 
-	private String complianceLevel;
+	private ParserConfiguration parserConfiguration;
+	private Function<Source, Coverage> coverageProvider;
 
-	protected JavaParserResource(URI uri, String complianceLevel) {
+	public JavaParserResource(URI uri, ParserConfiguration parserConfiguration, Function<Source,Coverage> coverageProvider) {
 		super(uri);
-		this.complianceLevel = complianceLevel;
+		this.parserConfiguration = parserConfiguration;
+		this.coverageProvider = coverageProvider;
 	}
 	
 	@Override
 	protected void doLoad(InputStream inputStream, Map<?, ?> options) throws IOException {
-		// TODO - language level in configuration
-		com.github.javaparser.ast.CompilationUnit jpCompilationUnit = com.github.javaparser.StaticJavaParser.parse(inputStream);
-		getContents().add(loadCompilationUnit(jpCompilationUnit));
+		JavaParser parser = new JavaParser(parserConfiguration);
+		ParseResult<CompilationUnit> parseResult = parser.parse(inputStream);
+		EList<Diagnostic> errs = getErrors();
+		for (Problem problem: parseResult.getProblems()) {
+			errs.add(new Diagnostic() {
+				
+				@Override
+				public String getMessage() {
+					return problem.getVerboseMessage();
+				}
+				
+				@Override
+				public String getLocation() {
+					return null;
+				}
+				
+				@Override
+				public int getLine() {
+					return 0;
+				}
+				
+				@Override
+				public int getColumn() {
+					return 0;
+				}
+			});
+		}
+		Optional<CompilationUnit> result = parseResult.getResult();
+		if (result.isPresent()) {
+			getContents().add(loadCompilationUnit(result.get()));
+			if (coverageProvider != null) {
+				getAllContents().forEachRemaining(eObj -> {
+					if (eObj instanceof Source) {
+						Source source = (Source) eObj;
+						source.setCoverage(coverageProvider.apply(source));
+					}
+				});
+			}
+		}
 	}
 	
 	@Override

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.ncore.Marker;
@@ -30,6 +31,7 @@ import org.nasdanika.ncore.NcorePackage;
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getMarkers <em>Markers</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getCoverage <em>Coverage</em>}</li>
  * </ul>
  *
  * @generated
@@ -122,6 +124,35 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @generated
 	 */
 	@Override
+	public Coverage getCoverage() {
+		return (Coverage)eDynamicGet(JavaPackage.SOURCE__COVERAGE, JavaPackage.Literals.SOURCE__COVERAGE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coverage basicGetCoverage() {
+		return (Coverage)eDynamicGet(JavaPackage.SOURCE__COVERAGE, JavaPackage.Literals.SOURCE__COVERAGE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCoverage(Coverage newCoverage) {
+		eDynamicSet(JavaPackage.SOURCE__COVERAGE, JavaPackage.Literals.SOURCE__COVERAGE, newCoverage);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String update(Function<String, String> importManager) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -170,6 +201,9 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 				return getSource();
 			case JavaPackage.SOURCE__CHILDREN:
 				return getChildren();
+			case JavaPackage.SOURCE__COVERAGE:
+				if (resolve) return getCoverage();
+				return basicGetCoverage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -194,6 +228,9 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 				getChildren().clear();
 				getChildren().addAll((Collection<? extends Source>)newValue);
 				return;
+			case JavaPackage.SOURCE__COVERAGE:
+				setCoverage((Coverage)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -215,6 +252,9 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 			case JavaPackage.SOURCE__CHILDREN:
 				getChildren().clear();
 				return;
+			case JavaPackage.SOURCE__COVERAGE:
+				setCoverage((Coverage)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -233,6 +273,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 				return SOURCE_EDEFAULT == null ? getSource() != null : !SOURCE_EDEFAULT.equals(getSource());
 			case JavaPackage.SOURCE__CHILDREN:
 				return !getChildren().isEmpty();
+			case JavaPackage.SOURCE__COVERAGE:
+				return basicGetCoverage() != null;
 		}
 		return super.eIsSet(featureID);
 	}
