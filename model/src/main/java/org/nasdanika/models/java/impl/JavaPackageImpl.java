@@ -1053,12 +1053,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (this,
-		   source,
-		   new String[] {
-			   "documentation", "A model of Java language - modules, packages, classes, compilation units, methods, statements, ..."
-		   });
-		addAnnotation
 		  (getSource__Update__Function(),
 		   source,
 		   new String[] {

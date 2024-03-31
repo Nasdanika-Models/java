@@ -21,9 +21,6 @@ import org.nasdanika.ncore.NcorePackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * <!-- begin-model-doc -->
- * A model of Java language - modules, packages, classes, compilation units, methods, statements, ...
- * <!-- end-model-doc -->
  * @see org.nasdanika.models.java.JavaFactory
  * @model kind="package"
  * @generated

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="java" nsURI="ecore://nasdanika.org/models/java" nsPrefix="org.nasdanika.models.java">
-  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="documentation" value="A model of Java language - modules, packages, classes, compilation units, methods, statements, ..."/>
-  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ImportManager" instanceTypeName="java.util.function.Function&lt;String, String>"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Merger" instanceTypeName="java.util.function.BiFunction&lt;String, String, String>"
