@@ -17,6 +17,7 @@ public class CompilationUnitProcessorFactory extends SourceProcessorFactory {
 //	String getPackageName();
 //  TODO - imports	
 
+//  TODO - merge to source? Merge provider for type	
 //	void merge(String source, BiFunction<String, String, String> merger);
 //	void merge(BiFunction<String, String, String> merger);
 	

@@ -28,7 +28,7 @@ import org.nasdanika.ncore.Marked;
  * @model
  * @generated
  */
-public interface Source extends Marked {
+public interface Source<C extends Coverage> extends Marked {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,7 +53,7 @@ public interface Source extends Marked {
 
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.java.Source}.
+	 * The list contents are of type {@link org.nasdanika.models.java.Source}<code>&lt;org.nasdanika.models.coverage.Coverage&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Children</em>' containment reference list.
@@ -61,7 +61,7 @@ public interface Source extends Marked {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Source> getChildren();
+	EList<Source<Coverage>> getChildren();
 
 	/**
 	 * Returns the value of the '<em><b>Coverage</b></em>' reference.
@@ -73,7 +73,7 @@ public interface Source extends Marked {
 	 * @model
 	 * @generated
 	 */
-	Coverage getCoverage();
+	C getCoverage();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}' reference.
@@ -83,7 +83,7 @@ public interface Source extends Marked {
 	 * @see #getCoverage()
 	 * @generated
 	 */
-	void setCoverage(Coverage value);
+	void setCoverage(C value);
 
 	/**
 	 * <!-- begin-user-doc -->

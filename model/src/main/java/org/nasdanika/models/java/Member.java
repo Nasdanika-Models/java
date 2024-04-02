@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java;
 
+import org.nasdanika.models.coverage.Coverage;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Member</b></em>'.
@@ -19,7 +21,7 @@ package org.nasdanika.models.java;
  * @model abstract="true"
  * @generated
  */
-public interface Member extends NamedElement {
+public interface Member<C extends Coverage> extends NamedElement<C> {
 
 	/**
 	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.

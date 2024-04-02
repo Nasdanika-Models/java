@@ -3,6 +3,7 @@
 package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.models.coverage.ModuleCoverage;
 import org.nasdanika.models.java.JavaPackage;
 
 /**
@@ -12,7 +13,7 @@ import org.nasdanika.models.java.JavaPackage;
  *
  * @generated
  */
-public class ModuleImpl extends SourceImpl implements org.nasdanika.models.java.Module {
+public class ModuleImpl extends SourceImpl<ModuleCoverage> implements org.nasdanika.models.java.Module {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,6 +31,17 @@ public class ModuleImpl extends SourceImpl implements org.nasdanika.models.java.
 	@Override
 	protected EClass eStaticClass() {
 		return JavaPackage.Literals.MODULE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setCoverage(ModuleCoverage newCoverage) {
+		super.setCoverage(newCoverage);
 	}
 
 } //ModuleImpl

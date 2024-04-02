@@ -4,6 +4,7 @@ package org.nasdanika.models.java;
 
 import java.util.function.BiFunction;
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.models.coverage.SourceFileCoverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,13 +17,14 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.nasdanika.models.java.CompilationUnit#getTypes <em>Types</em>}</li>
  *   <li>{@link org.nasdanika.models.java.CompilationUnit#getPackageName <em>Package Name</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.CompilationUnit#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getCompilationUnit()
  * @model
  * @generated
  */
-public interface CompilationUnit extends Source {
+public interface CompilationUnit extends Source<SourceFileCoverage> {
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
@@ -57,6 +59,18 @@ public interface CompilationUnit extends Source {
 	 * @generated
 	 */
 	void setPackageName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Imports</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Imports</em>' attribute list.
+	 * @see org.nasdanika.models.java.JavaPackage#getCompilationUnit_Imports()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getImports();
 
 	/**
 	 * <!-- begin-user-doc -->

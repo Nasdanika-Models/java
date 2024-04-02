@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.JavaPackage;
@@ -26,7 +27,7 @@ import org.nasdanika.models.java.Type;
  *
  * @generated
  */
-public abstract class MemberImpl extends NamedElementImpl implements Member {
+public abstract class MemberImpl<C extends Coverage> extends NamedElementImpl<C> implements Member<C> {
 	/**
 	 * The default value of the '{@link #getFullyQualifiedName() <em>Fully Qualified Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -110,26 +110,6 @@ public interface JavaPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.models.java.Annotation <em>Annotation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Annotation</em>'.
-	 * @see org.nasdanika.models.java.Annotation
-	 * @generated
-	 */
-	EClass getAnnotation();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.models.java.AnnotationMember <em>Annotation Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Annotation Member</em>'.
-	 * @see org.nasdanika.models.java.AnnotationMember
-	 * @generated
-	 */
-	EClass getAnnotationMember();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Class <em>Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,16 +190,6 @@ public interface JavaPackage extends EPackage {
 	int TYPE = 10;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationImpl <em>Annotation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.AnnotationImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotation()
-	 * @generated
-	 */
-	int ANNOTATION = 11;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,16 +268,6 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	int COMMENT = 5;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationMemberImpl <em>Annotation Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.AnnotationMemberImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationMember()
-	 * @generated
-	 */
-	int ANNOTATION_MEMBER = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
@@ -562,13 +522,22 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__PACKAGE_NAME = SOURCE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Imports</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__IMPORTS = SOURCE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Compilation Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 2;
+	int COMPILATION_UNIT_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -1087,13 +1056,23 @@ public interface JavaPackage extends EPackage {
 	int TYPE_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationInterfaceImpl <em>Annotation Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.AnnotationInterfaceImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterface()
+	 * @generated
+	 */
+	int ANNOTATION_INTERFACE = 11;
+
+	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__MARKERS = TYPE__MARKERS;
+	int ANNOTATION_INTERFACE__MARKERS = TYPE__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -1102,7 +1081,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__SOURCE = TYPE__SOURCE;
+	int ANNOTATION_INTERFACE__SOURCE = TYPE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -1111,7 +1090,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__CHILDREN = TYPE__CHILDREN;
+	int ANNOTATION_INTERFACE__CHILDREN = TYPE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference.
@@ -1120,7 +1099,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__COVERAGE = TYPE__COVERAGE;
+	int ANNOTATION_INTERFACE__COVERAGE = TYPE__COVERAGE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1129,7 +1108,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__NAME = TYPE__NAME;
+	int ANNOTATION_INTERFACE__NAME = TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -1138,7 +1117,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__COMMENT = TYPE__COMMENT;
+	int ANNOTATION_INTERFACE__COMMENT = TYPE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
@@ -1147,7 +1126,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__FULLY_QUALIFIED_NAME = TYPE__FULLY_QUALIFIED_NAME;
+	int ANNOTATION_INTERFACE__FULLY_QUALIFIED_NAME = TYPE__FULLY_QUALIFIED_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -1156,16 +1135,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__MEMBERS = TYPE__MEMBERS;
+	int ANNOTATION_INTERFACE__MEMBERS = TYPE__MEMBERS;
 
 	/**
-	 * The number of structural features of the '<em>Annotation</em>' class.
+	 * The number of structural features of the '<em>Annotation Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+	int ANNOTATION_INTERFACE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -1174,7 +1153,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
+	int ANNOTATION_INTERFACE___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
 
 	/**
 	 * The operation id for the '<em>Digest</em>' operation.
@@ -1183,16 +1162,26 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+	int ANNOTATION_INTERFACE___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
 
 	/**
-	 * The number of operations of the '<em>Annotation</em>' class.
+	 * The number of operations of the '<em>Annotation Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+	int ANNOTATION_INTERFACE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.AnnotationInterfaceMemberImpl <em>Annotation Interface Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.AnnotationInterfaceMemberImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterfaceMember()
+	 * @generated
+	 */
+	int ANNOTATION_INTERFACE_MEMBER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1201,7 +1190,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER__MARKERS = MEMBER__MARKERS;
+	int ANNOTATION_INTERFACE_MEMBER__MARKERS = MEMBER__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -1210,7 +1199,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER__SOURCE = MEMBER__SOURCE;
+	int ANNOTATION_INTERFACE_MEMBER__SOURCE = MEMBER__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -1219,7 +1208,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER__CHILDREN = MEMBER__CHILDREN;
+	int ANNOTATION_INTERFACE_MEMBER__CHILDREN = MEMBER__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference.
@@ -1228,7 +1217,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER__COVERAGE = MEMBER__COVERAGE;
+	int ANNOTATION_INTERFACE_MEMBER__COVERAGE = MEMBER__COVERAGE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1237,7 +1226,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER__NAME = MEMBER__NAME;
+	int ANNOTATION_INTERFACE_MEMBER__NAME = MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -1246,7 +1235,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER__COMMENT = MEMBER__COMMENT;
+	int ANNOTATION_INTERFACE_MEMBER__COMMENT = MEMBER__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
@@ -1255,16 +1244,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER__FULLY_QUALIFIED_NAME = MEMBER__FULLY_QUALIFIED_NAME;
+	int ANNOTATION_INTERFACE_MEMBER__FULLY_QUALIFIED_NAME = MEMBER__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The number of structural features of the '<em>Annotation Member</em>' class.
+	 * The number of structural features of the '<em>Annotation Interface Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
+	int ANNOTATION_INTERFACE_MEMBER_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -1273,7 +1262,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
+	int ANNOTATION_INTERFACE_MEMBER___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
 
 	/**
 	 * The operation id for the '<em>Digest</em>' operation.
@@ -1282,16 +1271,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
+	int ANNOTATION_INTERFACE_MEMBER___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
 
 	/**
-	 * The number of operations of the '<em>Annotation Member</em>' class.
+	 * The number of operations of the '<em>Annotation Interface Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MEMBER_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
+	int ANNOTATION_INTERFACE_MEMBER_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -3187,6 +3176,26 @@ public interface JavaPackage extends EPackage {
 	EReference getType_Members();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.AnnotationInterface <em>Annotation Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation Interface</em>'.
+	 * @see org.nasdanika.models.java.AnnotationInterface
+	 * @generated
+	 */
+	EClass getAnnotationInterface();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.AnnotationInterfaceMember <em>Annotation Interface Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation Interface Member</em>'.
+	 * @see org.nasdanika.models.java.AnnotationInterfaceMember
+	 * @generated
+	 */
+	EClass getAnnotationInterfaceMember();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.CompilationUnit <em>Compilation Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3217,6 +3226,17 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCompilationUnit_PackageName();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.models.java.CompilationUnit#getImports <em>Imports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Imports</em>'.
+	 * @see org.nasdanika.models.java.CompilationUnit#getImports()
+	 * @see #getCompilationUnit()
+	 * @generated
+	 */
+	EAttribute getCompilationUnit_Imports();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.models.java.CompilationUnit#merge(java.lang.String, java.util.function.BiFunction) <em>Merge</em>}' operation.
@@ -3303,26 +3323,6 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.AnnotationImpl <em>Annotation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.models.java.impl.AnnotationImpl
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotation()
-		 * @generated
-		 */
-		EClass ANNOTATION = eINSTANCE.getAnnotation();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.AnnotationMemberImpl <em>Annotation Member</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.models.java.impl.AnnotationMemberImpl
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationMember()
-		 * @generated
-		 */
-		EClass ANNOTATION_MEMBER = eINSTANCE.getAnnotationMember();
-
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -3666,6 +3666,26 @@ public interface JavaPackage extends EPackage {
 		EReference TYPE__MEMBERS = eINSTANCE.getType_Members();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.AnnotationInterfaceImpl <em>Annotation Interface</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.AnnotationInterfaceImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterface()
+		 * @generated
+		 */
+		EClass ANNOTATION_INTERFACE = eINSTANCE.getAnnotationInterface();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.AnnotationInterfaceMemberImpl <em>Annotation Interface Member</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.AnnotationInterfaceMemberImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterfaceMember()
+		 * @generated
+		 */
+		EClass ANNOTATION_INTERFACE_MEMBER = eINSTANCE.getAnnotationInterfaceMember();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3690,6 +3710,14 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPILATION_UNIT__PACKAGE_NAME = eINSTANCE.getCompilationUnit_PackageName();
+
+		/**
+		 * The meta object literal for the '<em><b>Imports</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPILATION_UNIT__IMPORTS = eINSTANCE.getCompilationUnit_Imports();
 
 		/**
 		 * The meta object literal for the '<em><b>Merge</b></em>' operation.

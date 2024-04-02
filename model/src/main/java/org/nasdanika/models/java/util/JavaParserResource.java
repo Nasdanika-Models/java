@@ -16,7 +16,19 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.AnnotationInterface;
+import org.nasdanika.models.java.AnnotationInterfaceMember;
+import org.nasdanika.models.java.Class;
+import org.nasdanika.models.java.ClassInitializer;
+import org.nasdanika.models.java.Constructor;
+import org.nasdanika.models.java.Enum;
+import org.nasdanika.models.java.EnumConstant;
+import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.Initializer;
+import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaFactory;
+import org.nasdanika.models.java.Method;
+import org.nasdanika.models.java.Record;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
 
@@ -25,6 +37,8 @@ import com.github.javaparser.ParseResult;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.Problem;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.ImportDeclaration;
+import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.AnnotationMemberDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
 import com.github.javaparser.ast.body.CallableDeclaration;
@@ -42,9 +56,9 @@ import com.github.javaparser.ast.expr.SimpleName;
 public class JavaParserResource extends ResourceImpl {
 
 	private ParserConfiguration parserConfiguration;
-	private Function<Source, Coverage> coverageProvider;
+	private Function<Source<?>, Coverage> coverageProvider;
 
-	public JavaParserResource(URI uri, ParserConfiguration parserConfiguration, Function<Source,Coverage> coverageProvider) {
+	public JavaParserResource(URI uri, ParserConfiguration parserConfiguration, Function<Source<?>,Coverage> coverageProvider) {
 		super(uri);
 		this.parserConfiguration = parserConfiguration;
 		this.coverageProvider = coverageProvider;
@@ -85,8 +99,10 @@ public class JavaParserResource extends ResourceImpl {
 			if (coverageProvider != null) {
 				getAllContents().forEachRemaining(eObj -> {
 					if (eObj instanceof Source) {
-						Source source = (Source) eObj;
-						source.setCoverage(coverageProvider.apply(source));
+						@SuppressWarnings("unchecked")
+						Source<Coverage> source = (Source<Coverage>) eObj;
+						Coverage coverage = (Coverage) coverageProvider.apply(source);
+						source.setCoverage(coverage);
 					}
 				});
 			}
@@ -98,7 +114,7 @@ public class JavaParserResource extends ResourceImpl {
 		try (Writer writer = new OutputStreamWriter(outputStream)) {
 			for (EObject root: getContents()) {
 				if (root instanceof Source) {
-					writer.write(((Source) root).getSource());
+					writer.write(((Source<?>) root).getSource());
 				}
 			}
 		}
@@ -116,6 +132,14 @@ public class JavaParserResource extends ResourceImpl {
 		org.nasdanika.models.java.CompilationUnit modelCompilationUnit = createCompilationUnit();
 		
 		modelCompilationUnit.setSource(jpCompilationUnit.toString());
+		Optional<PackageDeclaration> pd = jpCompilationUnit.getPackageDeclaration();
+		if (pd.isPresent()) {
+			modelCompilationUnit.setPackageName(pd.get().getNameAsString());
+		}
+		
+		for (ImportDeclaration importDeclaration: jpCompilationUnit.getImports()) {
+			modelCompilationUnit.getImports().add(importDeclaration.isStatic() ? "static " + importDeclaration.getNameAsString() : importDeclaration.getNameAsString());			
+		}
 		
 		for (TypeDeclaration<?> td: jpCompilationUnit.getTypes()) {
 			Type type = loadTypeDeclaration(td);
@@ -127,14 +151,18 @@ public class JavaParserResource extends ResourceImpl {
 		return modelCompilationUnit;
 	}
 	
-	protected void configureMember(BodyDeclaration<?> bodyDeclaration, org.nasdanika.models.java.Member member) {
+	protected void configureMember(BodyDeclaration<?> bodyDeclaration, org.nasdanika.models.java.Member<?> member) {
 		Optional<Comment> copt = bodyDeclaration.getComment();
 		if (copt.isPresent()) {
-			org.nasdanika.models.java.Comment comment = getJavaFactory().createComment(); // TODO - comment flavors
+			org.nasdanika.models.java.Comment comment = createComment(); // TODO - comment flavors
 			comment.setComment(copt.get().getContent());	
 			member.setComment(comment);
 		}		
 		member.setSource(bodyDeclaration.toString());
+	}
+
+	protected org.nasdanika.models.java.Comment createComment() {
+		return getJavaFactory().createComment();
 	}	
 	
 	protected void configureOperation(CallableDeclaration<?> callableDeclaration, org.nasdanika.models.java.Operation operation) {
@@ -169,38 +197,58 @@ public class JavaParserResource extends ResourceImpl {
 		throw new IllegalArgumentException("Unexpected type declaration: " + typeDeclaration);
 	}
 			
-	protected org.nasdanika.models.java.Annotation loadAnnotationDeclaration(com.github.javaparser.ast.body.AnnotationDeclaration annotationDeclaration) {
-		org.nasdanika.models.java.Annotation annotation = getJavaFactory().createAnnotation();
+	protected org.nasdanika.models.java.AnnotationInterface loadAnnotationDeclaration(com.github.javaparser.ast.body.AnnotationDeclaration annotationDeclaration) {
+		org.nasdanika.models.java.AnnotationInterface annotation = createAnnotationInterface();
 		configureTypeDeclaration(annotationDeclaration, annotation);
 		return annotation;
+	}
+
+	protected AnnotationInterface createAnnotationInterface() {
+		return getJavaFactory().createAnnotationInterface();
 	}
 	
 	protected org.nasdanika.models.java.Type loadClassOrInterfaceDeclaration(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration classOrInterfaceDeclaration) {
 		if (classOrInterfaceDeclaration.isInterface()) {
-			org.nasdanika.models.java.Interface modelInterface = getJavaFactory().createInterface();
+			org.nasdanika.models.java.Interface modelInterface = createInterface();
 			configureTypeDeclaration(classOrInterfaceDeclaration, modelInterface);
 			return modelInterface;
 		}
 		
-		org.nasdanika.models.java.Class modelClass = getJavaFactory().createClass();
+		org.nasdanika.models.java.Class modelClass = createClass();
 		configureTypeDeclaration(classOrInterfaceDeclaration, modelClass);		
 		return modelClass;
 	}
+
+	protected Class createClass() {
+		return getJavaFactory().createClass();
+	}
+
+	protected Interface createInterface() {
+		return getJavaFactory().createInterface();
+	}
 	
 	protected org.nasdanika.models.java.Enum loadEnumDeclaration(com.github.javaparser.ast.body.EnumDeclaration enumDeclaration) {
-		org.nasdanika.models.java.Enum modelEnum = getJavaFactory().createEnum();
+		org.nasdanika.models.java.Enum modelEnum = createEnum();
 		configureTypeDeclaration(enumDeclaration, modelEnum);
 		return modelEnum;
 	}
+
+	protected Enum createEnum() {
+		return getJavaFactory().createEnum();
+	}
 	
 	protected org.nasdanika.models.java.Record loadRecordDeclaration(com.github.javaparser.ast.body.RecordDeclaration recordDeclaration) {
-		org.nasdanika.models.java.Record modelRecord = getJavaFactory().createRecord();
+		org.nasdanika.models.java.Record modelRecord = createRecord();
 		configureTypeDeclaration(recordDeclaration, modelRecord);
 		return modelRecord;
 	}
+
+	protected Record createRecord() {
+		return getJavaFactory().createRecord();
+	}
 	
-	protected List<org.nasdanika.models.java.Member> loadMembers(com.github.javaparser.ast.body.TypeDeclaration<?> typeDeclaration) {
-		List<org.nasdanika.models.java.Member> ret = new ArrayList<>();
+	protected List<org.nasdanika.models.java.Member<? extends Coverage>> loadMembers(com.github.javaparser.ast.body.TypeDeclaration<?> typeDeclaration) {
+		List<org.nasdanika.models.java.Member<? extends Coverage>> ret = new ArrayList<>();
 		for (BodyDeclaration<?> member: typeDeclaration.getMembers()) {
 			if (member instanceof AnnotationMemberDeclaration) {
 				ret.add(loadAnnotationMemberDeclaration((AnnotationMemberDeclaration) member));
@@ -229,39 +277,55 @@ public class JavaParserResource extends ResourceImpl {
 		return ret;
 	}
 	
-	protected org.nasdanika.models.java.AnnotationMember loadAnnotationMemberDeclaration(AnnotationMemberDeclaration annotationMemberDeclaration) {
-		org.nasdanika.models.java.AnnotationMember annotationMember = getJavaFactory().createAnnotationMember();
+	protected org.nasdanika.models.java.AnnotationInterfaceMember loadAnnotationMemberDeclaration(AnnotationMemberDeclaration annotationMemberDeclaration) {
+		org.nasdanika.models.java.AnnotationInterfaceMember annotationMember = createAnnotationInterfaceMember();
 		configureMember(annotationMemberDeclaration, annotationMember);
 		return annotationMember;
 	}
+
+	protected AnnotationInterfaceMember createAnnotationInterfaceMember() {
+		return getJavaFactory().createAnnotationInterfaceMember();
+	}
 	
 	protected org.nasdanika.models.java.Constructor loadConstructorDeclaration(ConstructorDeclaration constructorDeclaration) {
-		org.nasdanika.models.java.Constructor constructor = getJavaFactory().createConstructor();
+		org.nasdanika.models.java.Constructor constructor = createConstructor();
 		configureOperation(constructorDeclaration, constructor);
 		return constructor;
 	}
+
+	protected Constructor createConstructor() {
+		return getJavaFactory().createConstructor();
+	}
 	
 	protected org.nasdanika.models.java.Method loadMethodDeclaration(MethodDeclaration methodDeclaration) {
-		org.nasdanika.models.java.Method method = getJavaFactory().createMethod();
+		org.nasdanika.models.java.Method method = createMethod();
 		configureOperation(methodDeclaration, method);
 		method.setName(methodDeclaration.getName().toString());
 		return method;		
 	}
+
+	protected Method createMethod() {
+		return getJavaFactory().createMethod();
+	}
 	
 	protected org.nasdanika.models.java.Constructor loadCompactConstructorDeclaration(CompactConstructorDeclaration compactConstructorDeclaration) {
-		org.nasdanika.models.java.Constructor constructor = getJavaFactory().createConstructor();
+		org.nasdanika.models.java.Constructor constructor = createConstructor();
 		configureMember(compactConstructorDeclaration, constructor);
 		return constructor;
 	}
 	
 	protected org.nasdanika.models.java.EnumConstant loadEnumConstantDeclaration(EnumConstantDeclaration enumConstantDeclaration) {
-		org.nasdanika.models.java.EnumConstant enumConstant = getJavaFactory().createEnumConstant();
+		org.nasdanika.models.java.EnumConstant enumConstant = createEnumConstant();
 		configureMember(enumConstantDeclaration, enumConstant);
 		return enumConstant;
 	}
+
+	protected EnumConstant createEnumConstant() {
+		return getJavaFactory().createEnumConstant();
+	}
 	
 	protected org.nasdanika.models.java.Field loadFieldDeclaration(FieldDeclaration fieldDeclaration) {
-		org.nasdanika.models.java.Field field = getJavaFactory().createField();
+		org.nasdanika.models.java.Field field = createField();
 		configureMember(fieldDeclaration, field);
 		for (VariableDeclarator vd: fieldDeclaration.getVariables()) {
 			SimpleName vName = vd.getName();
@@ -269,17 +333,29 @@ public class JavaParserResource extends ResourceImpl {
 		}
 		return field;		
 	}
+
+	protected Field createField() {
+		return getJavaFactory().createField();
+	}
 	
 	protected org.nasdanika.models.java.Initializer loadInitializerDeclaration(InitializerDeclaration initializerDeclaration) {
-		org.nasdanika.models.java.Initializer initializer = getJavaFactory().createInitializer();
+		org.nasdanika.models.java.Initializer initializer = createInitializer();
 		configureMember(initializerDeclaration, initializer);
 		return initializer;		
 	}
+
+	protected Initializer createInitializer() {
+		return getJavaFactory().createInitializer();
+	}
 	
 	protected org.nasdanika.models.java.ClassInitializer loadStaticInitializerDeclaration(InitializerDeclaration initializerDeclaration) {
-		org.nasdanika.models.java.ClassInitializer classInitializer = getJavaFactory().createClassInitializer();
+		org.nasdanika.models.java.ClassInitializer classInitializer = createClassInitializer();
 		configureMember(initializerDeclaration, classInitializer);
 		return classInitializer;		
+	}
+
+	protected ClassInitializer createClassInitializer() {
+		return getJavaFactory().createClassInitializer();
 	}
 
 }

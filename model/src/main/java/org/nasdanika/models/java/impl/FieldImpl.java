@@ -5,6 +5,7 @@ package org.nasdanika.models.java.impl;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.Field;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
@@ -23,7 +24,7 @@ import org.nasdanika.models.java.TypedElement;
  *
  * @generated
  */
-public class FieldImpl extends MemberImpl implements Field {
+public class FieldImpl extends MemberImpl<Coverage> implements Field {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

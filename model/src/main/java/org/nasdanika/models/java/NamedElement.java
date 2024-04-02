@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java;
 
+import org.nasdanika.models.coverage.Coverage;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +21,7 @@ package org.nasdanika.models.java;
  * @model
  * @generated
  */
-public interface NamedElement extends Source {
+public interface NamedElement<C extends Coverage> extends Source<C> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

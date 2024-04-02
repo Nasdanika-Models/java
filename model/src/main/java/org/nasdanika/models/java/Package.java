@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java;
 
+import org.nasdanika.models.coverage.PackageCoverage;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Package</b></em>'.
@@ -18,7 +20,7 @@ package org.nasdanika.models.java;
  * @model
  * @generated
  */
-public interface Package extends Source {
+public interface Package extends Source<PackageCoverage> {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

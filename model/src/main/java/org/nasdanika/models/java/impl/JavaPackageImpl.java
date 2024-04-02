@@ -10,13 +10,15 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.models.coverage.CoveragePackage;
-import org.nasdanika.models.java.Annotation;
-import org.nasdanika.models.java.AnnotationMember;
+import org.nasdanika.models.java.AnnotationInterface;
+import org.nasdanika.models.java.AnnotationInterfaceMember;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -66,20 +68,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass digestPredicateEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass annotationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass annotationMemberEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,6 +214,20 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass annotationInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationInterfaceMemberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass compilationUnitEClass = null;
 
 	/**
@@ -304,26 +306,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(JavaPackage.eNS_URI, theJavaPackage);
 		return theJavaPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getAnnotation() {
-		return annotationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getAnnotationMember() {
-		return annotationMemberEClass;
 	}
 
 	/**
@@ -702,6 +684,26 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAnnotationInterface() {
+		return annotationInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAnnotationInterfaceMember() {
+		return annotationInterfaceMemberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCompilationUnit() {
 		return compilationUnitEClass;
 	}
@@ -724,6 +726,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EAttribute getCompilationUnit_PackageName() {
 		return (EAttribute)compilationUnitEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompilationUnit_Imports() {
+		return (EAttribute)compilationUnitEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -831,6 +843,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		compilationUnitEClass = createEClass(COMPILATION_UNIT);
 		createEReference(compilationUnitEClass, COMPILATION_UNIT__TYPES);
 		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__PACKAGE_NAME);
+		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__IMPORTS);
 		createEOperation(compilationUnitEClass, COMPILATION_UNIT___MERGE__STRING_BIFUNCTION);
 		createEOperation(compilationUnitEClass, COMPILATION_UNIT___MERGE__BIFUNCTION);
 
@@ -854,9 +867,9 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		typeEClass = createEClass(TYPE);
 		createEReference(typeEClass, TYPE__MEMBERS);
 
-		annotationEClass = createEClass(ANNOTATION);
+		annotationInterfaceEClass = createEClass(ANNOTATION_INTERFACE);
 
-		annotationMemberEClass = createEClass(ANNOTATION_MEMBER);
+		annotationInterfaceMemberEClass = createEClass(ANNOTATION_INTERFACE_MEMBER);
 
 		classEClass = createEClass(CLASS);
 
@@ -916,38 +929,93 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 		CoveragePackage theCoveragePackage = (CoveragePackage)EPackage.Registry.INSTANCE.getEPackage(CoveragePackage.eNS_URI);
+		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 
 		// Create type parameters
+		ETypeParameter sourceEClass_C = addETypeParameter(sourceEClass, "C");
+		ETypeParameter namedElementEClass_C = addETypeParameter(namedElementEClass, "C");
+		ETypeParameter memberEClass_C = addETypeParameter(memberEClass, "C");
+		ETypeParameter typedElementEClass_C = addETypeParameter(typedElementEClass, "C");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(theCoveragePackage.getCoverage());
+		sourceEClass_C.getEBounds().add(g1);
+		g1 = createEGenericType(theCoveragePackage.getCoverage());
+		namedElementEClass_C.getEBounds().add(g1);
+		g1 = createEGenericType(theCoveragePackage.getCoverage());
+		memberEClass_C.getEBounds().add(g1);
+		g1 = createEGenericType(theCoveragePackage.getCoverage());
+		typedElementEClass_C.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		sourceEClass.getESuperTypes().add(theNcorePackage.getMarked());
-		compilationUnitEClass.getESuperTypes().add(this.getSource());
-		namedElementEClass.getESuperTypes().add(this.getSource());
-		memberEClass.getESuperTypes().add(this.getNamedElement());
-		typedElementEClass.getESuperTypes().add(this.getNamedElement());
-		typeEClass.getESuperTypes().add(this.getMember());
-		annotationEClass.getESuperTypes().add(this.getType());
-		annotationMemberEClass.getESuperTypes().add(this.getMember());
+		g1 = createEGenericType(this.getSource());
+		EGenericType g2 = createEGenericType(theCoveragePackage.getSourceFileCoverage());
+		g1.getETypeArguments().add(g2);
+		compilationUnitEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSource());
+		g2 = createEGenericType(namedElementEClass_C);
+		g1.getETypeArguments().add(g2);
+		namedElementEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getNamedElement());
+		g2 = createEGenericType(memberEClass_C);
+		g1.getETypeArguments().add(g2);
+		memberEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getNamedElement());
+		g2 = createEGenericType(typedElementEClass_C);
+		g1.getETypeArguments().add(g2);
+		typedElementEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getMember());
+		g2 = createEGenericType(theCoveragePackage.getClassCoverage());
+		g1.getETypeArguments().add(g2);
+		typeEClass.getEGenericSuperTypes().add(g1);
+		annotationInterfaceEClass.getESuperTypes().add(this.getType());
+		g1 = createEGenericType(this.getMember());
+		g2 = createEGenericType(theCoveragePackage.getCoverage());
+		g1.getETypeArguments().add(g2);
+		annotationInterfaceMemberEClass.getEGenericSuperTypes().add(g1);
 		classEClass.getESuperTypes().add(this.getType());
 		constructorEClass.getESuperTypes().add(this.getOperation());
 		enumEClass.getESuperTypes().add(this.getType());
-		enumConstantEClass.getESuperTypes().add(this.getMember());
-		fieldEClass.getESuperTypes().add(this.getMember());
-		fieldEClass.getESuperTypes().add(this.getTypedElement());
+		g1 = createEGenericType(this.getMember());
+		g2 = createEGenericType(theCoveragePackage.getCoverage());
+		g1.getETypeArguments().add(g2);
+		enumConstantEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getMember());
+		g2 = createEGenericType(theCoveragePackage.getCoverage());
+		g1.getETypeArguments().add(g2);
+		fieldEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getTypedElement());
+		g2 = createEGenericType(theCoveragePackage.getCoverage());
+		g1.getETypeArguments().add(g2);
+		fieldEClass.getEGenericSuperTypes().add(g1);
 		interfaceEClass.getESuperTypes().add(this.getType());
-		moduleEClass.getESuperTypes().add(this.getSource());
+		g1 = createEGenericType(this.getSource());
+		g2 = createEGenericType(theCoveragePackage.getModuleCoverage());
+		g1.getETypeArguments().add(g2);
+		moduleEClass.getEGenericSuperTypes().add(g1);
 		methodEClass.getESuperTypes().add(this.getOperation());
-		codeEClass.getESuperTypes().add(this.getMember());
+		g1 = createEGenericType(this.getMember());
+		g2 = createEGenericType(theCoveragePackage.getMethodCoverage());
+		g1.getETypeArguments().add(g2);
+		codeEClass.getEGenericSuperTypes().add(g1);
 		initializerEClass.getESuperTypes().add(this.getCode());
 		classInitializerEClass.getESuperTypes().add(this.getCode());
-		parameterEClass.getESuperTypes().add(this.getTypedElement());
-		operationEClass.getESuperTypes().add(this.getCode());
-		operationEClass.getESuperTypes().add(this.getTypedElement());
-		packageEClass.getESuperTypes().add(this.getSource());
+		g1 = createEGenericType(this.getTypedElement());
+		g2 = createEGenericType(theCoveragePackage.getCoverage());
+		g1.getETypeArguments().add(g2);
+		parameterEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getCode());
+		operationEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getTypedElement());
+		g2 = createEGenericType(theCoveragePackage.getMethodCoverage());
+		g1.getETypeArguments().add(g2);
+		operationEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSource());
+		g2 = createEGenericType(theCoveragePackage.getPackageCoverage());
+		g1.getETypeArguments().add(g2);
+		packageEClass.getEGenericSuperTypes().add(g1);
 		recordEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes, features, and operations; add parameters
@@ -959,8 +1027,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSource_Source(), ecorePackage.getEString(), "source", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSource_Children(), this.getSource(), null, "children", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSource_Coverage(), theCoveragePackage.getCoverage(), null, "coverage", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getSource());
+		g2 = createEGenericType(theCoveragePackage.getCoverage());
+		g1.getETypeArguments().add(g2);
+		initEReference(getSource_Children(), g1, null, "children", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(sourceEClass_C);
+		initEReference(getSource_Coverage(), g1, null, "coverage", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getSource__Update__Function(), ecorePackage.getEString(), "update", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getImportManager(), "importManager", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -971,6 +1043,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompilationUnit_Types(), this.getType(), null, "types", null, 0, -1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompilationUnit_PackageName(), ecorePackage.getEString(), "packageName", null, 0, 1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompilationUnit_Imports(), ecorePackage.getEString(), "imports", null, 0, -1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getCompilationUnit__Merge__String_BiFunction(), null, "merge", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -997,11 +1070,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getTypedElement_Type(), this.getGenericType(), null, "type", null, 0, 1, TypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getType_Members(), this.getMember(), null, "members", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getMember());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		EGenericType g3 = createEGenericType(theCoveragePackage.getCoverage());
+		g2.setEUpperBound(g3);
+		initEReference(getType_Members(), g1, null, "members", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(annotationInterfaceEClass, AnnotationInterface.class, "AnnotationInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(annotationMemberEClass, AnnotationMember.class, "AnnotationMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(annotationInterfaceMemberEClass, AnnotationInterfaceMember.class, "AnnotationInterfaceMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(classEClass, org.nasdanika.models.java.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

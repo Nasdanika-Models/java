@@ -3,6 +3,7 @@
 package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.JavaPackage;
 
@@ -13,7 +14,7 @@ import org.nasdanika.models.java.JavaPackage;
  *
  * @generated
  */
-public class EnumConstantImpl extends MemberImpl implements EnumConstant {
+public class EnumConstantImpl extends MemberImpl<Coverage> implements EnumConstant {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

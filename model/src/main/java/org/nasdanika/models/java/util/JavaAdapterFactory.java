@@ -9,8 +9,9 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.models.java.Annotation;
-import org.nasdanika.models.java.AnnotationMember;
+import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.AnnotationInterface;
+import org.nasdanika.models.java.AnnotationInterfaceMember;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -101,7 +102,7 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createDigestPredicateAdapter();
 			}
 			@Override
-			public Adapter caseSource(Source object) {
+			public <C extends Coverage> Adapter caseSource(Source<C> object) {
 				return createSourceAdapter();
 			}
 			@Override
@@ -113,11 +114,11 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createCommentAdapter();
 			}
 			@Override
-			public Adapter caseNamedElement(NamedElement object) {
+			public <C extends Coverage> Adapter caseNamedElement(NamedElement<C> object) {
 				return createNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseMember(Member object) {
+			public <C extends Coverage> Adapter caseMember(Member<C> object) {
 				return createMemberAdapter();
 			}
 			@Override
@@ -125,7 +126,7 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createGenericTypeAdapter();
 			}
 			@Override
-			public Adapter caseTypedElement(TypedElement object) {
+			public <C extends Coverage> Adapter caseTypedElement(TypedElement<C> object) {
 				return createTypedElementAdapter();
 			}
 			@Override
@@ -133,12 +134,12 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createTypeAdapter();
 			}
 			@Override
-			public Adapter caseAnnotation(Annotation object) {
-				return createAnnotationAdapter();
+			public Adapter caseAnnotationInterface(AnnotationInterface object) {
+				return createAnnotationInterfaceAdapter();
 			}
 			@Override
-			public Adapter caseAnnotationMember(AnnotationMember object) {
-				return createAnnotationMemberAdapter();
+			public Adapter caseAnnotationInterfaceMember(AnnotationInterfaceMember object) {
+				return createAnnotationInterfaceMemberAdapter();
 			}
 			@Override
 			public Adapter caseClass(org.nasdanika.models.java.Class object) {
@@ -267,34 +268,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDigestPredicateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Annotation <em>Annotation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.models.java.Annotation
-	 * @generated
-	 */
-	public Adapter createAnnotationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.AnnotationMember <em>Annotation Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.models.java.AnnotationMember
-	 * @generated
-	 */
-	public Adapter createAnnotationMemberAdapter() {
 		return null;
 	}
 
@@ -575,6 +548,34 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.AnnotationInterface <em>Annotation Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.AnnotationInterface
+	 * @generated
+	 */
+	public Adapter createAnnotationInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.AnnotationInterfaceMember <em>Annotation Interface Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.AnnotationInterfaceMember
+	 * @generated
+	 */
+	public Adapter createAnnotationInterfaceMemberAdapter() {
 		return null;
 	}
 

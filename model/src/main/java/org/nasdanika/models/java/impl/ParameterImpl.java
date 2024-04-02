@@ -4,6 +4,7 @@ package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Parameter;
 
@@ -14,7 +15,7 @@ import org.nasdanika.models.java.Parameter;
  *
  * @generated
  */
-public class ParameterImpl extends TypedElementImpl implements Parameter {
+public class ParameterImpl extends TypedElementImpl<Coverage> implements Parameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

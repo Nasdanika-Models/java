@@ -3,6 +3,7 @@
 package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.models.coverage.PackageCoverage;
 import org.nasdanika.models.java.JavaPackage;
 
 /**
@@ -18,7 +19,7 @@ import org.nasdanika.models.java.JavaPackage;
  *
  * @generated
  */
-public class PackageImpl extends SourceImpl implements org.nasdanika.models.java.Package {
+public class PackageImpl extends SourceImpl<PackageCoverage> implements org.nasdanika.models.java.Package {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,6 +47,17 @@ public class PackageImpl extends SourceImpl implements org.nasdanika.models.java
 	@Override
 	protected EClass eStaticClass() {
 		return JavaPackage.Literals.PACKAGE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setCoverage(PackageCoverage newCoverage) {
+		super.setCoverage(newCoverage);
 	}
 
 	/**

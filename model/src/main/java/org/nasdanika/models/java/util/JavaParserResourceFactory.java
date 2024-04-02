@@ -17,19 +17,19 @@ public class JavaParserResourceFactory implements Resource.Factory {
 	public static final LanguageLevel DEFAULT_LANGUAGE_LEVEL = LanguageLevel.JAVA_17;
 	
 	private ParserConfiguration parserConfiguration;
-	private Function<Source, Coverage> coverageProvider;
+	private Function<Source<?>, Coverage> coverageProvider;
 	
 	public JavaParserResourceFactory() {
 		this(DEFAULT_LANGUAGE_LEVEL, null);
 	}
 
-	public JavaParserResourceFactory(Function<Source,Coverage> coverageProvider) {
+	public JavaParserResourceFactory(Function<Source<?>,Coverage> coverageProvider) {
 		parserConfiguration = new ParserConfiguration();
 		parserConfiguration.setLanguageLevel(DEFAULT_LANGUAGE_LEVEL);
 		this.coverageProvider = coverageProvider;
 	}
 	
-	public JavaParserResourceFactory(LanguageLevel languageLevel, Function<Source,Coverage> coverageProvider) {
+	public JavaParserResourceFactory(LanguageLevel languageLevel, Function<Source<?>,Coverage> coverageProvider) {
 		parserConfiguration = new ParserConfiguration();
 		parserConfiguration.setLanguageLevel(languageLevel);
 		this.coverageProvider = coverageProvider;

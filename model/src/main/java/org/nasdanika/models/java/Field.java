@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java;
 
+import org.nasdanika.models.coverage.Coverage;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +15,5 @@ package org.nasdanika.models.java;
  * @model
  * @generated
  */
-public interface Field extends Member, TypedElement {
+public interface Field extends Member<Coverage>, TypedElement<Coverage> {
 } // Field

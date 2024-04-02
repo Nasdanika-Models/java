@@ -3,6 +3,7 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.ecore.EFactory;
+import org.nasdanika.models.coverage.Coverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,24 +21,6 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	JavaFactory eINSTANCE = org.nasdanika.models.java.impl.JavaFactoryImpl.init();
-
-	/**
-	 * Returns a new object of class '<em>Annotation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Annotation</em>'.
-	 * @generated
-	 */
-	Annotation createAnnotation();
-
-	/**
-	 * Returns a new object of class '<em>Annotation Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Annotation Member</em>'.
-	 * @generated
-	 */
-	AnnotationMember createAnnotationMember();
 
 	/**
 	 * Returns a new object of class '<em>Class</em>'.
@@ -154,7 +137,7 @@ public interface JavaFactory extends EFactory {
 	 * @return a new object of class '<em>Source</em>'.
 	 * @generated
 	 */
-	Source createSource();
+	<C extends Coverage> Source<C> createSource();
 
 	/**
 	 * Returns a new object of class '<em>Record</em>'.
@@ -190,7 +173,7 @@ public interface JavaFactory extends EFactory {
 	 * @return a new object of class '<em>Named Element</em>'.
 	 * @generated
 	 */
-	NamedElement createNamedElement();
+	<C extends Coverage> NamedElement<C> createNamedElement();
 
 	/**
 	 * Returns a new object of class '<em>Generic Type</em>'.
@@ -208,7 +191,25 @@ public interface JavaFactory extends EFactory {
 	 * @return a new object of class '<em>Typed Element</em>'.
 	 * @generated
 	 */
-	TypedElement createTypedElement();
+	<C extends Coverage> TypedElement<C> createTypedElement();
+
+	/**
+	 * Returns a new object of class '<em>Annotation Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Annotation Interface</em>'.
+	 * @generated
+	 */
+	AnnotationInterface createAnnotationInterface();
+
+	/**
+	 * Returns a new object of class '<em>Annotation Interface Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Annotation Interface Member</em>'.
+	 * @generated
+	 */
+	AnnotationInterfaceMember createAnnotationInterfaceMember();
 
 	/**
 	 * Returns the package supported by this factory.

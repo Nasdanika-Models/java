@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java;
 
+import org.nasdanika.models.coverage.Coverage;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +15,5 @@ package org.nasdanika.models.java;
  * @model
  * @generated
  */
-public interface Parameter extends TypedElement {
+public interface Parameter extends TypedElement<Coverage> {
 } // Parameter

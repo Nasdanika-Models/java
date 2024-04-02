@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.coverage.SourceFileCoverage;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Source;
@@ -26,11 +27,12 @@ import org.nasdanika.models.java.Type;
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.CompilationUnitImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.CompilationUnitImpl#getPackageName <em>Package Name</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.CompilationUnitImpl#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
+public class CompilationUnitImpl extends SourceImpl<SourceFileCoverage> implements CompilationUnit {
 	/**
 	 * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,6 +65,17 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setCoverage(SourceFileCoverage newCoverage) {
+		super.setCoverage(newCoverage);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -89,6 +102,17 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 	@Override
 	public void setPackageName(String newPackageName) {
 		eDynamicSet(JavaPackage.COMPILATION_UNIT__PACKAGE_NAME, JavaPackage.Literals.COMPILATION_UNIT__PACKAGE_NAME, newPackageName);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<String> getImports() {
+		return (EList<String>)eDynamicGet(JavaPackage.COMPILATION_UNIT__IMPORTS, JavaPackage.Literals.COMPILATION_UNIT__IMPORTS, true, true);
 	}
 
 /**
@@ -184,6 +208,8 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 				return getTypes();
 			case JavaPackage.COMPILATION_UNIT__PACKAGE_NAME:
 				return getPackageName();
+			case JavaPackage.COMPILATION_UNIT__IMPORTS:
+				return getImports();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +230,10 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 			case JavaPackage.COMPILATION_UNIT__PACKAGE_NAME:
 				setPackageName((String)newValue);
 				return;
+			case JavaPackage.COMPILATION_UNIT__IMPORTS:
+				getImports().clear();
+				getImports().addAll((Collection<? extends String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -222,6 +252,9 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 			case JavaPackage.COMPILATION_UNIT__PACKAGE_NAME:
 				setPackageName(PACKAGE_NAME_EDEFAULT);
 				return;
+			case JavaPackage.COMPILATION_UNIT__IMPORTS:
+				getImports().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -238,6 +271,8 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 				return !getTypes().isEmpty();
 			case JavaPackage.COMPILATION_UNIT__PACKAGE_NAME:
 				return PACKAGE_NAME_EDEFAULT == null ? getPackageName() != null : !PACKAGE_NAME_EDEFAULT.equals(getPackageName());
+			case JavaPackage.COMPILATION_UNIT__IMPORTS:
+				return !getImports().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

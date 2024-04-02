@@ -8,8 +8,9 @@ import java.util.function.Predicate;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.nasdanika.models.java.Annotation;
-import org.nasdanika.models.java.AnnotationMember;
+import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.AnnotationInterface;
+import org.nasdanika.models.java.AnnotationInterfaceMember;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -107,7 +108,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case JavaPackage.SOURCE: {
-				Source source = (Source)theEObject;
+				Source<?> source = (Source<?>)theEObject;
 				T result = caseSource(source);
 				if (result == null) result = caseMarked(source);
 				if (result == null) result = caseIMarked(source);
@@ -130,7 +131,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case JavaPackage.NAMED_ELEMENT: {
-				NamedElement namedElement = (NamedElement)theEObject;
+				NamedElement<?> namedElement = (NamedElement<?>)theEObject;
 				T result = caseNamedElement(namedElement);
 				if (result == null) result = caseSource(namedElement);
 				if (result == null) result = caseMarked(namedElement);
@@ -139,7 +140,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case JavaPackage.MEMBER: {
-				Member member = (Member)theEObject;
+				Member<?> member = (Member<?>)theEObject;
 				T result = caseMember(member);
 				if (result == null) result = caseNamedElement(member);
 				if (result == null) result = caseSource(member);
@@ -155,7 +156,7 @@ public class JavaSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case JavaPackage.TYPED_ELEMENT: {
-				TypedElement typedElement = (TypedElement)theEObject;
+				TypedElement<?> typedElement = (TypedElement<?>)theEObject;
 				T result = caseTypedElement(typedElement);
 				if (result == null) result = caseNamedElement(typedElement);
 				if (result == null) result = caseSource(typedElement);
@@ -175,26 +176,26 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.ANNOTATION: {
-				Annotation annotation = (Annotation)theEObject;
-				T result = caseAnnotation(annotation);
-				if (result == null) result = caseType(annotation);
-				if (result == null) result = caseMember(annotation);
-				if (result == null) result = caseNamedElement(annotation);
-				if (result == null) result = caseSource(annotation);
-				if (result == null) result = caseMarked(annotation);
-				if (result == null) result = caseIMarked(annotation);
+			case JavaPackage.ANNOTATION_INTERFACE: {
+				AnnotationInterface annotationInterface = (AnnotationInterface)theEObject;
+				T result = caseAnnotationInterface(annotationInterface);
+				if (result == null) result = caseType(annotationInterface);
+				if (result == null) result = caseMember(annotationInterface);
+				if (result == null) result = caseNamedElement(annotationInterface);
+				if (result == null) result = caseSource(annotationInterface);
+				if (result == null) result = caseMarked(annotationInterface);
+				if (result == null) result = caseIMarked(annotationInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.ANNOTATION_MEMBER: {
-				AnnotationMember annotationMember = (AnnotationMember)theEObject;
-				T result = caseAnnotationMember(annotationMember);
-				if (result == null) result = caseMember(annotationMember);
-				if (result == null) result = caseNamedElement(annotationMember);
-				if (result == null) result = caseSource(annotationMember);
-				if (result == null) result = caseMarked(annotationMember);
-				if (result == null) result = caseIMarked(annotationMember);
+			case JavaPackage.ANNOTATION_INTERFACE_MEMBER: {
+				AnnotationInterfaceMember annotationInterfaceMember = (AnnotationInterfaceMember)theEObject;
+				T result = caseAnnotationInterfaceMember(annotationInterfaceMember);
+				if (result == null) result = caseMember(annotationInterfaceMember);
+				if (result == null) result = caseNamedElement(annotationInterfaceMember);
+				if (result == null) result = caseSource(annotationInterfaceMember);
+				if (result == null) result = caseMarked(annotationInterfaceMember);
+				if (result == null) result = caseIMarked(annotationInterfaceMember);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -424,36 +425,6 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAnnotation(Annotation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Annotation Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Annotation Member</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAnnotationMember(AnnotationMember object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -584,7 +555,7 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSource(Source object) {
+	public <C extends Coverage> T caseSource(Source<C> object) {
 		return null;
 	}
 
@@ -614,7 +585,7 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMember(Member object) {
+	public <C extends Coverage> T caseMember(Member<C> object) {
 		return null;
 	}
 
@@ -644,7 +615,7 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTypedElement(TypedElement object) {
+	public <C extends Coverage> T caseTypedElement(TypedElement<C> object) {
 		return null;
 	}
 
@@ -754,6 +725,36 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotationInterface(AnnotationInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation Interface Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation Interface Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotationInterfaceMember(AnnotationInterfaceMember object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Compilation Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -794,7 +795,7 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNamedElement(NamedElement object) {
+	public <C extends Coverage> T caseNamedElement(NamedElement<C> object) {
 		return null;
 	}
 

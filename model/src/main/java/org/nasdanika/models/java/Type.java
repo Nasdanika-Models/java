@@ -3,6 +3,8 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.models.coverage.ClassCoverage;
+import org.nasdanika.models.coverage.Coverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,11 +22,11 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Type extends Member {
+public interface Type extends Member<ClassCoverage> {
 
 	/**
 	 * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.java.Member}.
+	 * The list contents are of type {@link org.nasdanika.models.java.Member}<code>&lt;? extends org.nasdanika.models.coverage.Coverage&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Members</em>' containment reference list.
@@ -32,5 +34,5 @@ public interface Type extends Member {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Member> getMembers();
+	EList<Member<? extends Coverage>> getMembers();
 } // Type

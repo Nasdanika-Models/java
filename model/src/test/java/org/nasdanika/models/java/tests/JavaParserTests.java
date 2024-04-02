@@ -5,22 +5,22 @@ import static com.github.javaparser.Providers.provider;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.function.Function;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.jupiter.api.Test;
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.coverage.ModuleCoverage;
-import org.nasdanika.models.java.Source;
+import org.nasdanika.models.coverage.SourceFileCoverage;
 import org.nasdanika.models.java.util.JavaParserResourceFactory;
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.signature.SignatureReader;
-import org.objectweb.asm.signature.SignatureVisitor;
+import org.nasdanika.models.java.util.ModuleCoverageProvider;
+import org.nasdanika.ncore.Tree;
+import org.nasdanika.ncore.TreeItem;
+import org.nasdanika.ncore.util.DirectoryContentFileURIHandler;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
@@ -70,6 +70,40 @@ public class JavaParserTests {
 	}
 	
 	@Test
+	public void testLoadSourceDirectory() throws IOException {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("java", new JavaParserResourceFactory());		
+
+		// For loading directory contents
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());		
+		URIHandler fileDirectoryURIHandler = new DirectoryContentFileURIHandler();
+		resourceSet.getURIConverter().getURIHandlers().add(0, fileDirectoryURIHandler);
+		
+		
+		String javaSourcesPath = new File("src/main/java").getCanonicalPath();
+		Resource javaSourcesResource = resourceSet.getResource(URI.createFileURI(javaSourcesPath), true);
+		for (EObject root: javaSourcesResource.getContents()) {
+			visit(root);
+		}		
+	}
+	
+	private void visit(EObject eObject) {
+		System.out.println(eObject);
+		if (eObject instanceof TreeItem) {
+			System.out.println(((TreeItem) eObject).getName());
+		}
+		if (eObject instanceof Tree) {
+			for (TreeItem treeItem: ((Tree) eObject).getTreeItems()) {
+				URI itemURI = URI.createURI(treeItem.getName()).resolve(eObject.eResource().getURI().appendSegment(""));
+				Resource itemResource = eObject.eResource().getResourceSet().getResource(itemURI, true);
+				for (EObject root: itemResource.getContents()) {
+					visit(root);
+				}		
+			}
+		}		
+	}
+	
+	@Test
 	public void testPrivateInterfaceMethod() {
 		ParserConfiguration parserConfiguration = new ParserConfiguration();
 		parserConfiguration.setLanguageLevel(LanguageLevel.JAVA_17);
@@ -99,23 +133,20 @@ public class JavaParserTests {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		ModuleCoverage moduleCoverage = ModuleCoverage.loadJacoco("org.nasdanika.graph", jacocoExec, new File(projectDir, "target/classes"));
 		
-		// Don't really need it
+		// Don't really need to save coverage
 		Resource coverageResource = resourceSet.createResource(URI.createURI("target/coverage.xmi")); 
 		coverageResource.getContents().add(moduleCoverage);
 		coverageResource.save(null); // For manual inspection
 		
-		Function<Source, Coverage> coverageProvider = source -> {
-			System.out.println(source);
-			return null;
-		};
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("java", new JavaParserResourceFactory(new ModuleCoverageProvider(moduleCoverage)));		
 		
-		
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("java", new JavaParserResourceFactory(coverageProvider));		
-		
-		String javaPackagePath = new File("src/main/java/org/nasdanika/models/java/JavaPackage.java").getCanonicalPath();
+		String javaPackagePath = new File(projectDir, "src/main/java/org/nasdanika/graph/processor/ProcessorFactory.java").getCanonicalPath();
 		Resource javaPackageResource = resourceSet.getResource(URI.createFileURI(javaPackagePath), true);
 		for (EObject root: javaPackageResource.getContents()) {
 			System.out.println(root);
+			org.nasdanika.models.java.CompilationUnit cu = (org.nasdanika.models.java.CompilationUnit) root;
+			SourceFileCoverage coverage = cu.getCoverage();
+			System.out.println(coverage.getLines().size());
 		}		
 	}	
 		

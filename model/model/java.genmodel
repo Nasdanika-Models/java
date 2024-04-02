@@ -13,6 +13,7 @@
     <genClasses image="false" ecoreClass="java.ecore#//Merger"/>
     <genClasses image="false" ecoreClass="java.ecore#//DigestPredicate"/>
     <genClasses ecoreClass="java.ecore#//Source">
+      <genTypeParameters ecoreTypeParameter="java.ecore#//Source/C"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Source/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/children"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//Source/coverage"/>
@@ -26,6 +27,7 @@
     <genClasses ecoreClass="java.ecore#//CompilationUnit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//CompilationUnit/types"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//CompilationUnit/packageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//CompilationUnit/imports"/>
       <genOperations ecoreOperation="java.ecore#//CompilationUnit/merge">
         <genParameters ecoreParameter="java.ecore#//CompilationUnit/merge/source"/>
         <genParameters ecoreParameter="java.ecore#//CompilationUnit/merge/merger"/>
@@ -38,9 +40,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Comment/comment"/>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//NamedElement">
+      <genTypeParameters ecoreTypeParameter="java.ecore#//NamedElement/C"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//NamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//Member">
+      <genTypeParameters ecoreTypeParameter="java.ecore#//Member/C"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/comment"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Member/fullyQualifiedName"/>
     </genClasses>
@@ -49,13 +53,14 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//GenericType/fullyQualifiedName"/>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//TypedElement">
+      <genTypeParameters ecoreTypeParameter="java.ecore#//TypedElement/C"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//TypedElement/type"/>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//Type">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Type/members"/>
     </genClasses>
-    <genClasses ecoreClass="java.ecore#//Annotation"/>
-    <genClasses ecoreClass="java.ecore#//AnnotationMember"/>
+    <genClasses ecoreClass="java.ecore#//AnnotationInterface"/>
+    <genClasses ecoreClass="java.ecore#//AnnotationInterfaceMember"/>
     <genClasses ecoreClass="java.ecore#//Class"/>
     <genClasses ecoreClass="java.ecore#//Constructor"/>
     <genClasses ecoreClass="java.ecore#//Enum"/>

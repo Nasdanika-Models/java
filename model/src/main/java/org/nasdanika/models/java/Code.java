@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java;
 
+import org.nasdanika.models.coverage.MethodCoverage;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +15,5 @@ package org.nasdanika.models.java;
  * @model abstract="true"
  * @generated
  */
-public interface Code extends Member {
+public interface Code extends Member<MethodCoverage> {
 } // Code

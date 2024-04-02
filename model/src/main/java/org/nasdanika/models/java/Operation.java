@@ -3,6 +3,7 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.models.coverage.MethodCoverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Operation extends Code, TypedElement {
+public interface Operation extends Code, TypedElement<MethodCoverage> {
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.

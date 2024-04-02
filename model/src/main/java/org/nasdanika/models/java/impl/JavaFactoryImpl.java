@@ -7,8 +7,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.models.java.Annotation;
-import org.nasdanika.models.java.AnnotationMember;
+import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.AnnotationInterface;
+import org.nasdanika.models.java.AnnotationInterfaceMember;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
@@ -76,8 +77,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.NAMED_ELEMENT: return createNamedElement();
 			case JavaPackage.GENERIC_TYPE: return createGenericType();
 			case JavaPackage.TYPED_ELEMENT: return createTypedElement();
-			case JavaPackage.ANNOTATION: return createAnnotation();
-			case JavaPackage.ANNOTATION_MEMBER: return createAnnotationMember();
+			case JavaPackage.ANNOTATION_INTERFACE: return createAnnotationInterface();
+			case JavaPackage.ANNOTATION_INTERFACE_MEMBER: return createAnnotationInterfaceMember();
 			case JavaPackage.CLASS: return createClass();
 			case JavaPackage.CONSTRUCTOR: return createConstructor();
 			case JavaPackage.ENUM: return createEnum();
@@ -94,28 +95,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Annotation createAnnotation() {
-		AnnotationImpl annotation = new AnnotationImpl();
-		return annotation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AnnotationMember createAnnotationMember() {
-		AnnotationMemberImpl annotationMember = new AnnotationMemberImpl();
-		return annotationMember;
 	}
 
 	/**
@@ -256,8 +235,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
-	public Source createSource() {
-		SourceImpl source = new SourceImpl();
+	public <C extends Coverage> Source<C> createSource() {
+		SourceImpl<C> source = new SourceImpl<C>();
 		return source;
 	}
 
@@ -300,8 +279,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
-	public NamedElement createNamedElement() {
-		NamedElementImpl namedElement = new NamedElementImpl();
+	public <C extends Coverage> NamedElement<C> createNamedElement() {
+		NamedElementImpl<C> namedElement = new NamedElementImpl<C>();
 		return namedElement;
 	}
 
@@ -322,9 +301,31 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
-	public TypedElement createTypedElement() {
-		TypedElementImpl typedElement = new TypedElementImpl();
+	public <C extends Coverage> TypedElement<C> createTypedElement() {
+		TypedElementImpl<C> typedElement = new TypedElementImpl<C>();
 		return typedElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AnnotationInterface createAnnotationInterface() {
+		AnnotationInterfaceImpl annotationInterface = new AnnotationInterfaceImpl();
+		return annotationInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AnnotationInterfaceMember createAnnotationInterfaceMember() {
+		AnnotationInterfaceMemberImpl annotationInterfaceMember = new AnnotationInterfaceMemberImpl();
+		return annotationInterfaceMember;
 	}
 
 	/**

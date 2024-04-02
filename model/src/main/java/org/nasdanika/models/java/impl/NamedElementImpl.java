@@ -4,6 +4,7 @@ package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.NamedElement;
 
@@ -20,7 +21,7 @@ import org.nasdanika.models.java.NamedElement;
  *
  * @generated
  */
-public class NamedElementImpl extends SourceImpl implements NamedElement {
+public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implements NamedElement<C> {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
