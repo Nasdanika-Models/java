@@ -10,8 +10,10 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
+import org.nasdanika.models.java.Call;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -19,6 +21,7 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.FieldAccess;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
@@ -28,8 +31,10 @@ import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Parameter;
+import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
+import org.nasdanika.models.java.TypeParameter;
 import org.nasdanika.models.java.TypedElement;
 import org.nasdanika.persistence.Marked;
 
@@ -122,8 +127,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createMemberAdapter();
 			}
 			@Override
+			public Adapter caseReference(Reference object) {
+				return createReferenceAdapter();
+			}
+			@Override
 			public Adapter caseGenericType(GenericType object) {
 				return createGenericTypeAdapter();
+			}
+			@Override
+			public Adapter caseAnnotation(Annotation object) {
+				return createAnnotationAdapter();
+			}
+			@Override
+			public Adapter caseTypeParameter(TypeParameter object) {
+				return createTypeParameterAdapter();
 			}
 			@Override
 			public <C extends Coverage> Adapter caseTypedElement(TypedElement<C> object) {
@@ -146,6 +163,10 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createClassAdapter();
 			}
 			@Override
+			public Adapter caseInterface(Interface object) {
+				return createInterfaceAdapter();
+			}
+			@Override
 			public Adapter caseConstructor(Constructor object) {
 				return createConstructorAdapter();
 			}
@@ -158,16 +179,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createEnumConstantAdapter();
 			}
 			@Override
+			public Adapter caseFieldAccess(FieldAccess object) {
+				return createFieldAccessAdapter();
+			}
+			@Override
 			public Adapter caseField(Field object) {
 				return createFieldAdapter();
 			}
 			@Override
-			public Adapter caseInterface(Interface object) {
-				return createInterfaceAdapter();
-			}
-			@Override
 			public Adapter caseModule(org.nasdanika.models.java.Module object) {
 				return createModuleAdapter();
+			}
+			@Override
+			public Adapter casePackage(org.nasdanika.models.java.Package object) {
+				return createPackageAdapter();
 			}
 			@Override
 			public Adapter caseMethod(Method object) {
@@ -194,8 +219,8 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createOperationAdapter();
 			}
 			@Override
-			public Adapter casePackage(org.nasdanika.models.java.Package object) {
-				return createPackageAdapter();
+			public Adapter caseCall(Call object) {
+				return createCallAdapter();
 			}
 			@Override
 			public Adapter caseRecord(org.nasdanika.models.java.Record object) {
@@ -328,6 +353,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.FieldAccess <em>Field Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.FieldAccess
+	 * @generated
+	 */
+	public Adapter createFieldAccessAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Field <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -426,6 +465,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Reference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.Reference
+	 * @generated
+	 */
+	public Adapter createReferenceAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.GenericType <em>Generic Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -436,6 +489,34 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGenericTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.Annotation
+	 * @generated
+	 */
+	public Adapter createAnnotationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.TypeParameter <em>Type Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.TypeParameter
+	 * @generated
+	 */
+	public Adapter createTypeParameterAdapter() {
 		return null;
 	}
 
@@ -534,6 +615,20 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Call <em>Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.Call
+	 * @generated
+	 */
+	public Adapter createCallAdapter() {
 		return null;
 	}
 

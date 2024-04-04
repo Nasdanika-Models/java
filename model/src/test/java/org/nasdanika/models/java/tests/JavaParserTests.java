@@ -6,6 +6,7 @@ import static com.github.javaparser.Providers.provider;
 import java.io.File;
 import java.io.IOException;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -14,8 +15,12 @@ import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.jupiter.api.Test;
+import org.nasdanika.models.coverage.ClassCoverage;
+import org.nasdanika.models.coverage.MethodCoverage;
 import org.nasdanika.models.coverage.ModuleCoverage;
 import org.nasdanika.models.coverage.SourceFileCoverage;
+import org.nasdanika.models.java.Code;
+import org.nasdanika.models.java.Type;
 import org.nasdanika.models.java.util.JavaParserResourceFactory;
 import org.nasdanika.models.java.util.ModuleCoverageProvider;
 import org.nasdanika.ncore.Tree;
@@ -28,6 +33,9 @@ import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ParserConfiguration.LanguageLevel;
 import com.github.javaparser.Provider;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.Parameter;
+import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.utils.SourceRoot;
 
 public class JavaParserTests {
@@ -140,14 +148,62 @@ public class JavaParserTests {
 		
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("java", new JavaParserResourceFactory(new ModuleCoverageProvider(moduleCoverage)));		
 		
-		String javaPackagePath = new File(projectDir, "src/main/java/org/nasdanika/graph/processor/ProcessorFactory.java").getCanonicalPath();
-		Resource javaPackageResource = resourceSet.getResource(URI.createFileURI(javaPackagePath), true);
+		String javaPackagePath = new File(projectDir, "src/main/java/org/nasdanika/graph/processor/ProcessorConfigFactory.java").getCanonicalPath();
+		Resource javaPackageResource = resourceSet.getResource(URI.createFileURI(javaPackagePath), true);		
 		for (EObject root: javaPackageResource.getContents()) {
 			System.out.println(root);
 			org.nasdanika.models.java.CompilationUnit cu = (org.nasdanika.models.java.CompilationUnit) root;
 			SourceFileCoverage coverage = cu.getCoverage();
 			System.out.println(coverage.getLines().size());
+			
+			for (Type type: cu.getTypes()) {
+				System.out.println("\t" + type.getFullyQualifiedName());
+				ClassCoverage typeCoverage = type.getCoverage();
+				System.out.println("\t" + typeCoverage.getLines().size());
+			}
 		}		
-	}	
+		
+		TreeIterator<EObject> tit = javaPackageResource.getAllContents();
+		while (tit.hasNext()) {
+			EObject next = tit.next();
+			if (next instanceof Code) {
+				Code code = (Code) next;
+				MethodCoverage coverage = (MethodCoverage) code.getCoverage();
+				if (coverage == null) {
+					System.out.println(code.getName());
+				} else {
+					System.out.println(code.getName() + " -> " + coverage.getName() + " " + coverage.getInstructionCounter().getCovered() + " / " + coverage.getInstructionCounter().getMissed());
+				}
+			}
+		}
+		
+	}
+		
+	@Test
+	public void testPlayground() {
+		ParserConfiguration parserConfiguration = new ParserConfiguration();
+		parserConfiguration.setLanguageLevel(LanguageLevel.JAVA_17);
+		JavaParser parser = new JavaParser(parserConfiguration);
+		ParseResult<CompilationUnit> parseResult = parser.parse(
+			"""
+			package org.nasdanika.test;	
+				
+			public class Element {
+					
+				private void matchPredicate(T t, Object<? extends String> obj, String expr) {
+					
+				}
+						
+			}
+			""");
+		System.out.println(parseResult.getProblems());
+		System.out.println(parseResult.isSuccessful());
+		CompilationUnit cu = parseResult.getResult().get();
+		TypeDeclaration<?> type = cu.getType(0);
+		MethodDeclaration method = (MethodDeclaration) type.getMember(0);
+		Parameter parameter = method.getParameter(0);
+		System.out.println(parameter);
+	}
+	
 		
 }

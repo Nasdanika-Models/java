@@ -3,21 +3,18 @@
 package org.nasdanika.models.java.impl;
 
 import java.util.Collection;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.coverage.ClassCoverage;
 import org.nasdanika.models.coverage.Coverage;
-import org.nasdanika.models.java.CompilationUnit;
+import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
 import org.nasdanika.models.java.Type;
+import org.nasdanika.models.java.TypeParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +25,9 @@ import org.nasdanika.models.java.Type;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getSupertypes <em>Supertypes</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getTypeParameters <em>Type Parameters</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getPermits <em>Permits</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,11 +68,50 @@ public abstract class TypeImpl extends MemberImpl<ClassCoverage> implements Type
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<GenericType> getSupertypes() {
+		return (EList<GenericType>)eDynamicGet(JavaPackage.TYPE__SUPERTYPES, JavaPackage.Literals.TYPE__SUPERTYPES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<GenericType> getPermits() {
+		return (EList<GenericType>)eDynamicGet(JavaPackage.TYPE__PERMITS, JavaPackage.Literals.TYPE__PERMITS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<TypeParameter> getTypeParameters() {
+		return (EList<TypeParameter>)eDynamicGet(JavaPackage.TYPE__TYPE_PARAMETERS, JavaPackage.Literals.TYPE__TYPE_PARAMETERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.TYPE__MEMBERS:
 				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
+			case JavaPackage.TYPE__SUPERTYPES:
+				return ((InternalEList<?>)getSupertypes()).basicRemove(otherEnd, msgs);
+			case JavaPackage.TYPE__TYPE_PARAMETERS:
+				return ((InternalEList<?>)getTypeParameters()).basicRemove(otherEnd, msgs);
+			case JavaPackage.TYPE__PERMITS:
+				return ((InternalEList<?>)getPermits()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -87,6 +126,12 @@ public abstract class TypeImpl extends MemberImpl<ClassCoverage> implements Type
 		switch (featureID) {
 			case JavaPackage.TYPE__MEMBERS:
 				return getMembers();
+			case JavaPackage.TYPE__SUPERTYPES:
+				return getSupertypes();
+			case JavaPackage.TYPE__TYPE_PARAMETERS:
+				return getTypeParameters();
+			case JavaPackage.TYPE__PERMITS:
+				return getPermits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -104,6 +149,18 @@ public abstract class TypeImpl extends MemberImpl<ClassCoverage> implements Type
 				getMembers().clear();
 				getMembers().addAll((Collection<? extends Member<? extends Coverage>>)newValue);
 				return;
+			case JavaPackage.TYPE__SUPERTYPES:
+				getSupertypes().clear();
+				getSupertypes().addAll((Collection<? extends GenericType>)newValue);
+				return;
+			case JavaPackage.TYPE__TYPE_PARAMETERS:
+				getTypeParameters().clear();
+				getTypeParameters().addAll((Collection<? extends TypeParameter>)newValue);
+				return;
+			case JavaPackage.TYPE__PERMITS:
+				getPermits().clear();
+				getPermits().addAll((Collection<? extends GenericType>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -119,6 +176,15 @@ public abstract class TypeImpl extends MemberImpl<ClassCoverage> implements Type
 			case JavaPackage.TYPE__MEMBERS:
 				getMembers().clear();
 				return;
+			case JavaPackage.TYPE__SUPERTYPES:
+				getSupertypes().clear();
+				return;
+			case JavaPackage.TYPE__TYPE_PARAMETERS:
+				getTypeParameters().clear();
+				return;
+			case JavaPackage.TYPE__PERMITS:
+				getPermits().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -133,37 +199,14 @@ public abstract class TypeImpl extends MemberImpl<ClassCoverage> implements Type
 		switch (featureID) {
 			case JavaPackage.TYPE__MEMBERS:
 				return !getMembers().isEmpty();
+			case JavaPackage.TYPE__SUPERTYPES:
+				return !getSupertypes().isEmpty();
+			case JavaPackage.TYPE__TYPE_PARAMETERS:
+				return !getTypeParameters().isEmpty();
+			case JavaPackage.TYPE__PERMITS:
+				return !getPermits().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public String getFullyQualifiedName() {
-		EObject c = eContainer();
-		if (c == null || c instanceof CompilationUnit || c instanceof Type) {
-			return super.getFullyQualifiedName();
-		}
-		// Anonymous and nested types - some semblance of a qualified name, not exact.
-		for (EObject ancestor = c; ancestor != null; ancestor = ancestor.eContainer()) {
-			if (ancestor instanceof Type) {
-				AtomicInteger counter = new AtomicInteger();
-				TreeIterator<EObject> cit = ancestor.eAllContents();
-				while (cit.hasNext()) {
-					EObject next = cit.next();
-					if (next instanceof Type) {
-						if (next == this) {
-							return ((Type) ancestor).getFullyQualifiedName() + "$" + counter; 
-						}
-						if (next.eContainer() != ancestor) {
-							counter.incrementAndGet(); // Indirectly contained types, e.g. in methods
-						}
-						cit.prune();
-					}
-				}
-			}
-		}
-		
-		return getName();
 	}
 
 } //TypeImpl

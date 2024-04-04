@@ -59,6 +59,15 @@ public interface JavaFactory extends EFactory {
 	EnumConstant createEnumConstant();
 
 	/**
+	 * Returns a new object of class '<em>Field Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Field Access</em>'.
+	 * @generated
+	 */
+	FieldAccess createFieldAccess();
+
+	/**
 	 * Returns a new object of class '<em>Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,6 +104,15 @@ public interface JavaFactory extends EFactory {
 	Method createMethod();
 
 	/**
+	 * Returns a new object of class '<em>Code</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Code</em>'.
+	 * @generated
+	 */
+	Code createCode();
+
+	/**
 	 * Returns a new object of class '<em>Initializer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,6 +138,15 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	Parameter createParameter();
+
+	/**
+	 * Returns a new object of class '<em>Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call</em>'.
+	 * @generated
+	 */
+	Call createCall();
 
 	/**
 	 * Returns a new object of class '<em>Package</em>'.
@@ -176,6 +203,15 @@ public interface JavaFactory extends EFactory {
 	<C extends Coverage> NamedElement<C> createNamedElement();
 
 	/**
+	 * Returns a new object of class '<em>Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reference</em>'.
+	 * @generated
+	 */
+	Reference createReference();
+
+	/**
 	 * Returns a new object of class '<em>Generic Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,6 +219,24 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	GenericType createGenericType();
+
+	/**
+	 * Returns a new object of class '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Annotation</em>'.
+	 * @generated
+	 */
+	Annotation createAnnotation();
+
+	/**
+	 * Returns a new object of class '<em>Type Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Parameter</em>'.
+	 * @generated
+	 */
+	TypeParameter createTypeParameter();
 
 	/**
 	 * Returns a new object of class '<em>Typed Element</em>'.

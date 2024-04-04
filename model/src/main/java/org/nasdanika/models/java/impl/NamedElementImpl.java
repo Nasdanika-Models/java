@@ -2,11 +2,17 @@
  */
 package org.nasdanika.models.java.impl;
 
+import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.NamedElement;
+import org.nasdanika.models.java.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +23,8 @@ import org.nasdanika.models.java.NamedElement;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.NamedElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.NamedElementImpl#getFullyQualifiedName <em>Fully Qualified Name</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.NamedElementImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,6 +39,16 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getFullyQualifiedName() <em>Fully Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullyQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULLY_QUALIFIED_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,10 +95,74 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 	 * @generated
 	 */
 	@Override
+	public String getFullyQualifiedName() {
+		return (String)eDynamicGet(JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME, JavaPackage.Literals.NAMED_ELEMENT__FULLY_QUALIFIED_NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFullyQualifiedName(String newFullyQualifiedName) {
+		eDynamicSet(JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME, JavaPackage.Literals.NAMED_ELEMENT__FULLY_QUALIFIED_NAME, newFullyQualifiedName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Reference> getReferences() {
+		return (EList<Reference>)eDynamicGet(JavaPackage.NAMED_ELEMENT__REFERENCES, JavaPackage.Literals.NAMED_ELEMENT__REFERENCES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaPackage.NAMED_ELEMENT__REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaPackage.NAMED_ELEMENT__REFERENCES:
+				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JavaPackage.NAMED_ELEMENT__NAME:
 				return getName();
+			case JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME:
+				return getFullyQualifiedName();
+			case JavaPackage.NAMED_ELEMENT__REFERENCES:
+				return getReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -90,11 +172,19 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaPackage.NAMED_ELEMENT__NAME:
 				setName((String)newValue);
+				return;
+			case JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME:
+				setFullyQualifiedName((String)newValue);
+				return;
+			case JavaPackage.NAMED_ELEMENT__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,6 +201,12 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 			case JavaPackage.NAMED_ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME:
+				setFullyQualifiedName(FULLY_QUALIFIED_NAME_EDEFAULT);
+				return;
+			case JavaPackage.NAMED_ELEMENT__REFERENCES:
+				getReferences().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -125,6 +221,10 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 		switch (featureID) {
 			case JavaPackage.NAMED_ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME:
+				return FULLY_QUALIFIED_NAME_EDEFAULT == null ? getFullyQualifiedName() != null : !FULLY_QUALIFIED_NAME_EDEFAULT.equals(getFullyQualifiedName());
+			case JavaPackage.NAMED_ELEMENT__REFERENCES:
+				return !getReferences().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

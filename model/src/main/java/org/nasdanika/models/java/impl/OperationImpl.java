@@ -8,10 +8,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.java.Call;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Parameter;
+import org.nasdanika.models.java.TypeParameter;
 import org.nasdanika.models.java.TypedElement;
 
 /**
@@ -23,13 +25,27 @@ import org.nasdanika.models.java.TypedElement;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getReceiverParameter <em>Receiver Parameter</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getExceptions <em>Exceptions</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getTypeParameters <em>Type Parameters</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getIncomingCalls <em>Incoming Calls</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getSignature <em>Signature</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class OperationImpl extends CodeImpl implements Operation {
+	/**
+	 * The default value of the '{@link #getSignature() <em>Signature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSignature()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SIGNATURE_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,6 +100,36 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Parameter getReceiverParameter() {
+		return (Parameter)eDynamicGet(JavaPackage.OPERATION__RECEIVER_PARAMETER, JavaPackage.Literals.OPERATION__RECEIVER_PARAMETER, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReceiverParameter(Parameter newReceiverParameter, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newReceiverParameter, JavaPackage.OPERATION__RECEIVER_PARAMETER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReceiverParameter(Parameter newReceiverParameter) {
+		eDynamicSet(JavaPackage.OPERATION__RECEIVER_PARAMETER, JavaPackage.Literals.OPERATION__RECEIVER_PARAMETER, newReceiverParameter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Parameter> getParameters() {
@@ -106,15 +152,108 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<TypeParameter> getTypeParameters() {
+		return (EList<TypeParameter>)eDynamicGet(JavaPackage.OPERATION__TYPE_PARAMETERS, JavaPackage.Literals.OPERATION__TYPE_PARAMETERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Call getIncomingCalls() {
+		return (Call)eDynamicGet(JavaPackage.OPERATION__INCOMING_CALLS, JavaPackage.Literals.OPERATION__INCOMING_CALLS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Call basicGetIncomingCalls() {
+		return (Call)eDynamicGet(JavaPackage.OPERATION__INCOMING_CALLS, JavaPackage.Literals.OPERATION__INCOMING_CALLS, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIncomingCalls(Call newIncomingCalls, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newIncomingCalls, JavaPackage.OPERATION__INCOMING_CALLS, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIncomingCalls(Call newIncomingCalls) {
+		eDynamicSet(JavaPackage.OPERATION__INCOMING_CALLS, JavaPackage.Literals.OPERATION__INCOMING_CALLS, newIncomingCalls);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getSignature() {
+		return (String)eDynamicGet(JavaPackage.OPERATION__SIGNATURE, JavaPackage.Literals.OPERATION__SIGNATURE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSignature(String newSignature) {
+		eDynamicSet(JavaPackage.OPERATION__SIGNATURE, JavaPackage.Literals.OPERATION__SIGNATURE, newSignature);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaPackage.OPERATION__INCOMING_CALLS:
+				Call incomingCalls = basicGetIncomingCalls();
+				if (incomingCalls != null)
+					msgs = ((InternalEObject)incomingCalls).eInverseRemove(this, JavaPackage.CALL__OPERATION, Call.class, msgs);
+				return basicSetIncomingCalls((Call)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.OPERATION__TYPE:
 				return basicSetType(null, msgs);
+			case JavaPackage.OPERATION__RECEIVER_PARAMETER:
+				return basicSetReceiverParameter(null, msgs);
 			case JavaPackage.OPERATION__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 			case JavaPackage.OPERATION__EXCEPTIONS:
 				return ((InternalEList<?>)getExceptions()).basicRemove(otherEnd, msgs);
+			case JavaPackage.OPERATION__TYPE_PARAMETERS:
+				return ((InternalEList<?>)getTypeParameters()).basicRemove(otherEnd, msgs);
+			case JavaPackage.OPERATION__INCOMING_CALLS:
+				return basicSetIncomingCalls(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -129,10 +268,19 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 		switch (featureID) {
 			case JavaPackage.OPERATION__TYPE:
 				return getType();
+			case JavaPackage.OPERATION__RECEIVER_PARAMETER:
+				return getReceiverParameter();
 			case JavaPackage.OPERATION__PARAMETERS:
 				return getParameters();
 			case JavaPackage.OPERATION__EXCEPTIONS:
 				return getExceptions();
+			case JavaPackage.OPERATION__TYPE_PARAMETERS:
+				return getTypeParameters();
+			case JavaPackage.OPERATION__INCOMING_CALLS:
+				if (resolve) return getIncomingCalls();
+				return basicGetIncomingCalls();
+			case JavaPackage.OPERATION__SIGNATURE:
+				return getSignature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +297,9 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 			case JavaPackage.OPERATION__TYPE:
 				setType((GenericType)newValue);
 				return;
+			case JavaPackage.OPERATION__RECEIVER_PARAMETER:
+				setReceiverParameter((Parameter)newValue);
+				return;
 			case JavaPackage.OPERATION__PARAMETERS:
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends Parameter>)newValue);
@@ -156,6 +307,16 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 			case JavaPackage.OPERATION__EXCEPTIONS:
 				getExceptions().clear();
 				getExceptions().addAll((Collection<? extends GenericType>)newValue);
+				return;
+			case JavaPackage.OPERATION__TYPE_PARAMETERS:
+				getTypeParameters().clear();
+				getTypeParameters().addAll((Collection<? extends TypeParameter>)newValue);
+				return;
+			case JavaPackage.OPERATION__INCOMING_CALLS:
+				setIncomingCalls((Call)newValue);
+				return;
+			case JavaPackage.OPERATION__SIGNATURE:
+				setSignature((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -172,11 +333,23 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 			case JavaPackage.OPERATION__TYPE:
 				setType((GenericType)null);
 				return;
+			case JavaPackage.OPERATION__RECEIVER_PARAMETER:
+				setReceiverParameter((Parameter)null);
+				return;
 			case JavaPackage.OPERATION__PARAMETERS:
 				getParameters().clear();
 				return;
 			case JavaPackage.OPERATION__EXCEPTIONS:
 				getExceptions().clear();
+				return;
+			case JavaPackage.OPERATION__TYPE_PARAMETERS:
+				getTypeParameters().clear();
+				return;
+			case JavaPackage.OPERATION__INCOMING_CALLS:
+				setIncomingCalls((Call)null);
+				return;
+			case JavaPackage.OPERATION__SIGNATURE:
+				setSignature(SIGNATURE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +365,18 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 		switch (featureID) {
 			case JavaPackage.OPERATION__TYPE:
 				return getType() != null;
+			case JavaPackage.OPERATION__RECEIVER_PARAMETER:
+				return getReceiverParameter() != null;
 			case JavaPackage.OPERATION__PARAMETERS:
 				return !getParameters().isEmpty();
 			case JavaPackage.OPERATION__EXCEPTIONS:
 				return !getExceptions().isEmpty();
+			case JavaPackage.OPERATION__TYPE_PARAMETERS:
+				return !getTypeParameters().isEmpty();
+			case JavaPackage.OPERATION__INCOMING_CALLS:
+				return basicGetIncomingCalls() != null;
+			case JavaPackage.OPERATION__SIGNATURE:
+				return SIGNATURE_EDEFAULT == null ? getSignature() != null : !SIGNATURE_EDEFAULT.equals(getSignature());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -230,12 +411,6 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-	
-	@Override
-	public String getFullyQualifiedName() {
-		// TODO Signature
-		return super.getFullyQualifiedName();
 	}
 
 } //OperationImpl

@@ -72,7 +72,18 @@
     <eTypeParameters name="C">
       <eBounds eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Simple (short) name. E.g. Map"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullyQualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Fully qualified name where applicable. E.g. java.util.Map"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//Reference" eOpposite="#//Reference/target"/>
     <eGenericSuperTypes eClassifier="#//Source">
       <eTypeArguments eTypeParameter="#//NamedElement/C"/>
     </eGenericSuperTypes>
@@ -83,16 +94,55 @@
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comment" eType="#//Comment"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullyQualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiers" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedTypes" upperBound="-1"
+        eType="#//GenericType" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="All types referenced by this member including types refernced from code"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotation"/>
     <eGenericSuperTypes eClassifier="#//NamedElement">
       <eTypeArguments eTypeParameter="#//Member/C"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GenericType">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullyQualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" derived="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eOpposite="#//NamedElement/references">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Referenced named element"/>
+      </eAnnotations>
+      <eGenericType eClassifier="#//NamedElement">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//NamedElement">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericType" eSuperTypes="#//Reference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeArguments" upperBound="-1"
+        eType="#//GenericType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowerBound" eType="#//GenericType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upperBound" eType="#//GenericType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="primitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//Reference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        containment="true">
+      <eGenericType eClassifier="#//NamedElement">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeParameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bounds" upperBound="-1"
+        eType="#//GenericType"/>
+    <eGenericSuperTypes eClassifier="#//NamedElement">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypedElement">
     <eTypeParameters name="C">
@@ -113,6 +163,20 @@
         </eTypeArguments>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supertypes" upperBound="-1"
+        eType="#//GenericType" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="For classes the first element is the superclass and the rest are implemented interfaces"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeParameters" upperBound="-1"
+        eType="#//TypeParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="permits" upperBound="-1"
+        eType="#//GenericType" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="For classes the first element is the superclass and the rest are implemented interfaces"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Member">
       <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//ClassCoverage"/>
     </eGenericSuperTypes>
@@ -124,6 +188,7 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//Operation"/>
   <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="EnumConstant">
@@ -131,7 +196,22 @@
       <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
     </eGenericSuperTypes>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FieldAccess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//Field"
+        eOpposite="#//Field/accesses">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Fully qualified field name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reads" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="writes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Field">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accesses" eType="#//FieldAccess"
+        eOpposite="#//FieldAccess/field"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" eType="#//Code"
+        containment="true"/>
     <eGenericSuperTypes eClassifier="#//Member">
       <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
     </eGenericSuperTypes>
@@ -139,33 +219,11 @@
       <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Module">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
+        eType="#//Package" containment="true"/>
     <eGenericSuperTypes eClassifier="#//Source">
       <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//ModuleCoverage"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Operation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Code" abstract="true">
-    <eGenericSuperTypes eClassifier="#//Member">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//MethodCoverage"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Initializer" eSuperTypes="#//Code"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassInitializer" eSuperTypes="#//Code"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
-    <eGenericSuperTypes eClassifier="#//TypedElement">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
-        eType="#//GenericType" containment="true"/>
-    <eGenericSuperTypes eClassifier="#//Code"/>
-    <eGenericSuperTypes eClassifier="#//TypedElement">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//MethodCoverage"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
@@ -173,6 +231,59 @@
     <eGenericSuperTypes eClassifier="#//Source">
       <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//PackageCoverage"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="overrides" eType="#//Method"
+        eOpposite="#//Method/overriddenBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="overriddenBy" upperBound="-1"
+        eType="#//Method" eOpposite="#//Method/overrides"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Code">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fieldAccesses" upperBound="-1"
+        eType="#//FieldAccess" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingCalls" upperBound="-1"
+        eType="#//Call" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" containment="true">
+      <eGenericType eClassifier="#//Source">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Member">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//MethodCoverage"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Initializer" eSuperTypes="#//Code"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassInitializer" eSuperTypes="#//Code"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiers" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="#//TypedElement">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//Coverage"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiverParameter" eType="#//Parameter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
+        eType="#//GenericType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeParameters" upperBound="-1"
+        eType="#//TypeParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingCalls" eType="#//Call"
+        eOpposite="#//Call/operation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="#//Code"/>
+    <eGenericSuperTypes eClassifier="#//TypedElement">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//MethodCoverage"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Call">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//Operation"
+        eOpposite="#//Operation/incomingCalls"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="counter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Record" eSuperTypes="#//Type"/>
 </ecore:EPackage>

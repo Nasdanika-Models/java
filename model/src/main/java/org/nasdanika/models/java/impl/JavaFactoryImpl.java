@@ -8,14 +8,18 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
+import org.nasdanika.models.java.Call;
 import org.nasdanika.models.java.ClassInitializer;
+import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.FieldAccess;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
@@ -24,7 +28,9 @@ import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Parameter;
+import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
+import org.nasdanika.models.java.TypeParameter;
 import org.nasdanika.models.java.TypedElement;
 
 /**
@@ -75,22 +81,28 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
 			case JavaPackage.COMMENT: return createComment();
 			case JavaPackage.NAMED_ELEMENT: return createNamedElement();
+			case JavaPackage.REFERENCE: return createReference();
 			case JavaPackage.GENERIC_TYPE: return createGenericType();
+			case JavaPackage.ANNOTATION: return createAnnotation();
+			case JavaPackage.TYPE_PARAMETER: return createTypeParameter();
 			case JavaPackage.TYPED_ELEMENT: return createTypedElement();
 			case JavaPackage.ANNOTATION_INTERFACE: return createAnnotationInterface();
 			case JavaPackage.ANNOTATION_INTERFACE_MEMBER: return createAnnotationInterfaceMember();
 			case JavaPackage.CLASS: return createClass();
+			case JavaPackage.INTERFACE: return createInterface();
 			case JavaPackage.CONSTRUCTOR: return createConstructor();
 			case JavaPackage.ENUM: return createEnum();
 			case JavaPackage.ENUM_CONSTANT: return createEnumConstant();
+			case JavaPackage.FIELD_ACCESS: return createFieldAccess();
 			case JavaPackage.FIELD: return createField();
-			case JavaPackage.INTERFACE: return createInterface();
 			case JavaPackage.MODULE: return createModule();
+			case JavaPackage.PACKAGE: return createPackage();
 			case JavaPackage.METHOD: return createMethod();
+			case JavaPackage.CODE: return createCode();
 			case JavaPackage.INITIALIZER: return createInitializer();
 			case JavaPackage.CLASS_INITIALIZER: return createClassInitializer();
 			case JavaPackage.PARAMETER: return createParameter();
-			case JavaPackage.PACKAGE: return createPackage();
+			case JavaPackage.CALL: return createCall();
 			case JavaPackage.RECORD: return createRecord();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -147,6 +159,17 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
+	public FieldAccess createFieldAccess() {
+		FieldAccessImpl fieldAccess = new FieldAccessImpl();
+		return fieldAccess;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Field createField() {
 		FieldImpl field = new FieldImpl();
 		return field;
@@ -191,6 +214,17 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
+	public Code createCode() {
+		CodeImpl code = new CodeImpl();
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Initializer createInitializer() {
 		InitializerImpl initializer = new InitializerImpl();
 		return initializer;
@@ -216,6 +250,17 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Call createCall() {
+		CallImpl call = new CallImpl();
+		return call;
 	}
 
 	/**
@@ -290,9 +335,42 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
+	public Reference createReference() {
+		ReferenceImpl reference = new ReferenceImpl();
+		return reference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public GenericType createGenericType() {
 		GenericTypeImpl genericType = new GenericTypeImpl();
 		return genericType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Annotation createAnnotation() {
+		AnnotationImpl annotation = new AnnotationImpl();
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TypeParameter createTypeParameter() {
+		TypeParameterImpl typeParameter = new TypeParameterImpl();
+		return typeParameter;
 	}
 
 	/**

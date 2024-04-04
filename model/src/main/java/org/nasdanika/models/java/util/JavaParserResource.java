@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -20,14 +21,17 @@ import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
 import org.nasdanika.models.java.Class;
 import org.nasdanika.models.java.ClassInitializer;
+import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.Enum;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.Method;
+import org.nasdanika.models.java.Parameter;
 import org.nasdanika.models.java.Record;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
@@ -38,6 +42,7 @@ import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.Problem;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
+import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.AnnotationMemberDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
@@ -48,10 +53,16 @@ import com.github.javaparser.ast.body.EnumConstantDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.InitializerDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.ReceiverParameter;
 import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.comments.Comment;
 import com.github.javaparser.ast.expr.SimpleName;
+import com.github.javaparser.ast.type.ClassOrInterfaceType;
+import com.github.javaparser.ast.type.PrimitiveType;
+import com.github.javaparser.ast.type.ReferenceType;
+import com.github.javaparser.ast.type.TypeParameter;
+import com.github.javaparser.ast.type.WildcardType;
 
 public class JavaParserResource extends ResourceImpl {
 
@@ -166,9 +177,44 @@ public class JavaParserResource extends ResourceImpl {
 	}	
 	
 	protected void configureOperation(CallableDeclaration<?> callableDeclaration, org.nasdanika.models.java.Operation operation) {
-		configureMember(callableDeclaration, operation);		
+		configureMember(callableDeclaration, operation);
+		for (Modifier modifier: callableDeclaration.getModifiers()) {
+			operation.getModifiers().add(modifier.toString().trim());
+		}
+		callableDeclaration.getReceiverParameter().ifPresent(rp -> operation.setReceiverParameter(loadReceiverParameter(rp)));
+		for (com.github.javaparser.ast.body.Parameter p: callableDeclaration.getParameters()) {
+			operation.getParameters().add(loadParameter(p));
+		}
+		for (ReferenceType exc: callableDeclaration.getThrownExceptions()) {
+			operation.getExceptions().add(loadGenericType(exc));
+		}
+		for (TypeParameter tp: callableDeclaration.getTypeParameters()) {
+			operation.getTypeParameters().add(loadTypeParameter(tp));
+		}
+		operation.setSignature(callableDeclaration.getSignature().asString());		
 	}	
 	
+	protected Parameter loadParameter(com.github.javaparser.ast.body.Parameter parameter) {
+		Parameter ret = createParameter();
+		for (Modifier modifier: parameter.getModifiers()) {
+			ret.getModifiers().add(modifier.toString().trim());
+		}
+		ret.setName(parameter.getNameAsString());
+		ret.setType(loadGenericType(parameter.getType()));
+		return ret;
+	}
+
+	protected Parameter loadReceiverParameter(ReceiverParameter receiverParameter) {
+		Parameter ret = createParameter();
+		ret.setName(receiverParameter.getNameAsString());
+		ret.setType(loadGenericType(receiverParameter.getType()));
+		return ret;
+	}
+
+	protected Parameter createParameter() {
+		return getJavaFactory().createParameter();
+	}
+
 	/**
 	 * Configuration common for all types
 	 * @param typeDeclaration
@@ -178,7 +224,11 @@ public class JavaParserResource extends ResourceImpl {
 	protected void configureTypeDeclaration(com.github.javaparser.ast.body.TypeDeclaration<?> typeDeclaration, org.nasdanika.models.java.Type type) {
 		configureMember(typeDeclaration, type);
 		type.setName(typeDeclaration.getNameAsString());
+		typeDeclaration.getFullyQualifiedName().ifPresent(type::setFullyQualifiedName);
 		type.getMembers().addAll(loadMembers(typeDeclaration));			
+		for (Modifier modifier: typeDeclaration.getModifiers()) {
+			type.getModifiers().add(modifier.toString().trim());
+		}
 	}
 	
 	protected org.nasdanika.models.java.Type loadTypeDeclaration(com.github.javaparser.ast.body.TypeDeclaration<?> typeDeclaration) {
@@ -210,15 +260,88 @@ public class JavaParserResource extends ResourceImpl {
 	protected org.nasdanika.models.java.Type loadClassOrInterfaceDeclaration(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration classOrInterfaceDeclaration) {
 		if (classOrInterfaceDeclaration.isInterface()) {
 			org.nasdanika.models.java.Interface modelInterface = createInterface();
-			configureTypeDeclaration(classOrInterfaceDeclaration, modelInterface);
+			configureClassOrInterfaceDeclaration(classOrInterfaceDeclaration, modelInterface);
 			return modelInterface;
 		}
 		
 		org.nasdanika.models.java.Class modelClass = createClass();
-		configureTypeDeclaration(classOrInterfaceDeclaration, modelClass);		
+		configureClassOrInterfaceDeclaration(classOrInterfaceDeclaration, modelClass);		
 		return modelClass;
 	}
 
+	protected void configureClassOrInterfaceDeclaration(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration classOrInterfaceDeclaration, org.nasdanika.models.java.Type type) {
+		configureTypeDeclaration(classOrInterfaceDeclaration, type);
+		EList<GenericType> supertypes = type.getSupertypes();
+		for (ClassOrInterfaceType ext: classOrInterfaceDeclaration.getExtendedTypes()) {
+			supertypes.add(loadGenericType(ext));
+		}
+		
+		if (!classOrInterfaceDeclaration.isInterface() && supertypes.isEmpty()) {
+			GenericType objectType = createGenericType();
+			objectType.setName("Object");
+			objectType.setFullyQualifiedName("java.lang.Object");
+			supertypes.add(objectType);
+		}
+		
+		for (ClassOrInterfaceType impl: classOrInterfaceDeclaration.getImplementedTypes()) {
+			supertypes.add(loadGenericType(impl));
+		}
+		
+		for (ClassOrInterfaceType perm: classOrInterfaceDeclaration.getPermittedTypes()) {
+			type.getPermits().add(loadGenericType(perm));
+		}
+		
+		for (TypeParameter typeParameter: classOrInterfaceDeclaration.getTypeParameters()) {
+			type.getTypeParameters().add(loadTypeParameter(typeParameter));
+		}
+		
+	}
+	
+	protected org.nasdanika.models.java.TypeParameter loadTypeParameter(TypeParameter typeParameter) {
+		org.nasdanika.models.java.TypeParameter ret = createTypeParameter();
+		ret.setName(typeParameter.getNameAsString());
+		for (ClassOrInterfaceType bound: typeParameter.getTypeBound()) {
+			ret.getBounds().add(loadGenericType(bound));
+		}
+		ret.setSource(typeParameter.asString());
+		return ret;
+	}
+
+	protected org.nasdanika.models.java.TypeParameter createTypeParameter() {
+		return getJavaFactory().createTypeParameter();
+	}
+
+	protected GenericType loadGenericType(com.github.javaparser.ast.type.Type type) {
+		if (type == null) {
+			return null;
+		}
+		GenericType ret = createGenericType();
+		if (type instanceof ClassOrInterfaceType) {
+			ClassOrInterfaceType cType = (ClassOrInterfaceType) type;
+			ret.setName(cType.getNameAsString());
+			
+//			cType.getAnnotations(); TODO			
+//			cType.getComment(); TODO
+			cType.getTypeArguments().ifPresent(tArgs -> tArgs.forEach(tArg -> ret.getTypeArguments().add(loadGenericType(tArg))));
+		} else if (type instanceof WildcardType) {
+			WildcardType wt = (WildcardType) type;
+			wt.getExtendedType().ifPresent(et -> ret.setUpperBound(loadGenericType(et)));
+			wt.getSuperType().ifPresent(st -> ret.setLowerBound(loadGenericType(st)));
+		} else if (type instanceof PrimitiveType) {
+			ret.setName(type.asString());
+			ret.setFullyQualifiedName(type.asString());
+			ret.setPrimitive(true);
+		} else {
+			ret.setName(type.asString());
+		}
+		ret.setSource(type.asString());
+		return ret;
+	}
+
+	protected GenericType createGenericType() {
+		return getJavaFactory().createGenericType();
+	}
+	
 	protected Class createClass() {
 		return getJavaFactory().createClass();
 	}
@@ -261,7 +384,7 @@ public class JavaParserResource extends ResourceImpl {
 			} else if (member instanceof EnumConstantDeclaration) {
 				ret.add(loadEnumConstantDeclaration((EnumConstantDeclaration) member));				
 			} else if (member instanceof FieldDeclaration) {
-				ret.add(loadFieldDeclaration((FieldDeclaration) member));				
+				ret.addAll(loadFieldDeclaration((FieldDeclaration) member));				
 			} else if (member instanceof InitializerDeclaration) {
 				InitializerDeclaration initializerDeclaration = (InitializerDeclaration) member;
 				if (initializerDeclaration.isStatic()) {
@@ -301,6 +424,7 @@ public class JavaParserResource extends ResourceImpl {
 		org.nasdanika.models.java.Method method = createMethod();
 		configureOperation(methodDeclaration, method);
 		method.setName(methodDeclaration.getName().toString());
+		method.setType(loadGenericType(methodDeclaration.getType()));
 		return method;		
 	}
 
@@ -324,14 +448,26 @@ public class JavaParserResource extends ResourceImpl {
 		return getJavaFactory().createEnumConstant();
 	}
 	
-	protected org.nasdanika.models.java.Field loadFieldDeclaration(FieldDeclaration fieldDeclaration) {
-		org.nasdanika.models.java.Field field = createField();
-		configureMember(fieldDeclaration, field);
+	protected Collection<org.nasdanika.models.java.Field> loadFieldDeclaration(FieldDeclaration fieldDeclaration) {
+		Collection<org.nasdanika.models.java.Field> ret = new ArrayList<>();
 		for (VariableDeclarator vd: fieldDeclaration.getVariables()) {
+			org.nasdanika.models.java.Field field = createField();
+			configureMember(fieldDeclaration, field);
 			SimpleName vName = vd.getName();
 			field.setName(vName.toString());
+			field.setType(loadGenericType(vd.getType()));
+			vd.getInitializer().ifPresent(initializer -> {
+				Code code = createCode();
+				code.setSource(initializer.toString());
+				field.setInitializer(code);
+			});
+			ret.add(field);
 		}
-		return field;		
+		return ret;
+	}
+
+	protected Code createCode() {
+		return getJavaFactory().createCode();
 	}
 
 	protected Field createField() {

@@ -9,8 +9,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
+import org.nasdanika.models.java.Call;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -18,6 +20,7 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.FieldAccess;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
@@ -27,8 +30,10 @@ import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Parameter;
+import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
+import org.nasdanika.models.java.TypeParameter;
 import org.nasdanika.models.java.TypedElement;
 import org.nasdanika.persistence.Marked;
 
@@ -149,9 +154,45 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaPackage.REFERENCE: {
+				Reference reference = (Reference)theEObject;
+				T result = caseReference(reference);
+				if (result == null) result = caseNamedElement(reference);
+				if (result == null) result = caseSource(reference);
+				if (result == null) result = caseMarked(reference);
+				if (result == null) result = caseIMarked(reference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.GENERIC_TYPE: {
 				GenericType genericType = (GenericType)theEObject;
 				T result = caseGenericType(genericType);
+				if (result == null) result = caseReference(genericType);
+				if (result == null) result = caseNamedElement(genericType);
+				if (result == null) result = caseSource(genericType);
+				if (result == null) result = caseMarked(genericType);
+				if (result == null) result = caseIMarked(genericType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.ANNOTATION: {
+				Annotation annotation = (Annotation)theEObject;
+				T result = caseAnnotation(annotation);
+				if (result == null) result = caseReference(annotation);
+				if (result == null) result = caseNamedElement(annotation);
+				if (result == null) result = caseSource(annotation);
+				if (result == null) result = caseMarked(annotation);
+				if (result == null) result = caseIMarked(annotation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.TYPE_PARAMETER: {
+				TypeParameter typeParameter = (TypeParameter)theEObject;
+				T result = caseTypeParameter(typeParameter);
+				if (result == null) result = caseNamedElement(typeParameter);
+				if (result == null) result = caseSource(typeParameter);
+				if (result == null) result = caseMarked(typeParameter);
+				if (result == null) result = caseIMarked(typeParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,6 +252,18 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaPackage.INTERFACE: {
+				Interface interface_ = (Interface)theEObject;
+				T result = caseInterface(interface_);
+				if (result == null) result = caseType(interface_);
+				if (result == null) result = caseMember(interface_);
+				if (result == null) result = caseNamedElement(interface_);
+				if (result == null) result = caseSource(interface_);
+				if (result == null) result = caseMarked(interface_);
+				if (result == null) result = caseIMarked(interface_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.CONSTRUCTOR: {
 				Constructor constructor = (Constructor)theEObject;
 				T result = caseConstructor(constructor);
@@ -248,6 +301,12 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaPackage.FIELD_ACCESS: {
+				FieldAccess fieldAccess = (FieldAccess)theEObject;
+				T result = caseFieldAccess(fieldAccess);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.FIELD: {
 				Field field = (Field)theEObject;
 				T result = caseField(field);
@@ -260,24 +319,21 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.INTERFACE: {
-				Interface interface_ = (Interface)theEObject;
-				T result = caseInterface(interface_);
-				if (result == null) result = caseType(interface_);
-				if (result == null) result = caseMember(interface_);
-				if (result == null) result = caseNamedElement(interface_);
-				if (result == null) result = caseSource(interface_);
-				if (result == null) result = caseMarked(interface_);
-				if (result == null) result = caseIMarked(interface_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JavaPackage.MODULE: {
 				org.nasdanika.models.java.Module module = (org.nasdanika.models.java.Module)theEObject;
 				T result = caseModule(module);
 				if (result == null) result = caseSource(module);
 				if (result == null) result = caseMarked(module);
 				if (result == null) result = caseIMarked(module);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.PACKAGE: {
+				org.nasdanika.models.java.Package package_ = (org.nasdanika.models.java.Package)theEObject;
+				T result = casePackage(package_);
+				if (result == null) result = caseSource(package_);
+				if (result == null) result = caseMarked(package_);
+				if (result == null) result = caseIMarked(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -354,12 +410,9 @@ public class JavaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.PACKAGE: {
-				org.nasdanika.models.java.Package package_ = (org.nasdanika.models.java.Package)theEObject;
-				T result = casePackage(package_);
-				if (result == null) result = caseSource(package_);
-				if (result == null) result = caseMarked(package_);
-				if (result == null) result = caseIMarked(package_);
+			case JavaPackage.CALL: {
+				Call call = (Call)theEObject;
+				T result = caseCall(call);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -485,6 +538,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Field Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Field Access</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFieldAccess(FieldAccess object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -590,6 +658,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReference(Reference object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Generic Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -601,6 +684,36 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGenericType(GenericType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotation(Annotation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypeParameter(TypeParameter object) {
 		return null;
 	}
 
@@ -706,6 +819,21 @@ public class JavaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOperation(Operation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCall(Call object) {
 		return null;
 	}
 
