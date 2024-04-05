@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.models.coverage.SourceFileCoverage;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Source;
@@ -32,7 +31,7 @@ import org.nasdanika.models.java.Type;
  *
  * @generated
  */
-public class CompilationUnitImpl extends SourceImpl<SourceFileCoverage> implements CompilationUnit {
+public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 	/**
 	 * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -60,17 +59,6 @@ public class CompilationUnitImpl extends SourceImpl<SourceFileCoverage> implemen
 	@Override
 	protected EClass eStaticClass() {
 		return JavaPackage.Literals.COMPILATION_UNIT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific type known in this context.
-	 * @generated
-	 */
-	@Override
-	public void setCoverage(SourceFileCoverage newCoverage) {
-		super.setCoverage(newCoverage);
 	}
 
 	/**

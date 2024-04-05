@@ -2,8 +2,6 @@
  */
 package org.nasdanika.models.java;
 
-import org.nasdanika.models.coverage.Coverage;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Reference</b></em>'.
@@ -20,23 +18,23 @@ import org.nasdanika.models.coverage.Coverage;
  * @model
  * @generated
  */
-public interface Reference extends NamedElement<Coverage> {
+public interface Reference extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.java.NamedElement#getReferences <em>References</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.java.NamedElement#getReferrers <em>Referrers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Referenced named element
+	 * Referenced named element (symbol)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(NamedElement)
 	 * @see org.nasdanika.models.java.JavaPackage#getReference_Target()
-	 * @see org.nasdanika.models.java.NamedElement#getReferences
-	 * @model opposite="references"
+	 * @see org.nasdanika.models.java.NamedElement#getReferrers
+	 * @model opposite="referrers"
 	 * @generated
 	 */
-	NamedElement<?> getTarget();
+	NamedElement getTarget();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.models.java.Reference#getTarget <em>Target</em>}' reference.
@@ -46,6 +44,6 @@ public interface Reference extends NamedElement<Coverage> {
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(NamedElement<?> value);
+	void setTarget(NamedElement value);
 
 } // Reference

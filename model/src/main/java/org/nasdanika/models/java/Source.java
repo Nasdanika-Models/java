@@ -22,13 +22,14 @@ import org.nasdanika.ncore.Marked;
  *   <li>{@link org.nasdanika.models.java.Source#getSource <em>Source</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getChildren <em>Children</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Source#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getSource()
  * @model
  * @generated
  */
-public interface Source<C extends Coverage> extends Marked {
+public interface Source extends Marked, Range {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,7 +54,7 @@ public interface Source<C extends Coverage> extends Marked {
 
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.java.Source}<code>&lt;org.nasdanika.models.coverage.Coverage&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.models.java.Source}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Children</em>' containment reference list.
@@ -61,29 +62,31 @@ public interface Source<C extends Coverage> extends Marked {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Source<Coverage>> getChildren();
+	EList<Source> getChildren();
 
 	/**
-	 * Returns the value of the '<em><b>Coverage</b></em>' reference.
+	 * Returns the value of the '<em><b>Coverage</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.coverage.Coverage}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Coverage</em>' reference.
-	 * @see #setCoverage(Coverage)
+	 * @return the value of the '<em>Coverage</em>' reference list.
 	 * @see org.nasdanika.models.java.JavaPackage#getSource_Coverage()
 	 * @model
 	 * @generated
 	 */
-	C getCoverage();
+	EList<Coverage> getCoverage();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}' reference.
+	 * Returns the value of the '<em><b>References</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.java.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Coverage</em>' reference.
-	 * @see #getCoverage()
+	 * @return the value of the '<em>References</em>' containment reference list.
+	 * @see org.nasdanika.models.java.JavaPackage#getSource_References()
+	 * @model containment="true"
 	 * @generated
 	 */
-	void setCoverage(C value);
+	EList<Reference> getReferences();
 
 	/**
 	 * <!-- begin-user-doc -->

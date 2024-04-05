@@ -3,7 +3,6 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.models.coverage.Coverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +23,7 @@ import org.nasdanika.models.coverage.Coverage;
  * @model abstract="true"
  * @generated
  */
-public interface Member<C extends Coverage> extends NamedElement<C> {
+public interface Member extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.

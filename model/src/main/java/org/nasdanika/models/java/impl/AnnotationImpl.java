@@ -57,8 +57,8 @@ public class AnnotationImpl extends ReferenceImpl implements Annotation {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<NamedElement<?>> getElements() {
-		return (EList<NamedElement<?>>)eDynamicGet(JavaPackage.ANNOTATION__ELEMENTS, JavaPackage.Literals.ANNOTATION__ELEMENTS, true, true);
+	public EList<NamedElement> getElements() {
+		return (EList<NamedElement>)eDynamicGet(JavaPackage.ANNOTATION__ELEMENTS, JavaPackage.Literals.ANNOTATION__ELEMENTS, true, true);
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class AnnotationImpl extends ReferenceImpl implements Annotation {
 		switch (featureID) {
 			case JavaPackage.ANNOTATION__ELEMENTS:
 				getElements().clear();
-				getElements().addAll((Collection<? extends NamedElement<?>>)newValue);
+				getElements().addAll((Collection<? extends NamedElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -3,7 +3,6 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.models.coverage.Coverage;
 
 
 /**
@@ -23,7 +22,7 @@ import org.nasdanika.models.coverage.Coverage;
  * @model
  * @generated
  */
-public interface Parameter extends TypedElement<Coverage> {
+public interface Parameter extends TypedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Var Arg</b></em>' attribute.

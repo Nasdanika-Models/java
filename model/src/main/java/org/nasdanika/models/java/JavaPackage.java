@@ -66,7 +66,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 3;
+	int SOURCE = 6;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ModuleImpl <em>Module</em>}' class.
@@ -76,7 +76,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 23;
+	int MODULE = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.MethodImpl <em>Method</em>}' class.
@@ -86,7 +86,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 25;
+	int METHOD = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PackageImpl <em>Package</em>}' class.
@@ -96,7 +96,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 24;
+	int PACKAGE = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
@@ -106,7 +106,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCompilationUnit()
 	 * @generated
 	 */
-	int COMPILATION_UNIT = 4;
+	int COMPILATION_UNIT = 7;
 
 
 	/**
@@ -150,60 +150,6 @@ public interface JavaPackage extends EPackage {
 	EClass getEnumConstant();
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.models.java.FieldAccess <em>Field Access</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Field Access</em>'.
-	 * @see org.nasdanika.models.java.FieldAccess
-	 * @generated
-	 */
-	EClass getFieldAccess();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.java.FieldAccess#getField <em>Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Field</em>'.
-	 * @see org.nasdanika.models.java.FieldAccess#getField()
-	 * @see #getFieldAccess()
-	 * @generated
-	 */
-	EReference getFieldAccess_Field();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.FieldAccess#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.models.java.FieldAccess#getName()
-	 * @see #getFieldAccess()
-	 * @generated
-	 */
-	EAttribute getFieldAccess_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.FieldAccess#getReads <em>Reads</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reads</em>'.
-	 * @see org.nasdanika.models.java.FieldAccess#getReads()
-	 * @see #getFieldAccess()
-	 * @generated
-	 */
-	EAttribute getFieldAccess_Reads();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.FieldAccess#getWrites <em>Writes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Writes</em>'.
-	 * @see org.nasdanika.models.java.FieldAccess#getWrites()
-	 * @see #getFieldAccess()
-	 * @generated
-	 */
-	EAttribute getFieldAccess_Writes();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Field <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -212,17 +158,6 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getField();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.java.Field#getAccesses <em>Accesses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Accesses</em>'.
-	 * @see org.nasdanika.models.java.Field#getAccesses()
-	 * @see #getField()
-	 * @generated
-	 */
-	EReference getField_Accesses();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Field#getInitializer <em>Initializer</em>}'.
@@ -253,7 +188,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMember()
 	 * @generated
 	 */
-	int MEMBER = 7;
+	int MEMBER = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.TypeImpl <em>Type</em>}' class.
@@ -263,7 +198,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 13;
+	int TYPE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
@@ -273,7 +208,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 16;
+	int CLASS = 19;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.OperationImpl <em>Operation</em>}' class.
@@ -283,7 +218,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 30;
+	int OPERATION = 32;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -293,7 +228,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 18;
+	int CONSTRUCTOR = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumImpl <em>Enum</em>}' class.
@@ -303,7 +238,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnum()
 	 * @generated
 	 */
-	int ENUM = 19;
+	int ENUM = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
@@ -313,7 +248,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 22;
+	int FIELD = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -323,7 +258,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 17;
+	int INTERFACE = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
@@ -333,7 +268,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 32;
+	int RECORD = 33;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.
@@ -343,7 +278,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComment()
 	 * @generated
 	 */
-	int COMMENT = 5;
+	int COMMENT = 8;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
@@ -353,7 +288,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
 	 * @generated
 	 */
-	int CODE = 26;
+	int CODE = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumConstantImpl <em>Enum Constant</em>}' class.
@@ -363,7 +298,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
 	 * @generated
 	 */
-	int ENUM_CONSTANT = 20;
+	int ENUM_CONSTANT = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InitializerImpl <em>Initializer</em>}' class.
@@ -373,7 +308,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
 	 * @generated
 	 */
-	int INITIALIZER = 27;
+	int INITIALIZER = 29;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassInitializerImpl <em>Class Initializer</em>}' class.
@@ -383,7 +318,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
 	 * @generated
 	 */
-	int CLASS_INITIALIZER = 28;
+	int CLASS_INITIALIZER = 30;
 
 	/**
 	 * The meta object id for the '{@link java.util.function.Function <em>Import Manager</em>}' class.
@@ -472,6 +407,153 @@ public interface JavaPackage extends EPackage {
 	int DIGEST_PREDICATE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Comparable
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComparable()
+	 * @generated
+	 */
+	int COMPARABLE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Comparable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Comparable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PositionImpl <em>Position</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.PositionImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPosition()
+	 * @generated
+	 */
+	int POSITION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Line</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__LINE = COMPARABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Column</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__COLUMN = COMPARABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Position</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Position</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RangeImpl <em>Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.RangeImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRange()
+	 * @generated
+	 */
+	int RANGE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE__BEGIN = 0;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE__END = 1;
+
+	/**
+	 * The number of structural features of the '<em>Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE___CONTAINS__RANGE = 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE___CONTAINS__POSITION = 1;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE___OVERLAPS__RANGE = 2;
+
+	/**
+	 * The number of operations of the '<em>Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_OPERATION_COUNT = 3;
+
+	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,13 +563,31 @@ public interface JavaPackage extends EPackage {
 	int SOURCE__MARKERS = NcorePackage.MARKED__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__BEGIN = NcorePackage.MARKED_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__END = NcorePackage.MARKED_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__SOURCE = NcorePackage.MARKED_FEATURE_COUNT + 0;
+	int SOURCE__SOURCE = NcorePackage.MARKED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -496,16 +596,25 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__CHILDREN = NcorePackage.MARKED_FEATURE_COUNT + 1;
+	int SOURCE__CHILDREN = NcorePackage.MARKED_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__COVERAGE = NcorePackage.MARKED_FEATURE_COUNT + 2;
+	int SOURCE__COVERAGE = NcorePackage.MARKED_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__REFERENCES = NcorePackage.MARKED_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Source</em>' class.
@@ -514,7 +623,34 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 3;
+	int SOURCE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___CONTAINS__RANGE = NcorePackage.MARKED_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___CONTAINS__POSITION = NcorePackage.MARKED_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___OVERLAPS__RANGE = NcorePackage.MARKED_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -523,7 +659,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE___UPDATE__FUNCTION = NcorePackage.MARKED_OPERATION_COUNT + 0;
+	int SOURCE___UPDATE__FUNCTION = NcorePackage.MARKED_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Digest</em>' operation.
@@ -532,7 +668,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE___DIGEST__PREDICATE = NcorePackage.MARKED_OPERATION_COUNT + 1;
+	int SOURCE___DIGEST__PREDICATE = NcorePackage.MARKED_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Source</em>' class.
@@ -541,7 +677,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 2;
+	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -551,6 +687,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__MARKERS = SOURCE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__BEGIN = SOURCE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__END = SOURCE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -571,13 +725,22 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__CHILDREN = SOURCE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__COVERAGE = SOURCE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__REFERENCES = SOURCE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -614,6 +777,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___CONTAINS__RANGE = SOURCE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___CONTAINS__POSITION = SOURCE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -695,7 +885,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 6;
+	int NAMED_ELEMENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -705,6 +895,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT__MARKERS = SOURCE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__BEGIN = SOURCE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__END = SOURCE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -725,13 +933,22 @@ public interface JavaPackage extends EPackage {
 	int NAMED_ELEMENT__CHILDREN = SOURCE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int NAMED_ELEMENT__COVERAGE = SOURCE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__REFERENCES = SOURCE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -752,13 +969,13 @@ public interface JavaPackage extends EPackage {
 	int NAMED_ELEMENT__FULLY_QUALIFIED_NAME = SOURCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT__REFERENCES = SOURCE_FEATURE_COUNT + 2;
+	int NAMED_ELEMENT__REFERRERS = SOURCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Named Element</em>' class.
@@ -768,6 +985,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT___CONTAINS__RANGE = SOURCE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT___CONTAINS__POSITION = SOURCE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -806,6 +1050,24 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__MARKERS = NAMED_ELEMENT__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__BEGIN = NAMED_ELEMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__END = NAMED_ELEMENT__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -824,13 +1086,22 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int MEMBER__COVERAGE = NAMED_ELEMENT__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__REFERENCES = NAMED_ELEMENT__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -851,13 +1122,13 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__FULLY_QUALIFIED_NAME = NAMED_ELEMENT__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__REFERENCES = NAMED_ELEMENT__REFERENCES;
+	int MEMBER__REFERRERS = NAMED_ELEMENT__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -905,6 +1176,33 @@ public interface JavaPackage extends EPackage {
 	int MEMBER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER___CONTAINS__RANGE = NAMED_ELEMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER___CONTAINS__POSITION = NAMED_ELEMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -939,7 +1237,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getReference()
 	 * @generated
 	 */
-	int REFERENCE = 8;
+	int REFERENCE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -949,6 +1247,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE__MARKERS = NAMED_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__BEGIN = NAMED_ELEMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__END = NAMED_ELEMENT__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -969,13 +1285,22 @@ public interface JavaPackage extends EPackage {
 	int REFERENCE__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int REFERENCE__COVERAGE = NAMED_ELEMENT__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__REFERENCES = NAMED_ELEMENT__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -996,13 +1321,13 @@ public interface JavaPackage extends EPackage {
 	int REFERENCE__FULLY_QUALIFIED_NAME = NAMED_ELEMENT__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__REFERENCES = NAMED_ELEMENT__REFERENCES;
+	int REFERENCE__REFERRERS = NAMED_ELEMENT__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1021,6 +1346,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE___CONTAINS__RANGE = NAMED_ELEMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE___CONTAINS__POSITION = NAMED_ELEMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -1057,7 +1409,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getGenericType()
 	 * @generated
 	 */
-	int GENERIC_TYPE = 9;
+	int GENERIC_TYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1067,6 +1419,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERIC_TYPE__MARKERS = REFERENCE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__BEGIN = REFERENCE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__END = REFERENCE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -1087,13 +1457,22 @@ public interface JavaPackage extends EPackage {
 	int GENERIC_TYPE__CHILDREN = REFERENCE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int GENERIC_TYPE__COVERAGE = REFERENCE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__REFERENCES = REFERENCE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1114,13 +1493,13 @@ public interface JavaPackage extends EPackage {
 	int GENERIC_TYPE__FULLY_QUALIFIED_NAME = REFERENCE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERIC_TYPE__REFERENCES = REFERENCE__REFERENCES;
+	int GENERIC_TYPE__REFERRERS = REFERENCE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1177,6 +1556,33 @@ public interface JavaPackage extends EPackage {
 	int GENERIC_TYPE_FEATURE_COUNT = REFERENCE_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE___CONTAINS__RANGE = REFERENCE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE___CONTAINS__POSITION = REFERENCE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE___OVERLAPS__RANGE = REFERENCE___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1211,7 +1617,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotation()
 	 * @generated
 	 */
-	int ANNOTATION = 10;
+	int ANNOTATION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1221,6 +1627,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION__MARKERS = REFERENCE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__BEGIN = REFERENCE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__END = REFERENCE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -1241,13 +1665,22 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__CHILDREN = REFERENCE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ANNOTATION__COVERAGE = REFERENCE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__REFERENCES = REFERENCE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1268,13 +1701,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__FULLY_QUALIFIED_NAME = REFERENCE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__REFERENCES = REFERENCE__REFERENCES;
+	int ANNOTATION__REFERRERS = REFERENCE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1302,6 +1735,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_FEATURE_COUNT = REFERENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___CONTAINS__RANGE = REFERENCE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___CONTAINS__POSITION = REFERENCE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___OVERLAPS__RANGE = REFERENCE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -1338,7 +1798,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getTypeParameter()
 	 * @generated
 	 */
-	int TYPE_PARAMETER = 11;
+	int TYPE_PARAMETER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1348,6 +1808,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_PARAMETER__MARKERS = NAMED_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__BEGIN = NAMED_ELEMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__END = NAMED_ELEMENT__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -1368,13 +1846,22 @@ public interface JavaPackage extends EPackage {
 	int TYPE_PARAMETER__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TYPE_PARAMETER__COVERAGE = NAMED_ELEMENT__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__REFERENCES = NAMED_ELEMENT__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1395,13 +1882,13 @@ public interface JavaPackage extends EPackage {
 	int TYPE_PARAMETER__FULLY_QUALIFIED_NAME = NAMED_ELEMENT__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_PARAMETER__REFERENCES = NAMED_ELEMENT__REFERENCES;
+	int TYPE_PARAMETER__REFERRERS = NAMED_ELEMENT__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Bounds</b></em>' reference list.
@@ -1420,6 +1907,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_PARAMETER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER___CONTAINS__RANGE = NAMED_ELEMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER___CONTAINS__POSITION = NAMED_ELEMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -1456,7 +1970,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getTypedElement()
 	 * @generated
 	 */
-	int TYPED_ELEMENT = 12;
+	int TYPED_ELEMENT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1466,6 +1980,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPED_ELEMENT__MARKERS = NAMED_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__BEGIN = NAMED_ELEMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__END = NAMED_ELEMENT__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -1486,13 +2018,22 @@ public interface JavaPackage extends EPackage {
 	int TYPED_ELEMENT__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TYPED_ELEMENT__COVERAGE = NAMED_ELEMENT__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__REFERENCES = NAMED_ELEMENT__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1513,13 +2054,13 @@ public interface JavaPackage extends EPackage {
 	int TYPED_ELEMENT__FULLY_QUALIFIED_NAME = NAMED_ELEMENT__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_ELEMENT__REFERENCES = NAMED_ELEMENT__REFERENCES;
+	int TYPED_ELEMENT__REFERRERS = NAMED_ELEMENT__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1538,6 +2079,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT___CONTAINS__RANGE = NAMED_ELEMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT___CONTAINS__POSITION = NAMED_ELEMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -1576,6 +2144,24 @@ public interface JavaPackage extends EPackage {
 	int TYPE__MARKERS = MEMBER__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__BEGIN = MEMBER__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__END = MEMBER__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1594,13 +2180,22 @@ public interface JavaPackage extends EPackage {
 	int TYPE__CHILDREN = MEMBER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TYPE__COVERAGE = MEMBER__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__REFERENCES = MEMBER__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1621,13 +2216,13 @@ public interface JavaPackage extends EPackage {
 	int TYPE__FULLY_QUALIFIED_NAME = MEMBER__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__REFERENCES = MEMBER__REFERENCES;
+	int TYPE__REFERRERS = MEMBER__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -1711,6 +2306,33 @@ public interface JavaPackage extends EPackage {
 	int TYPE_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE___CONTAINS__RANGE = MEMBER___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE___CONTAINS__POSITION = MEMBER___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1745,7 +2367,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterface()
 	 * @generated
 	 */
-	int ANNOTATION_INTERFACE = 14;
+	int ANNOTATION_INTERFACE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1755,6 +2377,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE__MARKERS = TYPE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__BEGIN = TYPE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__END = TYPE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -1775,13 +2415,22 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE__CHILDREN = TYPE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE__COVERAGE = TYPE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__REFERENCES = TYPE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1802,13 +2451,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE__FULLY_QUALIFIED_NAME = TYPE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_INTERFACE__REFERENCES = TYPE__REFERENCES;
+	int ANNOTATION_INTERFACE__REFERRERS = TYPE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -1892,6 +2541,33 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE___CONTAINS__RANGE = TYPE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE___CONTAINS__POSITION = TYPE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1926,7 +2602,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterfaceMember()
 	 * @generated
 	 */
-	int ANNOTATION_INTERFACE_MEMBER = 15;
+	int ANNOTATION_INTERFACE_MEMBER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1936,6 +2612,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE_MEMBER__MARKERS = MEMBER__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__BEGIN = MEMBER__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__END = MEMBER__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -1956,13 +2650,22 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER__CHILDREN = MEMBER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE_MEMBER__COVERAGE = MEMBER__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__REFERENCES = MEMBER__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1983,13 +2686,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER__FULLY_QUALIFIED_NAME = MEMBER__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_INTERFACE_MEMBER__REFERENCES = MEMBER__REFERENCES;
+	int ANNOTATION_INTERFACE_MEMBER__REFERRERS = MEMBER__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -2037,6 +2740,33 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER___CONTAINS__RANGE = MEMBER___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER___CONTAINS__POSITION = MEMBER___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2073,6 +2803,24 @@ public interface JavaPackage extends EPackage {
 	int CLASS__MARKERS = TYPE__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__BEGIN = TYPE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__END = TYPE__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2091,13 +2839,22 @@ public interface JavaPackage extends EPackage {
 	int CLASS__CHILDREN = TYPE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int CLASS__COVERAGE = TYPE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__REFERENCES = TYPE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2118,13 +2875,13 @@ public interface JavaPackage extends EPackage {
 	int CLASS__FULLY_QUALIFIED_NAME = TYPE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__REFERENCES = TYPE__REFERENCES;
+	int CLASS__REFERRERS = TYPE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -2208,6 +2965,33 @@ public interface JavaPackage extends EPackage {
 	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CONTAINS__RANGE = TYPE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CONTAINS__POSITION = TYPE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2235,16 +3019,6 @@ public interface JavaPackage extends EPackage {
 	int CLASS_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.FieldAccessImpl <em>Field Access</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.FieldAccessImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getFieldAccess()
-	 * @generated
-	 */
-	int FIELD_ACCESS = 21;
-
-	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2252,6 +3026,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE__MARKERS = TYPE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__BEGIN = TYPE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__END = TYPE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -2272,13 +3064,22 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__CHILDREN = TYPE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int INTERFACE__COVERAGE = TYPE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__REFERENCES = TYPE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2299,13 +3100,13 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__FULLY_QUALIFIED_NAME = TYPE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__REFERENCES = TYPE__REFERENCES;
+	int INTERFACE__REFERRERS = TYPE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -2389,6 +3190,33 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE___CONTAINS__RANGE = TYPE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE___CONTAINS__POSITION = TYPE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2425,6 +3253,24 @@ public interface JavaPackage extends EPackage {
 	int CODE__MARKERS = MEMBER__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__BEGIN = MEMBER__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__END = MEMBER__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2443,13 +3289,22 @@ public interface JavaPackage extends EPackage {
 	int CODE__CHILDREN = MEMBER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int CODE__COVERAGE = MEMBER__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__REFERENCES = MEMBER__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2470,13 +3325,13 @@ public interface JavaPackage extends EPackage {
 	int CODE__FULLY_QUALIFIED_NAME = MEMBER__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE__REFERENCES = MEMBER__REFERENCES;
+	int CODE__REFERRERS = MEMBER__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -2515,31 +3370,13 @@ public interface JavaPackage extends EPackage {
 	int CODE__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Field Accesses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE__FIELD_ACCESSES = MEMBER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Calls</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE__OUTGOING_CALLS = MEMBER_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE__BODY = MEMBER_FEATURE_COUNT + 2;
+	int CODE__BODY = MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Code</em>' class.
@@ -2548,7 +3385,34 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 3;
+	int CODE_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___CONTAINS__RANGE = MEMBER___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___CONTAINS__POSITION = MEMBER___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -2587,6 +3451,24 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__MARKERS = CODE__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__BEGIN = CODE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__END = CODE__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2605,13 +3487,22 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__CHILDREN = CODE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int OPERATION__COVERAGE = CODE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__REFERENCES = CODE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2632,13 +3523,13 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__FULLY_QUALIFIED_NAME = CODE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__REFERENCES = CODE__REFERENCES;
+	int OPERATION__REFERRERS = CODE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -2675,24 +3566,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION__ANNOTATIONS = CODE__ANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Field Accesses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__FIELD_ACCESSES = CODE__FIELD_ACCESSES;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Calls</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__OUTGOING_CALLS = CODE__OUTGOING_CALLS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -2749,22 +3622,13 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__TYPE_PARAMETERS = CODE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Incoming Calls</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__INCOMING_CALLS = CODE_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Signature</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SIGNATURE = CODE_FEATURE_COUNT + 6;
+	int OPERATION__SIGNATURE = CODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -2773,7 +3637,34 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = CODE_FEATURE_COUNT + 7;
+	int OPERATION_FEATURE_COUNT = CODE_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___CONTAINS__RANGE = CODE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___CONTAINS__POSITION = CODE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -2812,6 +3703,24 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__MARKERS = OPERATION__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__BEGIN = OPERATION__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__END = OPERATION__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2830,13 +3739,22 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__CHILDREN = OPERATION__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int CONSTRUCTOR__COVERAGE = OPERATION__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__REFERENCES = OPERATION__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2857,13 +3775,13 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__FULLY_QUALIFIED_NAME = OPERATION__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTRUCTOR__REFERENCES = OPERATION__REFERENCES;
+	int CONSTRUCTOR__REFERRERS = OPERATION__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -2900,24 +3818,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR__ANNOTATIONS = OPERATION__ANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Field Accesses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__FIELD_ACCESSES = OPERATION__FIELD_ACCESSES;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Calls</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__OUTGOING_CALLS = OPERATION__OUTGOING_CALLS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -2974,15 +3874,6 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__TYPE_PARAMETERS = OPERATION__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Incoming Calls</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__INCOMING_CALLS = OPERATION__INCOMING_CALLS;
-
-	/**
 	 * The feature id for the '<em><b>Signature</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2999,6 +3890,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR___CONTAINS__RANGE = OPERATION___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR___CONTAINS__POSITION = OPERATION___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR___OVERLAPS__RANGE = OPERATION___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -3037,6 +3955,24 @@ public interface JavaPackage extends EPackage {
 	int ENUM__MARKERS = TYPE__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__BEGIN = TYPE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__END = TYPE__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3055,13 +3991,22 @@ public interface JavaPackage extends EPackage {
 	int ENUM__CHILDREN = TYPE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ENUM__COVERAGE = TYPE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__REFERENCES = TYPE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3082,13 +4027,13 @@ public interface JavaPackage extends EPackage {
 	int ENUM__FULLY_QUALIFIED_NAME = TYPE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM__REFERENCES = TYPE__REFERENCES;
+	int ENUM__REFERRERS = TYPE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -3172,6 +4117,33 @@ public interface JavaPackage extends EPackage {
 	int ENUM_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM___CONTAINS__RANGE = TYPE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM___CONTAINS__POSITION = TYPE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3208,6 +4180,24 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT__MARKERS = MEMBER__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__BEGIN = MEMBER__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__END = MEMBER__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3226,13 +4216,22 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT__CHILDREN = MEMBER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ENUM_CONSTANT__COVERAGE = MEMBER__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__REFERENCES = MEMBER__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3253,13 +4252,13 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT__FULLY_QUALIFIED_NAME = MEMBER__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_CONSTANT__REFERENCES = MEMBER__REFERENCES;
+	int ENUM_CONSTANT__REFERRERS = MEMBER__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -3307,6 +4306,33 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT___CONTAINS__RANGE = MEMBER___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT___CONTAINS__POSITION = MEMBER___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3334,60 +4360,6 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Field</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS__FIELD = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Reads</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS__READS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Writes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS__WRITES = 3;
-
-	/**
-	 * The number of structural features of the '<em>Field Access</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Field Access</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS_OPERATION_COUNT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3395,6 +4367,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD__MARKERS = MEMBER__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__BEGIN = MEMBER__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__END = MEMBER__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -3415,13 +4405,22 @@ public interface JavaPackage extends EPackage {
 	int FIELD__CHILDREN = MEMBER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int FIELD__COVERAGE = MEMBER__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__REFERENCES = MEMBER__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3442,13 +4441,13 @@ public interface JavaPackage extends EPackage {
 	int FIELD__FULLY_QUALIFIED_NAME = MEMBER__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__REFERENCES = MEMBER__REFERENCES;
+	int FIELD__REFERRERS = MEMBER__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -3496,22 +4495,13 @@ public interface JavaPackage extends EPackage {
 	int FIELD__TYPE = MEMBER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Accesses</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__ACCESSES = MEMBER_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Initializer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__INITIALIZER = MEMBER_FEATURE_COUNT + 2;
+	int FIELD__INITIALIZER = MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Field</em>' class.
@@ -3520,7 +4510,34 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 3;
+	int FIELD_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD___CONTAINS__RANGE = MEMBER___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD___CONTAINS__POSITION = MEMBER___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -3559,6 +4576,24 @@ public interface JavaPackage extends EPackage {
 	int MODULE__MARKERS = SOURCE__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__BEGIN = SOURCE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__END = SOURCE__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3577,13 +4612,22 @@ public interface JavaPackage extends EPackage {
 	int MODULE__CHILDREN = SOURCE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int MODULE__COVERAGE = SOURCE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__REFERENCES = SOURCE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -3602,6 +4646,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULE_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE___CONTAINS__RANGE = SOURCE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE___CONTAINS__POSITION = SOURCE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -3638,17 +4709,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 29;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CallImpl <em>Call</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.CallImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCall()
-	 * @generated
-	 */
-	int CALL = 31;
+	int PARAMETER = 31;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -3658,6 +4719,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE__MARKERS = SOURCE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__BEGIN = SOURCE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__END = SOURCE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -3678,13 +4757,22 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__CHILDREN = SOURCE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int PACKAGE__COVERAGE = SOURCE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__REFERENCES = SOURCE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3703,6 +4791,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___CONTAINS__RANGE = SOURCE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___CONTAINS__POSITION = SOURCE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -3741,6 +4856,24 @@ public interface JavaPackage extends EPackage {
 	int METHOD__MARKERS = OPERATION__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__BEGIN = OPERATION__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__END = OPERATION__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3759,13 +4892,22 @@ public interface JavaPackage extends EPackage {
 	int METHOD__CHILDREN = OPERATION__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int METHOD__COVERAGE = OPERATION__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__REFERENCES = OPERATION__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3786,13 +4928,13 @@ public interface JavaPackage extends EPackage {
 	int METHOD__FULLY_QUALIFIED_NAME = OPERATION__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__REFERENCES = OPERATION__REFERENCES;
+	int METHOD__REFERRERS = OPERATION__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -3829,24 +4971,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD__ANNOTATIONS = OPERATION__ANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Field Accesses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__FIELD_ACCESSES = OPERATION__FIELD_ACCESSES;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Calls</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__OUTGOING_CALLS = OPERATION__OUTGOING_CALLS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -3903,15 +5027,6 @@ public interface JavaPackage extends EPackage {
 	int METHOD__TYPE_PARAMETERS = OPERATION__TYPE_PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Incoming Calls</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__INCOMING_CALLS = OPERATION__INCOMING_CALLS;
-
-	/**
 	 * The feature id for the '<em><b>Signature</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3946,6 +5061,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___CONTAINS__RANGE = OPERATION___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___CONTAINS__POSITION = OPERATION___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___OVERLAPS__RANGE = OPERATION___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -3984,6 +5126,24 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__MARKERS = CODE__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__BEGIN = CODE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__END = CODE__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4002,13 +5162,22 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__CHILDREN = CODE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int INITIALIZER__COVERAGE = CODE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__REFERENCES = CODE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4029,13 +5198,13 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__FULLY_QUALIFIED_NAME = CODE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INITIALIZER__REFERENCES = CODE__REFERENCES;
+	int INITIALIZER__REFERRERS = CODE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -4074,24 +5243,6 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__ANNOTATIONS = CODE__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Field Accesses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZER__FIELD_ACCESSES = CODE__FIELD_ACCESSES;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Calls</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZER__OUTGOING_CALLS = CODE__OUTGOING_CALLS;
-
-	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4108,6 +5259,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZER_FEATURE_COUNT = CODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER___CONTAINS__RANGE = CODE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER___CONTAINS__POSITION = CODE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -4146,6 +5324,24 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__MARKERS = CODE__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__BEGIN = CODE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__END = CODE__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4164,13 +5360,22 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__CHILDREN = CODE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int CLASS_INITIALIZER__COVERAGE = CODE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__REFERENCES = CODE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4191,13 +5396,13 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__FULLY_QUALIFIED_NAME = CODE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_INITIALIZER__REFERENCES = CODE__REFERENCES;
+	int CLASS_INITIALIZER__REFERRERS = CODE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -4236,24 +5441,6 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__ANNOTATIONS = CODE__ANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Field Accesses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_INITIALIZER__FIELD_ACCESSES = CODE__FIELD_ACCESSES;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Calls</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_INITIALIZER__OUTGOING_CALLS = CODE__OUTGOING_CALLS;
-
-	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4270,6 +5457,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_INITIALIZER_FEATURE_COUNT = CODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER___CONTAINS__RANGE = CODE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER___CONTAINS__POSITION = CODE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -4308,6 +5522,24 @@ public interface JavaPackage extends EPackage {
 	int PARAMETER__MARKERS = TYPED_ELEMENT__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__BEGIN = TYPED_ELEMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__END = TYPED_ELEMENT__END;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4326,13 +5558,22 @@ public interface JavaPackage extends EPackage {
 	int PARAMETER__CHILDREN = TYPED_ELEMENT__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int PARAMETER__COVERAGE = TYPED_ELEMENT__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__REFERENCES = TYPED_ELEMENT__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4353,13 +5594,13 @@ public interface JavaPackage extends EPackage {
 	int PARAMETER__FULLY_QUALIFIED_NAME = TYPED_ELEMENT__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__REFERENCES = TYPED_ELEMENT__REFERENCES;
+	int PARAMETER__REFERRERS = TYPED_ELEMENT__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -4398,6 +5639,33 @@ public interface JavaPackage extends EPackage {
 	int PARAMETER_FEATURE_COUNT = TYPED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___CONTAINS__RANGE = TYPED_ELEMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___CONTAINS__POSITION = TYPED_ELEMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___OVERLAPS__RANGE = TYPED_ELEMENT___OVERLAPS__RANGE;
+
+	/**
 	 * The operation id for the '<em>Update</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4425,51 +5693,6 @@ public interface JavaPackage extends EPackage {
 	int PARAMETER_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Signature</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CALL__SIGNATURE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Operation</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CALL__OPERATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Counter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CALL__COUNTER = 2;
-
-	/**
-	 * The number of structural features of the '<em>Call</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CALL_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Call</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CALL_OPERATION_COUNT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4477,6 +5700,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD__MARKERS = TYPE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__BEGIN = TYPE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__END = TYPE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -4497,13 +5738,22 @@ public interface JavaPackage extends EPackage {
 	int RECORD__CHILDREN = TYPE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference.
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int RECORD__COVERAGE = TYPE__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__REFERENCES = TYPE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4524,13 +5774,13 @@ public interface JavaPackage extends EPackage {
 	int RECORD__FULLY_QUALIFIED_NAME = TYPE__FULLY_QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD__REFERENCES = TYPE__REFERENCES;
+	int RECORD__REFERRERS = TYPE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -4612,6 +5862,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD___CONTAINS__RANGE = TYPE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD___CONTAINS__POSITION = TYPE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -4716,15 +5993,26 @@ public interface JavaPackage extends EPackage {
 	EReference getSource_Children();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}'.
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Coverage</em>'.
+	 * @return the meta object for the reference list '<em>Coverage</em>'.
 	 * @see org.nasdanika.models.java.Source#getCoverage()
 	 * @see #getSource()
 	 * @generated
 	 */
 	EReference getSource_Coverage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.Source#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>References</em>'.
+	 * @see org.nasdanika.models.java.Source#getReferences()
+	 * @see #getSource()
+	 * @generated
+	 */
+	EReference getSource_References();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.models.java.Source#update(java.util.function.Function) <em>Update</em>}' operation.
@@ -4788,6 +6076,111 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDigestPredicate();
+
+	/**
+	 * Returns the meta object for class '{@link java.lang.Comparable <em>Comparable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Comparable</em>'.
+	 * @see java.lang.Comparable
+	 * @model instanceClass="java.lang.Comparable" typeParameters="T"
+	 * @generated
+	 */
+	EClass getComparable();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.Position <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Position</em>'.
+	 * @see org.nasdanika.models.java.Position
+	 * @generated
+	 */
+	EClass getPosition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Position#getLine <em>Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line</em>'.
+	 * @see org.nasdanika.models.java.Position#getLine()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_Line();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Position#getColumn <em>Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Column</em>'.
+	 * @see org.nasdanika.models.java.Position#getColumn()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_Column();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.Range <em>Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Range</em>'.
+	 * @see org.nasdanika.models.java.Range
+	 * @generated
+	 */
+	EClass getRange();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Range#getBegin <em>Begin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Begin</em>'.
+	 * @see org.nasdanika.models.java.Range#getBegin()
+	 * @see #getRange()
+	 * @generated
+	 */
+	EReference getRange_Begin();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Range#getEnd <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>End</em>'.
+	 * @see org.nasdanika.models.java.Range#getEnd()
+	 * @see #getRange()
+	 * @generated
+	 */
+	EReference getRange_End();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.Range#contains(org.nasdanika.models.java.Range) <em>Contains</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Contains</em>' operation.
+	 * @see org.nasdanika.models.java.Range#contains(org.nasdanika.models.java.Range)
+	 * @generated
+	 */
+	EOperation getRange__Contains__Range();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.Range#contains(org.nasdanika.models.java.Position) <em>Contains</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Contains</em>' operation.
+	 * @see org.nasdanika.models.java.Range#contains(org.nasdanika.models.java.Position)
+	 * @generated
+	 */
+	EOperation getRange__Contains__Position();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.Range#overlaps(org.nasdanika.models.java.Range) <em>Overlaps</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Overlaps</em>' operation.
+	 * @see org.nasdanika.models.java.Range#overlaps(org.nasdanika.models.java.Range)
+	 * @generated
+	 */
+	EOperation getRange__Overlaps__Range();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Member <em>Member</em>}'.
@@ -5024,28 +6417,6 @@ public interface JavaPackage extends EPackage {
 	EClass getCode();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.Code#getFieldAccesses <em>Field Accesses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Field Accesses</em>'.
-	 * @see org.nasdanika.models.java.Code#getFieldAccesses()
-	 * @see #getCode()
-	 * @generated
-	 */
-	EReference getCode_FieldAccesses();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.Code#getOutgoingCalls <em>Outgoing Calls</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Outgoing Calls</em>'.
-	 * @see org.nasdanika.models.java.Code#getOutgoingCalls()
-	 * @see #getCode()
-	 * @generated
-	 */
-	EReference getCode_OutgoingCalls();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Code#getBody <em>Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5163,17 +6534,6 @@ public interface JavaPackage extends EPackage {
 	EReference getOperation_TypeParameters();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.java.Operation#getIncomingCalls <em>Incoming Calls</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Incoming Calls</em>'.
-	 * @see org.nasdanika.models.java.Operation#getIncomingCalls()
-	 * @see #getOperation()
-	 * @generated
-	 */
-	EReference getOperation_IncomingCalls();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Operation#getSignature <em>Signature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5183,49 +6543,6 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOperation_Signature();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.models.java.Call <em>Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Call</em>'.
-	 * @see org.nasdanika.models.java.Call
-	 * @generated
-	 */
-	EClass getCall();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Call#getSignature <em>Signature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Signature</em>'.
-	 * @see org.nasdanika.models.java.Call#getSignature()
-	 * @see #getCall()
-	 * @generated
-	 */
-	EAttribute getCall_Signature();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.java.Call#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Operation</em>'.
-	 * @see org.nasdanika.models.java.Call#getOperation()
-	 * @see #getCall()
-	 * @generated
-	 */
-	EReference getCall_Operation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Call#getCounter <em>Counter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Counter</em>'.
-	 * @see org.nasdanika.models.java.Call#getCounter()
-	 * @see #getCall()
-	 * @generated
-	 */
-	EAttribute getCall_Counter();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Type <em>Type</em>}'.
@@ -5418,15 +6735,15 @@ public interface JavaPackage extends EPackage {
 	EAttribute getNamedElement_FullyQualifiedName();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.java.NamedElement#getReferences <em>References</em>}'.
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.java.NamedElement#getReferrers <em>Referrers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>References</em>'.
-	 * @see org.nasdanika.models.java.NamedElement#getReferences()
+	 * @return the meta object for the reference list '<em>Referrers</em>'.
+	 * @see org.nasdanika.models.java.NamedElement#getReferrers()
 	 * @see #getNamedElement()
 	 * @generated
 	 */
-	EReference getNamedElement_References();
+	EReference getNamedElement_Referrers();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -5492,48 +6809,6 @@ public interface JavaPackage extends EPackage {
 		EClass ENUM_CONSTANT = eINSTANCE.getEnumConstant();
 
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.FieldAccessImpl <em>Field Access</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.models.java.impl.FieldAccessImpl
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getFieldAccess()
-		 * @generated
-		 */
-		EClass FIELD_ACCESS = eINSTANCE.getFieldAccess();
-
-		/**
-		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FIELD_ACCESS__FIELD = eINSTANCE.getFieldAccess_Field();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FIELD_ACCESS__NAME = eINSTANCE.getFieldAccess_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Reads</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FIELD_ACCESS__READS = eINSTANCE.getFieldAccess_Reads();
-
-		/**
-		 * The meta object literal for the '<em><b>Writes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FIELD_ACCESS__WRITES = eINSTANCE.getFieldAccess_Writes();
-
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5542,14 +6817,6 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FIELD = eINSTANCE.getField();
-
-		/**
-		 * The meta object literal for the '<em><b>Accesses</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FIELD__ACCESSES = eINSTANCE.getField_Accesses();
 
 		/**
 		 * The meta object literal for the '<em><b>Initializer</b></em>' containment reference feature.
@@ -5632,12 +6899,20 @@ public interface JavaPackage extends EPackage {
 		EReference SOURCE__CHILDREN = eINSTANCE.getSource_Children();
 
 		/**
-		 * The meta object literal for the '<em><b>Coverage</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Coverage</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SOURCE__COVERAGE = eINSTANCE.getSource_Coverage();
+
+		/**
+		 * The meta object literal for the '<em><b>References</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE__REFERENCES = eINSTANCE.getSource_References();
 
 		/**
 		 * The meta object literal for the '<em><b>Update</b></em>' operation.
@@ -5694,6 +6969,92 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DIGEST_PREDICATE = eINSTANCE.getDigestPredicate();
+
+		/**
+		 * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Comparable
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComparable()
+		 * @generated
+		 */
+		EClass COMPARABLE = eINSTANCE.getComparable();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.PositionImpl <em>Position</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.PositionImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPosition()
+		 * @generated
+		 */
+		EClass POSITION = eINSTANCE.getPosition();
+
+		/**
+		 * The meta object literal for the '<em><b>Line</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__LINE = eINSTANCE.getPosition_Line();
+
+		/**
+		 * The meta object literal for the '<em><b>Column</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__COLUMN = eINSTANCE.getPosition_Column();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.RangeImpl <em>Range</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.RangeImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRange()
+		 * @generated
+		 */
+		EClass RANGE = eINSTANCE.getRange();
+
+		/**
+		 * The meta object literal for the '<em><b>Begin</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RANGE__BEGIN = eINSTANCE.getRange_Begin();
+
+		/**
+		 * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RANGE__END = eINSTANCE.getRange_End();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RANGE___CONTAINS__RANGE = eINSTANCE.getRange__Contains__Range();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RANGE___CONTAINS__POSITION = eINSTANCE.getRange__Contains__Position();
+
+		/**
+		 * The meta object literal for the '<em><b>Overlaps</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RANGE___OVERLAPS__RANGE = eINSTANCE.getRange__Overlaps__Range();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.MemberImpl <em>Member</em>}' class.
@@ -5888,22 +7249,6 @@ public interface JavaPackage extends EPackage {
 		EClass CODE = eINSTANCE.getCode();
 
 		/**
-		 * The meta object literal for the '<em><b>Field Accesses</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CODE__FIELD_ACCESSES = eINSTANCE.getCode_FieldAccesses();
-
-		/**
-		 * The meta object literal for the '<em><b>Outgoing Calls</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CODE__OUTGOING_CALLS = eINSTANCE.getCode_OutgoingCalls();
-
-		/**
 		 * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6000,54 +7345,12 @@ public interface JavaPackage extends EPackage {
 		EReference OPERATION__TYPE_PARAMETERS = eINSTANCE.getOperation_TypeParameters();
 
 		/**
-		 * The meta object literal for the '<em><b>Incoming Calls</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPERATION__INCOMING_CALLS = eINSTANCE.getOperation_IncomingCalls();
-
-		/**
 		 * The meta object literal for the '<em><b>Signature</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute OPERATION__SIGNATURE = eINSTANCE.getOperation_Signature();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.CallImpl <em>Call</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.models.java.impl.CallImpl
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCall()
-		 * @generated
-		 */
-		EClass CALL = eINSTANCE.getCall();
-
-		/**
-		 * The meta object literal for the '<em><b>Signature</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CALL__SIGNATURE = eINSTANCE.getCall_Signature();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CALL__OPERATION = eINSTANCE.getCall_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Counter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CALL__COUNTER = eINSTANCE.getCall_Counter();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.TypeImpl <em>Type</em>}' class.
@@ -6206,12 +7509,12 @@ public interface JavaPackage extends EPackage {
 		EAttribute NAMED_ELEMENT__FULLY_QUALIFIED_NAME = eINSTANCE.getNamedElement_FullyQualifiedName();
 
 		/**
-		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Referrers</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NAMED_ELEMENT__REFERENCES = eINSTANCE.getNamedElement_References();
+		EReference NAMED_ELEMENT__REFERRERS = eINSTANCE.getNamedElement_Referrers();
 
 	}
 

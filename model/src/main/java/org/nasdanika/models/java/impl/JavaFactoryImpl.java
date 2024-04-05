@@ -7,11 +7,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
-import org.nasdanika.models.java.Call;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -19,7 +17,6 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
-import org.nasdanika.models.java.FieldAccess;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
@@ -28,6 +25,8 @@ import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Parameter;
+import org.nasdanika.models.java.Position;
+import org.nasdanika.models.java.Range;
 import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.TypeParameter;
@@ -77,6 +76,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case JavaPackage.POSITION: return createPosition();
+			case JavaPackage.RANGE: return createRange();
 			case JavaPackage.SOURCE: return createSource();
 			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
 			case JavaPackage.COMMENT: return createComment();
@@ -93,7 +94,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.CONSTRUCTOR: return createConstructor();
 			case JavaPackage.ENUM: return createEnum();
 			case JavaPackage.ENUM_CONSTANT: return createEnumConstant();
-			case JavaPackage.FIELD_ACCESS: return createFieldAccess();
 			case JavaPackage.FIELD: return createField();
 			case JavaPackage.MODULE: return createModule();
 			case JavaPackage.PACKAGE: return createPackage();
@@ -102,11 +102,32 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.INITIALIZER: return createInitializer();
 			case JavaPackage.CLASS_INITIALIZER: return createClassInitializer();
 			case JavaPackage.PARAMETER: return createParameter();
-			case JavaPackage.CALL: return createCall();
 			case JavaPackage.RECORD: return createRecord();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Position createPosition() {
+		PositionImpl position = new PositionImpl();
+		return position;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Range createRange() {
+		RangeImpl range = new RangeImpl();
+		return range;
 	}
 
 	/**
@@ -151,17 +172,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public EnumConstant createEnumConstant() {
 		EnumConstantImpl enumConstant = new EnumConstantImpl();
 		return enumConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public FieldAccess createFieldAccess() {
-		FieldAccessImpl fieldAccess = new FieldAccessImpl();
-		return fieldAccess;
 	}
 
 	/**
@@ -258,17 +268,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
-	public Call createCall() {
-		CallImpl call = new CallImpl();
-		return call;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public org.nasdanika.models.java.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
@@ -280,8 +279,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
-	public <C extends Coverage> Source<C> createSource() {
-		SourceImpl<C> source = new SourceImpl<C>();
+	public Source createSource() {
+		SourceImpl source = new SourceImpl();
 		return source;
 	}
 
@@ -324,8 +323,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
-	public <C extends Coverage> NamedElement<C> createNamedElement() {
-		NamedElementImpl<C> namedElement = new NamedElementImpl<C>();
+	public NamedElement createNamedElement() {
+		NamedElementImpl namedElement = new NamedElementImpl();
 		return namedElement;
 	}
 
@@ -379,8 +378,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * @generated
 	 */
 	@Override
-	public <C extends Coverage> TypedElement<C> createTypedElement() {
-		TypedElementImpl<C> typedElement = new TypedElementImpl<C>();
+	public TypedElement createTypedElement() {
+		TypedElementImpl typedElement = new TypedElementImpl();
 		return typedElement;
 	}
 

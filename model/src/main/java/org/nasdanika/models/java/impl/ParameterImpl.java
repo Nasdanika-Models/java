@@ -5,8 +5,6 @@ package org.nasdanika.models.java.impl;
 import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Parameter;
 
@@ -24,7 +22,7 @@ import org.nasdanika.models.java.Parameter;
  *
  * @generated
  */
-public class ParameterImpl extends TypedElementImpl<Coverage> implements Parameter {
+public class ParameterImpl extends TypedElementImpl implements Parameter {
 	/**
 	 * The default value of the '{@link #isVarArg() <em>Var Arg</em>}' attribute.
 	 * <!-- begin-user-doc -->

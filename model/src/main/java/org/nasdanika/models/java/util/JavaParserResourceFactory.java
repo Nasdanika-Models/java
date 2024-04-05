@@ -1,5 +1,6 @@
 package org.nasdanika.models.java.util;
 
+import java.util.Collection;
 import java.util.function.Function;
 
 import org.eclipse.emf.common.util.URI;
@@ -17,19 +18,19 @@ public class JavaParserResourceFactory implements Resource.Factory {
 	public static final LanguageLevel DEFAULT_LANGUAGE_LEVEL = LanguageLevel.JAVA_17;
 	
 	private ParserConfiguration parserConfiguration;
-	private Function<Source<?>, Coverage> coverageProvider;
+	private Function<Source,Collection<Coverage>> coverageProvider;
 	
 	public JavaParserResourceFactory() {
 		this(DEFAULT_LANGUAGE_LEVEL, null);
 	}
 
-	public JavaParserResourceFactory(Function<Source<?>,Coverage> coverageProvider) {
+	public JavaParserResourceFactory(Function<Source,Collection<Coverage>> coverageProvider) {
 		parserConfiguration = new ParserConfiguration();
 		parserConfiguration.setLanguageLevel(DEFAULT_LANGUAGE_LEVEL);
 		this.coverageProvider = coverageProvider;
 	}
 	
-	public JavaParserResourceFactory(LanguageLevel languageLevel, Function<Source<?>,Coverage> coverageProvider) {
+	public JavaParserResourceFactory(LanguageLevel languageLevel, Function<Source,Collection<Coverage>> coverageProvider) {
 		parserConfiguration = new ParserConfiguration();
 		parserConfiguration.setLanguageLevel(languageLevel);
 		this.coverageProvider = coverageProvider;

@@ -2,6 +2,7 @@
  */
 package org.nasdanika.models.java.impl;
 
+import java.lang.Comparable;
 import java.util.function.BiFunction;
 import static org.nasdanika.models.java.JavaPackage.CLASS;
 
@@ -14,13 +15,11 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.models.coverage.CoveragePackage;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
-import org.nasdanika.models.java.Call;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -28,7 +27,6 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
-import org.nasdanika.models.java.FieldAccess;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
@@ -39,6 +37,8 @@ import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Parameter;
+import org.nasdanika.models.java.Position;
+import org.nasdanika.models.java.Range;
 import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
@@ -79,6 +79,27 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass comparableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass positionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass classEClass = null;
 
 	/**
@@ -101,13 +122,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass enumConstantEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass fieldAccessEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,13 +248,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass operationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass callEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -394,56 +401,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getFieldAccess() {
-		return fieldAccessEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getFieldAccess_Field() {
-		return (EReference)fieldAccessEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getFieldAccess_Name() {
-		return (EAttribute)fieldAccessEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getFieldAccess_Reads() {
-		return (EAttribute)fieldAccessEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getFieldAccess_Writes() {
-		return (EAttribute)fieldAccessEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getField() {
 		return fieldEClass;
 	}
@@ -454,18 +411,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getField_Accesses() {
-		return (EReference)fieldEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getField_Initializer() {
-		return (EReference)fieldEClass.getEStructuralFeatures().get(1);
+		return (EReference)fieldEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -564,6 +511,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getSource_References() {
+		return (EReference)sourceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getSource__Update__Function() {
 		return sourceEClass.getEOperations().get(0);
 	}
@@ -616,6 +573,106 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EClass getDigestPredicate() {
 		return digestPredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getComparable() {
+		return comparableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPosition() {
+		return positionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_Line() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_Column() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getRange() {
+		return rangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRange_Begin() {
+		return (EReference)rangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRange_End() {
+		return (EReference)rangeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRange__Contains__Range() {
+		return rangeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRange__Contains__Position() {
+		return rangeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRange__Overlaps__Range() {
+		return rangeEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -844,28 +901,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getCode_FieldAccesses() {
-		return (EReference)codeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getCode_OutgoingCalls() {
-		return (EReference)codeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getCode_Body() {
-		return (EReference)codeEClass.getEStructuralFeatures().get(2);
+		return (EReference)codeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -974,58 +1011,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getOperation_IncomingCalls() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getOperation_Signature() {
-		return (EAttribute)operationEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getCall() {
-		return callEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCall_Signature() {
-		return (EAttribute)callEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getCall_Operation() {
-		return (EReference)callEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCall_Counter() {
-		return (EAttribute)callEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1214,7 +1201,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getNamedElement_References() {
+	public EReference getNamedElement_Referrers() {
 		return (EReference)namedElementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1253,10 +1240,24 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		digestPredicateEClass = createEClass(DIGEST_PREDICATE);
 
+		comparableEClass = createEClass(COMPARABLE);
+
+		positionEClass = createEClass(POSITION);
+		createEAttribute(positionEClass, POSITION__LINE);
+		createEAttribute(positionEClass, POSITION__COLUMN);
+
+		rangeEClass = createEClass(RANGE);
+		createEReference(rangeEClass, RANGE__BEGIN);
+		createEReference(rangeEClass, RANGE__END);
+		createEOperation(rangeEClass, RANGE___CONTAINS__RANGE);
+		createEOperation(rangeEClass, RANGE___CONTAINS__POSITION);
+		createEOperation(rangeEClass, RANGE___OVERLAPS__RANGE);
+
 		sourceEClass = createEClass(SOURCE);
 		createEAttribute(sourceEClass, SOURCE__SOURCE);
 		createEReference(sourceEClass, SOURCE__CHILDREN);
 		createEReference(sourceEClass, SOURCE__COVERAGE);
+		createEReference(sourceEClass, SOURCE__REFERENCES);
 		createEOperation(sourceEClass, SOURCE___UPDATE__FUNCTION);
 		createEOperation(sourceEClass, SOURCE___DIGEST__PREDICATE);
 
@@ -1273,7 +1274,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__FULLY_QUALIFIED_NAME);
-		createEReference(namedElementEClass, NAMED_ELEMENT__REFERENCES);
+		createEReference(namedElementEClass, NAMED_ELEMENT__REFERRERS);
 
 		memberEClass = createEClass(MEMBER);
 		createEReference(memberEClass, MEMBER__COMMENT);
@@ -1319,14 +1320,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		enumConstantEClass = createEClass(ENUM_CONSTANT);
 
-		fieldAccessEClass = createEClass(FIELD_ACCESS);
-		createEReference(fieldAccessEClass, FIELD_ACCESS__FIELD);
-		createEAttribute(fieldAccessEClass, FIELD_ACCESS__NAME);
-		createEAttribute(fieldAccessEClass, FIELD_ACCESS__READS);
-		createEAttribute(fieldAccessEClass, FIELD_ACCESS__WRITES);
-
 		fieldEClass = createEClass(FIELD);
-		createEReference(fieldEClass, FIELD__ACCESSES);
 		createEReference(fieldEClass, FIELD__INITIALIZER);
 
 		moduleEClass = createEClass(MODULE);
@@ -1340,8 +1334,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEReference(methodEClass, METHOD__OVERRIDDEN_BY);
 
 		codeEClass = createEClass(CODE);
-		createEReference(codeEClass, CODE__FIELD_ACCESSES);
-		createEReference(codeEClass, CODE__OUTGOING_CALLS);
 		createEReference(codeEClass, CODE__BODY);
 
 		initializerEClass = createEClass(INITIALIZER);
@@ -1357,13 +1349,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEReference(operationEClass, OPERATION__PARAMETERS);
 		createEReference(operationEClass, OPERATION__EXCEPTIONS);
 		createEReference(operationEClass, OPERATION__TYPE_PARAMETERS);
-		createEReference(operationEClass, OPERATION__INCOMING_CALLS);
 		createEAttribute(operationEClass, OPERATION__SIGNATURE);
-
-		callEClass = createEClass(CALL);
-		createEAttribute(callEClass, CALL__SIGNATURE);
-		createEReference(callEClass, CALL__OPERATION);
-		createEAttribute(callEClass, CALL__COUNTER);
 
 		recordEClass = createEClass(RECORD);
 	}
@@ -1392,103 +1378,48 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CoveragePackage theCoveragePackage = (CoveragePackage)EPackage.Registry.INSTANCE.getEPackage(CoveragePackage.eNS_URI);
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
+		CoveragePackage theCoveragePackage = (CoveragePackage)EPackage.Registry.INSTANCE.getEPackage(CoveragePackage.eNS_URI);
 
 		// Create type parameters
-		ETypeParameter sourceEClass_C = addETypeParameter(sourceEClass, "C");
-		ETypeParameter namedElementEClass_C = addETypeParameter(namedElementEClass, "C");
-		ETypeParameter memberEClass_C = addETypeParameter(memberEClass, "C");
-		ETypeParameter typedElementEClass_C = addETypeParameter(typedElementEClass, "C");
+		addETypeParameter(comparableEClass, "T");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(theCoveragePackage.getCoverage());
-		sourceEClass_C.getEBounds().add(g1);
-		g1 = createEGenericType(theCoveragePackage.getCoverage());
-		namedElementEClass_C.getEBounds().add(g1);
-		g1 = createEGenericType(theCoveragePackage.getCoverage());
-		memberEClass_C.getEBounds().add(g1);
-		g1 = createEGenericType(theCoveragePackage.getCoverage());
-		typedElementEClass_C.getEBounds().add(g1);
 
 		// Add supertypes to classes
+		EGenericType g1 = createEGenericType(this.getComparable());
+		EGenericType g2 = createEGenericType(this.getPosition());
+		g1.getETypeArguments().add(g2);
+		positionEClass.getEGenericSuperTypes().add(g1);
 		sourceEClass.getESuperTypes().add(theNcorePackage.getMarked());
-		g1 = createEGenericType(this.getSource());
-		EGenericType g2 = createEGenericType(theCoveragePackage.getSourceFileCoverage());
-		g1.getETypeArguments().add(g2);
-		compilationUnitEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getSource());
-		g2 = createEGenericType(namedElementEClass_C);
-		g1.getETypeArguments().add(g2);
-		namedElementEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getNamedElement());
-		g2 = createEGenericType(memberEClass_C);
-		g1.getETypeArguments().add(g2);
-		memberEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getNamedElement());
-		g2 = createEGenericType(theCoveragePackage.getCoverage());
-		g1.getETypeArguments().add(g2);
-		referenceEClass.getEGenericSuperTypes().add(g1);
+		sourceEClass.getESuperTypes().add(this.getRange());
+		compilationUnitEClass.getESuperTypes().add(this.getSource());
+		namedElementEClass.getESuperTypes().add(this.getSource());
+		memberEClass.getESuperTypes().add(this.getNamedElement());
+		referenceEClass.getESuperTypes().add(this.getNamedElement());
 		genericTypeEClass.getESuperTypes().add(this.getReference());
 		annotationEClass.getESuperTypes().add(this.getReference());
-		g1 = createEGenericType(this.getNamedElement());
-		g2 = createEGenericType(theCoveragePackage.getCoverage());
-		g1.getETypeArguments().add(g2);
-		typeParameterEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getNamedElement());
-		g2 = createEGenericType(typedElementEClass_C);
-		g1.getETypeArguments().add(g2);
-		typedElementEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getMember());
-		g2 = createEGenericType(theCoveragePackage.getClassCoverage());
-		g1.getETypeArguments().add(g2);
-		typeEClass.getEGenericSuperTypes().add(g1);
+		typeParameterEClass.getESuperTypes().add(this.getNamedElement());
+		typedElementEClass.getESuperTypes().add(this.getNamedElement());
+		typeEClass.getESuperTypes().add(this.getMember());
 		annotationInterfaceEClass.getESuperTypes().add(this.getType());
-		g1 = createEGenericType(this.getMember());
-		g2 = createEGenericType(theCoveragePackage.getCoverage());
-		g1.getETypeArguments().add(g2);
-		annotationInterfaceMemberEClass.getEGenericSuperTypes().add(g1);
+		annotationInterfaceMemberEClass.getESuperTypes().add(this.getMember());
 		classEClass.getESuperTypes().add(this.getType());
 		interfaceEClass.getESuperTypes().add(this.getType());
 		constructorEClass.getESuperTypes().add(this.getOperation());
 		enumEClass.getESuperTypes().add(this.getType());
-		g1 = createEGenericType(this.getMember());
-		g2 = createEGenericType(theCoveragePackage.getCoverage());
-		g1.getETypeArguments().add(g2);
-		enumConstantEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getMember());
-		g2 = createEGenericType(theCoveragePackage.getCoverage());
-		g1.getETypeArguments().add(g2);
-		fieldEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getTypedElement());
-		g2 = createEGenericType(theCoveragePackage.getCoverage());
-		g1.getETypeArguments().add(g2);
-		fieldEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getSource());
-		g2 = createEGenericType(theCoveragePackage.getModuleCoverage());
-		g1.getETypeArguments().add(g2);
-		moduleEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getSource());
-		g2 = createEGenericType(theCoveragePackage.getPackageCoverage());
-		g1.getETypeArguments().add(g2);
-		packageEClass.getEGenericSuperTypes().add(g1);
+		enumConstantEClass.getESuperTypes().add(this.getMember());
+		fieldEClass.getESuperTypes().add(this.getMember());
+		fieldEClass.getESuperTypes().add(this.getTypedElement());
+		moduleEClass.getESuperTypes().add(this.getSource());
+		packageEClass.getESuperTypes().add(this.getSource());
 		methodEClass.getESuperTypes().add(this.getOperation());
-		g1 = createEGenericType(this.getMember());
-		g2 = createEGenericType(theCoveragePackage.getMethodCoverage());
-		g1.getETypeArguments().add(g2);
-		codeEClass.getEGenericSuperTypes().add(g1);
+		codeEClass.getESuperTypes().add(this.getMember());
 		initializerEClass.getESuperTypes().add(this.getCode());
 		classInitializerEClass.getESuperTypes().add(this.getCode());
-		g1 = createEGenericType(this.getTypedElement());
-		g2 = createEGenericType(theCoveragePackage.getCoverage());
-		g1.getETypeArguments().add(g2);
-		parameterEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getCode());
-		operationEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getTypedElement());
-		g2 = createEGenericType(theCoveragePackage.getMethodCoverage());
-		g1.getETypeArguments().add(g2);
-		operationEClass.getEGenericSuperTypes().add(g1);
+		parameterEClass.getESuperTypes().add(this.getTypedElement());
+		operationEClass.getESuperTypes().add(this.getCode());
+		operationEClass.getESuperTypes().add(this.getTypedElement());
 		recordEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1498,16 +1429,32 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(digestPredicateEClass, Predicate.class, "DigestPredicate", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.util.function.Predicate<org.eclipse.emf.ecore.EObject>");
 
+		initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPosition_Line(), ecorePackage.getEInt(), "line", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_Column(), ecorePackage.getEInt(), "column", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rangeEClass, Range.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRange_Begin(), this.getPosition(), null, "begin", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRange_End(), this.getPosition(), null, "end", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getRange__Contains__Range(), ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRange(), "range", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRange__Contains__Position(), ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPosition(), "position", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRange__Overlaps__Range(), ecorePackage.getEBoolean(), "overlaps", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRange(), "range", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSource_Source(), ecorePackage.getEString(), "source", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getSource());
-		g2 = createEGenericType(theCoveragePackage.getCoverage());
-		g1.getETypeArguments().add(g2);
-		initEReference(getSource_Children(), g1, null, "children", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(sourceEClass_C);
-		initEReference(getSource_Coverage(), g1, null, "coverage", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSource_Children(), this.getSource(), null, "children", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSource_Coverage(), theCoveragePackage.getCoverage(), null, "coverage", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSource_References(), this.getReference(), null, "references", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getSource__Update__Function(), ecorePackage.getEString(), "update", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSource__Update__Function(), ecorePackage.getEString(), "update", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getImportManager(), "importManager", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getSource__Digest__Predicate(), ecorePackage.getEString(), "digest", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1531,7 +1478,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamedElement_FullyQualifiedName(), ecorePackage.getEString(), "fullyQualifiedName", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNamedElement_References(), this.getReference(), this.getReference_Target(), "references", null, 0, -1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNamedElement_Referrers(), this.getReference(), this.getReference_Target(), "referrers", null, 0, -1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMember_Comment(), this.getComment(), null, "comment", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1540,10 +1487,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getMember_Annotations(), this.getAnnotation(), null, "annotations", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getNamedElement());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEReference(getReference_Target(), g1, this.getNamedElement_References(), "target", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_Target(), this.getNamedElement(), this.getNamedElement_Referrers(), "target", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(genericTypeEClass, GenericType.class, "GenericType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGenericType_TypeArguments(), this.getGenericType(), null, "typeArguments", null, 0, -1, GenericType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1552,10 +1496,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEAttribute(getGenericType_Primitive(), ecorePackage.getEBoolean(), "primitive", null, 0, 1, GenericType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getNamedElement());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEReference(getAnnotation_Elements(), g1, null, "elements", null, 0, -1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnnotation_Elements(), this.getNamedElement(), null, "elements", null, 0, -1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeParameterEClass, TypeParameter.class, "TypeParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypeParameter_Bounds(), this.getGenericType(), null, "bounds", null, 0, -1, TypeParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1564,12 +1505,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getTypedElement_Type(), this.getGenericType(), null, "type", null, 0, 1, TypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getMember());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		EGenericType g3 = createEGenericType(theCoveragePackage.getCoverage());
-		g2.setEUpperBound(g3);
-		initEReference(getType_Members(), g1, null, "members", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_Members(), this.getMember(), null, "members", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_Supertypes(), this.getGenericType(), null, "supertypes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_TypeParameters(), this.getTypeParameter(), null, "typeParameters", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_Permits(), this.getGenericType(), null, "permits", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1588,14 +1524,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(enumConstantEClass, EnumConstant.class, "EnumConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(fieldAccessEClass, FieldAccess.class, "FieldAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFieldAccess_Field(), this.getField(), this.getField_Accesses(), "field", null, 0, 1, FieldAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFieldAccess_Name(), ecorePackage.getEString(), "name", null, 0, 1, FieldAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFieldAccess_Reads(), ecorePackage.getEInt(), "reads", null, 0, 1, FieldAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFieldAccess_Writes(), ecorePackage.getEInt(), "writes", null, 0, 1, FieldAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getField_Accesses(), this.getFieldAccess(), this.getFieldAccess_Field(), "accesses", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getField_Initializer(), this.getCode(), null, "initializer", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moduleEClass, org.nasdanika.models.java.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1609,12 +1538,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getMethod_OverriddenBy(), this.getMethod(), this.getMethod_Overrides(), "overriddenBy", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(codeEClass, Code.class, "Code", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCode_FieldAccesses(), this.getFieldAccess(), null, "fieldAccesses", null, 0, -1, Code.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCode_OutgoingCalls(), this.getCall(), null, "outgoingCalls", null, 0, -1, Code.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getSource());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEReference(getCode_Body(), g1, null, "body", null, 0, 1, Code.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCode_Body(), this.getSource(), null, "body", null, 0, 1, Code.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(initializerEClass, Initializer.class, "Initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1629,13 +1553,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getOperation_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Exceptions(), this.getGenericType(), null, "exceptions", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_TypeParameters(), this.getTypeParameter(), null, "typeParameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_IncomingCalls(), this.getCall(), this.getCall_Operation(), "incomingCalls", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Signature(), ecorePackage.getEString(), "signature", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(callEClass, Call.class, "Call", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCall_Signature(), ecorePackage.getEString(), "signature", null, 0, 1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCall_Operation(), this.getOperation(), this.getOperation_IncomingCalls(), "operation", null, 0, 1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCall_Counter(), ecorePackage.getEInt(), "counter", null, 0, 1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(recordEClass, org.nasdanika.models.java.Record.class, "Record", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1713,7 +1631,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		  (getReference_Target(),
 		   source,
 		   new String[] {
-			   "documentation", "Referenced named element"
+			   "documentation", "Referenced named element (symbol)"
 		   });
 		addAnnotation
 		  (getType_Supertypes(),
@@ -1726,12 +1644,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		   source,
 		   new String[] {
 			   "documentation", "For classes the first element is the superclass and the rest are implemented interfaces"
-		   });
-		addAnnotation
-		  (getFieldAccess_Field(),
-		   source,
-		   new String[] {
-			   "documentation", "Fully qualified field name"
 		   });
 	}
 

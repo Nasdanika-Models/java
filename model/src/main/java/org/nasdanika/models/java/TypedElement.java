@@ -2,9 +2,6 @@
  */
 package org.nasdanika.models.java;
 
-import org.nasdanika.models.coverage.Coverage;
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Typed Element</b></em>'.
@@ -21,7 +18,7 @@ import org.nasdanika.models.coverage.Coverage;
  * @model
  * @generated
  */
-public interface TypedElement<C extends Coverage> extends NamedElement<C> {
+public interface TypedElement extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

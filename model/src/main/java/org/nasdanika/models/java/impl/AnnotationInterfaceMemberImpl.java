@@ -3,9 +3,6 @@
 package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.nasdanika.models.coverage.Coverage;
-
 import org.nasdanika.models.java.AnnotationInterfaceMember;
 import org.nasdanika.models.java.JavaPackage;
 
@@ -16,7 +13,7 @@ import org.nasdanika.models.java.JavaPackage;
  *
  * @generated
  */
-public class AnnotationInterfaceMemberImpl extends MemberImpl<Coverage> implements AnnotationInterfaceMember {
+public class AnnotationInterfaceMemberImpl extends MemberImpl implements AnnotationInterfaceMember {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,7 +3,6 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.models.coverage.ModuleCoverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.nasdanika.models.coverage.ModuleCoverage;
  * @model
  * @generated
  */
-public interface Module extends Source<ModuleCoverage> {
+public interface Module extends Source {
 
 	/**
 	 * Returns the value of the '<em><b>Packages</b></em>' containment reference list.

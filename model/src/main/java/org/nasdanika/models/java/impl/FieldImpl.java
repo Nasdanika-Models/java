@@ -5,10 +5,8 @@ package org.nasdanika.models.java.impl;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Field;
-import org.nasdanika.models.java.FieldAccess;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.TypedElement;
@@ -22,13 +20,12 @@ import org.nasdanika.models.java.TypedElement;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.FieldImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.nasdanika.models.java.impl.FieldImpl#getAccesses <em>Accesses</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.FieldImpl#getInitializer <em>Initializer</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FieldImpl extends MemberImpl<Coverage> implements Field {
+public class FieldImpl extends MemberImpl implements Field {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,45 +80,6 @@ public class FieldImpl extends MemberImpl<Coverage> implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public FieldAccess getAccesses() {
-		return (FieldAccess)eDynamicGet(JavaPackage.FIELD__ACCESSES, JavaPackage.Literals.FIELD__ACCESSES, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FieldAccess basicGetAccesses() {
-		return (FieldAccess)eDynamicGet(JavaPackage.FIELD__ACCESSES, JavaPackage.Literals.FIELD__ACCESSES, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccesses(FieldAccess newAccesses, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newAccesses, JavaPackage.FIELD__ACCESSES, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAccesses(FieldAccess newAccesses) {
-		eDynamicSet(JavaPackage.FIELD__ACCESSES, JavaPackage.Literals.FIELD__ACCESSES, newAccesses);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public Code getInitializer() {
@@ -154,29 +112,10 @@ public class FieldImpl extends MemberImpl<Coverage> implements Field {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case JavaPackage.FIELD__ACCESSES:
-				FieldAccess accesses = basicGetAccesses();
-				if (accesses != null)
-					msgs = ((InternalEObject)accesses).eInverseRemove(this, JavaPackage.FIELD_ACCESS__FIELD, FieldAccess.class, msgs);
-				return basicSetAccesses((FieldAccess)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.FIELD__TYPE:
 				return basicSetType(null, msgs);
-			case JavaPackage.FIELD__ACCESSES:
-				return basicSetAccesses(null, msgs);
 			case JavaPackage.FIELD__INITIALIZER:
 				return basicSetInitializer(null, msgs);
 		}
@@ -193,9 +132,6 @@ public class FieldImpl extends MemberImpl<Coverage> implements Field {
 		switch (featureID) {
 			case JavaPackage.FIELD__TYPE:
 				return getType();
-			case JavaPackage.FIELD__ACCESSES:
-				if (resolve) return getAccesses();
-				return basicGetAccesses();
 			case JavaPackage.FIELD__INITIALIZER:
 				return getInitializer();
 		}
@@ -213,9 +149,6 @@ public class FieldImpl extends MemberImpl<Coverage> implements Field {
 		switch (featureID) {
 			case JavaPackage.FIELD__TYPE:
 				setType((GenericType)newValue);
-				return;
-			case JavaPackage.FIELD__ACCESSES:
-				setAccesses((FieldAccess)newValue);
 				return;
 			case JavaPackage.FIELD__INITIALIZER:
 				setInitializer((Code)newValue);
@@ -235,9 +168,6 @@ public class FieldImpl extends MemberImpl<Coverage> implements Field {
 			case JavaPackage.FIELD__TYPE:
 				setType((GenericType)null);
 				return;
-			case JavaPackage.FIELD__ACCESSES:
-				setAccesses((FieldAccess)null);
-				return;
 			case JavaPackage.FIELD__INITIALIZER:
 				setInitializer((Code)null);
 				return;
@@ -255,8 +185,6 @@ public class FieldImpl extends MemberImpl<Coverage> implements Field {
 		switch (featureID) {
 			case JavaPackage.FIELD__TYPE:
 				return getType() != null;
-			case JavaPackage.FIELD__ACCESSES:
-				return basicGetAccesses() != null;
 			case JavaPackage.FIELD__INITIALIZER:
 				return getInitializer() != null;
 		}

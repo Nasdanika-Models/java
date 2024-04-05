@@ -3,7 +3,6 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.models.coverage.MethodCoverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +17,6 @@ import org.nasdanika.models.coverage.MethodCoverage;
  *   <li>{@link org.nasdanika.models.java.Operation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Operation#getExceptions <em>Exceptions</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Operation#getTypeParameters <em>Type Parameters</em>}</li>
- *   <li>{@link org.nasdanika.models.java.Operation#getIncomingCalls <em>Incoming Calls</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Operation#getSignature <em>Signature</em>}</li>
  * </ul>
  *
@@ -26,7 +24,7 @@ import org.nasdanika.models.coverage.MethodCoverage;
  * @model abstract="true"
  * @generated
  */
-public interface Operation extends Code, TypedElement<MethodCoverage> {
+public interface Operation extends Code, TypedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Receiver Parameter</b></em>' containment reference.
@@ -85,30 +83,6 @@ public interface Operation extends Code, TypedElement<MethodCoverage> {
 	 * @generated
 	 */
 	EList<TypeParameter> getTypeParameters();
-
-	/**
-	 * Returns the value of the '<em><b>Incoming Calls</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.java.Call#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Incoming Calls</em>' reference.
-	 * @see #setIncomingCalls(Call)
-	 * @see org.nasdanika.models.java.JavaPackage#getOperation_IncomingCalls()
-	 * @see org.nasdanika.models.java.Call#getOperation
-	 * @model opposite="operation"
-	 * @generated
-	 */
-	Call getIncomingCalls();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.java.Operation#getIncomingCalls <em>Incoming Calls</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Incoming Calls</em>' reference.
-	 * @see #getIncomingCalls()
-	 * @generated
-	 */
-	void setIncomingCalls(Call value);
 
 	/**
 	 * Returns the value of the '<em><b>Signature</b></em>' attribute.

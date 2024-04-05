@@ -8,8 +8,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.models.coverage.ClassCoverage;
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
@@ -32,7 +30,7 @@ import org.nasdanika.models.java.TypeParameter;
  *
  * @generated
  */
-public abstract class TypeImpl extends MemberImpl<ClassCoverage> implements Type {
+public abstract class TypeImpl extends MemberImpl implements Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,8 +57,8 @@ public abstract class TypeImpl extends MemberImpl<ClassCoverage> implements Type
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Member<? extends Coverage>> getMembers() {
-		return (EList<Member<? extends Coverage>>)eDynamicGet(JavaPackage.TYPE__MEMBERS, JavaPackage.Literals.TYPE__MEMBERS, true, true);
+	public EList<Member> getMembers() {
+		return (EList<Member>)eDynamicGet(JavaPackage.TYPE__MEMBERS, JavaPackage.Literals.TYPE__MEMBERS, true, true);
 	}
 
 	/**
@@ -147,7 +145,7 @@ public abstract class TypeImpl extends MemberImpl<ClassCoverage> implements Type
 		switch (featureID) {
 			case JavaPackage.TYPE__MEMBERS:
 				getMembers().clear();
-				getMembers().addAll((Collection<? extends Member<? extends Coverage>>)newValue);
+				getMembers().addAll((Collection<? extends Member>)newValue);
 				return;
 			case JavaPackage.TYPE__SUPERTYPES:
 				getSupertypes().clear();

@@ -7,7 +7,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.TypeParameter;
@@ -25,7 +24,7 @@ import org.nasdanika.models.java.TypeParameter;
  *
  * @generated
  */
-public class TypeParameterImpl extends NamedElementImpl<Coverage> implements TypeParameter {
+public class TypeParameterImpl extends NamedElementImpl implements TypeParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

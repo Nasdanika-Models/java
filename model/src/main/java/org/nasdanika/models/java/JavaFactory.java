@@ -3,7 +3,6 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.ecore.EFactory;
-import org.nasdanika.models.coverage.Coverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +20,24 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	JavaFactory eINSTANCE = org.nasdanika.models.java.impl.JavaFactoryImpl.init();
+
+	/**
+	 * Returns a new object of class '<em>Position</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Position</em>'.
+	 * @generated
+	 */
+	Position createPosition();
+
+	/**
+	 * Returns a new object of class '<em>Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Range</em>'.
+	 * @generated
+	 */
+	Range createRange();
 
 	/**
 	 * Returns a new object of class '<em>Class</em>'.
@@ -57,15 +74,6 @@ public interface JavaFactory extends EFactory {
 	 * @generated
 	 */
 	EnumConstant createEnumConstant();
-
-	/**
-	 * Returns a new object of class '<em>Field Access</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Field Access</em>'.
-	 * @generated
-	 */
-	FieldAccess createFieldAccess();
 
 	/**
 	 * Returns a new object of class '<em>Field</em>'.
@@ -140,15 +148,6 @@ public interface JavaFactory extends EFactory {
 	Parameter createParameter();
 
 	/**
-	 * Returns a new object of class '<em>Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Call</em>'.
-	 * @generated
-	 */
-	Call createCall();
-
-	/**
 	 * Returns a new object of class '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,7 +163,7 @@ public interface JavaFactory extends EFactory {
 	 * @return a new object of class '<em>Source</em>'.
 	 * @generated
 	 */
-	<C extends Coverage> Source<C> createSource();
+	Source createSource();
 
 	/**
 	 * Returns a new object of class '<em>Record</em>'.
@@ -200,7 +199,7 @@ public interface JavaFactory extends EFactory {
 	 * @return a new object of class '<em>Named Element</em>'.
 	 * @generated
 	 */
-	<C extends Coverage> NamedElement<C> createNamedElement();
+	NamedElement createNamedElement();
 
 	/**
 	 * Returns a new object of class '<em>Reference</em>'.
@@ -245,7 +244,7 @@ public interface JavaFactory extends EFactory {
 	 * @return a new object of class '<em>Typed Element</em>'.
 	 * @generated
 	 */
-	<C extends Coverage> TypedElement<C> createTypedElement();
+	TypedElement createTypedElement();
 
 	/**
 	 * Returns a new object of class '<em>Annotation Interface</em>'.

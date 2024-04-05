@@ -6,9 +6,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.nasdanika.models.coverage.Coverage;
-
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Reference;
@@ -26,7 +23,7 @@ import org.nasdanika.models.java.Reference;
  *
  * @generated
  */
-public class ReferenceImpl extends NamedElementImpl<Coverage> implements Reference {
+public class ReferenceImpl extends NamedElementImpl implements Reference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,8 +49,8 @@ public class ReferenceImpl extends NamedElementImpl<Coverage> implements Referen
 	 * @generated
 	 */
 	@Override
-	public NamedElement<?> getTarget() {
-		return (NamedElement<?>)eDynamicGet(JavaPackage.REFERENCE__TARGET, JavaPackage.Literals.REFERENCE__TARGET, true, true);
+	public NamedElement getTarget() {
+		return (NamedElement)eDynamicGet(JavaPackage.REFERENCE__TARGET, JavaPackage.Literals.REFERENCE__TARGET, true, true);
 	}
 
 	/**
@@ -61,8 +58,8 @@ public class ReferenceImpl extends NamedElementImpl<Coverage> implements Referen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamedElement<?> basicGetTarget() {
-		return (NamedElement<?>)eDynamicGet(JavaPackage.REFERENCE__TARGET, JavaPackage.Literals.REFERENCE__TARGET, false, true);
+	public NamedElement basicGetTarget() {
+		return (NamedElement)eDynamicGet(JavaPackage.REFERENCE__TARGET, JavaPackage.Literals.REFERENCE__TARGET, false, true);
 	}
 
 	/**
@@ -70,7 +67,7 @@ public class ReferenceImpl extends NamedElementImpl<Coverage> implements Referen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTarget(NamedElement<?> newTarget, NotificationChain msgs) {
+	public NotificationChain basicSetTarget(NamedElement newTarget, NotificationChain msgs) {
 		msgs = eDynamicInverseAdd((InternalEObject)newTarget, JavaPackage.REFERENCE__TARGET, msgs);
 		return msgs;
 	}
@@ -81,7 +78,7 @@ public class ReferenceImpl extends NamedElementImpl<Coverage> implements Referen
 	 * @generated
 	 */
 	@Override
-	public void setTarget(NamedElement<?> newTarget) {
+	public void setTarget(NamedElement newTarget) {
 		eDynamicSet(JavaPackage.REFERENCE__TARGET, JavaPackage.Literals.REFERENCE__TARGET, newTarget);
 	}
 
@@ -94,10 +91,10 @@ public class ReferenceImpl extends NamedElementImpl<Coverage> implements Referen
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.REFERENCE__TARGET:
-				NamedElement<?> target = basicGetTarget();
+				NamedElement target = basicGetTarget();
 				if (target != null)
-					msgs = ((InternalEObject)target).eInverseRemove(this, JavaPackage.NAMED_ELEMENT__REFERENCES, NamedElement.class, msgs);
-				return basicSetTarget((NamedElement<?>)otherEnd, msgs);
+					msgs = ((InternalEObject)target).eInverseRemove(this, JavaPackage.NAMED_ELEMENT__REFERRERS, NamedElement.class, msgs);
+				return basicSetTarget((NamedElement)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -140,7 +137,7 @@ public class ReferenceImpl extends NamedElementImpl<Coverage> implements Referen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaPackage.REFERENCE__TARGET:
-				setTarget((NamedElement<?>)newValue);
+				setTarget((NamedElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -155,7 +152,7 @@ public class ReferenceImpl extends NamedElementImpl<Coverage> implements Referen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaPackage.REFERENCE__TARGET:
-				setTarget((NamedElement<?>)null);
+				setTarget((NamedElement)null);
 				return;
 		}
 		super.eUnset(featureID);

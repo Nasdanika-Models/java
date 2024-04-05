@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.GenericType;
@@ -31,7 +30,7 @@ import org.nasdanika.models.java.Member;
  *
  * @generated
  */
-public abstract class MemberImpl<C extends Coverage> extends NamedElementImpl<C> implements Member<C> {
+public abstract class MemberImpl extends NamedElementImpl implements Member {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Reference;
@@ -24,12 +23,12 @@ import org.nasdanika.models.java.Reference;
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.NamedElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.NamedElementImpl#getFullyQualifiedName <em>Fully Qualified Name</em>}</li>
- *   <li>{@link org.nasdanika.models.java.impl.NamedElementImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.NamedElementImpl#getReferrers <em>Referrers</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implements NamedElement<C> {
+public class NamedElementImpl extends SourceImpl implements NamedElement {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -116,8 +115,8 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Reference> getReferences() {
-		return (EList<Reference>)eDynamicGet(JavaPackage.NAMED_ELEMENT__REFERENCES, JavaPackage.Literals.NAMED_ELEMENT__REFERENCES, true, true);
+	public EList<Reference> getReferrers() {
+		return (EList<Reference>)eDynamicGet(JavaPackage.NAMED_ELEMENT__REFERRERS, JavaPackage.Literals.NAMED_ELEMENT__REFERRERS, true, true);
 	}
 
 	/**
@@ -129,8 +128,8 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaPackage.NAMED_ELEMENT__REFERENCES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
+			case JavaPackage.NAMED_ELEMENT__REFERRERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferrers()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -143,8 +142,8 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaPackage.NAMED_ELEMENT__REFERENCES:
-				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+			case JavaPackage.NAMED_ELEMENT__REFERRERS:
+				return ((InternalEList<?>)getReferrers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -161,8 +160,8 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 				return getName();
 			case JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME:
 				return getFullyQualifiedName();
-			case JavaPackage.NAMED_ELEMENT__REFERENCES:
-				return getReferences();
+			case JavaPackage.NAMED_ELEMENT__REFERRERS:
+				return getReferrers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,9 +181,9 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 			case JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME:
 				setFullyQualifiedName((String)newValue);
 				return;
-			case JavaPackage.NAMED_ELEMENT__REFERENCES:
-				getReferences().clear();
-				getReferences().addAll((Collection<? extends Reference>)newValue);
+			case JavaPackage.NAMED_ELEMENT__REFERRERS:
+				getReferrers().clear();
+				getReferrers().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,8 +203,8 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 			case JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME:
 				setFullyQualifiedName(FULLY_QUALIFIED_NAME_EDEFAULT);
 				return;
-			case JavaPackage.NAMED_ELEMENT__REFERENCES:
-				getReferences().clear();
+			case JavaPackage.NAMED_ELEMENT__REFERRERS:
+				getReferrers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -223,8 +222,8 @@ public class NamedElementImpl<C extends Coverage> extends SourceImpl<C> implemen
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case JavaPackage.NAMED_ELEMENT__FULLY_QUALIFIED_NAME:
 				return FULLY_QUALIFIED_NAME_EDEFAULT == null ? getFullyQualifiedName() != null : !FULLY_QUALIFIED_NAME_EDEFAULT.equals(getFullyQualifiedName());
-			case JavaPackage.NAMED_ELEMENT__REFERENCES:
-				return !getReferences().isEmpty();
+			case JavaPackage.NAMED_ELEMENT__REFERRERS:
+				return !getReferrers().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

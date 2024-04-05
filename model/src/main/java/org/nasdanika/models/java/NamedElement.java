@@ -3,7 +3,6 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.models.coverage.Coverage;
 
 
 /**
@@ -17,14 +16,14 @@ import org.nasdanika.models.coverage.Coverage;
  * <ul>
  *   <li>{@link org.nasdanika.models.java.NamedElement#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.java.NamedElement#getFullyQualifiedName <em>Fully Qualified Name</em>}</li>
- *   <li>{@link org.nasdanika.models.java.NamedElement#getReferences <em>References</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.NamedElement#getReferrers <em>Referrers</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getNamedElement()
  * @model
  * @generated
  */
-public interface NamedElement<C extends Coverage> extends Source<C> {
+public interface NamedElement extends Source {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -76,17 +75,17 @@ public interface NamedElement<C extends Coverage> extends Source<C> {
 	void setFullyQualifiedName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>References</b></em>' reference list.
+	 * Returns the value of the '<em><b>Referrers</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.java.Reference}.
 	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.java.Reference#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>References</em>' reference list.
-	 * @see org.nasdanika.models.java.JavaPackage#getNamedElement_References()
+	 * @return the value of the '<em>Referrers</em>' reference list.
+	 * @see org.nasdanika.models.java.JavaPackage#getNamedElement_Referrers()
 	 * @see org.nasdanika.models.java.Reference#getTarget
 	 * @model opposite="target"
 	 * @generated
 	 */
-	EList<Reference> getReferences();
+	EList<Reference> getReferrers();
 
 } // NamedElement

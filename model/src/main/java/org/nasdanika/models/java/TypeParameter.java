@@ -3,7 +3,6 @@
 package org.nasdanika.models.java;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.models.coverage.Coverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.nasdanika.models.coverage.Coverage;
  * @model
  * @generated
  */
-public interface TypeParameter extends NamedElement<Coverage> {
+public interface TypeParameter extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Bounds</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.java.GenericType}.

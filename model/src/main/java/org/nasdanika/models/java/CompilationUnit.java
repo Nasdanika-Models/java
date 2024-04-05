@@ -4,7 +4,6 @@ package org.nasdanika.models.java;
 
 import java.util.function.BiFunction;
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.models.coverage.SourceFileCoverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +23,7 @@ import org.nasdanika.models.coverage.SourceFileCoverage;
  * @model
  * @generated
  */
-public interface CompilationUnit extends Source<SourceFileCoverage> {
+public interface CompilationUnit extends Source {
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.

@@ -6,6 +6,7 @@ import static com.github.javaparser.Providers.provider;
 import java.io.File;
 import java.io.IOException;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -15,10 +16,10 @@ import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.jupiter.api.Test;
-import org.nasdanika.models.coverage.ClassCoverage;
+import org.nasdanika.models.coverage.Counter;
+import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.coverage.MethodCoverage;
 import org.nasdanika.models.coverage.ModuleCoverage;
-import org.nasdanika.models.coverage.SourceFileCoverage;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Type;
 import org.nasdanika.models.java.util.JavaParserResourceFactory;
@@ -36,6 +37,11 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.resolution.SymbolResolver;
+import com.github.javaparser.resolution.TypeSolver;
+import com.github.javaparser.resolution.types.ResolvedType;
+import com.github.javaparser.symbolsolver.JavaSymbolSolver;
+import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver;
 import com.github.javaparser.utils.SourceRoot;
 
 public class JavaParserTests {
@@ -135,7 +141,7 @@ public class JavaParserTests {
 	
 	@Test
 	public void testLoadingCoverage() throws Exception {
-		File projectDir = new File("../../../git/core/graph");
+		File projectDir = new File("../../coverage/model/testData").getCanonicalFile();
 		File jacocoExec = new File(projectDir, "target/jacoco.exec");
 		ResourceSet resourceSet = new ResourceSetImpl();		
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
@@ -153,13 +159,13 @@ public class JavaParserTests {
 		for (EObject root: javaPackageResource.getContents()) {
 			System.out.println(root);
 			org.nasdanika.models.java.CompilationUnit cu = (org.nasdanika.models.java.CompilationUnit) root;
-			SourceFileCoverage coverage = cu.getCoverage();
-			System.out.println(coverage.getLines().size());
+			EList<Coverage> coverage = cu.getCoverage();
+			System.out.println(coverage.size());
 			
 			for (Type type: cu.getTypes()) {
 				System.out.println("\t" + type.getFullyQualifiedName());
-				ClassCoverage typeCoverage = type.getCoverage();
-				System.out.println("\t" + typeCoverage.getLines().size());
+				EList<Coverage> typeCoverage = type.getCoverage();
+				System.out.println("\t" + typeCoverage.size());
 			}
 		}		
 		
@@ -168,29 +174,38 @@ public class JavaParserTests {
 			EObject next = tit.next();
 			if (next instanceof Code) {
 				Code code = (Code) next;
-				MethodCoverage coverage = (MethodCoverage) code.getCoverage();
+				EList<Coverage> coverage = code.getCoverage();
 				if (coverage == null) {
 					System.out.println(code.getName());
 				} else {
-					System.out.println(code.getName() + " -> " + coverage.getName() + " " + coverage.getInstructionCounter().getCovered() + " / " + coverage.getInstructionCounter().getMissed());
+					int covered = 0;
+					int missed = 0;
+					for (Coverage c: coverage) {
+						Counter lc = c.getLineCounter();
+						covered += lc.getCovered();
+						missed += lc.getMissed();
+					}
+					System.out.println(code.getName() + " -> " + covered + " / " + missed);
 				}
 			}
-		}
-		
+		}		
 	}
 		
 	@Test
 	public void testPlayground() {
 		ParserConfiguration parserConfiguration = new ParserConfiguration();
 		parserConfiguration.setLanguageLevel(LanguageLevel.JAVA_17);
+		TypeSolver typeSolver = new CombinedTypeSolver(); // Just the source in context
+		SymbolResolver symbolSolver = new JavaSymbolSolver(typeSolver);
+		parserConfiguration.setSymbolResolver(symbolSolver);
 		JavaParser parser = new JavaParser(parserConfiguration);
 		ParseResult<CompilationUnit> parseResult = parser.parse(
 			"""
 			package org.nasdanika.test;	
 				
-			public class Element {
+			public class Element<T extends Map> {
 					
-				private void matchPredicate(T t, Object<? extends String> obj, String expr) {
+				private void matchPredicate(T map, Object<? extends String> obj, String expr) {
 					
 				}
 						
@@ -202,7 +217,10 @@ public class JavaParserTests {
 		TypeDeclaration<?> type = cu.getType(0);
 		MethodDeclaration method = (MethodDeclaration) type.getMember(0);
 		Parameter parameter = method.getParameter(0);
-		System.out.println(parameter);
+		com.github.javaparser.ast.type.Type pType = parameter.getType();
+		System.out.println(pType);
+		ResolvedType resolvedType = pType.resolve();
+		System.out.println(resolvedType);
 	}
 	
 		

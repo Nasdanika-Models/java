@@ -6,8 +6,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.TypedElement;
@@ -25,7 +23,7 @@ import org.nasdanika.models.java.TypedElement;
  *
  * @generated
  */
-public class TypedElementImpl<C extends Coverage> extends NamedElementImpl<C> implements TypedElement<C> {
+public class TypedElementImpl extends NamedElementImpl implements TypedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

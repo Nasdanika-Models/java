@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.models.java.Call;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Operation;
@@ -29,7 +28,6 @@ import org.nasdanika.models.java.TypedElement;
  *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getExceptions <em>Exceptions</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getTypeParameters <em>Type Parameters</em>}</li>
- *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getIncomingCalls <em>Incoming Calls</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.OperationImpl#getSignature <em>Signature</em>}</li>
  * </ul>
  *
@@ -164,45 +162,6 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 	 * @generated
 	 */
 	@Override
-	public Call getIncomingCalls() {
-		return (Call)eDynamicGet(JavaPackage.OPERATION__INCOMING_CALLS, JavaPackage.Literals.OPERATION__INCOMING_CALLS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Call basicGetIncomingCalls() {
-		return (Call)eDynamicGet(JavaPackage.OPERATION__INCOMING_CALLS, JavaPackage.Literals.OPERATION__INCOMING_CALLS, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIncomingCalls(Call newIncomingCalls, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newIncomingCalls, JavaPackage.OPERATION__INCOMING_CALLS, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIncomingCalls(Call newIncomingCalls) {
-		eDynamicSet(JavaPackage.OPERATION__INCOMING_CALLS, JavaPackage.Literals.OPERATION__INCOMING_CALLS, newIncomingCalls);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getSignature() {
 		return (String)eDynamicGet(JavaPackage.OPERATION__SIGNATURE, JavaPackage.Literals.OPERATION__SIGNATURE, true, true);
 	}
@@ -223,23 +182,6 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case JavaPackage.OPERATION__INCOMING_CALLS:
-				Call incomingCalls = basicGetIncomingCalls();
-				if (incomingCalls != null)
-					msgs = ((InternalEObject)incomingCalls).eInverseRemove(this, JavaPackage.CALL__OPERATION, Call.class, msgs);
-				return basicSetIncomingCalls((Call)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.OPERATION__TYPE:
@@ -252,8 +194,6 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 				return ((InternalEList<?>)getExceptions()).basicRemove(otherEnd, msgs);
 			case JavaPackage.OPERATION__TYPE_PARAMETERS:
 				return ((InternalEList<?>)getTypeParameters()).basicRemove(otherEnd, msgs);
-			case JavaPackage.OPERATION__INCOMING_CALLS:
-				return basicSetIncomingCalls(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -276,9 +216,6 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 				return getExceptions();
 			case JavaPackage.OPERATION__TYPE_PARAMETERS:
 				return getTypeParameters();
-			case JavaPackage.OPERATION__INCOMING_CALLS:
-				if (resolve) return getIncomingCalls();
-				return basicGetIncomingCalls();
 			case JavaPackage.OPERATION__SIGNATURE:
 				return getSignature();
 		}
@@ -312,9 +249,6 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 				getTypeParameters().clear();
 				getTypeParameters().addAll((Collection<? extends TypeParameter>)newValue);
 				return;
-			case JavaPackage.OPERATION__INCOMING_CALLS:
-				setIncomingCalls((Call)newValue);
-				return;
 			case JavaPackage.OPERATION__SIGNATURE:
 				setSignature((String)newValue);
 				return;
@@ -345,9 +279,6 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 			case JavaPackage.OPERATION__TYPE_PARAMETERS:
 				getTypeParameters().clear();
 				return;
-			case JavaPackage.OPERATION__INCOMING_CALLS:
-				setIncomingCalls((Call)null);
-				return;
 			case JavaPackage.OPERATION__SIGNATURE:
 				setSignature(SIGNATURE_EDEFAULT);
 				return;
@@ -373,8 +304,6 @@ public abstract class OperationImpl extends CodeImpl implements Operation {
 				return !getExceptions().isEmpty();
 			case JavaPackage.OPERATION__TYPE_PARAMETERS:
 				return !getTypeParameters().isEmpty();
-			case JavaPackage.OPERATION__INCOMING_CALLS:
-				return basicGetIncomingCalls() != null;
 			case JavaPackage.OPERATION__SIGNATURE:
 				return SIGNATURE_EDEFAULT == null ? getSignature() != null : !SIGNATURE_EDEFAULT.equals(getSignature());
 		}

@@ -32,6 +32,8 @@ import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.Parameter;
+import org.nasdanika.models.java.Position;
+import org.nasdanika.models.java.Range;
 import org.nasdanika.models.java.Record;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
@@ -43,6 +45,7 @@ import com.github.javaparser.Problem;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.Modifier;
+import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.AnnotationMemberDeclaration;
 import com.github.javaparser.ast.body.BodyDeclaration;
@@ -67,12 +70,16 @@ import com.github.javaparser.ast.type.WildcardType;
 public class JavaParserResource extends ResourceImpl {
 
 	private ParserConfiguration parserConfiguration;
-	private Function<Source<?>, Coverage> coverageProvider;
+	private Function<Source, Collection<Coverage>> coverageProvider;
 
-	public JavaParserResource(URI uri, ParserConfiguration parserConfiguration, Function<Source<?>,Coverage> coverageProvider) {
+	public JavaParserResource(URI uri, ParserConfiguration parserConfiguration, Function<Source,Collection<Coverage>> coverageProvider) {
 		super(uri);
 		this.parserConfiguration = parserConfiguration;
 		this.coverageProvider = coverageProvider;
+	}
+	
+	public ParserConfiguration getParserConfiguration() {
+		return parserConfiguration;
 	}
 	
 	@Override
@@ -110,10 +117,11 @@ public class JavaParserResource extends ResourceImpl {
 			if (coverageProvider != null) {
 				getAllContents().forEachRemaining(eObj -> {
 					if (eObj instanceof Source) {
-						@SuppressWarnings("unchecked")
-						Source<Coverage> source = (Source<Coverage>) eObj;
-						Coverage coverage = (Coverage) coverageProvider.apply(source);
-						source.setCoverage(coverage);
+						Source source = (Source) eObj;
+						Collection<Coverage> coverage = coverageProvider.apply(source);
+						if (coverage != null) {
+							source.getCoverage().addAll(coverage);
+						}
 					}
 				});
 			}
@@ -125,7 +133,7 @@ public class JavaParserResource extends ResourceImpl {
 		try (Writer writer = new OutputStreamWriter(outputStream)) {
 			for (EObject root: getContents()) {
 				if (root instanceof Source) {
-					writer.write(((Source<?>) root).getSource());
+					writer.write(((Source) root).getSource());
 				}
 			}
 		}
@@ -162,7 +170,7 @@ public class JavaParserResource extends ResourceImpl {
 		return modelCompilationUnit;
 	}
 	
-	protected void configureMember(BodyDeclaration<?> bodyDeclaration, org.nasdanika.models.java.Member<?> member) {
+	protected void configureMember(BodyDeclaration<?> bodyDeclaration, org.nasdanika.models.java.Member member) {
 		Optional<Comment> copt = bodyDeclaration.getComment();
 		if (copt.isPresent()) {
 			org.nasdanika.models.java.Comment comment = createComment(); // TODO - comment flavors
@@ -170,6 +178,7 @@ public class JavaParserResource extends ResourceImpl {
 			member.setComment(comment);
 		}		
 		member.setSource(bodyDeclaration.toString());
+		setRange(bodyDeclaration, member);
 	}
 
 	protected org.nasdanika.models.java.Comment createComment() {
@@ -370,8 +379,8 @@ public class JavaParserResource extends ResourceImpl {
 		return getJavaFactory().createRecord();
 	}
 	
-	protected List<org.nasdanika.models.java.Member<? extends Coverage>> loadMembers(com.github.javaparser.ast.body.TypeDeclaration<?> typeDeclaration) {
-		List<org.nasdanika.models.java.Member<? extends Coverage>> ret = new ArrayList<>();
+	protected List<org.nasdanika.models.java.Member> loadMembers(com.github.javaparser.ast.body.TypeDeclaration<?> typeDeclaration) {
+		List<org.nasdanika.models.java.Member> ret = new ArrayList<>();
 		for (BodyDeclaration<?> member: typeDeclaration.getMembers()) {
 			if (member instanceof AnnotationMemberDeclaration) {
 				ret.add(loadAnnotationMemberDeclaration((AnnotationMemberDeclaration) member));
@@ -493,5 +502,26 @@ public class JavaParserResource extends ResourceImpl {
 	protected ClassInitializer createClassInitializer() {
 		return getJavaFactory().createClassInitializer();
 	}
+	
+	protected Position createPosition() {
+		return getJavaFactory().createPosition();
+	}
 
+	protected void setRange(Node node, Range range) {
+		node.getRange().ifPresent(nRange -> {
+			if (nRange.begin != null) {
+				Position position = createPosition();
+				position.setLine(nRange.begin.line);
+				position.setColumn(nRange.begin.column);
+				range.setBegin(position);
+			}
+			if (nRange.end != null) {
+				Position position = createPosition();
+				position.setLine(nRange.end.line);
+				position.setColumn(nRange.end.column);
+				range.setEnd(position);
+			}
+		});
+	}
+	
 }

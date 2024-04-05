@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Annotation extends Reference {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.java.NamedElement}<code>&lt;?&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.models.java.NamedElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
@@ -31,6 +31,6 @@ public interface Annotation extends Reference {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<NamedElement<?>> getElements();
+	EList<NamedElement> getElements();
 
 } // Annotation

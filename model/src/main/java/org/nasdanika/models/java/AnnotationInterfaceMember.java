@@ -2,8 +2,6 @@
  */
 package org.nasdanika.models.java;
 
-import org.nasdanika.models.coverage.Coverage;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Annotation Interface Member</b></em>'.
@@ -14,5 +12,5 @@ import org.nasdanika.models.coverage.Coverage;
  * @model
  * @generated
  */
-public interface AnnotationInterfaceMember extends Member<Coverage> {
+public interface AnnotationInterfaceMember extends Member {
 } // AnnotationInterfaceMember
