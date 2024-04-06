@@ -36,6 +36,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.printer.lexicalpreservation.LexicalPreservingPrinter;
 import com.github.javaparser.resolution.SymbolResolver;
 import com.github.javaparser.resolution.TypeSolver;
 import com.github.javaparser.resolution.types.ResolvedType;
@@ -189,10 +190,11 @@ public class JavaParserTests {
 			}
 		}		
 	}
-		
-	@Test
+	
+	@Test	
 	public void testPlayground() {
 		ParserConfiguration parserConfiguration = new ParserConfiguration();
+		parserConfiguration.setLexicalPreservationEnabled(true);
 		parserConfiguration.setLanguageLevel(LanguageLevel.JAVA_17);
 		TypeSolver typeSolver = new CombinedTypeSolver(); // Just the source in context
 		SymbolResolver symbolSolver = new JavaSymbolSolver(typeSolver);
@@ -213,14 +215,18 @@ public class JavaParserTests {
 		System.out.println(parseResult.getProblems());
 		System.out.println(parseResult.isSuccessful());
 		CompilationUnit cu = parseResult.getResult().get();
+		System.out.println(cu);
+		System.out.println("----");
+		System.out.println(LexicalPreservingPrinter.print(cu));
 		TypeDeclaration<?> type = cu.getType(0);
 		MethodDeclaration method = (MethodDeclaration) type.getMember(0);
 		Parameter parameter = method.getParameter(0);
 		com.github.javaparser.ast.type.Type pType = parameter.getType();
 		System.out.println(pType);
 		ResolvedType resolvedType = pType.resolve();
-		System.out.println(resolvedType);
-	}
-	
+		System.out.println(resolvedType);		
+		
+		
+	}	
 		
 }

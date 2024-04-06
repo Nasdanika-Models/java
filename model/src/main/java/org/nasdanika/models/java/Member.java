@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.models.java.Member#getModifiers <em>Modifiers</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Member#getReferencedTypes <em>Referenced Types</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Member#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Member#isAnnotate <em>Annotate</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getMember()
@@ -95,4 +96,29 @@ public interface Member extends NamedElement {
 	 * @generated
 	 */
 	void setAnnotations(Annotation value);
+
+	/**
+	 * Returns the value of the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If true, the generator adds Generated annotation with digest
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Annotate</em>' attribute.
+	 * @see #setAnnotate(boolean)
+	 * @see org.nasdanika.models.java.JavaPackage#getMember_Annotate()
+	 * @model
+	 * @generated
+	 */
+	boolean isAnnotate();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.java.Member#isAnnotate <em>Annotate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Annotate</em>' attribute.
+	 * @see #isAnnotate()
+	 * @generated
+	 */
+	void setAnnotate(boolean value);
 } // Member

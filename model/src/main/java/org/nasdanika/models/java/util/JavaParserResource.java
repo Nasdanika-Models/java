@@ -66,6 +66,7 @@ import com.github.javaparser.ast.type.PrimitiveType;
 import com.github.javaparser.ast.type.ReferenceType;
 import com.github.javaparser.ast.type.TypeParameter;
 import com.github.javaparser.ast.type.WildcardType;
+import com.github.javaparser.printer.lexicalpreservation.LexicalPreservingPrinter;
 
 public class JavaParserResource extends ResourceImpl {
 
@@ -133,7 +134,7 @@ public class JavaParserResource extends ResourceImpl {
 		try (Writer writer = new OutputStreamWriter(outputStream)) {
 			for (EObject root: getContents()) {
 				if (root instanceof Source) {
-					writer.write(((Source) root).getSource());
+					writer.write(((Source) root).generate(null));
 				}
 			}
 		}
@@ -150,7 +151,7 @@ public class JavaParserResource extends ResourceImpl {
 	protected org.nasdanika.models.java.CompilationUnit loadCompilationUnit(com.github.javaparser.ast.CompilationUnit jpCompilationUnit) { 
 		org.nasdanika.models.java.CompilationUnit modelCompilationUnit = createCompilationUnit();
 		
-		modelCompilationUnit.setSource(jpCompilationUnit.toString());
+		modelCompilationUnit.setSource(LexicalPreservingPrinter.print(jpCompilationUnit));
 		Optional<PackageDeclaration> pd = jpCompilationUnit.getPackageDeclaration();
 		if (pd.isPresent()) {
 			modelCompilationUnit.setPackageName(pd.get().getNameAsString());
@@ -177,7 +178,7 @@ public class JavaParserResource extends ResourceImpl {
 			comment.setComment(copt.get().getContent());	
 			member.setComment(comment);
 		}		
-		member.setSource(bodyDeclaration.toString());
+		member.setSource(LexicalPreservingPrinter.print(bodyDeclaration));
 		setRange(bodyDeclaration, member);
 	}
 
@@ -312,7 +313,7 @@ public class JavaParserResource extends ResourceImpl {
 		for (ClassOrInterfaceType bound: typeParameter.getTypeBound()) {
 			ret.getBounds().add(loadGenericType(bound));
 		}
-		ret.setSource(typeParameter.asString());
+		ret.setSource(LexicalPreservingPrinter.print(typeParameter));
 		return ret;
 	}
 
@@ -343,7 +344,7 @@ public class JavaParserResource extends ResourceImpl {
 		} else {
 			ret.setName(type.asString());
 		}
-		ret.setSource(type.asString());
+		ret.setSource(LexicalPreservingPrinter.print(type));
 		return ret;
 	}
 
@@ -467,7 +468,7 @@ public class JavaParserResource extends ResourceImpl {
 			field.setType(loadGenericType(vd.getType()));
 			vd.getInitializer().ifPresent(initializer -> {
 				Code code = createCode();
-				code.setSource(initializer.toString());
+				code.setSource(LexicalPreservingPrinter.print(initializer));
 				field.setInitializer(code);
 			});
 			ret.add(field);

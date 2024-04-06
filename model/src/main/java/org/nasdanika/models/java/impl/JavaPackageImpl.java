@@ -11,6 +11,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -27,6 +28,7 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
@@ -164,6 +166,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass recordEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum generationModeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -521,8 +530,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getSource__Update__Function() {
-		return sourceEClass.getEOperations().get(0);
+	public EAttribute getSource_GenerationMode() {
+		return (EAttribute)sourceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -531,8 +540,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getSource__Digest__Predicate() {
-		return sourceEClass.getEOperations().get(1);
+	public EOperation getSource__Generate__Function() {
+		return sourceEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -543,6 +552,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EClass getRecord() {
 		return recordEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getGenerationMode() {
+		return generationModeEEnum;
 	}
 
 	/**
@@ -723,6 +742,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EReference getMember_Annotations() {
 		return (EReference)memberEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMember_Annotate() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1258,8 +1287,13 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEReference(sourceEClass, SOURCE__CHILDREN);
 		createEReference(sourceEClass, SOURCE__COVERAGE);
 		createEReference(sourceEClass, SOURCE__REFERENCES);
-		createEOperation(sourceEClass, SOURCE___UPDATE__FUNCTION);
-		createEOperation(sourceEClass, SOURCE___DIGEST__PREDICATE);
+		createEAttribute(sourceEClass, SOURCE__GENERATION_MODE);
+		createEOperation(sourceEClass, SOURCE___GENERATE__FUNCTION);
+
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__FULLY_QUALIFIED_NAME);
+		createEReference(namedElementEClass, NAMED_ELEMENT__REFERRERS);
 
 		compilationUnitEClass = createEClass(COMPILATION_UNIT);
 		createEReference(compilationUnitEClass, COMPILATION_UNIT__TYPES);
@@ -1271,16 +1305,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		commentEClass = createEClass(COMMENT);
 		createEAttribute(commentEClass, COMMENT__COMMENT);
 
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__FULLY_QUALIFIED_NAME);
-		createEReference(namedElementEClass, NAMED_ELEMENT__REFERRERS);
-
 		memberEClass = createEClass(MEMBER);
 		createEReference(memberEClass, MEMBER__COMMENT);
 		createEAttribute(memberEClass, MEMBER__MODIFIERS);
 		createEReference(memberEClass, MEMBER__REFERENCED_TYPES);
 		createEReference(memberEClass, MEMBER__ANNOTATIONS);
+		createEAttribute(memberEClass, MEMBER__ANNOTATE);
 
 		referenceEClass = createEClass(REFERENCE);
 		createEReference(referenceEClass, REFERENCE__TARGET);
@@ -1352,6 +1382,9 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEAttribute(operationEClass, OPERATION__SIGNATURE);
 
 		recordEClass = createEClass(RECORD);
+
+		// Create enums
+		generationModeEEnum = createEEnum(GENERATION_MODE);
 	}
 
 	/**
@@ -1393,8 +1426,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		positionEClass.getEGenericSuperTypes().add(g1);
 		sourceEClass.getESuperTypes().add(theNcorePackage.getMarked());
 		sourceEClass.getESuperTypes().add(this.getRange());
-		compilationUnitEClass.getESuperTypes().add(this.getSource());
 		namedElementEClass.getESuperTypes().add(this.getSource());
+		compilationUnitEClass.getESuperTypes().add(this.getNamedElement());
 		memberEClass.getESuperTypes().add(this.getNamedElement());
 		referenceEClass.getESuperTypes().add(this.getNamedElement());
 		genericTypeEClass.getESuperTypes().add(this.getReference());
@@ -1453,12 +1486,15 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getSource_Children(), this.getSource(), null, "children", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_Coverage(), theCoveragePackage.getCoverage(), null, "coverage", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_References(), this.getReference(), null, "references", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSource_GenerationMode(), this.getGenerationMode(), "generationMode", "CONTENTS_IF_NO_SOURCE", 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getSource__Update__Function(), ecorePackage.getEString(), "update", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSource__Generate__Function(), ecorePackage.getEString(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getImportManager(), "importManager", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getSource__Digest__Predicate(), ecorePackage.getEString(), "digest", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getDigestPredicate(), "predicate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamedElement_FullyQualifiedName(), ecorePackage.getEString(), "fullyQualifiedName", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNamedElement_Referrers(), this.getReference(), this.getReference_Target(), "referrers", null, 0, -1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompilationUnit_Types(), this.getType(), null, "types", null, 0, -1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1475,16 +1511,12 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComment_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNamedElement_FullyQualifiedName(), ecorePackage.getEString(), "fullyQualifiedName", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNamedElement_Referrers(), this.getReference(), this.getReference_Target(), "referrers", null, 0, -1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(memberEClass, Member.class, "Member", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMember_Comment(), this.getComment(), null, "comment", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMember_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMember_ReferencedTypes(), this.getGenericType(), null, "referencedTypes", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMember_Annotations(), this.getAnnotation(), null, "annotations", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_Annotate(), ecorePackage.getEBoolean(), "annotate", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReference_Target(), this.getNamedElement(), this.getNamedElement_Referrers(), "target", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1557,6 +1589,14 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(recordEClass, org.nasdanika.models.java.Record.class, "Record", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		// Initialize enums and add enum literals
+		initEEnum(generationModeEEnum, GenerationMode.class, "GenerationMode");
+		addEEnumLiteral(generationModeEEnum, GenerationMode.SOURCE);
+		addEEnumLiteral(generationModeEEnum, GenerationMode.CONTENTS);
+		addEEnumLiteral(generationModeEEnum, GenerationMode.COMPOSE);
+		addEEnumLiteral(generationModeEEnum, GenerationMode.CONTENTS_IF_NO_SOURCE);
+		addEEnumLiteral(generationModeEEnum, GenerationMode.MERGE);
+
 		// Create resource
 		createResource(eNS_URI);
 
@@ -1574,22 +1614,58 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
-		  (getSource__Update__Function(),
+		  (generationModeEEnum,
 		   source,
 		   new String[] {
-			   "documentation", "Calls update on children and then updates source code using children source code. Returns updated source code. "
+			   "documentation", "Defines how own source and contents are usd by the generate() method"
 		   });
 		addAnnotation
-		  (getSource__Digest__Predicate(),
+		  (generationModeEEnum.getELiterals().get(0),
 		   source,
 		   new String[] {
-			   "documentation", "Computes digest to be used by generators to detect manual changes"
+			   "documentation", "Use only own source, ingnore contents"
 		   });
 		addAnnotation
-		  ((getSource__Digest__Predicate()).getEParameters().get(0),
+		  (generationModeEEnum.getELiterals().get(1),
 		   source,
 		   new String[] {
-			   "documentation", "Predicate allows to exclude model element for digest computation, e.g. Generated annotation"
+			   "documentation", "Do not use own source, generate from contents"
+		   });
+		addAnnotation
+		  (generationModeEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "Concatenate own source with source generated by contents"
+		   });
+		addAnnotation
+		  (generationModeEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "Use only own source if it is not blank and ingnore contents. Otherwise use contents."
+		   });
+		addAnnotation
+		  (generationModeEEnum.getELiterals().get(4),
+		   source,
+		   new String[] {
+			   "documentation", "Own source (original) is merged with new source generated from contents"
+		   });
+		addAnnotation
+		  (getSource__Generate__Function(),
+		   source,
+		   new String[] {
+			   "documentation", "Generates source code"
+		   });
+		addAnnotation
+		  (getNamedElement_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Simple (short) name. E.g. Map"
+		   });
+		addAnnotation
+		  (getNamedElement_FullyQualifiedName(),
+		   source,
+		   new String[] {
+			   "documentation", "Fully qualified name where applicable. E.g. java.util.Map"
 		   });
 		addAnnotation
 		  (getCompilationUnit__Merge__String_BiFunction(),
@@ -1610,22 +1686,16 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 			   "documentation", "Collects  new source code from children and merges with the current code preserving manual changes in the current code"
 		   });
 		addAnnotation
-		  (getNamedElement_Name(),
-		   source,
-		   new String[] {
-			   "documentation", "Simple (short) name. E.g. Map"
-		   });
-		addAnnotation
-		  (getNamedElement_FullyQualifiedName(),
-		   source,
-		   new String[] {
-			   "documentation", "Fully qualified name where applicable. E.g. java.util.Map"
-		   });
-		addAnnotation
 		  (getMember_ReferencedTypes(),
 		   source,
 		   new String[] {
 			   "documentation", "All types referenced by this member including types refernced from code"
+		   });
+		addAnnotation
+		  (getMember_Annotate(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, the generator adds Generated annotation with digest"
 		   });
 		addAnnotation
 		  (getReference_Target(),

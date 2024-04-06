@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface CompilationUnit extends Source {
+public interface CompilationUnit extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
@@ -93,4 +93,6 @@ public interface CompilationUnit extends Source {
 	 * @generated
 	 */
 	void merge(BiFunction<String, String, String> merger);
+	
+	
 } // CompilationUnit

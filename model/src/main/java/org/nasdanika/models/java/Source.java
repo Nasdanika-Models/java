@@ -4,9 +4,7 @@ package org.nasdanika.models.java;
 
 import java.util.function.Function;
 
-import java.util.function.Predicate;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.ncore.Marked;
 
@@ -23,6 +21,7 @@ import org.nasdanika.ncore.Marked;
  *   <li>{@link org.nasdanika.models.java.Source#getChildren <em>Children</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getReferences <em>References</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Source#getGenerationMode <em>Generation Mode</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getSource()
@@ -89,26 +88,41 @@ public interface Source extends Marked, Range {
 	EList<Reference> getReferences();
 
 	/**
+	 * Returns the value of the '<em><b>Generation Mode</b></em>' attribute.
+	 * The default value is <code>"CONTENTS_IF_NO_SOURCE"</code>.
+	 * The literals are from the enumeration {@link org.nasdanika.models.java.GenerationMode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Generation Mode</em>' attribute.
+	 * @see org.nasdanika.models.java.GenerationMode
+	 * @see #setGenerationMode(GenerationMode)
+	 * @see org.nasdanika.models.java.JavaPackage#getSource_GenerationMode()
+	 * @model default="CONTENTS_IF_NO_SOURCE"
+	 * @generated
+	 */
+	GenerationMode getGenerationMode();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.java.Source#getGenerationMode <em>Generation Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Generation Mode</em>' attribute.
+	 * @see org.nasdanika.models.java.GenerationMode
+	 * @see #getGenerationMode()
+	 * @generated
+	 */
+	void setGenerationMode(GenerationMode value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Concatenates own source with generated source of children.
+	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Calls update on children and then updates source code using children source code. Returns updated source code. 
+	 * Generates source code
 	 * <!-- end-model-doc -->
 	 * @model importManagerType="org.nasdanika.models.java.ImportManager"
 	 * @generated
 	 */
-	String update(Function<String, String> importManager);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Computes digest to be used by generators to detect manual changes
-	 * @param predicate Predicate allows to exclude model element for digest computation, e.g. Generated annotation
-	 * <!-- end-model-doc -->
-	 * @model predicateType="org.nasdanika.models.java.DigestPredicate"
-	 * @generated
-	 */
-	String digest(Predicate<EObject> predicate);
+	String generate(Function<String, String> importManager);
 
 } // Source

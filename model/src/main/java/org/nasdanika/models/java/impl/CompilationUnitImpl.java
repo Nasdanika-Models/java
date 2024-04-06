@@ -3,18 +3,25 @@
 package org.nasdanika.models.java.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.java.CompilationUnit;
+import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.java.Position;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
+import org.nasdanika.models.java.util.SimpleImportManager;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +38,7 @@ import org.nasdanika.models.java.Type;
  *
  * @generated
  */
-public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
+public class CompilationUnitImpl extends NamedElementImpl implements CompilationUnit {
 	/**
 	 * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -283,5 +290,68 @@ public class CompilationUnitImpl extends SourceImpl implements CompilationUnit {
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	@Override
+	protected List<Source> generateContents(Function<String, String> importManager) {
+		List<Source> contents = super.generateContents(importManager);
+		SimpleImportManager simpleImportManager = new SimpleImportManager(null);
+		getImports().forEach(simpleImportManager::addImport);
+		
+		List<Source> typeSources = new ArrayList<>();
+		for (Type type: getTypes()) {
+			Source typeSource = JavaFactory.eINSTANCE.createSource();
+			typeSource.setSource(type.generate(importManager == null ? simpleImportManager::addImport : importManager));
+			typeSource.setBegin(EcoreUtil.copy(type.getBegin()));
+			typeSource.setEnd(EcoreUtil.copy(type.getEnd()));
+			typeSources.add(typeSource);
+		}
+		
+		if (importManager == null) {
+			getImports().clear();
+			getImports().addAll(simpleImportManager.getImports());
+		}
+		
+		StringBuilder headerBuilder = new StringBuilder();
+		String pName = getPackageName();
+		if (pName != null) {
+			headerBuilder
+				.append("package ")
+				.append(pName)
+				.append(";")
+				.append(System.lineSeparator())
+				.append(System.lineSeparator());
+		}
+		
+		getImports().forEach(id -> headerBuilder.append("import ").append(id).append(System.lineSeparator()));
+		headerBuilder.append(System.lineSeparator());
+		
+		Source header = JavaFactory.eINSTANCE.createSource();
+		header.setSource(headerBuilder.toString());
+		if (!typeSources.isEmpty()) {
+			// Making an assumption no the header "original" range
+			Position hBegin = JavaFactory.eINSTANCE.createPosition();
+			hBegin.setColumn(1);
+			hBegin.setLine(1);
+			header.setBegin(hBegin);
+			
+			Position typeBegin = typeSources.get(0).getBegin();
+			if (typeBegin != null) {
+				Position hEnd = EcoreUtil.copy(typeBegin);
+				hEnd.setLine(hEnd.getLine() -1);
+				hEnd.setColumn(1);
+				header.setEnd(hEnd);
+			}
+		}
+		
+		contents.add(header);
+		contents.addAll(typeSources);
+		
+		return contents;
+	}
+	
+//	
+//	@Override
+//	protected String generateContents(Function<String, String> importManager) {
+//	}
 
 } //CompilationUnitImpl

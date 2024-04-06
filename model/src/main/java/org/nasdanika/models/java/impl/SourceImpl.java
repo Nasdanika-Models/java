@@ -4,17 +4,19 @@ package org.nasdanika.models.java.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 
-import java.util.function.Predicate;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.Util;
 import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Position;
 import org.nasdanika.models.java.Range;
@@ -38,6 +40,7 @@ import org.nasdanika.ncore.NcorePackage;
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getGenerationMode <em>Generation Mode</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,6 +55,16 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @ordered
 	 */
 	protected static final String SOURCE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getGenerationMode() <em>Generation Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGenerationMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final GenerationMode GENERATION_MODE_EDEFAULT = GenerationMode.CONTENTS_IF_NO_SOURCE;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -212,10 +225,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @generated
 	 */
 	@Override
-	public String update(Function<String, String> importManager) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public GenerationMode getGenerationMode() {
+		return (GenerationMode)eDynamicGet(JavaPackage.SOURCE__GENERATION_MODE, JavaPackage.Literals.SOURCE__GENERATION_MODE, true, true);
 	}
 
 	/**
@@ -224,12 +235,176 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @generated
 	 */
 	@Override
-	public String digest(Predicate<EObject> predicate) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setGenerationMode(GenerationMode newGenerationMode) {
+		eDynamicSet(JavaPackage.SOURCE__GENERATION_MODE, JavaPackage.Literals.SOURCE__GENERATION_MODE, newGenerationMode);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generate(Function<String, String> importManager) {
+		switch (getGenerationMode()) {
+		case COMPOSE: {
+			String source = getSource();
+			return generateContents(importManager)
+					.stream()
+					.filter(Objects::nonNull)
+					.filter(s -> !Util.isBlank(s.getSource()))
+					.map(Source::getSource)
+					.reduce(Util.isBlank(source) ? "" : source , (a,b) -> a + b);
+		}
+		case CONTENTS: {
+			return generateContents(importManager)
+					.stream()
+					.filter(Objects::nonNull)
+					.filter(s -> !Util.isBlank(s.getSource()))
+					.map(Source::getSource)
+					.reduce("", (a,b) -> a + b);
+		}
+		case CONTENTS_IF_NO_SOURCE: {
+			String source = getSource();
+			if (Util.isBlank(source)) {
+				return generateContents(importManager)
+						.stream()
+						.filter(Objects::nonNull)
+						.filter(s -> !Util.isBlank(s.getSource()))
+						.map(Source::getSource)
+						.reduce("", (a,b) -> a + b);
+			}
+			return source;
+		}
+		case SOURCE: {
+			String source = getSource();
+			return Util.isBlank(source) ? "" : source;
+		}
+		case MERGE: {
+			String source = getSource();
+			if (Util.isBlank(source)) {
+				// Nothing to merge - return contents;
+				return generateContents(importManager)
+						.stream()
+						.filter(Objects::nonNull)
+						.filter(s -> !Util.isBlank(s.getSource()))
+						.map(Source::getSource)
+						.reduce("", (a,b) -> a + b);
+			}
+			List<Source> contents = generateContents(importManager);
+			if (contents.isEmpty()) {
+				// Nothing to merge - return source
+				return Util.isBlank(source) ? "" : source;				
+			}
+			
+			String[] lines = source.split("\\R");
+			
+			StringBuilder output = new StringBuilder();
+			Position position = null;
+			for (Source contentsElement: contents) {
+				output.append(rangeText(position, contentsElement.getBegin(), lines));
+				output.append(contentsElement.getSource());
+				position = contentsElement.getEnd();
+			}
+			output.append(rangeText(position, null, lines));
+			return output.toString();			
+		}
+		default:
+			throw new UnsupportedOperationException("Unsupported generation mode: " + getGenerationMode());		
+		}		
+	}
+	
+//	/**
+//	 * <!-- begin-user-doc -->
+//	 * <!-- end-user-doc -->
+//	 * @generated NOT
+//	 */
+//	@Override
+//	public Position before(Function<Integer, Integer> lineLengthProvider) {
+//		Position ret = EcoreUtil.copy(this);
+//		int column = ret.getColumn();
+//		int line = ret.getLine();
+//		if (column > 1) {
+//			ret.setColumn(column - 1);
+//		} else if (line > 1) {			
+//			ret.setColumn(lineLengthProvider.apply(line - 1));
+//			ret.setLine(line - 1);
+//		}
+//		return ret;
+//	}
+	
+	/**
+	 * 
+	 * @param start If null, then from the beginning. Exclusive.
+	 * @param end If null, then to the end. Exclusive.
+	 * @param lines
+	 * @return
+	 */
+	protected String rangeText(Position start, Position end, String[] lines) {
+		int startLine = start == null ? 1 : start.getLine();
+		StringBuilder ret = new StringBuilder();
+		int lastLine = end == null ? lines.length : end.getLine();
+		for (int line = startLine; line <= lastLine; ++line) {
+			String lineStr = lines[line - 1];
+			if (line == startLine && line == lastLine) {
+				int startColumn = start == null ? 1 : start.getColumn();
+				int endColumn = end == null ? lineStr.length() : end.getColumn();
+				if (startColumn < endColumn) {
+					ret.append(lineStr.substring(startColumn, endColumn - 1)); // Both exclusive
+				}
+			} else if (line == startLine) {
+				int startColumn = start == null ? 1 : start.getColumn();
+				if (startColumn < lineStr.length()) {
+					ret.append(lineStr.substring(startColumn));
+				}
+			} else if (line == lastLine) {
+				int endColumn = end == null ? lineStr.length() : end.getColumn();
+				ret.append(lineStr.substring(0, endColumn - 1)); 				
+			} else {
+				ret.append(lineStr);
+			}
+		}
+		return ret.toString();
+	}
+	
+	/**
+	 * For range sorting if needed
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	protected static int compareRanges(Range a, Range b) {
+		Position aBegin = a.getBegin();
+		Position bBegin = a.getBegin();
+		
+		if (a.overlaps(b)) {
+			throw new IllegalArgumentException("Overlapping ranges");
+		}
+		
+		if (aBegin == null) {
+			if (bBegin != null) {
+				return 1;
+			}
+			return a.hashCode() - b.hashCode();
+		} 
+		
+		if (bBegin == null) {
+			return -1;
+		}
+		
+		return aBegin.compareTo(bBegin);
+	}
+	
+	/**
+	 * Generates a list of sources from contents.
+	 * When merging, source ranges are used to replace fragments in the original source.
+	 * @param importManager
+	 * @return
+	 */
+	protected List<Source> generateContents(Function<String, String> importManager) {
+		return getChildren();
+	}	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -310,6 +485,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 				return getCoverage();
 			case JavaPackage.SOURCE__REFERENCES:
 				return getReferences();
+			case JavaPackage.SOURCE__GENERATION_MODE:
+				return getGenerationMode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -348,6 +525,9 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case JavaPackage.SOURCE__GENERATION_MODE:
+				setGenerationMode((GenerationMode)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -381,6 +561,9 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 			case JavaPackage.SOURCE__REFERENCES:
 				getReferences().clear();
 				return;
+			case JavaPackage.SOURCE__GENERATION_MODE:
+				setGenerationMode(GENERATION_MODE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -407,6 +590,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 				return !getCoverage().isEmpty();
 			case JavaPackage.SOURCE__REFERENCES:
 				return !getReferences().isEmpty();
+			case JavaPackage.SOURCE__GENERATION_MODE:
+				return getGenerationMode() != GENERATION_MODE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -472,10 +657,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JavaPackage.SOURCE___UPDATE__FUNCTION:
-				return update((Function<String, String>)arguments.get(0));
-			case JavaPackage.SOURCE___DIGEST__PREDICATE:
-				return digest((Predicate<EObject>)arguments.get(0));
+			case JavaPackage.SOURCE___GENERATE__FUNCTION:
+				return generate((Function<String, String>)arguments.get(0));
 			case JavaPackage.SOURCE___CONTAINS__RANGE:
 				return contains((Range)arguments.get(0));
 			case JavaPackage.SOURCE___CONTAINS__POSITION:

@@ -9,6 +9,13 @@
   <foreignModel>java.ecore</foreignModel>
   <genPackages prefix="Java" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="java.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="java.ecore#//GenerationMode">
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/SOURCE"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/CONTENTS"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/COMPOSE"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/CONTENTS_IF_NO_SOURCE"/>
+      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/MERGE"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="java.ecore#//ImportManager"/>
     <genClasses image="false" ecoreClass="java.ecore#//Merger"/>
     <genClasses image="false" ecoreClass="java.ecore#//DigestPredicate"/>
@@ -37,12 +44,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/children"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//Source/coverage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/references"/>
-      <genOperations ecoreOperation="java.ecore#//Source/update">
-        <genParameters ecoreParameter="java.ecore#//Source/update/importManager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Source/generationMode"/>
+      <genOperations ecoreOperation="java.ecore#//Source/generate">
+        <genParameters ecoreParameter="java.ecore#//Source/generate/importManager"/>
       </genOperations>
-      <genOperations ecoreOperation="java.ecore#//Source/digest">
-        <genParameters ecoreParameter="java.ecore#//Source/digest/predicate"/>
-      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="java.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//NamedElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//NamedElement/fullyQualifiedName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//NamedElement/referrers"/>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//CompilationUnit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//CompilationUnit/types"/>
@@ -59,16 +69,12 @@
     <genClasses ecoreClass="java.ecore#//Comment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Comment/comment"/>
     </genClasses>
-    <genClasses ecoreClass="java.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//NamedElement/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//NamedElement/fullyQualifiedName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//NamedElement/referrers"/>
-    </genClasses>
     <genClasses ecoreClass="java.ecore#//Member">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/comment"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Member/modifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Member/referencedTypes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//Member/annotations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Member/annotate"/>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//Reference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//Reference/target"/>

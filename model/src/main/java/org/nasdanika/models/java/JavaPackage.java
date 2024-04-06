@@ -4,6 +4,7 @@ package org.nasdanika.models.java;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -106,7 +107,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCompilationUnit()
 	 * @generated
 	 */
-	int COMPILATION_UNIT = 7;
+	int COMPILATION_UNIT = 8;
 
 
 	/**
@@ -278,7 +279,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComment()
 	 * @generated
 	 */
-	int COMMENT = 8;
+	int COMMENT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
@@ -617,13 +618,22 @@ public interface JavaPackage extends EPackage {
 	int SOURCE__REFERENCES = NcorePackage.MARKED_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__GENERATION_MODE = NcorePackage.MARKED_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Source</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 6;
+	int SOURCE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -653,22 +663,13 @@ public interface JavaPackage extends EPackage {
 	int SOURCE___OVERLAPS__RANGE = NcorePackage.MARKED_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE___UPDATE__FUNCTION = NcorePackage.MARKED_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE___DIGEST__PREDICATE = NcorePackage.MARKED_OPERATION_COUNT + 4;
+	int SOURCE___GENERATE__FUNCTION = NcorePackage.MARKED_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Source</em>' class.
@@ -677,205 +678,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__MARKERS = SOURCE__MARKERS;
-
-	/**
-	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__BEGIN = SOURCE__BEGIN;
-
-	/**
-	 * The feature id for the '<em><b>End</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__END = SOURCE__END;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__SOURCE = SOURCE__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__CHILDREN = SOURCE__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__COVERAGE = SOURCE__COVERAGE;
-
-	/**
-	 * The feature id for the '<em><b>References</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__REFERENCES = SOURCE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__TYPES = SOURCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Package Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__PACKAGE_NAME = SOURCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Imports</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__IMPORTS = SOURCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Compilation Unit</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT_FEATURE_COUNT = SOURCE_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Contains</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT___CONTAINS__RANGE = SOURCE___CONTAINS__RANGE;
-
-	/**
-	 * The operation id for the '<em>Contains</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT___CONTAINS__POSITION = SOURCE___CONTAINS__POSITION;
-
-	/**
-	 * The operation id for the '<em>Overlaps</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
-
-	/**
-	 * The operation id for the '<em>Update</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT___DIGEST__PREDICATE = SOURCE___DIGEST__PREDICATE;
-
-	/**
-	 * The operation id for the '<em>Merge</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT___MERGE__STRING_BIFUNCTION = SOURCE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Merge</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT___MERGE__BIFUNCTION = SOURCE_OPERATION_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Compilation Unit</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT_OPERATION_COUNT = SOURCE_OPERATION_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Comment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMENT__COMMENT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Comment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Comment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMENT_OPERATION_COUNT = 0;
+	int SOURCE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -885,7 +688,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 9;
+	int NAMED_ELEMENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -951,6 +754,15 @@ public interface JavaPackage extends EPackage {
 	int NAMED_ELEMENT__REFERENCES = SOURCE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__GENERATION_MODE = SOURCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1014,22 +826,13 @@ public interface JavaPackage extends EPackage {
 	int NAMED_ELEMENT___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT___DIGEST__PREDICATE = SOURCE___DIGEST__PREDICATE;
+	int NAMED_ELEMENT___GENERATE__FUNCTION = SOURCE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Named Element</em>' class.
@@ -1039,6 +842,231 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT_OPERATION_COUNT = SOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__MARKERS = NAMED_ELEMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__BEGIN = NAMED_ELEMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__END = NAMED_ELEMENT__END;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__SOURCE = NAMED_ELEMENT__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__CHILDREN = NAMED_ELEMENT__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__COVERAGE = NAMED_ELEMENT__COVERAGE;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__REFERENCES = NAMED_ELEMENT__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__FULLY_QUALIFIED_NAME = NAMED_ELEMENT__FULLY_QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__REFERRERS = NAMED_ELEMENT__REFERRERS;
+
+	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__TYPES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Package Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__PACKAGE_NAME = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Imports</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__IMPORTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Compilation Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___CONTAINS__RANGE = NAMED_ELEMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___CONTAINS__POSITION = NAMED_ELEMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___GENERATE__FUNCTION = NAMED_ELEMENT___GENERATE__FUNCTION;
+
+	/**
+	 * The operation id for the '<em>Merge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___MERGE__STRING_BIFUNCTION = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Merge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___MERGE__BIFUNCTION = NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Compilation Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__COMMENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1104,6 +1132,15 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__REFERENCES = NAMED_ELEMENT__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1167,13 +1204,22 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__ANNOTATIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__ANNOTATE = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int MEMBER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -1203,22 +1249,13 @@ public interface JavaPackage extends EPackage {
 	int MEMBER___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER___UPDATE__FUNCTION = NAMED_ELEMENT___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER___DIGEST__PREDICATE = NAMED_ELEMENT___DIGEST__PREDICATE;
+	int MEMBER___GENERATE__FUNCTION = NAMED_ELEMENT___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Member</em>' class.
@@ -1303,6 +1340,15 @@ public interface JavaPackage extends EPackage {
 	int REFERENCE__REFERENCES = NAMED_ELEMENT__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1375,22 +1421,13 @@ public interface JavaPackage extends EPackage {
 	int REFERENCE___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE___UPDATE__FUNCTION = NAMED_ELEMENT___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE___DIGEST__PREDICATE = NAMED_ELEMENT___DIGEST__PREDICATE;
+	int REFERENCE___GENERATE__FUNCTION = NAMED_ELEMENT___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Reference</em>' class.
@@ -1473,6 +1510,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERIC_TYPE__REFERENCES = REFERENCE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__GENERATION_MODE = REFERENCE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1583,22 +1629,13 @@ public interface JavaPackage extends EPackage {
 	int GENERIC_TYPE___OVERLAPS__RANGE = REFERENCE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERIC_TYPE___UPDATE__FUNCTION = REFERENCE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERIC_TYPE___DIGEST__PREDICATE = REFERENCE___DIGEST__PREDICATE;
+	int GENERIC_TYPE___GENERATE__FUNCTION = REFERENCE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Generic Type</em>' class.
@@ -1683,6 +1720,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__REFERENCES = REFERENCE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__GENERATION_MODE = REFERENCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1764,22 +1810,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION___OVERLAPS__RANGE = REFERENCE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION___UPDATE__FUNCTION = REFERENCE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION___DIGEST__PREDICATE = REFERENCE___DIGEST__PREDICATE;
+	int ANNOTATION___GENERATE__FUNCTION = REFERENCE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Annotation</em>' class.
@@ -1864,6 +1901,15 @@ public interface JavaPackage extends EPackage {
 	int TYPE_PARAMETER__REFERENCES = NAMED_ELEMENT__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1936,22 +1982,13 @@ public interface JavaPackage extends EPackage {
 	int TYPE_PARAMETER___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_PARAMETER___UPDATE__FUNCTION = NAMED_ELEMENT___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_PARAMETER___DIGEST__PREDICATE = NAMED_ELEMENT___DIGEST__PREDICATE;
+	int TYPE_PARAMETER___GENERATE__FUNCTION = NAMED_ELEMENT___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Type Parameter</em>' class.
@@ -2036,6 +2073,15 @@ public interface JavaPackage extends EPackage {
 	int TYPED_ELEMENT__REFERENCES = NAMED_ELEMENT__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2108,22 +2154,13 @@ public interface JavaPackage extends EPackage {
 	int TYPED_ELEMENT___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_ELEMENT___UPDATE__FUNCTION = NAMED_ELEMENT___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPED_ELEMENT___DIGEST__PREDICATE = NAMED_ELEMENT___DIGEST__PREDICATE;
+	int TYPED_ELEMENT___GENERATE__FUNCTION = NAMED_ELEMENT___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Typed Element</em>' class.
@@ -2198,6 +2235,15 @@ public interface JavaPackage extends EPackage {
 	int TYPE__REFERENCES = MEMBER__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2259,6 +2305,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE__ANNOTATIONS = MEMBER__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__ANNOTATE = MEMBER__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -2333,22 +2388,13 @@ public interface JavaPackage extends EPackage {
 	int TYPE___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
+	int TYPE___GENERATE__FUNCTION = MEMBER___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Type</em>' class.
@@ -2433,6 +2479,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE__REFERENCES = TYPE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2494,6 +2549,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__ANNOTATE = TYPE__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -2568,22 +2632,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_INTERFACE___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_INTERFACE___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+	int ANNOTATION_INTERFACE___GENERATE__FUNCTION = TYPE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Annotation Interface</em>' class.
@@ -2668,6 +2723,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER__REFERENCES = MEMBER__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2731,6 +2795,15 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__ANNOTATE = MEMBER__ANNOTATE;
+
+	/**
 	 * The number of structural features of the '<em>Annotation Interface Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2767,22 +2840,13 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_INTERFACE_MEMBER___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_INTERFACE_MEMBER___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
+	int ANNOTATION_INTERFACE_MEMBER___GENERATE__FUNCTION = MEMBER___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Annotation Interface Member</em>' class.
@@ -2857,6 +2921,15 @@ public interface JavaPackage extends EPackage {
 	int CLASS__REFERENCES = TYPE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2918,6 +2991,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ANNOTATE = TYPE__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -2992,22 +3074,13 @@ public interface JavaPackage extends EPackage {
 	int CLASS___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+	int CLASS___GENERATE__FUNCTION = TYPE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Class</em>' class.
@@ -3082,6 +3155,15 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__REFERENCES = TYPE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3143,6 +3225,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__ANNOTATE = TYPE__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -3217,22 +3308,13 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+	int INTERFACE___GENERATE__FUNCTION = TYPE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Interface</em>' class.
@@ -3307,6 +3389,15 @@ public interface JavaPackage extends EPackage {
 	int CODE__REFERENCES = MEMBER__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3370,6 +3461,15 @@ public interface JavaPackage extends EPackage {
 	int CODE__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__ANNOTATE = MEMBER__ANNOTATE;
+
+	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3415,22 +3515,13 @@ public interface JavaPackage extends EPackage {
 	int CODE___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
+	int CODE___GENERATE__FUNCTION = MEMBER___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Code</em>' class.
@@ -3505,6 +3596,15 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__REFERENCES = CODE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__GENERATION_MODE = CODE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3566,6 +3666,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION__ANNOTATIONS = CODE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__ANNOTATE = CODE__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -3667,22 +3776,13 @@ public interface JavaPackage extends EPackage {
 	int OPERATION___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION___DIGEST__PREDICATE = CODE___DIGEST__PREDICATE;
+	int OPERATION___GENERATE__FUNCTION = CODE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Operation</em>' class.
@@ -3757,6 +3857,15 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__REFERENCES = OPERATION__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__GENERATION_MODE = OPERATION__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3818,6 +3927,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR__ANNOTATIONS = OPERATION__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__ANNOTATE = OPERATION__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -3919,22 +4037,13 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR___OVERLAPS__RANGE = OPERATION___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTRUCTOR___UPDATE__FUNCTION = OPERATION___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR___DIGEST__PREDICATE = OPERATION___DIGEST__PREDICATE;
+	int CONSTRUCTOR___GENERATE__FUNCTION = OPERATION___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Constructor</em>' class.
@@ -4009,6 +4118,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM__REFERENCES = TYPE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4070,6 +4188,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__ANNOTATE = TYPE__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -4144,22 +4271,13 @@ public interface JavaPackage extends EPackage {
 	int ENUM___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+	int ENUM___GENERATE__FUNCTION = TYPE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Enum</em>' class.
@@ -4234,6 +4352,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT__REFERENCES = MEMBER__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4297,6 +4424,15 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__ANNOTATE = MEMBER__ANNOTATE;
+
+	/**
 	 * The number of structural features of the '<em>Enum Constant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4333,22 +4469,13 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_CONSTANT___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_CONSTANT___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
+	int ENUM_CONSTANT___GENERATE__FUNCTION = MEMBER___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Enum Constant</em>' class.
@@ -4423,6 +4550,15 @@ public interface JavaPackage extends EPackage {
 	int FIELD__REFERENCES = MEMBER__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4486,6 +4622,15 @@ public interface JavaPackage extends EPackage {
 	int FIELD__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__ANNOTATE = MEMBER__ANNOTATE;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4540,22 +4685,13 @@ public interface JavaPackage extends EPackage {
 	int FIELD___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD___UPDATE__FUNCTION = MEMBER___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD___DIGEST__PREDICATE = MEMBER___DIGEST__PREDICATE;
+	int FIELD___GENERATE__FUNCTION = MEMBER___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -4630,6 +4766,15 @@ public interface JavaPackage extends EPackage {
 	int MODULE__REFERENCES = SOURCE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__GENERATION_MODE = SOURCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4675,22 +4820,13 @@ public interface JavaPackage extends EPackage {
 	int MODULE___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE___DIGEST__PREDICATE = SOURCE___DIGEST__PREDICATE;
+	int MODULE___GENERATE__FUNCTION = SOURCE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Module</em>' class.
@@ -4775,6 +4911,15 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__REFERENCES = SOURCE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__GENERATION_MODE = SOURCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4820,22 +4965,13 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE___UPDATE__FUNCTION = SOURCE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE___DIGEST__PREDICATE = SOURCE___DIGEST__PREDICATE;
+	int PACKAGE___GENERATE__FUNCTION = SOURCE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -4910,6 +5046,15 @@ public interface JavaPackage extends EPackage {
 	int METHOD__REFERENCES = OPERATION__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__GENERATION_MODE = OPERATION__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4971,6 +5116,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD__ANNOTATIONS = OPERATION__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__ANNOTATE = OPERATION__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -5090,22 +5244,13 @@ public interface JavaPackage extends EPackage {
 	int METHOD___OVERLAPS__RANGE = OPERATION___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD___UPDATE__FUNCTION = OPERATION___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD___DIGEST__PREDICATE = OPERATION___DIGEST__PREDICATE;
+	int METHOD___GENERATE__FUNCTION = OPERATION___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Method</em>' class.
@@ -5180,6 +5325,15 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__REFERENCES = CODE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__GENERATION_MODE = CODE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5243,6 +5397,15 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__ANNOTATIONS = CODE__ANNOTATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__ANNOTATE = CODE__ANNOTATE;
+
+	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5288,22 +5451,13 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INITIALIZER___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZER___DIGEST__PREDICATE = CODE___DIGEST__PREDICATE;
+	int INITIALIZER___GENERATE__FUNCTION = CODE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Initializer</em>' class.
@@ -5378,6 +5532,15 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__REFERENCES = CODE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__GENERATION_MODE = CODE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5441,6 +5604,15 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__ANNOTATIONS = CODE__ANNOTATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__ANNOTATE = CODE__ANNOTATE;
+
+	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5486,22 +5658,13 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_INITIALIZER___UPDATE__FUNCTION = CODE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_INITIALIZER___DIGEST__PREDICATE = CODE___DIGEST__PREDICATE;
+	int CLASS_INITIALIZER___GENERATE__FUNCTION = CODE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Class Initializer</em>' class.
@@ -5574,6 +5737,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER__REFERENCES = TYPED_ELEMENT__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__GENERATION_MODE = TYPED_ELEMENT__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5666,22 +5838,13 @@ public interface JavaPackage extends EPackage {
 	int PARAMETER___OVERLAPS__RANGE = TYPED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___UPDATE__FUNCTION = TYPED_ELEMENT___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER___DIGEST__PREDICATE = TYPED_ELEMENT___DIGEST__PREDICATE;
+	int PARAMETER___GENERATE__FUNCTION = TYPED_ELEMENT___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -5756,6 +5919,15 @@ public interface JavaPackage extends EPackage {
 	int RECORD__REFERENCES = TYPE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5817,6 +5989,15 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Annotate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__ANNOTATE = TYPE__ANNOTATE;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -5891,22 +6072,13 @@ public interface JavaPackage extends EPackage {
 	int RECORD___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD___UPDATE__FUNCTION = TYPE___UPDATE__FUNCTION;
-
-	/**
-	 * The operation id for the '<em>Digest</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECORD___DIGEST__PREDICATE = TYPE___DIGEST__PREDICATE;
+	int RECORD___GENERATE__FUNCTION = TYPE___GENERATE__FUNCTION;
 
 	/**
 	 * The number of operations of the '<em>Record</em>' class.
@@ -5916,6 +6088,17 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.GenerationMode <em>Generation Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.GenerationMode
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getGenerationMode()
+	 * @generated
+	 */
+	int GENERATION_MODE = 34;
 
 
 	/**
@@ -6015,24 +6198,25 @@ public interface JavaPackage extends EPackage {
 	EReference getSource_References();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.models.java.Source#update(java.util.function.Function) <em>Update</em>}' operation.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Source#getGenerationMode <em>Generation Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Update</em>' operation.
-	 * @see org.nasdanika.models.java.Source#update(java.util.function.Function)
+	 * @return the meta object for the attribute '<em>Generation Mode</em>'.
+	 * @see org.nasdanika.models.java.Source#getGenerationMode()
+	 * @see #getSource()
 	 * @generated
 	 */
-	EOperation getSource__Update__Function();
+	EAttribute getSource_GenerationMode();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.models.java.Source#digest(java.util.function.Predicate) <em>Digest</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.models.java.Source#generate(java.util.function.Function) <em>Generate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Digest</em>' operation.
-	 * @see org.nasdanika.models.java.Source#digest(java.util.function.Predicate)
+	 * @return the meta object for the '<em>Generate</em>' operation.
+	 * @see org.nasdanika.models.java.Source#generate(java.util.function.Function)
 	 * @generated
 	 */
-	EOperation getSource__Digest__Predicate();
+	EOperation getSource__Generate__Function();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Record <em>Record</em>}'.
@@ -6043,6 +6227,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRecord();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.models.java.GenerationMode <em>Generation Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Generation Mode</em>'.
+	 * @see org.nasdanika.models.java.GenerationMode
+	 * @generated
+	 */
+	EEnum getGenerationMode();
 
 	/**
 	 * Returns the meta object for class '{@link java.util.function.Function <em>Import Manager</em>}'.
@@ -6235,6 +6429,17 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMember_Annotations();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Member#isAnnotate <em>Annotate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Annotate</em>'.
+	 * @see org.nasdanika.models.java.Member#isAnnotate()
+	 * @see #getMember()
+	 * @generated
+	 */
+	EAttribute getMember_Annotate();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Reference <em>Reference</em>}'.
@@ -6915,20 +7120,20 @@ public interface JavaPackage extends EPackage {
 		EReference SOURCE__REFERENCES = eINSTANCE.getSource_References();
 
 		/**
-		 * The meta object literal for the '<em><b>Update</b></em>' operation.
+		 * The meta object literal for the '<em><b>Generation Mode</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOURCE___UPDATE__FUNCTION = eINSTANCE.getSource__Update__Function();
+		EAttribute SOURCE__GENERATION_MODE = eINSTANCE.getSource_GenerationMode();
 
 		/**
-		 * The meta object literal for the '<em><b>Digest</b></em>' operation.
+		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOURCE___DIGEST__PREDICATE = eINSTANCE.getSource__Digest__Predicate();
+		EOperation SOURCE___GENERATE__FUNCTION = eINSTANCE.getSource__Generate__Function();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
@@ -6939,6 +7144,16 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RECORD = eINSTANCE.getRecord();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.GenerationMode <em>Generation Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.GenerationMode
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getGenerationMode()
+		 * @generated
+		 */
+		EEnum GENERATION_MODE = eINSTANCE.getGenerationMode();
 
 		/**
 		 * The meta object literal for the '{@link java.util.function.Function <em>Import Manager</em>}' class.
@@ -7097,6 +7312,14 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MEMBER__ANNOTATIONS = eINSTANCE.getMember_Annotations();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MEMBER__ANNOTATE = eINSTANCE.getMember_Annotate();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.ReferenceImpl <em>Reference</em>}' class.

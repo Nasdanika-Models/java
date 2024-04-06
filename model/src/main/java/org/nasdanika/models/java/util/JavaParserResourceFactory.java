@@ -27,12 +27,14 @@ public class JavaParserResourceFactory implements Resource.Factory {
 	public JavaParserResourceFactory(Function<Source,Collection<Coverage>> coverageProvider) {
 		parserConfiguration = new ParserConfiguration();
 		parserConfiguration.setLanguageLevel(DEFAULT_LANGUAGE_LEVEL);
+		parserConfiguration.setLexicalPreservationEnabled(true);
 		this.coverageProvider = coverageProvider;
 	}
 	
 	public JavaParserResourceFactory(LanguageLevel languageLevel, Function<Source,Collection<Coverage>> coverageProvider) {
 		parserConfiguration = new ParserConfiguration();
 		parserConfiguration.setLanguageLevel(languageLevel);
+		parserConfiguration.setLexicalPreservationEnabled(true);
 		this.coverageProvider = coverageProvider;
 	}
 	

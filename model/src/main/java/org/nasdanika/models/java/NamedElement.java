@@ -87,5 +87,5 @@ public interface NamedElement extends Source {
 	 * @generated
 	 */
 	EList<Reference> getReferrers();
-
+	
 } // NamedElement

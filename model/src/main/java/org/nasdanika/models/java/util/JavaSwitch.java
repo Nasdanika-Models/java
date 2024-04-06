@@ -139,9 +139,20 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaPackage.NAMED_ELEMENT: {
+				NamedElement namedElement = (NamedElement)theEObject;
+				T1 result = caseNamedElement(namedElement);
+				if (result == null) result = caseSource(namedElement);
+				if (result == null) result = caseMarked(namedElement);
+				if (result == null) result = caseRange(namedElement);
+				if (result == null) result = caseIMarked(namedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaPackage.COMPILATION_UNIT: {
 				CompilationUnit compilationUnit = (CompilationUnit)theEObject;
 				T1 result = caseCompilationUnit(compilationUnit);
+				if (result == null) result = caseNamedElement(compilationUnit);
 				if (result == null) result = caseSource(compilationUnit);
 				if (result == null) result = caseMarked(compilationUnit);
 				if (result == null) result = caseRange(compilationUnit);
@@ -152,16 +163,6 @@ public class JavaSwitch<T1> extends Switch<T1> {
 			case JavaPackage.COMMENT: {
 				Comment comment = (Comment)theEObject;
 				T1 result = caseComment(comment);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaPackage.NAMED_ELEMENT: {
-				NamedElement namedElement = (NamedElement)theEObject;
-				T1 result = caseNamedElement(namedElement);
-				if (result == null) result = caseSource(namedElement);
-				if (result == null) result = caseMarked(namedElement);
-				if (result == null) result = caseRange(namedElement);
-				if (result == null) result = caseIMarked(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

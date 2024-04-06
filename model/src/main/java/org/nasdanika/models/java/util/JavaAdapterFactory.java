@@ -122,16 +122,16 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createSourceAdapter();
 			}
 			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
 			public Adapter caseCompilationUnit(CompilationUnit object) {
 				return createCompilationUnitAdapter();
 			}
 			@Override
 			public Adapter caseComment(Comment object) {
 				return createCommentAdapter();
-			}
-			@Override
-			public Adapter caseNamedElement(NamedElement object) {
-				return createNamedElementAdapter();
 			}
 			@Override
 			public Adapter caseMember(Member object) {

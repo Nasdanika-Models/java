@@ -26,11 +26,22 @@ import org.nasdanika.models.java.Member;
  *   <li>{@link org.nasdanika.models.java.impl.MemberImpl#getModifiers <em>Modifiers</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.MemberImpl#getReferencedTypes <em>Referenced Types</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.MemberImpl#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.MemberImpl#isAnnotate <em>Annotate</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class MemberImpl extends NamedElementImpl implements Member {
+	/**
+	 * The default value of the '{@link #isAnnotate() <em>Annotate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAnnotate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ANNOTATE_EDEFAULT = false;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,6 +148,26 @@ public abstract class MemberImpl extends NamedElementImpl implements Member {
 	 * @generated
 	 */
 	@Override
+	public boolean isAnnotate() {
+		return (Boolean)eDynamicGet(JavaPackage.MEMBER__ANNOTATE, JavaPackage.Literals.MEMBER__ANNOTATE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAnnotate(boolean newAnnotate) {
+		eDynamicSet(JavaPackage.MEMBER__ANNOTATE, JavaPackage.Literals.MEMBER__ANNOTATE, newAnnotate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.MEMBER__COMMENT:
@@ -164,6 +195,8 @@ public abstract class MemberImpl extends NamedElementImpl implements Member {
 			case JavaPackage.MEMBER__ANNOTATIONS:
 				if (resolve) return getAnnotations();
 				return basicGetAnnotations();
+			case JavaPackage.MEMBER__ANNOTATE:
+				return isAnnotate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -191,6 +224,9 @@ public abstract class MemberImpl extends NamedElementImpl implements Member {
 			case JavaPackage.MEMBER__ANNOTATIONS:
 				setAnnotations((Annotation)newValue);
 				return;
+			case JavaPackage.MEMBER__ANNOTATE:
+				setAnnotate((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -215,6 +251,9 @@ public abstract class MemberImpl extends NamedElementImpl implements Member {
 			case JavaPackage.MEMBER__ANNOTATIONS:
 				setAnnotations((Annotation)null);
 				return;
+			case JavaPackage.MEMBER__ANNOTATE:
+				setAnnotate(ANNOTATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -235,6 +274,8 @@ public abstract class MemberImpl extends NamedElementImpl implements Member {
 				return !getReferencedTypes().isEmpty();
 			case JavaPackage.MEMBER__ANNOTATIONS:
 				return basicGetAnnotations() != null;
+			case JavaPackage.MEMBER__ANNOTATE:
+				return isAnnotate() != ANNOTATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
