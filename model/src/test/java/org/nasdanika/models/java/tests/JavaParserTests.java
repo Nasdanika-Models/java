@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.jupiter.api.Test;
 import org.nasdanika.models.coverage.Counter;
 import org.nasdanika.models.coverage.Coverage;
-import org.nasdanika.models.coverage.MethodCoverage;
 import org.nasdanika.models.coverage.ModuleCoverage;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Type;
@@ -154,9 +153,9 @@ public class JavaParserTests {
 		
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("java", new JavaParserResourceFactory(new ModuleCoverageProvider(moduleCoverage)));		
 		
-		String javaPackagePath = new File(projectDir, "src/main/java/org/nasdanika/graph/processor/ProcessorConfigFactory.java").getCanonicalPath();
-		Resource javaPackageResource = resourceSet.getResource(URI.createFileURI(javaPackagePath), true);		
-		for (EObject root: javaPackageResource.getContents()) {
+		String javaSourcePath = new File(projectDir, "src/main/java/org/nasdanika/graph/processor/ProcessorConfigFactory.java").getCanonicalPath();
+		Resource javaResource = resourceSet.getResource(URI.createFileURI(javaSourcePath), true);		
+		for (EObject root: javaResource.getContents()) {
 			System.out.println(root);
 			org.nasdanika.models.java.CompilationUnit cu = (org.nasdanika.models.java.CompilationUnit) root;
 			EList<Coverage> coverage = cu.getCoverage();
@@ -169,7 +168,7 @@ public class JavaParserTests {
 			}
 		}		
 		
-		TreeIterator<EObject> tit = javaPackageResource.getAllContents();
+		TreeIterator<EObject> tit = javaResource.getAllContents();
 		while (tit.hasNext()) {
 			EObject next = tit.next();
 			if (next instanceof Code) {
