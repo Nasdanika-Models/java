@@ -22,6 +22,8 @@ import org.nasdanika.models.coverage.Coverage;
  *   <li>{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getReferences <em>References</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getGenerationMode <em>Generation Mode</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Source#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Source#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.java.JavaPackage#getSource()
@@ -89,7 +91,7 @@ public interface Source extends Range {
 
 	/**
 	 * Returns the value of the '<em><b>Generation Mode</b></em>' attribute.
-	 * The default value is <code>"CONTENTS_IF_NO_SOURCE"</code>.
+	 * The default value is <code>"MERGE"</code>.
 	 * The literals are from the enumeration {@link org.nasdanika.models.java.GenerationMode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,7 +99,7 @@ public interface Source extends Range {
 	 * @see org.nasdanika.models.java.GenerationMode
 	 * @see #setGenerationMode(GenerationMode)
 	 * @see org.nasdanika.models.java.JavaPackage#getSource_GenerationMode()
-	 * @model default="CONTENTS_IF_NO_SOURCE"
+	 * @model default="MERGE"
 	 * @generated
 	 */
 	GenerationMode getGenerationMode();
@@ -112,6 +114,40 @@ public interface Source extends Range {
 	 * @generated
 	 */
 	void setGenerationMode(GenerationMode value);
+
+	/**
+	 * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.java.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotations</em>' containment reference list.
+	 * @see org.nasdanika.models.java.JavaPackage#getSource_Annotations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Annotation> getAnnotations();
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(Comment)
+	 * @see org.nasdanika.models.java.JavaPackage#getSource_Comment()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Comment getComment();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.java.Source#getComment <em>Comment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(Comment value);
 
 	/**
 	 * <!-- begin-user-doc -->

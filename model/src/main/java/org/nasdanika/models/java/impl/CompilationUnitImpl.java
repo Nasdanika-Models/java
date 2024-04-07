@@ -236,7 +236,10 @@ public class CompilationUnitImpl extends NamedElementImpl implements Compilation
 		}
 		
 		getImports().forEach(id -> headerBuilder.append(indent(indent)).append("import ").append(id).append(";").append(System.lineSeparator()));
-		headerBuilder.append(System.lineSeparator());
+		
+		if (!getImports().isEmpty()) {
+			headerBuilder.append(System.lineSeparator());
+		}
 		
 		Source header = JavaFactory.eINSTANCE.createSource();
 		header.setSource(headerBuilder.toString());

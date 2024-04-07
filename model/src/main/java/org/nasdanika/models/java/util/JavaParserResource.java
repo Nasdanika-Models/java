@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
 import org.nasdanika.models.java.Class;
@@ -31,6 +32,7 @@ import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.Method;
+import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Parameter;
 import org.nasdanika.models.java.Position;
 import org.nasdanika.models.java.Range;
@@ -59,8 +61,16 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.ReceiverParameter;
 import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.comments.BlockComment;
 import com.github.javaparser.ast.comments.Comment;
+import com.github.javaparser.ast.comments.JavadocComment;
+import com.github.javaparser.ast.comments.LineComment;
+import com.github.javaparser.ast.expr.AnnotationExpr;
+import com.github.javaparser.ast.expr.MemberValuePair;
+import com.github.javaparser.ast.expr.NormalAnnotationExpr;
 import com.github.javaparser.ast.expr.SimpleName;
+import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
+import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.type.PrimitiveType;
 import com.github.javaparser.ast.type.ReferenceType;
@@ -175,16 +185,72 @@ public class JavaParserResource extends ResourceImpl {
 	protected void configureMember(BodyDeclaration<?> bodyDeclaration, org.nasdanika.models.java.Member member) {
 		Optional<Comment> copt = bodyDeclaration.getComment();
 		if (copt.isPresent()) {
-			org.nasdanika.models.java.Comment comment = createComment(); // TODO - comment flavors
-			comment.setComment(copt.get().getContent());	
+			Comment cmnt = copt.get();
+			org.nasdanika.models.java.Comment comment;
+			if (cmnt instanceof JavadocComment) {
+				comment = createJavadocComment();
+			} else if (cmnt instanceof BlockComment) {
+				comment = createBlockComment();
+			} else if (cmnt instanceof LineComment) {
+				comment = createLineComment();
+			} else {
+				comment = createComment();
+			}
+				
+			comment.setComment(LexicalPreservingPrinter.print(cmnt));	
+			setRange(cmnt, comment);
 			member.setComment(comment);
 		}		
 		member.setSource(LexicalPreservingPrinter.print(bodyDeclaration));
+		for (AnnotationExpr annotation: bodyDeclaration.getAnnotations()) {
+			member.getAnnotations().add(loadAnnotationExpression(annotation));
+		}
 		setRange(bodyDeclaration, member);
+	}
+
+	protected Annotation loadAnnotationExpression(AnnotationExpr annotationExpr) {
+		Annotation annotation = createAnnotation();
+		annotation.setName(annotationExpr.getNameAsString());
+		if (annotationExpr instanceof NormalAnnotationExpr) {
+			NormalAnnotationExpr nae = (NormalAnnotationExpr) annotationExpr;
+			for (MemberValuePair pair: nae.getPairs()) {
+				NamedElement ne = createNamedElement();
+				ne.setName(pair.getNameAsString());
+				ne.setSource(LexicalPreservingPrinter.print(pair.getValue()));
+				annotation.getElements().add(ne);
+			}
+		} else if (annotationExpr instanceof SingleMemberAnnotationExpr) {
+			SingleMemberAnnotationExpr smae = (SingleMemberAnnotationExpr) annotationExpr;
+			NamedElement ne = createNamedElement();
+			ne.setSource(LexicalPreservingPrinter.print(smae.getMemberValue()));
+			annotation.getElements().add(ne);
+		}
+		setRange(annotationExpr, annotation);
+		return annotation;
+	}
+
+	protected NamedElement createNamedElement() {
+		return getJavaFactory().createNamedElement();
+	}
+
+	protected Annotation createAnnotation() {
+		return getJavaFactory().createAnnotation();
 	}
 
 	protected org.nasdanika.models.java.Comment createComment() {
 		return getJavaFactory().createComment();
+	}	
+
+	protected org.nasdanika.models.java.LineComment createLineComment() {
+		return getJavaFactory().createLineComment();
+	}	
+
+	protected org.nasdanika.models.java.JavadocComment createJavadocComment() {
+		return getJavaFactory().createJavadocComment();
+	}	
+
+	protected org.nasdanika.models.java.BlockComment createBlockComment() {
+		return getJavaFactory().createBlockComment();
 	}	
 	
 	protected void configureOperation(CallableDeclaration<?> callableDeclaration, org.nasdanika.models.java.Operation operation) {
@@ -327,12 +393,30 @@ public class JavaParserResource extends ResourceImpl {
 			return null;
 		}
 		GenericType ret = createGenericType();
+		Optional<Comment> copt = type.getComment();
+		if (copt.isPresent()) {
+			Comment cmnt = copt.get();
+			org.nasdanika.models.java.Comment comment;
+			if (cmnt instanceof JavadocComment) {
+				comment = createJavadocComment();
+			} else if (cmnt instanceof BlockComment) {
+				comment = createBlockComment();
+			} else if (cmnt instanceof LineComment) {
+				comment = createLineComment();
+			} else {
+				comment = createComment();
+			}
+				
+			comment.setComment(LexicalPreservingPrinter.print(cmnt));	
+			setRange(cmnt, comment);
+			ret.setComment(comment);
+		}		
+		for (AnnotationExpr annotation: type.getAnnotations()) {
+			ret.getAnnotations().add(loadAnnotationExpression(annotation));
+		}
 		if (type instanceof ClassOrInterfaceType) {
 			ClassOrInterfaceType cType = (ClassOrInterfaceType) type;
 			ret.setName(cType.getNameAsString());
-			
-//			cType.getAnnotations(); TODO			
-//			cType.getComment(); TODO
 			cType.getTypeArguments().ifPresent(tArgs -> tArgs.forEach(tArg -> ret.getTypeArguments().add(loadGenericType(tArg))));
 		} else if (type instanceof WildcardType) {
 			WildcardType wt = (WildcardType) type;
@@ -387,7 +471,9 @@ public class JavaParserResource extends ResourceImpl {
 			if (member instanceof AnnotationMemberDeclaration) {
 				ret.add(loadAnnotationMemberDeclaration((AnnotationMemberDeclaration) member));
 			} else if (member instanceof ConstructorDeclaration) {
-				ret.add(loadConstructorDeclaration((ConstructorDeclaration) member));				
+				Constructor constructorDeclaration = loadConstructorDeclaration((ConstructorDeclaration) member);
+				constructorDeclaration.setName(typeDeclaration.getNameAsString());
+				ret.add(constructorDeclaration);				
 			} else if (member instanceof MethodDeclaration) {
 				ret.add(loadMethodDeclaration((MethodDeclaration) member));				
 			} else if (member instanceof CompactConstructorDeclaration) {
@@ -424,6 +510,10 @@ public class JavaParserResource extends ResourceImpl {
 	protected org.nasdanika.models.java.Constructor loadConstructorDeclaration(ConstructorDeclaration constructorDeclaration) {
 		org.nasdanika.models.java.Constructor constructor = createConstructor();
 		configureOperation(constructorDeclaration, constructor);
+		BlockStmt body = constructorDeclaration.getBody();
+		Source bodySource = Source.create(LexicalPreservingPrinter.print(body));
+		setRange(body, bodySource);
+		constructor.setBody(bodySource);			
 		return constructor;
 	}
 
@@ -436,6 +526,11 @@ public class JavaParserResource extends ResourceImpl {
 		configureOperation(methodDeclaration, method);
 		method.setName(methodDeclaration.getName().toString());
 		method.setType(loadGenericType(methodDeclaration.getType()));
+		methodDeclaration.getBody().ifPresent(body -> {
+			Source bodySource = Code.create(LexicalPreservingPrinter.print(body));
+			setRange(body, bodySource);
+			method.setBody(bodySource);			
+		});
 		return method;		
 	}
 
@@ -468,9 +563,9 @@ public class JavaParserResource extends ResourceImpl {
 			field.setName(vName.toString());
 			field.setType(loadGenericType(vd.getType()));
 			vd.getInitializer().ifPresent(initializer -> {
-				Code code = createCode();
-				code.setSource(LexicalPreservingPrinter.print(initializer));
-				field.setInitializer(code);
+				Source initializerSource = Code.create(LexicalPreservingPrinter.print(initializer));
+				setRange(initializer, initializerSource);
+				field.setBody(initializerSource);
 			});
 			ret.add(field);
 		}

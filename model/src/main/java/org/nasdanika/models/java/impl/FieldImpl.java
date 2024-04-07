@@ -2,13 +2,17 @@
  */
 package org.nasdanika.models.java.impl;
 
+import java.util.List;
+import java.util.function.Function;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Field;
+import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.TypedElement;
 
 /**
@@ -20,12 +24,11 @@ import org.nasdanika.models.java.TypedElement;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.FieldImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.nasdanika.models.java.impl.FieldImpl#getInitializer <em>Initializer</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FieldImpl extends MemberImpl implements Field {
+public class FieldImpl extends CodeImpl implements Field {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,44 +83,11 @@ public class FieldImpl extends MemberImpl implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public Code getInitializer() {
-		return (Code)eDynamicGet(JavaPackage.FIELD__INITIALIZER, JavaPackage.Literals.FIELD__INITIALIZER, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitializer(Code newInitializer, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newInitializer, JavaPackage.FIELD__INITIALIZER, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setInitializer(Code newInitializer) {
-		eDynamicSet(JavaPackage.FIELD__INITIALIZER, JavaPackage.Literals.FIELD__INITIALIZER, newInitializer);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaPackage.FIELD__TYPE:
 				return basicSetType(null, msgs);
-			case JavaPackage.FIELD__INITIALIZER:
-				return basicSetInitializer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -132,8 +102,6 @@ public class FieldImpl extends MemberImpl implements Field {
 		switch (featureID) {
 			case JavaPackage.FIELD__TYPE:
 				return getType();
-			case JavaPackage.FIELD__INITIALIZER:
-				return getInitializer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,9 +118,6 @@ public class FieldImpl extends MemberImpl implements Field {
 			case JavaPackage.FIELD__TYPE:
 				setType((GenericType)newValue);
 				return;
-			case JavaPackage.FIELD__INITIALIZER:
-				setInitializer((Code)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -168,9 +133,6 @@ public class FieldImpl extends MemberImpl implements Field {
 			case JavaPackage.FIELD__TYPE:
 				setType((GenericType)null);
 				return;
-			case JavaPackage.FIELD__INITIALIZER:
-				setInitializer((Code)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -185,8 +147,6 @@ public class FieldImpl extends MemberImpl implements Field {
 		switch (featureID) {
 			case JavaPackage.FIELD__TYPE:
 				return getType() != null;
-			case JavaPackage.FIELD__INITIALIZER:
-				return getInitializer() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,5 +182,34 @@ public class FieldImpl extends MemberImpl implements Field {
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
+	
+	@Override
+	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
+		List<Source> contents = super.generateContents(importManager, indent);
+		
+		StringBuilder builder = indent(indent);
+		for (String modifier: getModifiers()) {
+			builder.append(modifier).append(" ");			
+		}
+		
+		GenericType type = getType();
+		builder.append(type.generate(importManager, 0)).append(" ");		
+		builder.append(getName());
+		
+		Source body = getBody();
+		if (body != null) {
+			builder.append(" = ").append(body.generate(importManager, indent + 1));
+		}
+		
+		builder.append(";");
+		
+		if (getGenerationMode() != GenerationMode.MERGE) {
+			builder.append(System.lineSeparator());				
+		}
+		
+		contents.add(Source.create(builder));
+
+		return contents;
+	}	
 
 } //FieldImpl

@@ -3,7 +3,6 @@
 package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.JavaPackage;
 
@@ -20,7 +19,7 @@ import org.nasdanika.models.java.JavaPackage;
  *
  * @generated
  */
-public class CommentImpl extends MinimalEObjectImpl.Container implements Comment {
+public class CommentImpl extends RangeImpl implements Comment {
 	/**
 	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,16 +47,6 @@ public class CommentImpl extends MinimalEObjectImpl.Container implements Comment
 	@Override
 	protected EClass eStaticClass() {
 		return JavaPackage.Literals.COMMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

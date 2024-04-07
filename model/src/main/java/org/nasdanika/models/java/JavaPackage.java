@@ -77,7 +77,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 23;
+	int MODULE = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.MethodImpl <em>Method</em>}' class.
@@ -87,7 +87,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 25;
+	int METHOD = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PackageImpl <em>Package</em>}' class.
@@ -97,7 +97,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 24;
+	int PACKAGE = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
@@ -161,17 +161,6 @@ public interface JavaPackage extends EPackage {
 	EClass getField();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Field#getInitializer <em>Initializer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Initializer</em>'.
-	 * @see org.nasdanika.models.java.Field#getInitializer()
-	 * @see #getField()
-	 * @generated
-	 */
-	EReference getField_Initializer();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Interface <em>Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,7 +178,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMember()
 	 * @generated
 	 */
-	int MEMBER = 8;
+	int MEMBER = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.TypeImpl <em>Type</em>}' class.
@@ -199,7 +188,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 14;
+	int TYPE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
@@ -209,7 +198,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 17;
+	int CLASS = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.OperationImpl <em>Operation</em>}' class.
@@ -219,7 +208,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 30;
+	int OPERATION = 33;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -229,7 +218,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 19;
+	int CONSTRUCTOR = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumImpl <em>Enum</em>}' class.
@@ -239,7 +228,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnum()
 	 * @generated
 	 */
-	int ENUM = 20;
+	int ENUM = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
@@ -249,7 +238,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 22;
+	int FIELD = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -259,7 +248,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 18;
+	int INTERFACE = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
@@ -269,7 +258,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 31;
+	int RECORD = 34;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.
@@ -289,7 +278,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
 	 * @generated
 	 */
-	int CODE = 26;
+	int CODE = 29;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumConstantImpl <em>Enum Constant</em>}' class.
@@ -299,7 +288,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
 	 * @generated
 	 */
-	int ENUM_CONSTANT = 21;
+	int ENUM_CONSTANT = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InitializerImpl <em>Initializer</em>}' class.
@@ -309,7 +298,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
 	 * @generated
 	 */
-	int INITIALIZER = 27;
+	int INITIALIZER = 30;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassInitializerImpl <em>Class Initializer</em>}' class.
@@ -319,7 +308,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
 	 * @generated
 	 */
-	int CLASS_INITIALIZER = 28;
+	int CLASS_INITIALIZER = 31;
 
 	/**
 	 * The meta object id for the '{@link java.util.function.Function <em>Import Manager</em>}' class.
@@ -579,13 +568,31 @@ public interface JavaPackage extends EPackage {
 	int SOURCE__GENERATION_MODE = RANGE_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__ANNOTATIONS = RANGE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__COMMENT = RANGE_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Source</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = RANGE_FEATURE_COUNT + 5;
+	int SOURCE_FEATURE_COUNT = RANGE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -713,6 +720,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT__GENERATION_MODE = SOURCE__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__ANNOTATIONS = SOURCE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__COMMENT = SOURCE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -868,6 +893,24 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__ANNOTATIONS = NAMED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__COMMENT = NAMED_ELEMENT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -976,13 +1019,40 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__MARKERS = RANGE__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__BEGIN = RANGE__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__END = RANGE__END;
+
+	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__COMMENT = 0;
+	int COMMENT__COMMENT = RANGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Comment</em>' class.
@@ -991,7 +1061,34 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT_FEATURE_COUNT = 1;
+	int COMMENT_FEATURE_COUNT = RANGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT___CONTAINS__RANGE = RANGE___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT___CONTAINS__POSITION = RANGE___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT___OVERLAPS__RANGE = RANGE___OVERLAPS__RANGE;
 
 	/**
 	 * The number of operations of the '<em>Comment</em>' class.
@@ -1000,7 +1097,280 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT_OPERATION_COUNT = 0;
+	int COMMENT_OPERATION_COUNT = RANGE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.LineCommentImpl <em>Line Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.LineCommentImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getLineComment()
+	 * @generated
+	 */
+	int LINE_COMMENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT__MARKERS = COMMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT__BEGIN = COMMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT__END = COMMENT__END;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT__COMMENT = COMMENT__COMMENT;
+
+	/**
+	 * The number of structural features of the '<em>Line Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT_FEATURE_COUNT = COMMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT___CONTAINS__RANGE = COMMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT___CONTAINS__POSITION = COMMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT___OVERLAPS__RANGE = COMMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The number of operations of the '<em>Line Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT_OPERATION_COUNT = COMMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.JavadocCommentImpl <em>Javadoc Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.JavadocCommentImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getJavadocComment()
+	 * @generated
+	 */
+	int JAVADOC_COMMENT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT__MARKERS = COMMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT__BEGIN = COMMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT__END = COMMENT__END;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT__COMMENT = COMMENT__COMMENT;
+
+	/**
+	 * The number of structural features of the '<em>Javadoc Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT_FEATURE_COUNT = COMMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT___CONTAINS__RANGE = COMMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT___CONTAINS__POSITION = COMMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT___OVERLAPS__RANGE = COMMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The number of operations of the '<em>Javadoc Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT_OPERATION_COUNT = COMMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.java.impl.BlockCommentImpl <em>Block Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.java.impl.BlockCommentImpl
+	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getBlockComment()
+	 * @generated
+	 */
+	int BLOCK_COMMENT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT__MARKERS = COMMENT__MARKERS;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT__BEGIN = COMMENT__BEGIN;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT__END = COMMENT__END;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT__COMMENT = COMMENT__COMMENT;
+
+	/**
+	 * The number of structural features of the '<em>Block Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT_FEATURE_COUNT = COMMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT___CONTAINS__RANGE = COMMENT___CONTAINS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT___CONTAINS__POSITION = COMMENT___CONTAINS__POSITION;
+
+	/**
+	 * The operation id for the '<em>Overlaps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT___OVERLAPS__RANGE = COMMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The number of operations of the '<em>Block Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT_OPERATION_COUNT = COMMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1075,6 +1445,24 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__ANNOTATIONS = NAMED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__COMMENT = NAMED_ELEMENT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1102,22 +1490,13 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__REFERRERS = NAMED_ELEMENT__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__COMMENT = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__MODIFIERS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int MEMBER__MODIFIERS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Referenced Types</b></em>' containment reference list.
@@ -1126,16 +1505,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER__REFERENCED_TYPES = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__ANNOTATIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MEMBER__REFERENCED_TYPES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Member</em>' class.
@@ -1144,7 +1514,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEMBER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int MEMBER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -1199,7 +1569,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getReference()
 	 * @generated
 	 */
-	int REFERENCE = 9;
+	int REFERENCE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1272,6 +1642,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__ANNOTATIONS = NAMED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__COMMENT = NAMED_ELEMENT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1371,7 +1759,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getGenericType()
 	 * @generated
 	 */
-	int GENERIC_TYPE = 10;
+	int GENERIC_TYPE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1444,6 +1832,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERIC_TYPE__GENERATION_MODE = REFERENCE__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__ANNOTATIONS = REFERENCE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__COMMENT = REFERENCE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1579,7 +1985,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotation()
 	 * @generated
 	 */
-	int ANNOTATION = 11;
+	int ANNOTATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1652,6 +2058,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION__GENERATION_MODE = REFERENCE__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__ANNOTATIONS = REFERENCE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__COMMENT = REFERENCE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1760,7 +2184,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getTypeParameter()
 	 * @generated
 	 */
-	int TYPE_PARAMETER = 12;
+	int TYPE_PARAMETER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1835,6 +2259,24 @@ public interface JavaPackage extends EPackage {
 	int TYPE_PARAMETER__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__ANNOTATIONS = NAMED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__COMMENT = NAMED_ELEMENT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1862,7 +2304,7 @@ public interface JavaPackage extends EPackage {
 	int TYPE_PARAMETER__REFERRERS = NAMED_ELEMENT__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Bounds</b></em>' reference list.
+	 * The feature id for the '<em><b>Bounds</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1932,7 +2374,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getTypedElement()
 	 * @generated
 	 */
-	int TYPED_ELEMENT = 13;
+	int TYPED_ELEMENT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2005,6 +2447,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPED_ELEMENT__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__ANNOTATIONS = NAMED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__COMMENT = NAMED_ELEMENT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2169,6 +2629,24 @@ public interface JavaPackage extends EPackage {
 	int TYPE__GENERATION_MODE = MEMBER__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__ANNOTATIONS = MEMBER__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__COMMENT = MEMBER__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2196,15 +2674,6 @@ public interface JavaPackage extends EPackage {
 	int TYPE__REFERRERS = MEMBER__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__COMMENT = MEMBER__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2221,15 +2690,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE__REFERENCED_TYPES = MEMBER__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -2329,7 +2789,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterface()
 	 * @generated
 	 */
-	int ANNOTATION_INTERFACE = 15;
+	int ANNOTATION_INTERFACE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2404,6 +2864,24 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__COMMENT = TYPE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2431,15 +2909,6 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE__REFERRERS = TYPE__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_INTERFACE__COMMENT = TYPE__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2456,15 +2925,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE__REFERENCED_TYPES = TYPE__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_INTERFACE__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -2564,7 +3024,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterfaceMember()
 	 * @generated
 	 */
-	int ANNOTATION_INTERFACE_MEMBER = 16;
+	int ANNOTATION_INTERFACE_MEMBER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2639,6 +3099,24 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER__GENERATION_MODE = MEMBER__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__ANNOTATIONS = MEMBER__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__COMMENT = MEMBER__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2666,15 +3144,6 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER__REFERRERS = MEMBER__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_INTERFACE_MEMBER__COMMENT = MEMBER__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2691,15 +3160,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE_MEMBER__REFERENCED_TYPES = MEMBER__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_INTERFACE_MEMBER__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
 	 * The number of structural features of the '<em>Annotation Interface Member</em>' class.
@@ -2828,6 +3288,24 @@ public interface JavaPackage extends EPackage {
 	int CLASS__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__COMMENT = TYPE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2855,15 +3333,6 @@ public interface JavaPackage extends EPackage {
 	int CLASS__REFERRERS = TYPE__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__COMMENT = TYPE__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2880,15 +3349,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS__REFERENCED_TYPES = TYPE__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -3053,6 +3513,24 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__COMMENT = TYPE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3080,15 +3558,6 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__REFERRERS = TYPE__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__COMMENT = TYPE__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3105,15 +3574,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE__REFERENCED_TYPES = TYPE__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -3278,6 +3738,24 @@ public interface JavaPackage extends EPackage {
 	int CODE__GENERATION_MODE = MEMBER__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__ANNOTATIONS = MEMBER__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__COMMENT = MEMBER__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3305,15 +3783,6 @@ public interface JavaPackage extends EPackage {
 	int CODE__REFERRERS = MEMBER__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE__COMMENT = MEMBER__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3330,15 +3799,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CODE__REFERENCED_TYPES = MEMBER__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -3476,6 +3936,24 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__GENERATION_MODE = CODE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__ANNOTATIONS = CODE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__COMMENT = CODE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3503,15 +3981,6 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__REFERRERS = CODE__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__COMMENT = CODE__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3528,15 +3997,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION__REFERENCED_TYPES = CODE__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__ANNOTATIONS = CODE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -3728,6 +4188,24 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__GENERATION_MODE = OPERATION__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__ANNOTATIONS = OPERATION__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__COMMENT = OPERATION__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3755,15 +4233,6 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__REFERRERS = OPERATION__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__COMMENT = OPERATION__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3780,15 +4249,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR__REFERENCED_TYPES = OPERATION__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__ANNOTATIONS = OPERATION__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -3980,6 +4440,24 @@ public interface JavaPackage extends EPackage {
 	int ENUM__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__COMMENT = TYPE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4007,15 +4485,6 @@ public interface JavaPackage extends EPackage {
 	int ENUM__REFERRERS = TYPE__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM__COMMENT = TYPE__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4032,15 +4501,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM__REFERENCED_TYPES = TYPE__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -4205,6 +4665,24 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT__GENERATION_MODE = MEMBER__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__ANNOTATIONS = MEMBER__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__COMMENT = MEMBER__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4232,15 +4710,6 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT__REFERRERS = MEMBER__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_CONSTANT__COMMENT = MEMBER__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4257,15 +4726,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_CONSTANT__REFERENCED_TYPES = MEMBER__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_CONSTANT__ANNOTATIONS = MEMBER__ANNOTATIONS;
 
 	/**
 	 * The number of structural features of the '<em>Enum Constant</em>' class.
@@ -4328,7 +4788,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__MARKERS = MEMBER__MARKERS;
+	int FIELD__MARKERS = CODE__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
@@ -4337,7 +4797,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__BEGIN = MEMBER__BEGIN;
+	int FIELD__BEGIN = CODE__BEGIN;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' containment reference.
@@ -4346,7 +4806,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__END = MEMBER__END;
+	int FIELD__END = CODE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -4355,7 +4815,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__SOURCE = MEMBER__SOURCE;
+	int FIELD__SOURCE = CODE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -4364,7 +4824,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__CHILDREN = MEMBER__CHILDREN;
+	int FIELD__CHILDREN = CODE__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
@@ -4373,7 +4833,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__COVERAGE = MEMBER__COVERAGE;
+	int FIELD__COVERAGE = CODE__COVERAGE;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' containment reference list.
@@ -4382,7 +4842,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__REFERENCES = MEMBER__REFERENCES;
+	int FIELD__REFERENCES = CODE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
@@ -4391,34 +4851,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__GENERATION_MODE = MEMBER__GENERATION_MODE;
+	int FIELD__GENERATION_MODE = CODE__GENERATION_MODE;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__NAME = MEMBER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__FULLY_QUALIFIED_NAME = MEMBER__FULLY_QUALIFIED_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__REFERRERS = MEMBER__REFERRERS;
+	int FIELD__ANNOTATIONS = CODE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -4427,7 +4869,34 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__COMMENT = MEMBER__COMMENT;
+	int FIELD__COMMENT = CODE__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__NAME = CODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__FULLY_QUALIFIED_NAME = CODE__FULLY_QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referrers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__REFERRERS = CODE__REFERRERS;
 
 	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
@@ -4436,7 +4905,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__MODIFIERS = MEMBER__MODIFIERS;
+	int FIELD__MODIFIERS = CODE__MODIFIERS;
 
 	/**
 	 * The feature id for the '<em><b>Referenced Types</b></em>' containment reference list.
@@ -4445,16 +4914,16 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__REFERENCED_TYPES = MEMBER__REFERENCED_TYPES;
+	int FIELD__REFERENCED_TYPES = CODE__REFERENCED_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
+	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__ANNOTATIONS = MEMBER__ANNOTATIONS;
+	int FIELD__BODY = CODE__BODY;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -4463,16 +4932,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__TYPE = MEMBER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Initializer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__INITIALIZER = MEMBER_FEATURE_COUNT + 1;
+	int FIELD__TYPE = CODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Field</em>' class.
@@ -4481,7 +4941,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 2;
+	int FIELD_FEATURE_COUNT = CODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -4490,7 +4950,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD___CONTAINS__RANGE = MEMBER___CONTAINS__RANGE;
+	int FIELD___CONTAINS__RANGE = CODE___CONTAINS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -4499,7 +4959,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD___CONTAINS__POSITION = MEMBER___CONTAINS__POSITION;
+	int FIELD___CONTAINS__POSITION = CODE___CONTAINS__POSITION;
 
 	/**
 	 * The operation id for the '<em>Overlaps</em>' operation.
@@ -4508,7 +4968,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
+	int FIELD___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -4517,7 +4977,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD___GENERATE__FUNCTION_INT = MEMBER___GENERATE__FUNCTION_INT;
+	int FIELD___GENERATE__FUNCTION_INT = CODE___GENERATE__FUNCTION_INT;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -4526,7 +4986,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_OPERATION_COUNT = MEMBER_OPERATION_COUNT + 0;
+	int FIELD_OPERATION_COUNT = CODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4601,6 +5061,24 @@ public interface JavaPackage extends EPackage {
 	int MODULE__GENERATION_MODE = SOURCE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__ANNOTATIONS = SOURCE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__COMMENT = SOURCE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4671,7 +5149,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 29;
+	int PARAMETER = 32;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -4744,6 +5222,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE__GENERATION_MODE = SOURCE__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__ANNOTATIONS = SOURCE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__COMMENT = SOURCE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4881,6 +5377,24 @@ public interface JavaPackage extends EPackage {
 	int METHOD__GENERATION_MODE = OPERATION__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__ANNOTATIONS = OPERATION__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__COMMENT = OPERATION__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4908,15 +5422,6 @@ public interface JavaPackage extends EPackage {
 	int METHOD__REFERRERS = OPERATION__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__COMMENT = OPERATION__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4933,15 +5438,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD__REFERENCED_TYPES = OPERATION__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__ANNOTATIONS = OPERATION__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -5151,6 +5647,24 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__GENERATION_MODE = CODE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__ANNOTATIONS = CODE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__COMMENT = CODE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5178,15 +5692,6 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__REFERRERS = CODE__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZER__COMMENT = CODE__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5203,15 +5708,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZER__REFERENCED_TYPES = CODE__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZER__ANNOTATIONS = CODE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -5349,6 +5845,24 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__GENERATION_MODE = CODE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__ANNOTATIONS = CODE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__COMMENT = CODE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5376,15 +5890,6 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__REFERRERS = CODE__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_INITIALIZER__COMMENT = CODE__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5401,15 +5906,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_INITIALIZER__REFERENCED_TYPES = CODE__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_INITIALIZER__ANNOTATIONS = CODE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -5545,6 +6041,24 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER__GENERATION_MODE = TYPED_ELEMENT__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ANNOTATIONS = TYPED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__COMMENT = TYPED_ELEMENT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5727,6 +6241,24 @@ public interface JavaPackage extends EPackage {
 	int RECORD__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__ANNOTATIONS = TYPE__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__COMMENT = TYPE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5754,15 +6286,6 @@ public interface JavaPackage extends EPackage {
 	int RECORD__REFERRERS = TYPE__REFERRERS;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECORD__COMMENT = TYPE__COMMENT;
-
-	/**
 	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5779,15 +6302,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD__REFERENCED_TYPES = TYPE__REFERENCED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECORD__ANNOTATIONS = TYPE__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -5888,7 +6402,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getGenerationMode()
 	 * @generated
 	 */
-	int GENERATION_MODE = 32;
+	int GENERATION_MODE = 35;
 
 
 	/**
@@ -5997,6 +6511,28 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSource_GenerationMode();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.Source#getAnnotations <em>Annotations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Annotations</em>'.
+	 * @see org.nasdanika.models.java.Source#getAnnotations()
+	 * @see #getSource()
+	 * @generated
+	 */
+	EReference getSource_Annotations();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Source#getComment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Comment</em>'.
+	 * @see org.nasdanika.models.java.Source#getComment()
+	 * @see #getSource()
+	 * @generated
+	 */
+	EReference getSource_Comment();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.models.java.Source#generate(java.util.function.Function, int) <em>Generate</em>}' operation.
@@ -6155,17 +6691,6 @@ public interface JavaPackage extends EPackage {
 	EClass getMember();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Member#getComment <em>Comment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Comment</em>'.
-	 * @see org.nasdanika.models.java.Member#getComment()
-	 * @see #getMember()
-	 * @generated
-	 */
-	EReference getMember_Comment();
-
-	/**
 	 * Returns the meta object for the attribute list '{@link org.nasdanika.models.java.Member#getModifiers <em>Modifiers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6186,17 +6711,6 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMember_ReferencedTypes();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.java.Member#getAnnotations <em>Annotations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Annotations</em>'.
-	 * @see org.nasdanika.models.java.Member#getAnnotations()
-	 * @see #getMember()
-	 * @generated
-	 */
-	EReference getMember_Annotations();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Reference <em>Reference</em>}'.
@@ -6305,10 +6819,10 @@ public interface JavaPackage extends EPackage {
 	EClass getTypeParameter();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.java.TypeParameter#getBounds <em>Bounds</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.TypeParameter#getBounds <em>Bounds</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Bounds</em>'.
+	 * @return the meta object for the containment reference list '<em>Bounds</em>'.
 	 * @see org.nasdanika.models.java.TypeParameter#getBounds()
 	 * @see #getTypeParameter()
 	 * @generated
@@ -6645,6 +7159,36 @@ public interface JavaPackage extends EPackage {
 	EAttribute getComment_Comment();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.LineComment <em>Line Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line Comment</em>'.
+	 * @see org.nasdanika.models.java.LineComment
+	 * @generated
+	 */
+	EClass getLineComment();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.JavadocComment <em>Javadoc Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Javadoc Comment</em>'.
+	 * @see org.nasdanika.models.java.JavadocComment
+	 * @generated
+	 */
+	EClass getJavadocComment();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.java.BlockComment <em>Block Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Block Comment</em>'.
+	 * @see org.nasdanika.models.java.BlockComment
+	 * @generated
+	 */
+	EClass getBlockComment();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6761,14 +7305,6 @@ public interface JavaPackage extends EPackage {
 		EClass FIELD = eINSTANCE.getField();
 
 		/**
-		 * The meta object literal for the '<em><b>Initializer</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FIELD__INITIALIZER = eINSTANCE.getField_Initializer();
-
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.InterfaceImpl <em>Interface</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6863,6 +7399,22 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOURCE__GENERATION_MODE = eINSTANCE.getSource_GenerationMode();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE__ANNOTATIONS = eINSTANCE.getSource_Annotations();
+
+		/**
+		 * The meta object literal for the '<em><b>Comment</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE__COMMENT = eINSTANCE.getSource_Comment();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
@@ -6999,14 +7551,6 @@ public interface JavaPackage extends EPackage {
 		EClass MEMBER = eINSTANCE.getMember();
 
 		/**
-		 * The meta object literal for the '<em><b>Comment</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MEMBER__COMMENT = eINSTANCE.getMember_Comment();
-
-		/**
 		 * The meta object literal for the '<em><b>Modifiers</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7021,14 +7565,6 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MEMBER__REFERENCED_TYPES = eINSTANCE.getMember_ReferencedTypes();
-
-		/**
-		 * The meta object literal for the '<em><b>Annotations</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MEMBER__ANNOTATIONS = eINSTANCE.getMember_Annotations();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -7119,7 +7655,7 @@ public interface JavaPackage extends EPackage {
 		EClass TYPE_PARAMETER = eINSTANCE.getTypeParameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Bounds</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Bounds</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7397,6 +7933,36 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMMENT__COMMENT = eINSTANCE.getComment_Comment();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.LineCommentImpl <em>Line Comment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.LineCommentImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getLineComment()
+		 * @generated
+		 */
+		EClass LINE_COMMENT = eINSTANCE.getLineComment();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.JavadocCommentImpl <em>Javadoc Comment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.JavadocCommentImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getJavadocComment()
+		 * @generated
+		 */
+		EClass JAVADOC_COMMENT = eINSTANCE.getJavadocComment();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.BlockCommentImpl <em>Block Comment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.java.impl.BlockCommentImpl
+		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getBlockComment()
+		 * @generated
+		 */
+		EClass BLOCK_COMMENT = eINSTANCE.getBlockComment();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.NamedElementImpl <em>Named Element</em>}' class.

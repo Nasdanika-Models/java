@@ -61,17 +61,6 @@ public enum GenerationMode implements Enumerator {
 	COMPOSE(2, "COMPOSE", "COMPOSE"),
 
 	/**
-	 * The '<em><b>CONTENTS IF NO SOURCE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Use only own source if it is not blank and ingnore contents. Otherwise use contents.
-	 * <!-- end-model-doc -->
-	 * @see #CONTENTS_IF_NO_SOURCE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	CONTENTS_IF_NO_SOURCE(3, "CONTENTS_IF_NO_SOURCE", "CONTENTS_IF_NO_SOURCE"), /**
 	 * The '<em><b>MERGE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,7 +71,7 @@ public enum GenerationMode implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MERGE(4, "MERGE", "MERGE");
+	MERGE(3, "MERGE", "MERGE");
 
 	/**
 	 * The '<em><b>SOURCE</b></em>' literal value.
@@ -127,20 +116,6 @@ public enum GenerationMode implements Enumerator {
 	public static final int COMPOSE_VALUE = 2;
 
 	/**
-	 * The '<em><b>CONTENTS IF NO SOURCE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Use only own source if it is not blank and ingnore contents. Otherwise use contents.
-	 * <!-- end-model-doc -->
-	 * @see #CONTENTS_IF_NO_SOURCE
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CONTENTS_IF_NO_SOURCE_VALUE = 3;
-
-	/**
 	 * The '<em><b>MERGE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,7 +127,7 @@ public enum GenerationMode implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MERGE_VALUE = 4;
+	public static final int MERGE_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Generation Mode</b></em>' enumerators.
@@ -165,7 +140,6 @@ public enum GenerationMode implements Enumerator {
 			SOURCE,
 			CONTENTS,
 			COMPOSE,
-			CONTENTS_IF_NO_SOURCE,
 			MERGE,
 		};
 
@@ -226,7 +200,6 @@ public enum GenerationMode implements Enumerator {
 			case SOURCE_VALUE: return SOURCE;
 			case CONTENTS_VALUE: return CONTENTS;
 			case COMPOSE_VALUE: return COMPOSE;
-			case CONTENTS_IF_NO_SOURCE_VALUE: return CONTENTS_IF_NO_SOURCE;
 			case MERGE_VALUE: return MERGE;
 		}
 		return null;

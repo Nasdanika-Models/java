@@ -22,13 +22,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface TypeParameter extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Bounds</b></em>' reference list.
+	 * Returns the value of the '<em><b>Bounds</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.java.GenericType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bounds</em>' reference list.
+	 * @return the value of the '<em>Bounds</em>' containment reference list.
 	 * @see org.nasdanika.models.java.JavaPackage#getTypeParameter_Bounds()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<GenericType> getBounds();

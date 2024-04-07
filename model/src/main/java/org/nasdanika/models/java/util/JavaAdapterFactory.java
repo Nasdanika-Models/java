@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
+import org.nasdanika.models.java.BlockComment;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -21,6 +22,8 @@ import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.java.JavadocComment;
+import org.nasdanika.models.java.LineComment;
 import org.nasdanika.models.java.Member;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
@@ -122,6 +125,18 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseComment(Comment object) {
 				return createCommentAdapter();
+			}
+			@Override
+			public Adapter caseLineComment(LineComment object) {
+				return createLineCommentAdapter();
+			}
+			@Override
+			public Adapter caseJavadocComment(JavadocComment object) {
+				return createJavadocCommentAdapter();
+			}
+			@Override
+			public Adapter caseBlockComment(BlockComment object) {
+				return createBlockCommentAdapter();
 			}
 			@Override
 			public Adapter caseMember(Member object) {
@@ -678,6 +693,48 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCommentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.LineComment <em>Line Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.LineComment
+	 * @generated
+	 */
+	public Adapter createLineCommentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.JavadocComment <em>Javadoc Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.JavadocComment
+	 * @generated
+	 */
+	public Adapter createJavadocCommentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.BlockComment <em>Block Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.java.BlockComment
+	 * @generated
+	 */
+	public Adapter createBlockCommentAdapter() {
 		return null;
 	}
 

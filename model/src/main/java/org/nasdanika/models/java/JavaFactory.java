@@ -193,6 +193,33 @@ public interface JavaFactory extends EFactory {
 	Comment createComment();
 
 	/**
+	 * Returns a new object of class '<em>Line Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line Comment</em>'.
+	 * @generated
+	 */
+	LineComment createLineComment();
+
+	/**
+	 * Returns a new object of class '<em>Javadoc Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Javadoc Comment</em>'.
+	 * @generated
+	 */
+	JavadocComment createJavadocComment();
+
+	/**
+	 * Returns a new object of class '<em>Block Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Block Comment</em>'.
+	 * @generated
+	 */
+	BlockComment createBlockComment();
+
+	/**
 	 * Returns a new object of class '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

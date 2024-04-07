@@ -41,5 +41,10 @@ public interface Annotation extends Reference {
 		}
 		return ret;
 	}	
+	
+	static Annotation create(String name, String value) {
+		NamedElement ne = NamedElement.create(null, value);
+		return create(name, ne);
+	}
 
 } // Annotation

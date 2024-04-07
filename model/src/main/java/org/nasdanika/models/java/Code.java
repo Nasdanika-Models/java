@@ -41,4 +41,11 @@ public interface Code extends Member {
 	 * @generated
 	 */
 	void setBody(Source value);
+	
+	static Code create(CharSequence source) {
+		Code ret = JavaFactory.eINSTANCE.createCode();
+		ret.setSource(source.toString());
+		return ret;
+	}
+	
 } // Code

@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -17,14 +17,16 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.PropertyComputer;
 import org.nasdanika.common.SimpleMutableContext;
+import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
+import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.java.NamedElement;
+import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.TypeParameter;
 import org.nasdanika.models.java.util.JavaParserResourceFactory;
 import org.nasdanika.models.java.util.SimpleImportManager;
-
-import com.google.common.io.Files;
 
 public class GenerationTests {
 	
@@ -39,12 +41,20 @@ public class GenerationTests {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("java", new JavaParserResourceFactory());		
 		File javaSource = new File("target/MergeTest.java");
-		Files.asCharSink(javaSource, StandardCharsets.UTF_8).write(
+		Files.writeString(
+				javaSource.toPath(),
 				"""
 				package org.nasdanika.test;	
 					
+				/**
+				 * Type comment
+				 * @generated
+				 */	
+				@Generated
 				public class Element<T extends Map> {
-						
+					
+					/* Method comment */
+					@Test		
 					private void matchPredicate(T map, Object<? extends String> obj, String expr) {
 						
 					}
@@ -56,9 +66,57 @@ public class GenerationTests {
 		for (EObject root: javaResource.getContents()) {
 			System.out.println(root);
 			org.nasdanika.models.java.CompilationUnit cu = (org.nasdanika.models.java.CompilationUnit) root;
-			cu.setGenerationMode(GenerationMode.MERGE);
 		}		
 
+		javaResource.save(null);
+	}		
+	
+	@Test
+	public void testRewrite() throws Exception {
+		ResourceSet resourceSet = new ResourceSetImpl();		
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("java", new JavaParserResourceFactory());		
+		File javaSource = new File("target/RewriteTest.java");
+		Files.writeString(
+				javaSource.toPath(),
+				"""
+				package org.nasdanika.test;	
+					
+				/**
+				 * Type comment
+				 * @generated
+				 */	
+				@Generated(generator = "Nasdanika")
+				@MarkerAnnotationTest
+				@SingleMemberAnnotationTest(33)
+				public class Element<T extends Map> {
+					
+					/* Method comment */
+					@Test		
+					private void matchPredicate(T map, Object<? extends String> obj, String expr) {
+						System.out.println("Hello");
+					}
+					
+					// Field comment
+					private int z = 77;
+					
+					/**
+					 * Nested class comment
+					 */
+					public static class Nested {
+					
+					}  
+							
+				}
+				""");		
+		
+		Resource javaResource = resourceSet.getResource(URI.createFileURI(javaSource.getCanonicalPath()), true);
+		javaResource.getAllContents().forEachRemaining(c -> {
+			if (c instanceof Source && c.eContainingFeature() != JavaPackage.Literals.CODE__BODY) {
+				((Source) c).setGenerationMode(GenerationMode.CONTENTS);
+			}
+		});
+	
 		javaResource.save(null);
 	}		
 
@@ -174,6 +232,27 @@ public class GenerationTests {
 		String src = cls.generate(null, 0);
 		System.out.println(src);
 	}
+	
+	@Test
+	public void testMarkerAnnotation() {
+		Annotation ma = Annotation.create("Generated");
+		String src = ma.generate(null, 0);
+		assertEquals("@Generated", src);
+	}
+	
+	@Test
+	public void testSingleMemberAnnotation() {
+		Annotation ma = Annotation.create("Generated", NamedElement.create(null, "33"));
+		String src = ma.generate(null, 0);
+		assertEquals("@Generated(33)", src);
+	}
+	
+	@Test
+	public void testNormalAnnotation() {
+		Annotation ma = Annotation.create("Generated", NamedElement.create("age", "33"), NamedElement.create("gender", "\"male\""));
+		String src = ma.generate(null, 0);
+		assertEquals("@Generated(age = 33, gender = \"male\")", src);
+	}
 		
 	@Test
 	public void testCreate() throws Exception {
@@ -195,6 +274,8 @@ public class GenerationTests {
 		
 		javaResource.save(null);
 	}	
+	
+	
 	
 	@Test
 	public void testImportPropertyComputer() {

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
+import org.nasdanika.models.java.BlockComment;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -24,6 +25,8 @@ import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.java.JavadocComment;
+import org.nasdanika.models.java.LineComment;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Parameter;
@@ -84,6 +87,9 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			case JavaPackage.NAMED_ELEMENT: return createNamedElement();
 			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
 			case JavaPackage.COMMENT: return createComment();
+			case JavaPackage.LINE_COMMENT: return createLineComment();
+			case JavaPackage.JAVADOC_COMMENT: return createJavadocComment();
+			case JavaPackage.BLOCK_COMMENT: return createBlockComment();
 			case JavaPackage.REFERENCE: return createReference();
 			case JavaPackage.GENERIC_TYPE: return createGenericType();
 			case JavaPackage.ANNOTATION: return createAnnotation();
@@ -367,6 +373,39 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public Comment createComment() {
 		CommentImpl comment = new CommentImpl();
 		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LineComment createLineComment() {
+		LineCommentImpl lineComment = new LineCommentImpl();
+		return lineComment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public JavadocComment createJavadocComment() {
+		JavadocCommentImpl javadocComment = new JavadocCommentImpl();
+		return javadocComment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BlockComment createBlockComment() {
+		BlockCommentImpl blockComment = new BlockCommentImpl();
+		return blockComment;
 	}
 
 	/**

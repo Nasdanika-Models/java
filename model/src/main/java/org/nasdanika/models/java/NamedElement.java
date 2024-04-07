@@ -87,5 +87,12 @@ public interface NamedElement extends Source {
 	 * @generated
 	 */
 	EList<Reference> getReferrers();
+
+	static NamedElement create(String name, String value) {
+		NamedElement ne = JavaFactory.eINSTANCE.createNamedElement();
+		ne.setName(name);
+		ne.setSource(value);
+		return ne;
+	}	
 	
 } // NamedElement

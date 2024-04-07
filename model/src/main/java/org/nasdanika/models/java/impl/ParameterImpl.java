@@ -3,10 +3,16 @@
 package org.nasdanika.models.java.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.function.Function;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.models.java.GenerationMode;
+import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Parameter;
+import org.nasdanika.models.java.Source;
 
 /**
  * <!-- begin-user-doc -->
@@ -152,5 +158,28 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
+		List<Source> contents = super.generateContents(importManager, indent);
+		
+		StringBuilder builder = indent(indent);
+		for (String modifier: getModifiers()) {
+			builder.append(modifier).append(" ");			
+		}
+		
+		GenericType type = getType();
+		builder.append(type.generate(importManager, 0));
+		if (isVarArg()) {
+			builder.append("...");
+		}
+		builder.append(" ");		
+		builder.append(getName());
+		
+		
+		contents.add(Source.create(builder));
+
+		return contents;
+	}	
 
 } //ParameterImpl

@@ -3,6 +3,7 @@
 package org.nasdanika.models.java.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -20,6 +21,8 @@ import org.nasdanika.common.PropertyComputer;
 import org.nasdanika.common.SimpleMutableContext;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.coverage.Coverage;
+import org.nasdanika.models.java.Annotation;
+import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Position;
@@ -40,6 +43,8 @@ import org.nasdanika.models.java.Source;
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getReferences <em>References</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getGenerationMode <em>Generation Mode</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,7 +68,7 @@ public class SourceImpl extends RangeImpl implements Source {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GenerationMode GENERATION_MODE_EDEFAULT = GenerationMode.CONTENTS_IF_NO_SOURCE;
+	protected static final GenerationMode GENERATION_MODE_EDEFAULT = GenerationMode.MERGE;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,6 +165,47 @@ public class SourceImpl extends RangeImpl implements Source {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Annotation> getAnnotations() {
+		return (EList<Annotation>)eDynamicGet(JavaPackage.SOURCE__ANNOTATIONS, JavaPackage.Literals.SOURCE__ANNOTATIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Comment getComment() {
+		return (Comment)eDynamicGet(JavaPackage.SOURCE__COMMENT, JavaPackage.Literals.SOURCE__COMMENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComment(Comment newComment, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newComment, JavaPackage.SOURCE__COMMENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComment(Comment newComment) {
+		eDynamicSet(JavaPackage.SOURCE__COMMENT, JavaPackage.Literals.SOURCE__COMMENT, newComment);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -181,18 +227,6 @@ public class SourceImpl extends RangeImpl implements Source {
 					.filter(s -> !Util.isBlank(s.getSource()))
 					.map(Source::getSource)
 					.reduce("", (a,b) -> a + b);
-		}
-		case CONTENTS_IF_NO_SOURCE: {
-			String source = getSource();
-			if (Util.isBlank(source)) {
-				return generateContents(importManager, indent)
-						.stream()
-						.filter(Objects::nonNull)
-						.filter(s -> !Util.isBlank(s.getSource()))
-						.map(Source::getSource)
-						.reduce("", (a,b) -> a + b);
-			}
-			return source;
 		}
 		case SOURCE: {
 			String source = getSource();
@@ -282,6 +316,23 @@ public class SourceImpl extends RangeImpl implements Source {
 		return ret;
 	}
 	
+	protected Position offset(Position position) {
+		Position begin = getBegin();
+		if (begin == null || (begin.getLine() == 1 && begin.getColumn() == 1)) {
+			return position;
+		}
+		if (position == null) {
+			return EcoreUtil.copy(begin);
+		}
+		
+		Position ret = EcoreUtil.copy(position);
+		ret.setLine(ret.getLine() - begin.getLine() + 1);
+		if (ret.getLine() == 1) {
+			ret.setColumn(ret.getColumn() - begin.getColumn() + 1);
+		}
+		return ret;
+	}
+	
 	/**
 	 * 
 	 * @param start If null, then from the beginning. Exclusive.
@@ -290,24 +341,27 @@ public class SourceImpl extends RangeImpl implements Source {
 	 * @return
 	 */
 	protected String rangeText(Position start, Position end, String[] lines) {
-		int startLine = start == null ? 1 : start.getLine();
+		Position offsetStart = offset(start);
+		Position offsetEnd = offset(end);
+		
+		int startLine = offsetStart == null ? 1 : offsetStart.getLine();
 		StringBuilder ret = new StringBuilder();
-		int lastLine = end == null ? lines.length : end.getLine();
+		int lastLine = offsetEnd == null ? lines.length : offsetEnd.getLine();
 		for (int line = startLine; line <= lastLine; ++line) {
 			String lineStr = lines[line - 1];
 			if (line == startLine && line == lastLine) {
-				int startColumn = start == null ? 1 : start.getColumn();
-				int endColumn = end == null ? lineStr.length() : Math.min(lineStr.length(), end.getColumn());
+				int startColumn = offsetStart == null ? 1 : offsetStart.getColumn();
+				int endColumn = offsetEnd == null ? lineStr.length() : Math.min(lineStr.length(), offsetEnd.getColumn());
 				if (startColumn < endColumn) {
 					ret.append(lineStr.substring(startColumn, endColumn - 1)); // Both exclusive
 				}
 			} else if (line == startLine) {
-				int startColumn = start == null ? 1 : start.getColumn();
+				int startColumn = offsetStart == null ? 1 : offsetStart.getColumn();
 				if (startColumn < lineStr.length()) {
 					ret.append(lineStr.substring(startColumn));
 				}
 			} else if (line == lastLine) {
-				int endColumn = end == null ? lineStr.length() : end.getColumn();
+				int endColumn = offsetEnd == null ? lineStr.length() : offsetEnd.getColumn();
 				ret.append(lineStr.substring(0, endColumn - 1)); 				
 			} else {
 				ret.append(lineStr);
@@ -351,7 +405,23 @@ public class SourceImpl extends RangeImpl implements Source {
 	 * @return
 	 */
 	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
-		return getChildren();
+		List<Source> contents = new ArrayList<>(getChildren());
+		Comment comment = getComment();
+		if (comment != null) {
+			String text = comment.getComment();
+			if (!Util.isBlank(text)) {
+				StringBuilder builder = indent(indent).append(text);
+				if (getGenerationMode() != GenerationMode.MERGE) {
+					builder.append(System.lineSeparator());				
+				}
+				contents.add(Source.create(builder, comment));
+			}
+		}
+		for (Annotation annotation: getAnnotations()) {
+			contents.add(Source.create(annotation.generate(importManager, indent), annotation));
+		}
+		
+		return contents;
 	}	
 	
 	/**
@@ -366,6 +436,10 @@ public class SourceImpl extends RangeImpl implements Source {
 				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
 			case JavaPackage.SOURCE__REFERENCES:
 				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+			case JavaPackage.SOURCE__ANNOTATIONS:
+				return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
+			case JavaPackage.SOURCE__COMMENT:
+				return basicSetComment(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -388,6 +462,10 @@ public class SourceImpl extends RangeImpl implements Source {
 				return getReferences();
 			case JavaPackage.SOURCE__GENERATION_MODE:
 				return getGenerationMode();
+			case JavaPackage.SOURCE__ANNOTATIONS:
+				return getAnnotations();
+			case JavaPackage.SOURCE__COMMENT:
+				return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -419,6 +497,13 @@ public class SourceImpl extends RangeImpl implements Source {
 			case JavaPackage.SOURCE__GENERATION_MODE:
 				setGenerationMode((GenerationMode)newValue);
 				return;
+			case JavaPackage.SOURCE__ANNOTATIONS:
+				getAnnotations().clear();
+				getAnnotations().addAll((Collection<? extends Annotation>)newValue);
+				return;
+			case JavaPackage.SOURCE__COMMENT:
+				setComment((Comment)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -446,6 +531,12 @@ public class SourceImpl extends RangeImpl implements Source {
 			case JavaPackage.SOURCE__GENERATION_MODE:
 				setGenerationMode(GENERATION_MODE_EDEFAULT);
 				return;
+			case JavaPackage.SOURCE__ANNOTATIONS:
+				getAnnotations().clear();
+				return;
+			case JavaPackage.SOURCE__COMMENT:
+				setComment((Comment)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -468,6 +559,10 @@ public class SourceImpl extends RangeImpl implements Source {
 				return !getReferences().isEmpty();
 			case JavaPackage.SOURCE__GENERATION_MODE:
 				return getGenerationMode() != GENERATION_MODE_EDEFAULT;
+			case JavaPackage.SOURCE__ANNOTATIONS:
+				return !getAnnotations().isEmpty();
+			case JavaPackage.SOURCE__COMMENT:
+				return getComment() != null;
 		}
 		return super.eIsSet(featureID);
 	}

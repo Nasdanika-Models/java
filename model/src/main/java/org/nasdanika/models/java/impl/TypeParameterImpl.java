@@ -6,9 +6,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Source;
@@ -56,6 +59,20 @@ public class TypeParameterImpl extends NamedElementImpl implements TypeParameter
 	@Override
 	public EList<GenericType> getBounds() {
 		return (EList<GenericType>)eDynamicGet(JavaPackage.TYPE_PARAMETER__BOUNDS, JavaPackage.Literals.TYPE_PARAMETER__BOUNDS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaPackage.TYPE_PARAMETER__BOUNDS:
+				return ((InternalEList<?>)getBounds()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

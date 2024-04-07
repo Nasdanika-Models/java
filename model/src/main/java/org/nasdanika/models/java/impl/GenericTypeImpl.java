@@ -12,6 +12,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Util;
+import org.nasdanika.models.java.Annotation;
+import org.nasdanika.models.java.Comment;
+import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Source;
@@ -264,6 +267,21 @@ public class GenericTypeImpl extends ReferenceImpl implements GenericType {
 	@Override
 	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
 		List<Source> contents = super.generateContents(importManager, indent);
+		Comment comment = getComment();
+		if (comment != null) {
+			String text = comment.getComment();
+			if (!Util.isBlank(text)) {
+				StringBuilder builder = indent(indent).append(text);
+				if (getGenerationMode() != GenerationMode.MERGE) {
+					builder.append(System.lineSeparator());				
+				}
+				contents.add(Source.create(builder, comment));
+			}
+		}
+		for (Annotation annotation: getAnnotations()) {
+			contents.add(Source.create(annotation.generate(importManager, indent), annotation));
+		}
+		
 		StringBuilder builder = new StringBuilder();
 		String name = getName();
 		builder.append(Util.isBlank(name) ? "?" : interpolate(name, importManager));		

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.AnnotationInterface;
 import org.nasdanika.models.java.AnnotationInterfaceMember;
+import org.nasdanika.models.java.BlockComment;
 import org.nasdanika.models.java.ClassInitializer;
 import org.nasdanika.models.java.Code;
 import org.nasdanika.models.java.Comment;
@@ -20,6 +21,8 @@ import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
 import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.java.JavadocComment;
+import org.nasdanika.models.java.LineComment;
 import org.nasdanika.models.java.Member;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
@@ -151,6 +154,39 @@ public class JavaSwitch<T1> extends Switch<T1> {
 			case JavaPackage.COMMENT: {
 				Comment comment = (Comment)theEObject;
 				T1 result = caseComment(comment);
+				if (result == null) result = caseRange(comment);
+				if (result == null) result = caseMarked(comment);
+				if (result == null) result = caseIMarked(comment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.LINE_COMMENT: {
+				LineComment lineComment = (LineComment)theEObject;
+				T1 result = caseLineComment(lineComment);
+				if (result == null) result = caseComment(lineComment);
+				if (result == null) result = caseRange(lineComment);
+				if (result == null) result = caseMarked(lineComment);
+				if (result == null) result = caseIMarked(lineComment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.JAVADOC_COMMENT: {
+				JavadocComment javadocComment = (JavadocComment)theEObject;
+				T1 result = caseJavadocComment(javadocComment);
+				if (result == null) result = caseComment(javadocComment);
+				if (result == null) result = caseRange(javadocComment);
+				if (result == null) result = caseMarked(javadocComment);
+				if (result == null) result = caseIMarked(javadocComment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.BLOCK_COMMENT: {
+				BlockComment blockComment = (BlockComment)theEObject;
+				T1 result = caseBlockComment(blockComment);
+				if (result == null) result = caseComment(blockComment);
+				if (result == null) result = caseRange(blockComment);
+				if (result == null) result = caseMarked(blockComment);
+				if (result == null) result = caseIMarked(blockComment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -328,8 +364,9 @@ public class JavaSwitch<T1> extends Switch<T1> {
 			case JavaPackage.FIELD: {
 				Field field = (Field)theEObject;
 				T1 result = caseField(field);
-				if (result == null) result = caseMember(field);
+				if (result == null) result = caseCode(field);
 				if (result == null) result = caseTypedElement(field);
+				if (result == null) result = caseMember(field);
 				if (result == null) result = caseNamedElement(field);
 				if (result == null) result = caseSource(field);
 				if (result == null) result = caseRange(field);
@@ -916,6 +953,51 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseComment(Comment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line Comment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLineComment(LineComment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Javadoc Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Javadoc Comment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseJavadocComment(JavadocComment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Block Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Block Comment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBlockComment(BlockComment object) {
 		return null;
 	}
 
