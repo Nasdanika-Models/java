@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.Type#getMembers <em>Members</em>}</li>
- *   <li>{@link org.nasdanika.models.java.Type#getSupertypes <em>Supertypes</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.Type#getSuperTypes <em>Super Types</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Type#getTypeParameters <em>Type Parameters</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Type#getPermits <em>Permits</em>}</li>
  * </ul>
@@ -38,19 +38,19 @@ public interface Type extends Member {
 	EList<Member> getMembers();
 
 	/**
-	 * Returns the value of the '<em><b>Supertypes</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Super Types</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.java.GenericType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * For classes the first element is the superclass and the rest are implemented interfaces
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Supertypes</em>' containment reference list.
-	 * @see org.nasdanika.models.java.JavaPackage#getType_Supertypes()
+	 * @return the value of the '<em>Super Types</em>' containment reference list.
+	 * @see org.nasdanika.models.java.JavaPackage#getType_SuperTypes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<GenericType> getSupertypes();
+	EList<GenericType> getSuperTypes();
 
 	/**
 	 * Returns the value of the '<em><b>Permits</b></em>' containment reference list.

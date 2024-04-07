@@ -3,12 +3,15 @@
 package org.nasdanika.models.java.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.function.Function;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.TypeParameter;
 
 /**
@@ -113,6 +116,24 @@ public class TypeParameterImpl extends NamedElementImpl implements TypeParameter
 				return !getBounds().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	@Override
+	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
+		List<Source> contents = super.generateContents(importManager, indent);
+		StringBuilder builder = new StringBuilder(getName());
+		boolean firstBound = true;
+		for (GenericType bound: getBounds()) {
+			if (firstBound) {
+				builder.append(" extends ");
+				firstBound = false;
+			} else {
+				builder.append(" & ");
+			}
+			builder.append(bound.generate(importManager, 0));
+		}
+		contents.add(Source.create(builder));
+		return contents;
 	}
 
 } //TypeParameterImpl

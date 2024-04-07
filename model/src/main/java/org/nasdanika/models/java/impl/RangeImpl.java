@@ -3,6 +3,7 @@
 package org.nasdanika.models.java.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,9 +12,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Position;
 import org.nasdanika.models.java.Range;
+import org.nasdanika.ncore.Marker;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +27,7 @@ import org.nasdanika.models.java.Range;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.java.impl.RangeImpl#getMarkers <em>Markers</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.RangeImpl#getBegin <em>Begin</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.RangeImpl#getEnd <em>End</em>}</li>
  * </ul>
@@ -57,6 +62,17 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range {
 	@Override
 	protected int eStaticFeatureCount() {
 		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Marker> getMarkers() {
+		return (EList<Marker>)eDynamicGet(JavaPackage.RANGE__MARKERS, NcorePackage.Literals.MARKED__MARKERS, true, true);
 	}
 
 	/**
@@ -122,37 +138,31 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean contains(Range range) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return Range.super.contains(range);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean contains(Position position) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return Range.super.contains(position);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean overlaps(Range range) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return Range.super.overlaps(range);
 	}
 
 	/**
@@ -163,6 +173,8 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case JavaPackage.RANGE__MARKERS:
+				return ((InternalEList<?>)getMarkers()).basicRemove(otherEnd, msgs);
 			case JavaPackage.RANGE__BEGIN:
 				return basicSetBegin(null, msgs);
 			case JavaPackage.RANGE__END:
@@ -179,6 +191,8 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case JavaPackage.RANGE__MARKERS:
+				return getMarkers();
 			case JavaPackage.RANGE__BEGIN:
 				return getBegin();
 			case JavaPackage.RANGE__END:
@@ -192,9 +206,14 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case JavaPackage.RANGE__MARKERS:
+				getMarkers().clear();
+				getMarkers().addAll((Collection<? extends Marker>)newValue);
+				return;
 			case JavaPackage.RANGE__BEGIN:
 				setBegin((Position)newValue);
 				return;
@@ -213,6 +232,9 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case JavaPackage.RANGE__MARKERS:
+				getMarkers().clear();
+				return;
 			case JavaPackage.RANGE__BEGIN:
 				setBegin((Position)null);
 				return;
@@ -231,6 +253,8 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case JavaPackage.RANGE__MARKERS:
+				return !getMarkers().isEmpty();
 			case JavaPackage.RANGE__BEGIN:
 				return getBegin() != null;
 			case JavaPackage.RANGE__END:

@@ -5,8 +5,8 @@ package org.nasdanika.models.java;
 import java.util.function.Function;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.models.coverage.Coverage;
-import org.nasdanika.ncore.Marked;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +28,7 @@ import org.nasdanika.ncore.Marked;
  * @model
  * @generated
  */
-public interface Source extends Marked, Range {
+public interface Source extends Range {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -115,7 +115,6 @@ public interface Source extends Marked, Range {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Concatenates own source with generated source of children.
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Generates source code
@@ -123,6 +122,21 @@ public interface Source extends Marked, Range {
 	 * @model importManagerType="org.nasdanika.models.java.ImportManager"
 	 * @generated
 	 */
-	String generate(Function<String, String> importManager);
+	String generate(Function<String, String> importManager, int indent);
+	
+	static Source create(CharSequence source) {
+		Source ret = JavaFactory.eINSTANCE.createSource();
+		ret.setSource(source.toString());
+		return ret;
+	}
+	
+	static Source create(CharSequence source, Range range) {		
+		Source ret = create(source);
+		if (range != null) {
+			ret.setBegin(EcoreUtil.copy(range.getBegin()));
+			ret.setEnd(EcoreUtil.copy(range.getEnd()));
+		}
+		return ret;
+	}
 
 } // Source

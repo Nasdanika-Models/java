@@ -2,11 +2,9 @@
  */
 package org.nasdanika.models.java.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -110,73 +108,6 @@ public class CompilationUnitImpl extends NamedElementImpl implements Compilation
 		return (EList<String>)eDynamicGet(JavaPackage.COMPILATION_UNIT__IMPORTS, JavaPackage.Literals.COMPILATION_UNIT__IMPORTS, true, true);
 	}
 
-/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void merge(String source, BiFunction<String, String, String> merger) {
-		setSource(merger.apply(source, getSource()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void merge(BiFunction<String, String, String> merger) {
-		StringBuilder sb = new StringBuilder();
-		getChildren().stream().map(Source::getSource).forEach(s -> {
-			if (!sb.isEmpty()) {
-				sb.append(System.lineSeparator());
-				sb.append(s);
-			}
-		});
-
-		merge(sb.toString(), merger);
-	}
-
-	//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public void merge(String source, String complianceLevel) {
-//	    JControlModel controlModel = new JControlModel();
-//		
-//		// Create model
-//		GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
-//
-//		// create adapter factory
-//		GeneratorAdapterFactory adapterFactory = GenModelGeneratorAdapterFactory.DESCRIPTOR.createAdapterFactory();
-//		adapterFactory.setGenerator(new org.eclipse.emf.codegen.ecore.generator.Generator());
-//		adapterFactory.initialize(genModel);
-//
-//		// get merge rules URI
-//		String mergeRulesURI = adapterFactory.getGenerator().getOptions().mergeRulesURI;
-//	    
-//	    FacadeHelper facadeHelper = CodeGenUtil.instantiateFacadeHelper(ASTFacadeHelper.class.getCanonicalName());
-//	    facadeHelper.setCompilerCompliance(complianceLevel);
-//		controlModel.initialize(facadeHelper, mergeRulesURI);
-//	    
-//		JMerger jMerger = new JMerger(controlModel);												
-//		
-//		JCompilationUnit newCompilationUnit = jMerger.createCompilationUnitForContents(source);
-//		jMerger.setSourceCompilationUnit(newCompilationUnit);
-//		
-//		JCompilationUnit oldCompilationUnit = jMerger.createCompilationUnitForContents(getSource());
-//		jMerger.setTargetCompilationUnit(oldCompilationUnit);
-//		
-//		jMerger.merge();
-//		
-//		String mergedCompilationUnitContents = jMerger.getTargetCompilationUnitContents();
-//		setSource(mergedCompilationUnitContents);
-//	}
-//
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,35 +203,16 @@ public class CompilationUnitImpl extends NamedElementImpl implements Compilation
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case JavaPackage.COMPILATION_UNIT___MERGE__STRING_BIFUNCTION:
-				merge((String)arguments.get(0), (BiFunction<String, String, String>)arguments.get(1));
-				return null;
-			case JavaPackage.COMPILATION_UNIT___MERGE__BIFUNCTION:
-				merge((BiFunction<String, String, String>)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	@Override
-	protected List<Source> generateContents(Function<String, String> importManager) {
-		List<Source> contents = super.generateContents(importManager);
+	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
+		List<Source> contents = super.generateContents(importManager, indent);
 		SimpleImportManager simpleImportManager = new SimpleImportManager(null);
 		getImports().forEach(simpleImportManager::addImport);
 		
 		List<Source> typeSources = new ArrayList<>();
 		for (Type type: getTypes()) {
 			Source typeSource = JavaFactory.eINSTANCE.createSource();
-			typeSource.setSource(type.generate(importManager == null ? simpleImportManager::addImport : importManager));
+			typeSource.setSource(type.generate(importManager == null ? simpleImportManager::addImport : importManager, indent));
 			typeSource.setBegin(EcoreUtil.copy(type.getBegin()));
 			typeSource.setEnd(EcoreUtil.copy(type.getEnd()));
 			typeSources.add(typeSource);
@@ -315,6 +227,7 @@ public class CompilationUnitImpl extends NamedElementImpl implements Compilation
 		String pName = getPackageName();
 		if (pName != null) {
 			headerBuilder
+				.append(indent(indent))
 				.append("package ")
 				.append(pName)
 				.append(";")
@@ -322,7 +235,7 @@ public class CompilationUnitImpl extends NamedElementImpl implements Compilation
 				.append(System.lineSeparator());
 		}
 		
-		getImports().forEach(id -> headerBuilder.append("import ").append(id).append(System.lineSeparator()));
+		getImports().forEach(id -> headerBuilder.append(indent(indent)).append("import ").append(id).append(";").append(System.lineSeparator()));
 		headerBuilder.append(System.lineSeparator());
 		
 		Source header = JavaFactory.eINSTANCE.createSource();
@@ -349,9 +262,4 @@ public class CompilationUnitImpl extends NamedElementImpl implements Compilation
 		return contents;
 	}
 	
-//	
-//	@Override
-//	protected String generateContents(Function<String, String> importManager) {
-//	}
-
 } //CompilationUnitImpl

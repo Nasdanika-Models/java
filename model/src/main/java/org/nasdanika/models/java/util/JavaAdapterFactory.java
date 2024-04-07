@@ -2,9 +2,7 @@
  */
 package org.nasdanika.models.java.util;
 
-import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -96,14 +94,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseImportManager(Function<String, String> object) {
 				return createImportManagerAdapter();
-			}
-			@Override
-			public Adapter caseMerger(BiFunction<String, String, String> object) {
-				return createMergerAdapter();
-			}
-			@Override
-			public Adapter caseDigestPredicate(Predicate<EObject> object) {
-				return createDigestPredicateAdapter();
 			}
 			@Override
 			public <T> Adapter caseComparable(Comparable<T> object) {
@@ -268,34 +258,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createImportManagerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link java.util.function.BiFunction <em>Merger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see java.util.function.BiFunction
-	 * @generated
-	 */
-	public Adapter createMergerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link java.util.function.Predicate <em>Digest Predicate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see java.util.function.Predicate
-	 * @generated
-	 */
-	public Adapter createDigestPredicateAdapter() {
 		return null;
 	}
 

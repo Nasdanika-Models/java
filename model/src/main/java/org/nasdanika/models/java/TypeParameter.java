@@ -32,5 +32,14 @@ public interface TypeParameter extends NamedElement {
 	 * @generated
 	 */
 	EList<GenericType> getBounds();
+	
+	static TypeParameter create(String name, GenericType... bounds) {
+		TypeParameter ret = JavaFactory.eINSTANCE.createTypeParameter();
+		ret.setName(name);
+		for (GenericType bound: bounds) {
+			ret.getBounds().add(bound);
+		}
+		return ret;
+	}
 
 } // TypeParameter

@@ -14,4 +14,14 @@ package org.nasdanika.models.java;
  * @generated
  */
 public interface Interface extends Type {
+		
+	static Interface create(String name, String... modifiers) {
+		Interface ret = JavaFactory.eINSTANCE.createInterface();
+		ret.setName(name);
+		for (String modifier: modifiers) {
+			ret.getModifiers().add(modifier);
+		}
+		return ret;
+	}
+	
 } // Interface

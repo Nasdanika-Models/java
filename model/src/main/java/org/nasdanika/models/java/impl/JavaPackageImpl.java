@@ -3,12 +3,10 @@
 package org.nasdanika.models.java.impl;
 
 import java.lang.Comparable;
-import java.util.function.BiFunction;
+
 import static org.nasdanika.models.java.JavaPackage.CLASS;
 
 import java.util.function.Function;
-
-import java.util.function.Predicate;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -61,20 +59,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass importManagerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass mergerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass digestPredicateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -540,7 +524,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getSource__Generate__Function() {
+	public EOperation getSource__Generate__Function_int() {
 		return sourceEClass.getEOperations().get(0);
 	}
 
@@ -572,26 +556,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EClass getImportManager() {
 		return importManagerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getMerger() {
-		return mergerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDigestPredicate() {
-		return digestPredicateEClass;
 	}
 
 	/**
@@ -742,16 +706,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EReference getMember_Annotations() {
 		return (EReference)memberEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getMember_Annotate() {
-		return (EAttribute)memberEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1070,7 +1024,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getType_Supertypes() {
+	public EReference getType_SuperTypes() {
 		return (EReference)typeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1152,26 +1106,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EAttribute getCompilationUnit_Imports() {
 		return (EAttribute)compilationUnitEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getCompilationUnit__Merge__String_BiFunction() {
-		return compilationUnitEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getCompilationUnit__Merge__BiFunction() {
-		return compilationUnitEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1265,10 +1199,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Create classes and their features
 		importManagerEClass = createEClass(IMPORT_MANAGER);
 
-		mergerEClass = createEClass(MERGER);
-
-		digestPredicateEClass = createEClass(DIGEST_PREDICATE);
-
 		comparableEClass = createEClass(COMPARABLE);
 
 		positionEClass = createEClass(POSITION);
@@ -1288,7 +1218,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEReference(sourceEClass, SOURCE__COVERAGE);
 		createEReference(sourceEClass, SOURCE__REFERENCES);
 		createEAttribute(sourceEClass, SOURCE__GENERATION_MODE);
-		createEOperation(sourceEClass, SOURCE___GENERATE__FUNCTION);
+		createEOperation(sourceEClass, SOURCE___GENERATE__FUNCTION_INT);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -1299,8 +1229,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEReference(compilationUnitEClass, COMPILATION_UNIT__TYPES);
 		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__PACKAGE_NAME);
 		createEAttribute(compilationUnitEClass, COMPILATION_UNIT__IMPORTS);
-		createEOperation(compilationUnitEClass, COMPILATION_UNIT___MERGE__STRING_BIFUNCTION);
-		createEOperation(compilationUnitEClass, COMPILATION_UNIT___MERGE__BIFUNCTION);
 
 		commentEClass = createEClass(COMMENT);
 		createEAttribute(commentEClass, COMMENT__COMMENT);
@@ -1310,7 +1238,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEAttribute(memberEClass, MEMBER__MODIFIERS);
 		createEReference(memberEClass, MEMBER__REFERENCED_TYPES);
 		createEReference(memberEClass, MEMBER__ANNOTATIONS);
-		createEAttribute(memberEClass, MEMBER__ANNOTATE);
 
 		referenceEClass = createEClass(REFERENCE);
 		createEReference(referenceEClass, REFERENCE__TARGET);
@@ -1332,7 +1259,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		typeEClass = createEClass(TYPE);
 		createEReference(typeEClass, TYPE__MEMBERS);
-		createEReference(typeEClass, TYPE__SUPERTYPES);
+		createEReference(typeEClass, TYPE__SUPER_TYPES);
 		createEReference(typeEClass, TYPE__TYPE_PARAMETERS);
 		createEReference(typeEClass, TYPE__PERMITS);
 
@@ -1424,7 +1351,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		EGenericType g2 = createEGenericType(this.getPosition());
 		g1.getETypeArguments().add(g2);
 		positionEClass.getEGenericSuperTypes().add(g1);
-		sourceEClass.getESuperTypes().add(theNcorePackage.getMarked());
+		rangeEClass.getESuperTypes().add(theNcorePackage.getMarked());
 		sourceEClass.getESuperTypes().add(this.getRange());
 		namedElementEClass.getESuperTypes().add(this.getSource());
 		compilationUnitEClass.getESuperTypes().add(this.getNamedElement());
@@ -1458,10 +1385,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(importManagerEClass, Function.class, "ImportManager", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.util.function.Function<String, String>");
 
-		initEClass(mergerEClass, BiFunction.class, "Merger", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.util.function.BiFunction<String, String, String>");
-
-		initEClass(digestPredicateEClass, Predicate.class, "DigestPredicate", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.util.function.Predicate<org.eclipse.emf.ecore.EObject>");
-
 		initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1488,8 +1411,9 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getSource_References(), this.getReference(), null, "references", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSource_GenerationMode(), this.getGenerationMode(), "generationMode", "CONTENTS_IF_NO_SOURCE", 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getSource__Generate__Function(), ecorePackage.getEString(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSource__Generate__Function_int(), ecorePackage.getEString(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getImportManager(), "importManager", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "indent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1501,13 +1425,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEAttribute(getCompilationUnit_PackageName(), ecorePackage.getEString(), "packageName", null, 0, 1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompilationUnit_Imports(), ecorePackage.getEString(), "imports", null, 0, -1, CompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getCompilationUnit__Merge__String_BiFunction(), null, "merge", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getMerger(), "merger", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getCompilationUnit__Merge__BiFunction(), null, "merge", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getMerger(), "merger", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComment_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1516,7 +1433,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEAttribute(getMember_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMember_ReferencedTypes(), this.getGenericType(), null, "referencedTypes", null, 0, -1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMember_Annotations(), this.getAnnotation(), null, "annotations", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMember_Annotate(), ecorePackage.getEBoolean(), "annotate", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReference_Target(), this.getNamedElement(), this.getNamedElement_Referrers(), "target", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1538,7 +1454,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getType_Members(), this.getMember(), null, "members", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_Supertypes(), this.getGenericType(), null, "supertypes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_SuperTypes(), this.getGenericType(), null, "superTypes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_TypeParameters(), this.getTypeParameter(), null, "typeParameters", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_Permits(), this.getGenericType(), null, "permits", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1650,7 +1566,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 			   "documentation", "Own source (original) is merged with new source generated from contents"
 		   });
 		addAnnotation
-		  (getSource__Generate__Function(),
+		  (getSource__Generate__Function_int(),
 		   source,
 		   new String[] {
 			   "documentation", "Generates source code"
@@ -1668,34 +1584,10 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 			   "documentation", "Fully qualified name where applicable. E.g. java.util.Map"
 		   });
 		addAnnotation
-		  (getCompilationUnit__Merge__String_BiFunction(),
-		   source,
-		   new String[] {
-			   "documentation", "Merges new source code with the current code preserving manual changes in the current code"
-		   });
-		addAnnotation
-		  ((getCompilationUnit__Merge__String_BiFunction()).getEParameters().get(0),
-		   source,
-		   new String[] {
-			   "documentation", "Source code to merge with the current code"
-		   });
-		addAnnotation
-		  (getCompilationUnit__Merge__BiFunction(),
-		   source,
-		   new String[] {
-			   "documentation", "Collects  new source code from children and merges with the current code preserving manual changes in the current code"
-		   });
-		addAnnotation
 		  (getMember_ReferencedTypes(),
 		   source,
 		   new String[] {
 			   "documentation", "All types referenced by this member including types refernced from code"
-		   });
-		addAnnotation
-		  (getMember_Annotate(),
-		   source,
-		   new String[] {
-			   "documentation", "If true, the generator adds Generated annotation with digest"
 		   });
 		addAnnotation
 		  (getReference_Target(),
@@ -1704,7 +1596,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 			   "documentation", "Referenced named element (symbol)"
 		   });
 		addAnnotation
-		  (getType_Supertypes(),
+		  (getType_SuperTypes(),
 		   source,
 		   new String[] {
 			   "documentation", "For classes the first element is the superclass and the rest are implemented interfaces"

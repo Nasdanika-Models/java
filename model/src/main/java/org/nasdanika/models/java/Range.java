@@ -2,7 +2,7 @@
  */
 package org.nasdanika.models.java;
 
-import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.ncore.Marked;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Range extends EObject {
+public interface Range extends Marked {
 	/**
 	 * Returns the value of the '<em><b>Begin</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

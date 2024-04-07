@@ -134,7 +134,7 @@ public class JavaParserResource extends ResourceImpl {
 		try (Writer writer = new OutputStreamWriter(outputStream)) {
 			for (EObject root: getContents()) {
 				if (root instanceof Source) {
-					writer.write(((Source) root).generate(null));
+					writer.write(((Source) root).generate(null, 0));
 				}
 			}
 		}
@@ -150,6 +150,7 @@ public class JavaParserResource extends ResourceImpl {
 	
 	protected org.nasdanika.models.java.CompilationUnit loadCompilationUnit(com.github.javaparser.ast.CompilationUnit jpCompilationUnit) { 
 		org.nasdanika.models.java.CompilationUnit modelCompilationUnit = createCompilationUnit();
+		modelCompilationUnit.setName(getURI().lastSegment());
 		
 		modelCompilationUnit.setSource(LexicalPreservingPrinter.print(jpCompilationUnit));
 		Optional<PackageDeclaration> pd = jpCompilationUnit.getPackageDeclaration();
@@ -281,7 +282,7 @@ public class JavaParserResource extends ResourceImpl {
 
 	protected void configureClassOrInterfaceDeclaration(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration classOrInterfaceDeclaration, org.nasdanika.models.java.Type type) {
 		configureTypeDeclaration(classOrInterfaceDeclaration, type);
-		EList<GenericType> supertypes = type.getSupertypes();
+		EList<GenericType> supertypes = type.getSuperTypes();
 		for (ClassOrInterfaceType ext: classOrInterfaceDeclaration.getExtendedTypes()) {
 			supertypes.add(loadGenericType(ext));
 		}

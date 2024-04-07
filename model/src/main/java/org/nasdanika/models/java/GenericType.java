@@ -101,5 +101,30 @@ public interface GenericType extends Reference {
 	 * @generated
 	 */
 	void setPrimitive(boolean value);
-
+		
+	static GenericType create(String name, GenericType... typeArguments) {
+		GenericType ret = JavaFactory.eINSTANCE.createGenericType();
+		ret.setName(name);
+		for (GenericType typeArgument: typeArguments) {
+			ret.getTypeArguments().add(typeArgument);
+		}
+		return ret;
+	}
+	
+	static GenericType createObjectType() {
+		return create(Object.class.getName());
+	}
+		
+	static GenericType createUpperBound(GenericType upperBound) {
+		GenericType ret = JavaFactory.eINSTANCE.createGenericType();
+		ret.setUpperBound(upperBound);
+		return ret;
+	}
+	
+	static GenericType createLowerBound(GenericType upperBound) {
+		GenericType ret = JavaFactory.eINSTANCE.createGenericType();
+		ret.setLowerBound(upperBound);
+		return ret;
+	}
+	
 } // GenericType

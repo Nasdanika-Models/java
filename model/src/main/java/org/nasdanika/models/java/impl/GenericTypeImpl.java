@@ -3,14 +3,18 @@
 package org.nasdanika.models.java.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.function.Function;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.Util;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.java.Source;
 
 /**
  * <!-- begin-user-doc -->
@@ -255,6 +259,42 @@ public class GenericTypeImpl extends ReferenceImpl implements GenericType {
 				return isPrimitive() != PRIMITIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	@Override
+	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
+		List<Source> contents = super.generateContents(importManager, indent);
+		StringBuilder builder = new StringBuilder();
+		String name = getName();
+		builder.append(Util.isBlank(name) ? "?" : interpolate(name, importManager));		
+		// Type arguments
+		EList<GenericType> typeArguments = getTypeArguments();
+		if (!typeArguments.isEmpty()) {
+			builder.append("<");
+			boolean first = true;
+			for (GenericType typeArgument: typeArguments) {
+				if (!first) {
+					builder.append(",");					
+				}
+				builder.append(typeArgument.generate(importManager, 0));
+				first = false;
+			}
+			builder.append(">");
+		}
+		
+		// Lower bound
+		GenericType lowerBound = getLowerBound();
+		if (lowerBound != null) {
+			builder.append(" super ").append(lowerBound.generate(importManager, 0));
+		}
+		// Upper bound
+		GenericType upperBound = getUpperBound();
+		if (upperBound != null) {
+			builder.append(" extends ").append(upperBound.generate(importManager, 0));
+		}
+		
+		contents.add(Source.create(builder));
+		return contents;
 	}
 
 } //GenericTypeImpl

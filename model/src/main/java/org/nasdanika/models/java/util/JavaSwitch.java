@@ -2,9 +2,7 @@
  */
 package org.nasdanika.models.java.util;
 
-import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -99,18 +97,6 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaPackage.MERGER: {
-				@SuppressWarnings("unchecked") BiFunction<String, String, String> merger = (BiFunction<String, String, String>)theEObject;
-				T1 result = caseMerger(merger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaPackage.DIGEST_PREDICATE: {
-				@SuppressWarnings("unchecked") Predicate<EObject> digestPredicate = (Predicate<EObject>)theEObject;
-				T1 result = caseDigestPredicate(digestPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JavaPackage.COMPARABLE: {
 				Comparable<?> comparable = (Comparable<?>)theEObject;
 				T1 result = caseComparable(comparable);
@@ -127,14 +113,16 @@ public class JavaSwitch<T1> extends Switch<T1> {
 			case JavaPackage.RANGE: {
 				Range range = (Range)theEObject;
 				T1 result = caseRange(range);
+				if (result == null) result = caseMarked(range);
+				if (result == null) result = caseIMarked(range);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaPackage.SOURCE: {
 				Source source = (Source)theEObject;
 				T1 result = caseSource(source);
-				if (result == null) result = caseMarked(source);
 				if (result == null) result = caseRange(source);
+				if (result == null) result = caseMarked(source);
 				if (result == null) result = caseIMarked(source);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -143,8 +131,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T1 result = caseNamedElement(namedElement);
 				if (result == null) result = caseSource(namedElement);
-				if (result == null) result = caseMarked(namedElement);
 				if (result == null) result = caseRange(namedElement);
+				if (result == null) result = caseMarked(namedElement);
 				if (result == null) result = caseIMarked(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -154,8 +142,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				T1 result = caseCompilationUnit(compilationUnit);
 				if (result == null) result = caseNamedElement(compilationUnit);
 				if (result == null) result = caseSource(compilationUnit);
-				if (result == null) result = caseMarked(compilationUnit);
 				if (result == null) result = caseRange(compilationUnit);
+				if (result == null) result = caseMarked(compilationUnit);
 				if (result == null) result = caseIMarked(compilationUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -171,8 +159,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				T1 result = caseMember(member);
 				if (result == null) result = caseNamedElement(member);
 				if (result == null) result = caseSource(member);
-				if (result == null) result = caseMarked(member);
 				if (result == null) result = caseRange(member);
+				if (result == null) result = caseMarked(member);
 				if (result == null) result = caseIMarked(member);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -182,8 +170,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				T1 result = caseReference(reference);
 				if (result == null) result = caseNamedElement(reference);
 				if (result == null) result = caseSource(reference);
-				if (result == null) result = caseMarked(reference);
 				if (result == null) result = caseRange(reference);
+				if (result == null) result = caseMarked(reference);
 				if (result == null) result = caseIMarked(reference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -194,8 +182,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseReference(genericType);
 				if (result == null) result = caseNamedElement(genericType);
 				if (result == null) result = caseSource(genericType);
-				if (result == null) result = caseMarked(genericType);
 				if (result == null) result = caseRange(genericType);
+				if (result == null) result = caseMarked(genericType);
 				if (result == null) result = caseIMarked(genericType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -206,8 +194,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseReference(annotation);
 				if (result == null) result = caseNamedElement(annotation);
 				if (result == null) result = caseSource(annotation);
-				if (result == null) result = caseMarked(annotation);
 				if (result == null) result = caseRange(annotation);
+				if (result == null) result = caseMarked(annotation);
 				if (result == null) result = caseIMarked(annotation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -217,8 +205,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				T1 result = caseTypeParameter(typeParameter);
 				if (result == null) result = caseNamedElement(typeParameter);
 				if (result == null) result = caseSource(typeParameter);
-				if (result == null) result = caseMarked(typeParameter);
 				if (result == null) result = caseRange(typeParameter);
+				if (result == null) result = caseMarked(typeParameter);
 				if (result == null) result = caseIMarked(typeParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -228,8 +216,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				T1 result = caseTypedElement(typedElement);
 				if (result == null) result = caseNamedElement(typedElement);
 				if (result == null) result = caseSource(typedElement);
-				if (result == null) result = caseMarked(typedElement);
 				if (result == null) result = caseRange(typedElement);
+				if (result == null) result = caseMarked(typedElement);
 				if (result == null) result = caseIMarked(typedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -240,8 +228,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(type);
 				if (result == null) result = caseNamedElement(type);
 				if (result == null) result = caseSource(type);
-				if (result == null) result = caseMarked(type);
 				if (result == null) result = caseRange(type);
+				if (result == null) result = caseMarked(type);
 				if (result == null) result = caseIMarked(type);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -253,8 +241,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(annotationInterface);
 				if (result == null) result = caseNamedElement(annotationInterface);
 				if (result == null) result = caseSource(annotationInterface);
-				if (result == null) result = caseMarked(annotationInterface);
 				if (result == null) result = caseRange(annotationInterface);
+				if (result == null) result = caseMarked(annotationInterface);
 				if (result == null) result = caseIMarked(annotationInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -265,8 +253,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(annotationInterfaceMember);
 				if (result == null) result = caseNamedElement(annotationInterfaceMember);
 				if (result == null) result = caseSource(annotationInterfaceMember);
-				if (result == null) result = caseMarked(annotationInterfaceMember);
 				if (result == null) result = caseRange(annotationInterfaceMember);
+				if (result == null) result = caseMarked(annotationInterfaceMember);
 				if (result == null) result = caseIMarked(annotationInterfaceMember);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -278,8 +266,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(class_);
 				if (result == null) result = caseNamedElement(class_);
 				if (result == null) result = caseSource(class_);
-				if (result == null) result = caseMarked(class_);
 				if (result == null) result = caseRange(class_);
+				if (result == null) result = caseMarked(class_);
 				if (result == null) result = caseIMarked(class_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -291,8 +279,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(interface_);
 				if (result == null) result = caseNamedElement(interface_);
 				if (result == null) result = caseSource(interface_);
-				if (result == null) result = caseMarked(interface_);
 				if (result == null) result = caseRange(interface_);
+				if (result == null) result = caseMarked(interface_);
 				if (result == null) result = caseIMarked(interface_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -306,8 +294,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(constructor);
 				if (result == null) result = caseNamedElement(constructor);
 				if (result == null) result = caseSource(constructor);
-				if (result == null) result = caseMarked(constructor);
 				if (result == null) result = caseRange(constructor);
+				if (result == null) result = caseMarked(constructor);
 				if (result == null) result = caseIMarked(constructor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -319,8 +307,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(enum_);
 				if (result == null) result = caseNamedElement(enum_);
 				if (result == null) result = caseSource(enum_);
-				if (result == null) result = caseMarked(enum_);
 				if (result == null) result = caseRange(enum_);
+				if (result == null) result = caseMarked(enum_);
 				if (result == null) result = caseIMarked(enum_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -331,8 +319,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(enumConstant);
 				if (result == null) result = caseNamedElement(enumConstant);
 				if (result == null) result = caseSource(enumConstant);
-				if (result == null) result = caseMarked(enumConstant);
 				if (result == null) result = caseRange(enumConstant);
+				if (result == null) result = caseMarked(enumConstant);
 				if (result == null) result = caseIMarked(enumConstant);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -344,8 +332,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseTypedElement(field);
 				if (result == null) result = caseNamedElement(field);
 				if (result == null) result = caseSource(field);
-				if (result == null) result = caseMarked(field);
 				if (result == null) result = caseRange(field);
+				if (result == null) result = caseMarked(field);
 				if (result == null) result = caseIMarked(field);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -354,8 +342,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				org.nasdanika.models.java.Module module = (org.nasdanika.models.java.Module)theEObject;
 				T1 result = caseModule(module);
 				if (result == null) result = caseSource(module);
-				if (result == null) result = caseMarked(module);
 				if (result == null) result = caseRange(module);
+				if (result == null) result = caseMarked(module);
 				if (result == null) result = caseIMarked(module);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -364,8 +352,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				org.nasdanika.models.java.Package package_ = (org.nasdanika.models.java.Package)theEObject;
 				T1 result = casePackage(package_);
 				if (result == null) result = caseSource(package_);
-				if (result == null) result = caseMarked(package_);
 				if (result == null) result = caseRange(package_);
+				if (result == null) result = caseMarked(package_);
 				if (result == null) result = caseIMarked(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -379,8 +367,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(method);
 				if (result == null) result = caseNamedElement(method);
 				if (result == null) result = caseSource(method);
-				if (result == null) result = caseMarked(method);
 				if (result == null) result = caseRange(method);
+				if (result == null) result = caseMarked(method);
 				if (result == null) result = caseIMarked(method);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -391,8 +379,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(code);
 				if (result == null) result = caseNamedElement(code);
 				if (result == null) result = caseSource(code);
-				if (result == null) result = caseMarked(code);
 				if (result == null) result = caseRange(code);
+				if (result == null) result = caseMarked(code);
 				if (result == null) result = caseIMarked(code);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -404,8 +392,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(initializer);
 				if (result == null) result = caseNamedElement(initializer);
 				if (result == null) result = caseSource(initializer);
-				if (result == null) result = caseMarked(initializer);
 				if (result == null) result = caseRange(initializer);
+				if (result == null) result = caseMarked(initializer);
 				if (result == null) result = caseIMarked(initializer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -417,8 +405,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(classInitializer);
 				if (result == null) result = caseNamedElement(classInitializer);
 				if (result == null) result = caseSource(classInitializer);
-				if (result == null) result = caseMarked(classInitializer);
 				if (result == null) result = caseRange(classInitializer);
+				if (result == null) result = caseMarked(classInitializer);
 				if (result == null) result = caseIMarked(classInitializer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -429,8 +417,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseTypedElement(parameter);
 				if (result == null) result = caseNamedElement(parameter);
 				if (result == null) result = caseSource(parameter);
-				if (result == null) result = caseMarked(parameter);
 				if (result == null) result = caseRange(parameter);
+				if (result == null) result = caseMarked(parameter);
 				if (result == null) result = caseIMarked(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -443,8 +431,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(operation);
 				if (result == null) result = caseNamedElement(operation);
 				if (result == null) result = caseSource(operation);
-				if (result == null) result = caseMarked(operation);
 				if (result == null) result = caseRange(operation);
+				if (result == null) result = caseMarked(operation);
 				if (result == null) result = caseIMarked(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -456,8 +444,8 @@ public class JavaSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseMember(record);
 				if (result == null) result = caseNamedElement(record);
 				if (result == null) result = caseSource(record);
-				if (result == null) result = caseMarked(record);
 				if (result == null) result = caseRange(record);
+				if (result == null) result = caseMarked(record);
 				if (result == null) result = caseIMarked(record);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -478,36 +466,6 @@ public class JavaSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseImportManager(Function<String, String> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Merger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Merger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseMerger(BiFunction<String, String, String> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Digest Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Digest Predicate</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseDigestPredicate(Predicate<EObject> object) {
 		return null;
 	}
 

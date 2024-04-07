@@ -12,8 +12,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.MutableContext;
+import org.nasdanika.common.PropertyComputer;
+import org.nasdanika.common.SimpleMutableContext;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.java.GenerationMode;
@@ -22,8 +26,6 @@ import org.nasdanika.models.java.Position;
 import org.nasdanika.models.java.Range;
 import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
-import org.nasdanika.ncore.Marker;
-import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,9 +35,6 @@ import org.nasdanika.ncore.NcorePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getMarkers <em>Markers</em>}</li>
- *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getBegin <em>Begin</em>}</li>
- *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getEnd <em>End</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.SourceImpl#getCoverage <em>Coverage</em>}</li>
@@ -45,7 +44,7 @@ import org.nasdanika.ncore.NcorePackage;
  *
  * @generated
  */
-public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
+public class SourceImpl extends RangeImpl implements Source {
 	/**
 	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -83,87 +82,6 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	@Override
 	protected EClass eStaticClass() {
 		return JavaPackage.Literals.SOURCE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<Marker> getMarkers() {
-		return (EList<Marker>)eDynamicGet(JavaPackage.SOURCE__MARKERS, NcorePackage.Literals.MARKED__MARKERS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Position getBegin() {
-		return (Position)eDynamicGet(JavaPackage.SOURCE__BEGIN, JavaPackage.Literals.RANGE__BEGIN, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBegin(Position newBegin, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newBegin, JavaPackage.SOURCE__BEGIN, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setBegin(Position newBegin) {
-		eDynamicSet(JavaPackage.SOURCE__BEGIN, JavaPackage.Literals.RANGE__BEGIN, newBegin);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Position getEnd() {
-		return (Position)eDynamicGet(JavaPackage.SOURCE__END, JavaPackage.Literals.RANGE__END, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEnd(Position newEnd, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newEnd, JavaPackage.SOURCE__END, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setEnd(Position newEnd) {
-		eDynamicSet(JavaPackage.SOURCE__END, JavaPackage.Literals.RANGE__END, newEnd);
 	}
 
 	/**
@@ -245,11 +163,11 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @generated NOT
 	 */
 	@Override
-	public String generate(Function<String, String> importManager) {
+	public String generate(Function<String, String> importManager, int indent) {
 		switch (getGenerationMode()) {
 		case COMPOSE: {
 			String source = getSource();
-			return generateContents(importManager)
+			return generateContents(importManager, indent)
 					.stream()
 					.filter(Objects::nonNull)
 					.filter(s -> !Util.isBlank(s.getSource()))
@@ -257,7 +175,7 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 					.reduce(Util.isBlank(source) ? "" : source , (a,b) -> a + b);
 		}
 		case CONTENTS: {
-			return generateContents(importManager)
+			return generateContents(importManager, indent)
 					.stream()
 					.filter(Objects::nonNull)
 					.filter(s -> !Util.isBlank(s.getSource()))
@@ -267,7 +185,7 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 		case CONTENTS_IF_NO_SOURCE: {
 			String source = getSource();
 			if (Util.isBlank(source)) {
-				return generateContents(importManager)
+				return generateContents(importManager, indent)
 						.stream()
 						.filter(Objects::nonNull)
 						.filter(s -> !Util.isBlank(s.getSource()))
@@ -284,14 +202,14 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 			String source = getSource();
 			if (Util.isBlank(source)) {
 				// Nothing to merge - return contents;
-				return generateContents(importManager)
+				return generateContents(importManager, indent)
 						.stream()
 						.filter(Objects::nonNull)
 						.filter(s -> !Util.isBlank(s.getSource()))
 						.map(Source::getSource)
 						.reduce("", (a,b) -> a + b);
 			}
-			List<Source> contents = generateContents(importManager);
+			List<Source> contents = generateContents(importManager, indent);
 			if (contents.isEmpty()) {
 				// Nothing to merge - return source
 				return Util.isBlank(source) ? "" : source;				
@@ -302,9 +220,16 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 			StringBuilder output = new StringBuilder();
 			Position position = null;
 			for (Source contentsElement: contents) {
-				output.append(rangeText(position, contentsElement.getBegin(), lines));
+				Position begin = contentsElement.getBegin();
+				output.append(rangeText(position, begin, lines));
+				if (begin != null) {
+					position = decrement(begin, l -> lines[l].length());
+				}
 				output.append(contentsElement.getSource());
-				position = contentsElement.getEnd();
+				Position end = contentsElement.getEnd();
+				if (end != null) {
+					position = end;
+				}
 			}
 			output.append(rangeText(position, null, lines));
 			return output.toString();			
@@ -314,24 +239,48 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 		}		
 	}
 	
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public Position before(Function<Integer, Integer> lineLengthProvider) {
-//		Position ret = EcoreUtil.copy(this);
-//		int column = ret.getColumn();
-//		int line = ret.getLine();
-//		if (column > 1) {
-//			ret.setColumn(column - 1);
-//		} else if (line > 1) {			
-//			ret.setColumn(lineLengthProvider.apply(line - 1));
-//			ret.setLine(line - 1);
-//		}
-//		return ret;
-//	}
+	/**
+	 * Creates a string builder with a specified number of indent tabs.
+	 * @param indent
+	 * @return
+	 */
+	protected static StringBuilder indent(int indent) {
+		StringBuilder ret = new StringBuilder();
+		for (int i = 0; i < indent; ++i) {
+			ret.append("\t");
+		}
+		return ret;
+	}
+	
+	protected static String interpolate(String string, Function<String,String> importManager) {
+		if (importManager == null || Util.isBlank(string)) {
+			return string;
+		}
+		MutableContext context = new SimpleMutableContext();
+		context.put("import", new PropertyComputer() {
+			
+			@SuppressWarnings("unchecked")
+			@Override
+			public <T> T compute(Context context, String key, String path, Class<T> type) {		
+				return (T) importManager.apply(path);
+			}
+		});
+		
+		return context.interpolateToString(string);
+	}
+	
+	private static Position decrement(Position position, Function<Integer, Integer> lineLengthProvider) {
+		Position ret = EcoreUtil.copy(position);
+		int column = ret.getColumn();
+		int line = ret.getLine();
+		if (column > 1) {
+			ret.setColumn(column - 1);
+		} else if (line > 1) {			
+			ret.setColumn(lineLengthProvider.apply(line - 1));
+			ret.setLine(line - 1);
+		}
+		return ret;
+	}
 	
 	/**
 	 * 
@@ -348,7 +297,7 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 			String lineStr = lines[line - 1];
 			if (line == startLine && line == lastLine) {
 				int startColumn = start == null ? 1 : start.getColumn();
-				int endColumn = end == null ? lineStr.length() : end.getColumn();
+				int endColumn = end == null ? lineStr.length() : Math.min(lineStr.length(), end.getColumn());
 				if (startColumn < endColumn) {
 					ret.append(lineStr.substring(startColumn, endColumn - 1)); // Both exclusive
 				}
@@ -401,7 +350,7 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @param importManager
 	 * @return
 	 */
-	protected List<Source> generateContents(Function<String, String> importManager) {
+	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
 		return getChildren();
 	}	
 	
@@ -411,50 +360,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @generated
 	 */
 	@Override
-	public boolean contains(Range range) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean contains(Position position) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean overlaps(Range range) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaPackage.SOURCE__MARKERS:
-				return ((InternalEList<?>)getMarkers()).basicRemove(otherEnd, msgs);
-			case JavaPackage.SOURCE__BEGIN:
-				return basicSetBegin(null, msgs);
-			case JavaPackage.SOURCE__END:
-				return basicSetEnd(null, msgs);
 			case JavaPackage.SOURCE__CHILDREN:
 				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
 			case JavaPackage.SOURCE__REFERENCES:
@@ -471,12 +378,6 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaPackage.SOURCE__MARKERS:
-				return getMarkers();
-			case JavaPackage.SOURCE__BEGIN:
-				return getBegin();
-			case JavaPackage.SOURCE__END:
-				return getEnd();
 			case JavaPackage.SOURCE__SOURCE:
 				return getSource();
 			case JavaPackage.SOURCE__CHILDREN:
@@ -500,16 +401,6 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaPackage.SOURCE__MARKERS:
-				getMarkers().clear();
-				getMarkers().addAll((Collection<? extends Marker>)newValue);
-				return;
-			case JavaPackage.SOURCE__BEGIN:
-				setBegin((Position)newValue);
-				return;
-			case JavaPackage.SOURCE__END:
-				setEnd((Position)newValue);
-				return;
 			case JavaPackage.SOURCE__SOURCE:
 				setSource((String)newValue);
 				return;
@@ -540,15 +431,6 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaPackage.SOURCE__MARKERS:
-				getMarkers().clear();
-				return;
-			case JavaPackage.SOURCE__BEGIN:
-				setBegin((Position)null);
-				return;
-			case JavaPackage.SOURCE__END:
-				setEnd((Position)null);
-				return;
 			case JavaPackage.SOURCE__SOURCE:
 				setSource(SOURCE_EDEFAULT);
 				return;
@@ -576,12 +458,6 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaPackage.SOURCE__MARKERS:
-				return !getMarkers().isEmpty();
-			case JavaPackage.SOURCE__BEGIN:
-				return getBegin() != null;
-			case JavaPackage.SOURCE__END:
-				return getEnd() != null;
 			case JavaPackage.SOURCE__SOURCE:
 				return SOURCE_EDEFAULT == null ? getSource() != null : !SOURCE_EDEFAULT.equals(getSource());
 			case JavaPackage.SOURCE__CHILDREN:
@@ -602,69 +478,11 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source {
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Range.class) {
-			switch (derivedFeatureID) {
-				case JavaPackage.SOURCE__BEGIN: return JavaPackage.RANGE__BEGIN;
-				case JavaPackage.SOURCE__END: return JavaPackage.RANGE__END;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Range.class) {
-			switch (baseFeatureID) {
-				case JavaPackage.RANGE__BEGIN: return JavaPackage.SOURCE__BEGIN;
-				case JavaPackage.RANGE__END: return JavaPackage.SOURCE__END;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Range.class) {
-			switch (baseOperationID) {
-				case JavaPackage.RANGE___CONTAINS__RANGE: return JavaPackage.SOURCE___CONTAINS__RANGE;
-				case JavaPackage.RANGE___CONTAINS__POSITION: return JavaPackage.SOURCE___CONTAINS__POSITION;
-				case JavaPackage.RANGE___OVERLAPS__RANGE: return JavaPackage.SOURCE___OVERLAPS__RANGE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JavaPackage.SOURCE___GENERATE__FUNCTION:
-				return generate((Function<String, String>)arguments.get(0));
-			case JavaPackage.SOURCE___CONTAINS__RANGE:
-				return contains((Range)arguments.get(0));
-			case JavaPackage.SOURCE___CONTAINS__POSITION:
-				return contains((Position)arguments.get(0));
-			case JavaPackage.SOURCE___OVERLAPS__RANGE:
-				return overlaps((Range)arguments.get(0));
+			case JavaPackage.SOURCE___GENERATE__FUNCTION_INT:
+				return generate((Function<String, String>)arguments.get(0), (Integer)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

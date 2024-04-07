@@ -2,7 +2,6 @@
  */
 package org.nasdanika.models.java;
 
-import java.util.function.BiFunction;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -70,29 +69,16 @@ public interface CompilationUnit extends NamedElement {
 	 * @generated
 	 */
 	EList<String> getImports();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Merges new source code with the current code preserving manual changes in the current code
-	 * @param source Source code to merge with the current code
-	 * <!-- end-model-doc -->
-	 * @model mergerType="org.nasdanika.models.java.Merger"
-	 * @generated
-	 */
-	void merge(String source, BiFunction<String, String, String> merger);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Collects  new source code from children and merges with the current code preserving manual changes in the current code
-	 * <!-- end-model-doc -->
-	 * @model mergerType="org.nasdanika.models.java.Merger"
-	 * @generated
-	 */
-	void merge(BiFunction<String, String, String> merger);
 	
+	static CompilationUnit create(String name, String packageName, String... imports) {
+		CompilationUnit cu = JavaFactory.eINSTANCE.createCompilationUnit();
+		cu.setName(name);
+		cu.setPackageName(packageName);
+		for (String i: imports) {
+			cu.getImports().add(i);
+		}
+		return cu;
+	}
+
 	
 } // CompilationUnit

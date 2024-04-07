@@ -3,6 +3,7 @@
 package org.nasdanika.models.java.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -23,7 +24,7 @@ import org.nasdanika.models.java.TypeParameter;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getMembers <em>Members</em>}</li>
- *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getSupertypes <em>Supertypes</em>}</li>
+ *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getSuperTypes <em>Super Types</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getTypeParameters <em>Type Parameters</em>}</li>
  *   <li>{@link org.nasdanika.models.java.impl.TypeImpl#getPermits <em>Permits</em>}</li>
  * </ul>
@@ -68,8 +69,8 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<GenericType> getSupertypes() {
-		return (EList<GenericType>)eDynamicGet(JavaPackage.TYPE__SUPERTYPES, JavaPackage.Literals.TYPE__SUPERTYPES, true, true);
+	public EList<GenericType> getSuperTypes() {
+		return (EList<GenericType>)eDynamicGet(JavaPackage.TYPE__SUPER_TYPES, JavaPackage.Literals.TYPE__SUPER_TYPES, true, true);
 	}
 
 	/**
@@ -104,8 +105,8 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 		switch (featureID) {
 			case JavaPackage.TYPE__MEMBERS:
 				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
-			case JavaPackage.TYPE__SUPERTYPES:
-				return ((InternalEList<?>)getSupertypes()).basicRemove(otherEnd, msgs);
+			case JavaPackage.TYPE__SUPER_TYPES:
+				return ((InternalEList<?>)getSuperTypes()).basicRemove(otherEnd, msgs);
 			case JavaPackage.TYPE__TYPE_PARAMETERS:
 				return ((InternalEList<?>)getTypeParameters()).basicRemove(otherEnd, msgs);
 			case JavaPackage.TYPE__PERMITS:
@@ -124,8 +125,8 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 		switch (featureID) {
 			case JavaPackage.TYPE__MEMBERS:
 				return getMembers();
-			case JavaPackage.TYPE__SUPERTYPES:
-				return getSupertypes();
+			case JavaPackage.TYPE__SUPER_TYPES:
+				return getSuperTypes();
 			case JavaPackage.TYPE__TYPE_PARAMETERS:
 				return getTypeParameters();
 			case JavaPackage.TYPE__PERMITS:
@@ -147,9 +148,9 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 				getMembers().clear();
 				getMembers().addAll((Collection<? extends Member>)newValue);
 				return;
-			case JavaPackage.TYPE__SUPERTYPES:
-				getSupertypes().clear();
-				getSupertypes().addAll((Collection<? extends GenericType>)newValue);
+			case JavaPackage.TYPE__SUPER_TYPES:
+				getSuperTypes().clear();
+				getSuperTypes().addAll((Collection<? extends GenericType>)newValue);
 				return;
 			case JavaPackage.TYPE__TYPE_PARAMETERS:
 				getTypeParameters().clear();
@@ -174,8 +175,8 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 			case JavaPackage.TYPE__MEMBERS:
 				getMembers().clear();
 				return;
-			case JavaPackage.TYPE__SUPERTYPES:
-				getSupertypes().clear();
+			case JavaPackage.TYPE__SUPER_TYPES:
+				getSuperTypes().clear();
 				return;
 			case JavaPackage.TYPE__TYPE_PARAMETERS:
 				getTypeParameters().clear();
@@ -197,8 +198,8 @@ public abstract class TypeImpl extends MemberImpl implements Type {
 		switch (featureID) {
 			case JavaPackage.TYPE__MEMBERS:
 				return !getMembers().isEmpty();
-			case JavaPackage.TYPE__SUPERTYPES:
-				return !getSupertypes().isEmpty();
+			case JavaPackage.TYPE__SUPER_TYPES:
+				return !getSuperTypes().isEmpty();
 			case JavaPackage.TYPE__TYPE_PARAMETERS:
 				return !getTypeParameters().isEmpty();
 			case JavaPackage.TYPE__PERMITS:

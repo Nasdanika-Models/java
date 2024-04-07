@@ -32,5 +32,14 @@ public interface Annotation extends Reference {
 	 * @generated
 	 */
 	EList<NamedElement> getElements();
+	
+	static Annotation create(String name, NamedElement... elements) {
+		Annotation ret = JavaFactory.eINSTANCE.createAnnotation();
+		ret.setName(name);
+		for (NamedElement element: elements) {
+			ret.getElements().add(element);
+		}
+		return ret;
+	}	
 
 } // Annotation

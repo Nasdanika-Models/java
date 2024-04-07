@@ -14,4 +14,14 @@ package org.nasdanika.models.java;
  * @generated
  */
 public interface Class extends Type {
+	
+	static Class create(String name, String... modifiers) {
+		Class ret = JavaFactory.eINSTANCE.createClass();
+		ret.setName(name);
+		for (String modifier: modifiers) {
+			ret.getModifiers().add(modifier);
+		}
+		return ret;
+	}
+	
 } // Class
