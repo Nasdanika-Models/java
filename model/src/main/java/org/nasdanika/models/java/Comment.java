@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.java;
 
+import org.nasdanika.models.source.Range;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Comment</b></em>'.

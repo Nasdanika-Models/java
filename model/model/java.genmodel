@@ -4,50 +4,16 @@
     editorDirectory="" modelPluginID="org.nasdanika.models.java" modelName="Java"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     featureDelegation="Dynamic" complianceLevel="17.0" suppressGenModelAnnotations="false"
-    copyrightFields="false" usedGenPackages="../../org.nasdanika.models.coverage/model/coverage.genmodel#//coverage ../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
+    copyrightFields="false" usedGenPackages="../../org.nasdanika.models.coverage/model/coverage.genmodel#//coverage ../../org.nasdanika.ncore/model/ncore.genmodel#//ncore ../../org.nasdanika.models.source/model/source.genmodel#//source"
     operationReflection="true" importOrganizing="true">
   <foreignModel>java.ecore</foreignModel>
   <genPackages prefix="Java" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="java.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="java.ecore#//GenerationMode">
-      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/SOURCE"/>
-      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/CONTENTS"/>
-      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/COMPOSE"/>
-      <genEnumLiterals ecoreEnumLiteral="java.ecore#//GenerationMode/MERGE"/>
-    </genEnums>
-    <genClasses image="false" ecoreClass="java.ecore#//ImportManager"/>
-    <genClasses image="false" ecoreClass="java.ecore#//Comparable">
-      <genTypeParameters ecoreTypeParameter="java.ecore#//Comparable/T"/>
-    </genClasses>
-    <genClasses ecoreClass="java.ecore#//Position">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Position/line"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Position/column"/>
-    </genClasses>
-    <genClasses ecoreClass="java.ecore#//Range">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Range/begin"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Range/end"/>
-      <genOperations ecoreOperation="java.ecore#//Range/contains">
-        <genParameters ecoreParameter="java.ecore#//Range/contains/range"/>
-      </genOperations>
-      <genOperations ecoreOperation="java.ecore#//Range/contains.1">
-        <genParameters ecoreParameter="java.ecore#//Range/contains.1/position"/>
-      </genOperations>
-      <genOperations ecoreOperation="java.ecore#//Range/overlaps">
-        <genParameters ecoreParameter="java.ecore#//Range/overlaps/range"/>
-      </genOperations>
-    </genClasses>
     <genClasses ecoreClass="java.ecore#//Source">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Source/source"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/children"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//Source/coverage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/references"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//Source/generationMode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//Source/comment"/>
-      <genOperations ecoreOperation="java.ecore#//Source/generate">
-        <genParameters ecoreParameter="java.ecore#//Source/generate/importManager"/>
-        <genParameters ecoreParameter="java.ecore#//Source/generate/indent"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="java.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute java.ecore#//NamedElement/name"/>

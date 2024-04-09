@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.Comment;
-import org.nasdanika.models.java.GenerationMode;
+import org.nasdanika.models.source.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
-import org.nasdanika.models.java.Source;
+import org.nasdanika.models.source.Source;
 
 /**
  * <!-- begin-user-doc -->
@@ -272,7 +272,7 @@ public class GenericTypeImpl extends ReferenceImpl implements GenericType {
 			String text = comment.getComment();
 			if (!Util.isBlank(text)) {
 				StringBuilder builder = indent(indent).append(text);
-				if (getGenerationMode() != GenerationMode.MERGE) {
+				if (!isMerging()) {
 					builder.append(System.lineSeparator());				
 				}
 				contents.add(Source.create(builder, comment));
@@ -284,7 +284,7 @@ public class GenericTypeImpl extends ReferenceImpl implements GenericType {
 		
 		StringBuilder builder = new StringBuilder();
 		String name = getName();
-		builder.append(Util.isBlank(name) ? "?" : interpolate(name, importManager));		
+		builder.append(Util.isBlank(name) ? "?" : Util.interpolate(name, importManager));		
 		// Type arguments
 		EList<GenericType> typeArguments = getTypeArguments();
 		if (!typeArguments.isEmpty()) {

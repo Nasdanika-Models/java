@@ -8,12 +8,11 @@ import java.util.function.Function;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Util;
-import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
-import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.TypeParameter;
+import org.nasdanika.models.source.GenerationMode;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,9 +42,9 @@ public class ClassImpl extends TypeImpl implements org.nasdanika.models.java.Cla
 	}
 	
 	@Override
-	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
+	protected List<org.nasdanika.models.source.Source> generateContents(Function<String, String> importManager, int indent) {
 		// {ClassModifier} class TypeIdentifier [TypeParameters] [ClassExtends] [ClassImplements] [ClassPermits] ClassBody		
-		List<Source> contents = super.generateContents(importManager, indent);
+		List<org.nasdanika.models.source.Source> contents = super.generateContents(importManager, indent);
 		
 		StringBuilder headerBuilder = indent(indent);
 		for (String modifier: getModifiers()) {
@@ -94,21 +93,21 @@ public class ClassImpl extends TypeImpl implements org.nasdanika.models.java.Cla
 		}
 						
 		headerBuilder.append(" {").append(System.lineSeparator());
-		if (getGenerationMode() != GenerationMode.MERGE) {
+		if (!isMerging()) {
 			headerBuilder.append(System.lineSeparator());				
 		}
 		
-		contents.add(Source.create(headerBuilder));
+		contents.add(org.nasdanika.models.source.Source.create(headerBuilder));
 
 		for (Member member: getMembers()) {
 			String memberSource = member.generate(importManager, indent + 1);
-			if (getGenerationMode() != GenerationMode.MERGE) {
+			if (!isMerging()) {
 				memberSource += System.lineSeparator();				
 			}
-			contents.add(Source.create(memberSource, member));
+			contents.add(org.nasdanika.models.source.Source.create(memberSource, member));
 		}
 		
-		contents.add(Source.create(indent(indent).append("}").append(System.lineSeparator())));
+		contents.add(org.nasdanika.models.source.Source.create(indent(indent).append("}").append(System.lineSeparator())));
 		return contents;
 	}	
 

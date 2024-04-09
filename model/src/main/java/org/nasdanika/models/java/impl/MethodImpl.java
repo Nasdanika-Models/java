@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.models.java.GenerationMode;
+import org.nasdanika.models.source.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.Parameter;
-import org.nasdanika.models.java.Source;
+import org.nasdanika.models.source.Source;
 import org.nasdanika.models.java.TypeParameter;
 
 /**
@@ -211,7 +211,7 @@ public class MethodImpl extends OperationImpl implements Method {
 	}
 	
 	@Override
-	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
+	protected List<Source> generateContents(Function<String, String> tokenSource, int indent) {
 //		MethodDeclaration:
 //			{MethodModifier} MethodHeader MethodBody
 //		MethodHeader:
@@ -222,7 +222,7 @@ public class MethodImpl extends OperationImpl implements Method {
 //		ReceiverParameter:
 //			{Annotation} UnannType [Identifier .] this
 		
-		List<Source> contents = super.generateContents(importManager, indent);
+		List<Source> contents = super.generateContents(tokenSource, indent);
 		
 		StringBuilder builder = indent(indent);
 		for (String modifier: getModifiers()) {
@@ -237,27 +237,27 @@ public class MethodImpl extends OperationImpl implements Method {
 				if (!first) {
 					builder.append(", ");					
 				}
-				builder.append(typeParameter.generate(importManager, 0));
+				builder.append(typeParameter.generate(tokenSource, 0));
 				first = false;
 			}
 			builder.append(">");
 		}
 		
 		GenericType type = getType();
-		builder.append(type == null ? "void" : type.generate(importManager, 0)).append(" ");		
+		builder.append(type == null ? "void" : type.generate(tokenSource, 0)).append(" ");		
 		builder.append(getName());
 		builder.append("(");
 		int parameterCounter = 0;
 		Parameter receiverParameter = getReceiverParameter();
 		if (receiverParameter != null) {
 			++parameterCounter;
-			builder.append(receiverParameter.generate(importManager, 0));
+			builder.append(receiverParameter.generate(tokenSource, 0));
 		}
 		for (Parameter parameter: getParameters()) {
 			if (parameterCounter > 0) {
 				builder.append(", ");
 			}
-			builder.append(parameter.generate(importManager, 0));
+			builder.append(parameter.generate(tokenSource, 0));
 			++parameterCounter;
 		}
 		builder.append(")");
@@ -265,9 +265,9 @@ public class MethodImpl extends OperationImpl implements Method {
 		int exceptionCounter = 0;
 		for (GenericType exc: getExceptions()) {
 			if (exceptionCounter == 0) {
-				builder.append(" throws ").append(exc.generate(importManager, 0));
+				builder.append(" throws ").append(exc.generate(tokenSource, 0));
 			} else {
-				builder.append(", ").append(exc.generate(importManager, 0));								
+				builder.append(", ").append(exc.generate(tokenSource, 0));								
 			}			
 			++exceptionCounter;
 		}
@@ -276,16 +276,16 @@ public class MethodImpl extends OperationImpl implements Method {
 		if (body == null) {
 			builder.append(";");
 		} else {
-			builder.append(" ").append(body.generate(importManager, indent + 1));
+			builder.append(" ").append(body.generate(tokenSource, indent + 1));
 		}
 		
-		if (getGenerationMode() != GenerationMode.MERGE) {
+		if (!isMerging()) {
 			builder.append(System.lineSeparator());				
 		}
 		
 		contents.add(Source.create(builder));
 
 		return contents;
-	}	
+	}
 	
 } //MethodImpl

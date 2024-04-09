@@ -34,8 +34,9 @@ import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Parameter;
-import org.nasdanika.models.java.Position;
-import org.nasdanika.models.java.Range;
+import org.nasdanika.models.source.Position;
+import org.nasdanika.models.source.Range;
+import org.nasdanika.models.source.SourceFactory;
 import org.nasdanika.models.java.Record;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
@@ -511,7 +512,8 @@ public class JavaParserResource extends ResourceImpl {
 		org.nasdanika.models.java.Constructor constructor = createConstructor();
 		configureOperation(constructorDeclaration, constructor);
 		BlockStmt body = constructorDeclaration.getBody();
-		Source bodySource = Source.create(LexicalPreservingPrinter.print(body));
+		Source bodySource = JavaFactory.eINSTANCE.createSource();
+		bodySource.setSource(LexicalPreservingPrinter.print(body));
 		setRange(body, bodySource);
 		constructor.setBody(bodySource);			
 		return constructor;
@@ -601,7 +603,7 @@ public class JavaParserResource extends ResourceImpl {
 	}
 	
 	protected Position createPosition() {
-		return getJavaFactory().createPosition();
+		return SourceFactory.eINSTANCE.createPosition();
 	}
 
 	protected void setRange(Node node, Range range) {

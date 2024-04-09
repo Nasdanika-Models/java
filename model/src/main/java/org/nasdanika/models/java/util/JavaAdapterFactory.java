@@ -2,7 +2,6 @@
  */
 package org.nasdanika.models.java.util;
 
-import java.util.function.Function;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -29,13 +28,12 @@ import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Parameter;
-import org.nasdanika.models.java.Position;
-import org.nasdanika.models.java.Range;
 import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
 import org.nasdanika.models.java.TypeParameter;
 import org.nasdanika.models.java.TypedElement;
+import org.nasdanika.models.source.Range;
 import org.nasdanika.persistence.Marked;
 
 /**
@@ -94,22 +92,6 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected JavaSwitch<Adapter> modelSwitch =
 		new JavaSwitch<Adapter>() {
-			@Override
-			public Adapter caseImportManager(Function<String, String> object) {
-				return createImportManagerAdapter();
-			}
-			@Override
-			public <T> Adapter caseComparable(Comparable<T> object) {
-				return createComparableAdapter();
-			}
-			@Override
-			public Adapter casePosition(Position object) {
-				return createPositionAdapter();
-			}
-			@Override
-			public Adapter caseRange(Range object) {
-				return createRangeAdapter();
-			}
 			@Override
 			public Adapter caseSource(Source object) {
 				return createSourceAdapter();
@@ -243,6 +225,14 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 				return createMarkedAdapter();
 			}
 			@Override
+			public Adapter caseRange(Range object) {
+				return createRangeAdapter();
+			}
+			@Override
+			public Adapter caseSource_Source(org.nasdanika.models.source.Source object) {
+				return createSource_SourceAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -263,58 +253,30 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.util.function.Function <em>Import Manager</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.source.Range <em>Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see java.util.function.Function
-	 * @generated
-	 */
-	public Adapter createImportManagerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link java.lang.Comparable <em>Comparable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see java.lang.Comparable
-	 * @generated
-	 */
-	public Adapter createComparableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Position <em>Position</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.models.java.Position
-	 * @generated
-	 */
-	public Adapter createPositionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.java.Range <em>Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.models.java.Range
+	 * @see org.nasdanika.models.source.Range
 	 * @generated
 	 */
 	public Adapter createRangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.source.Source <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.source.Source
+	 * @generated
+	 */
+	public Adapter createSource_SourceAdapter() {
 		return null;
 	}
 

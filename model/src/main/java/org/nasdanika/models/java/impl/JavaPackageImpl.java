@@ -2,16 +2,10 @@
  */
 package org.nasdanika.models.java.impl;
 
-import java.lang.Comparable;
-
 import static org.nasdanika.models.java.JavaPackage.CLASS;
 
-import java.util.function.Function;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -27,7 +21,6 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
-import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
@@ -40,13 +33,12 @@ import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Parameter;
-import org.nasdanika.models.java.Position;
-import org.nasdanika.models.java.Range;
 import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
 import org.nasdanika.models.java.TypeParameter;
 import org.nasdanika.models.java.TypedElement;
+import org.nasdanika.models.source.SourcePackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -56,34 +48,6 @@ import org.nasdanika.ncore.NcorePackage;
  * @generated
  */
 public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass importManagerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass comparableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass positionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rangeEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,13 +117,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	private EClass recordEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum generationModeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -357,6 +314,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Initialize simple dependencies
 		CoveragePackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
+		SourcePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJavaPackage.createPackageContents();
@@ -488,28 +446,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSource_Source() {
-		return (EAttribute)sourceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSource_Children() {
-		return (EReference)sourceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSource_Coverage() {
-		return (EReference)sourceEClass.getEStructuralFeatures().get(2);
+		return (EReference)sourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -519,17 +457,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	@Override
 	public EReference getSource_References() {
-		return (EReference)sourceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSource_GenerationMode() {
-		return (EAttribute)sourceEClass.getEStructuralFeatures().get(4);
+		return (EReference)sourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -539,7 +467,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	@Override
 	public EReference getSource_Annotations() {
-		return (EReference)sourceEClass.getEStructuralFeatures().get(5);
+		return (EReference)sourceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -549,17 +477,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	@Override
 	public EReference getSource_Comment() {
-		return (EReference)sourceEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getSource__Generate__Function_int() {
-		return sourceEClass.getEOperations().get(0);
+		return (EReference)sourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -570,126 +488,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	@Override
 	public EClass getRecord() {
 		return recordEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EEnum getGenerationMode() {
-		return generationModeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getImportManager() {
-		return importManagerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getComparable() {
-		return comparableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getPosition() {
-		return positionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPosition_Line() {
-		return (EAttribute)positionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPosition_Column() {
-		return (EAttribute)positionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getRange() {
-		return rangeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getRange_Begin() {
-		return (EReference)rangeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getRange_End() {
-		return (EReference)rangeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getRange__Contains__Range() {
-		return rangeEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getRange__Contains__Position() {
-		return rangeEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getRange__Overlaps__Range() {
-		return rangeEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1241,30 +1039,11 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		importManagerEClass = createEClass(IMPORT_MANAGER);
-
-		comparableEClass = createEClass(COMPARABLE);
-
-		positionEClass = createEClass(POSITION);
-		createEAttribute(positionEClass, POSITION__LINE);
-		createEAttribute(positionEClass, POSITION__COLUMN);
-
-		rangeEClass = createEClass(RANGE);
-		createEReference(rangeEClass, RANGE__BEGIN);
-		createEReference(rangeEClass, RANGE__END);
-		createEOperation(rangeEClass, RANGE___CONTAINS__RANGE);
-		createEOperation(rangeEClass, RANGE___CONTAINS__POSITION);
-		createEOperation(rangeEClass, RANGE___OVERLAPS__RANGE);
-
 		sourceEClass = createEClass(SOURCE);
-		createEAttribute(sourceEClass, SOURCE__SOURCE);
-		createEReference(sourceEClass, SOURCE__CHILDREN);
 		createEReference(sourceEClass, SOURCE__COVERAGE);
 		createEReference(sourceEClass, SOURCE__REFERENCES);
-		createEAttribute(sourceEClass, SOURCE__GENERATION_MODE);
 		createEReference(sourceEClass, SOURCE__ANNOTATIONS);
 		createEReference(sourceEClass, SOURCE__COMMENT);
-		createEOperation(sourceEClass, SOURCE___GENERATE__FUNCTION_INT);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -1358,9 +1137,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEAttribute(operationEClass, OPERATION__SIGNATURE);
 
 		recordEClass = createEClass(RECORD);
-
-		// Create enums
-		generationModeEEnum = createEEnum(GENERATION_MODE);
 	}
 
 	/**
@@ -1387,24 +1163,18 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
+		SourcePackage theSourcePackage = (SourcePackage)EPackage.Registry.INSTANCE.getEPackage(SourcePackage.eNS_URI);
 		CoveragePackage theCoveragePackage = (CoveragePackage)EPackage.Registry.INSTANCE.getEPackage(CoveragePackage.eNS_URI);
 
 		// Create type parameters
-		addETypeParameter(comparableEClass, "T");
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		EGenericType g1 = createEGenericType(this.getComparable());
-		EGenericType g2 = createEGenericType(this.getPosition());
-		g1.getETypeArguments().add(g2);
-		positionEClass.getEGenericSuperTypes().add(g1);
-		rangeEClass.getESuperTypes().add(theNcorePackage.getMarked());
-		sourceEClass.getESuperTypes().add(this.getRange());
+		sourceEClass.getESuperTypes().add(theSourcePackage.getSource());
 		namedElementEClass.getESuperTypes().add(this.getSource());
 		compilationUnitEClass.getESuperTypes().add(this.getNamedElement());
-		commentEClass.getESuperTypes().add(this.getRange());
+		commentEClass.getESuperTypes().add(theSourcePackage.getRange());
 		lineCommentEClass.getESuperTypes().add(this.getComment());
 		javadocCommentEClass.getESuperTypes().add(this.getComment());
 		blockCommentEClass.getESuperTypes().add(this.getComment());
@@ -1436,39 +1206,11 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		recordEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(importManagerEClass, Function.class, "ImportManager", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.util.function.Function<String, String>");
-
-		initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPosition_Line(), ecorePackage.getEInt(), "line", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPosition_Column(), ecorePackage.getEInt(), "column", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(rangeEClass, Range.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRange_Begin(), this.getPosition(), null, "begin", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRange_End(), this.getPosition(), null, "end", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getRange__Contains__Range(), ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getRange(), "range", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getRange__Contains__Position(), ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getPosition(), "position", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getRange__Overlaps__Range(), ecorePackage.getEBoolean(), "overlaps", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getRange(), "range", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSource_Source(), ecorePackage.getEString(), "source", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSource_Children(), this.getSource(), null, "children", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_Coverage(), theCoveragePackage.getCoverage(), null, "coverage", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_References(), this.getReference(), null, "references", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSource_GenerationMode(), this.getGenerationMode(), "generationMode", "MERGE", 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_Comment(), this.getComment(), null, "comment", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getSource__Generate__Function_int(), ecorePackage.getEString(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getImportManager(), "importManager", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "indent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1563,13 +1305,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		initEClass(recordEClass, org.nasdanika.models.java.Record.class, "Record", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		// Initialize enums and add enum literals
-		initEEnum(generationModeEEnum, GenerationMode.class, "GenerationMode");
-		addEEnumLiteral(generationModeEEnum, GenerationMode.SOURCE);
-		addEEnumLiteral(generationModeEEnum, GenerationMode.CONTENTS);
-		addEEnumLiteral(generationModeEEnum, GenerationMode.COMPOSE);
-		addEEnumLiteral(generationModeEEnum, GenerationMode.MERGE);
-
 		// Create resource
 		createResource(eNS_URI);
 
@@ -1586,42 +1321,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";
-		addAnnotation
-		  (generationModeEEnum,
-		   source,
-		   new String[] {
-			   "documentation", "Defines how own source and contents are usd by the generate() method"
-		   });
-		addAnnotation
-		  (generationModeEEnum.getELiterals().get(0),
-		   source,
-		   new String[] {
-			   "documentation", "Use only own source, ingnore contents"
-		   });
-		addAnnotation
-		  (generationModeEEnum.getELiterals().get(1),
-		   source,
-		   new String[] {
-			   "documentation", "Do not use own source, generate from contents"
-		   });
-		addAnnotation
-		  (generationModeEEnum.getELiterals().get(2),
-		   source,
-		   new String[] {
-			   "documentation", "Concatenate own source with source generated by contents"
-		   });
-		addAnnotation
-		  (generationModeEEnum.getELiterals().get(3),
-		   source,
-		   new String[] {
-			   "documentation", "Own source (original) is merged with new source generated from contents"
-		   });
-		addAnnotation
-		  (getSource__Generate__Function_int(),
-		   source,
-		   new String[] {
-			   "documentation", "Generates source code"
-		   });
 		addAnnotation
 		  (getNamedElement_Name(),
 		   source,

@@ -22,24 +22,6 @@ public interface JavaFactory extends EFactory {
 	JavaFactory eINSTANCE = org.nasdanika.models.java.impl.JavaFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Position</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Position</em>'.
-	 * @generated
-	 */
-	Position createPosition();
-
-	/**
-	 * Returns a new object of class '<em>Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Range</em>'.
-	 * @generated
-	 */
-	Range createRange();
-
-	/**
 	 * Returns a new object of class '<em>Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

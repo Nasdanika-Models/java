@@ -4,11 +4,9 @@ package org.nasdanika.models.java;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.models.source.SourcePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,7 +65,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 4;
+	int SOURCE = 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ModuleImpl <em>Module</em>}' class.
@@ -77,7 +75,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 26;
+	int MODULE = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.MethodImpl <em>Method</em>}' class.
@@ -87,7 +85,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 28;
+	int METHOD = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PackageImpl <em>Package</em>}' class.
@@ -97,7 +95,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 27;
+	int PACKAGE = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
@@ -107,7 +105,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCompilationUnit()
 	 * @generated
 	 */
-	int COMPILATION_UNIT = 6;
+	int COMPILATION_UNIT = 2;
 
 
 	/**
@@ -178,7 +176,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getMember()
 	 * @generated
 	 */
-	int MEMBER = 11;
+	int MEMBER = 7;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.TypeImpl <em>Type</em>}' class.
@@ -188,7 +186,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 17;
+	int TYPE = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassImpl <em>Class</em>}' class.
@@ -198,7 +196,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 20;
+	int CLASS = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.OperationImpl <em>Operation</em>}' class.
@@ -208,7 +206,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 33;
+	int OPERATION = 29;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -218,7 +216,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 22;
+	int CONSTRUCTOR = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumImpl <em>Enum</em>}' class.
@@ -228,7 +226,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnum()
 	 * @generated
 	 */
-	int ENUM = 23;
+	int ENUM = 19;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.FieldImpl <em>Field</em>}' class.
@@ -238,7 +236,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 25;
+	int FIELD = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -248,7 +246,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 21;
+	int INTERFACE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
@@ -258,7 +256,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 34;
+	int RECORD = 30;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CommentImpl <em>Comment</em>}' class.
@@ -268,7 +266,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComment()
 	 * @generated
 	 */
-	int COMMENT = 7;
+	int COMMENT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.CodeImpl <em>Code</em>}' class.
@@ -278,7 +276,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getCode()
 	 * @generated
 	 */
-	int CODE = 29;
+	int CODE = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.EnumConstantImpl <em>Enum Constant</em>}' class.
@@ -288,7 +286,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getEnumConstant()
 	 * @generated
 	 */
-	int ENUM_CONSTANT = 24;
+	int ENUM_CONSTANT = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.InitializerImpl <em>Initializer</em>}' class.
@@ -298,7 +296,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getInitializer()
 	 * @generated
 	 */
-	int INITIALIZER = 30;
+	int INITIALIZER = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.ClassInitializerImpl <em>Class Initializer</em>}' class.
@@ -308,120 +306,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getClassInitializer()
 	 * @generated
 	 */
-	int CLASS_INITIALIZER = 31;
-
-	/**
-	 * The meta object id for the '{@link java.util.function.Function <em>Import Manager</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.util.function.Function
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getImportManager()
-	 * @generated
-	 */
-	int IMPORT_MANAGER = 0;
-
-
-	/**
-	 * The number of structural features of the '<em>Import Manager</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPORT_MANAGER_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Import Manager</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPORT_MANAGER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Comparable
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComparable()
-	 * @generated
-	 */
-	int COMPARABLE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Comparable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Comparable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.PositionImpl <em>Position</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.PositionImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPosition()
-	 * @generated
-	 */
-	int POSITION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Line</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__LINE = COMPARABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Column</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__COLUMN = COMPARABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Position</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Position</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.impl.RangeImpl <em>Range</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.impl.RangeImpl
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRange()
-	 * @generated
-	 */
-	int RANGE = 3;
+	int CLASS_INITIALIZER = 27;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -430,7 +315,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RANGE__MARKERS = NcorePackage.MARKED__MARKERS;
+	int SOURCE__MARKERS = SourcePackage.SOURCE__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
@@ -439,7 +324,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RANGE__BEGIN = NcorePackage.MARKED_FEATURE_COUNT + 0;
+	int SOURCE__BEGIN = SourcePackage.SOURCE__BEGIN;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' containment reference.
@@ -448,79 +333,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RANGE__END = NcorePackage.MARKED_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE_FEATURE_COUNT = NcorePackage.MARKED_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Contains</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE___CONTAINS__RANGE = NcorePackage.MARKED_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Contains</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE___CONTAINS__POSITION = NcorePackage.MARKED_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Overlaps</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE___OVERLAPS__RANGE = NcorePackage.MARKED_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE_OPERATION_COUNT = NcorePackage.MARKED_OPERATION_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE__MARKERS = RANGE__MARKERS;
-
-	/**
-	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE__BEGIN = RANGE__BEGIN;
-
-	/**
-	 * The feature id for the '<em><b>End</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE__END = RANGE__END;
+	int SOURCE__END = SourcePackage.SOURCE__END;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -529,7 +342,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__SOURCE = RANGE_FEATURE_COUNT + 0;
+	int SOURCE__SOURCE = SourcePackage.SOURCE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -538,25 +351,25 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__CHILDREN = RANGE_FEATURE_COUNT + 1;
+	int SOURCE__CHILDREN = SourcePackage.SOURCE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__COVERAGE = RANGE_FEATURE_COUNT + 2;
+	int SOURCE__INDENT = SourcePackage.SOURCE__INDENT;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__REFERENCES = RANGE_FEATURE_COUNT + 3;
+	int SOURCE__INTERPOLATE = SourcePackage.SOURCE__INTERPOLATE;
 
 	/**
 	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
@@ -565,7 +378,25 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__GENERATION_MODE = RANGE_FEATURE_COUNT + 4;
+	int SOURCE__GENERATION_MODE = SourcePackage.SOURCE__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__COVERAGE = SourcePackage.SOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__REFERENCES = SourcePackage.SOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -574,7 +405,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__ANNOTATIONS = RANGE_FEATURE_COUNT + 5;
+	int SOURCE__ANNOTATIONS = SourcePackage.SOURCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference.
@@ -583,7 +414,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__COMMENT = RANGE_FEATURE_COUNT + 6;
+	int SOURCE__COMMENT = SourcePackage.SOURCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Source</em>' class.
@@ -592,7 +423,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = RANGE_FEATURE_COUNT + 7;
+	int SOURCE_FEATURE_COUNT = SourcePackage.SOURCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -601,7 +432,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE___CONTAINS__RANGE = RANGE___CONTAINS__RANGE;
+	int SOURCE___CONTAINS__RANGE = SourcePackage.SOURCE___CONTAINS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -610,7 +441,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE___CONTAINS__POSITION = RANGE___CONTAINS__POSITION;
+	int SOURCE___CONTAINS__POSITION = SourcePackage.SOURCE___CONTAINS__POSITION;
 
 	/**
 	 * The operation id for the '<em>Overlaps</em>' operation.
@@ -619,7 +450,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE___OVERLAPS__RANGE = RANGE___OVERLAPS__RANGE;
+	int SOURCE___OVERLAPS__RANGE = SourcePackage.SOURCE___OVERLAPS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -628,7 +459,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE___GENERATE__FUNCTION_INT = RANGE_OPERATION_COUNT + 0;
+	int SOURCE___GENERATE__FUNCTION_INT = SourcePackage.SOURCE___GENERATE__FUNCTION_INT;
 
 	/**
 	 * The number of operations of the '<em>Source</em>' class.
@@ -637,7 +468,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_OPERATION_COUNT = RANGE_OPERATION_COUNT + 1;
+	int SOURCE_OPERATION_COUNT = SourcePackage.SOURCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -647,7 +478,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 5;
+	int NAMED_ELEMENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -695,6 +526,33 @@ public interface JavaPackage extends EPackage {
 	int NAMED_ELEMENT__CHILDREN = SOURCE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__INDENT = SOURCE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__INTERPOLATE = SOURCE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__GENERATION_MODE = SOURCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -711,15 +569,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT__REFERENCES = SOURCE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT__GENERATION_MODE = SOURCE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -866,6 +715,33 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__INDENT = NAMED_ELEMENT__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__INTERPOLATE = NAMED_ELEMENT__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -882,15 +758,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPILATION_UNIT__REFERENCES = NAMED_ELEMENT__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_UNIT__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1025,7 +892,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__MARKERS = RANGE__MARKERS;
+	int COMMENT__MARKERS = SourcePackage.RANGE__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Begin</b></em>' containment reference.
@@ -1034,7 +901,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__BEGIN = RANGE__BEGIN;
+	int COMMENT__BEGIN = SourcePackage.RANGE__BEGIN;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' containment reference.
@@ -1043,7 +910,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__END = RANGE__END;
+	int COMMENT__END = SourcePackage.RANGE__END;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1052,7 +919,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__COMMENT = RANGE_FEATURE_COUNT + 0;
+	int COMMENT__COMMENT = SourcePackage.RANGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Comment</em>' class.
@@ -1061,7 +928,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT_FEATURE_COUNT = RANGE_FEATURE_COUNT + 1;
+	int COMMENT_FEATURE_COUNT = SourcePackage.RANGE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -1070,7 +937,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT___CONTAINS__RANGE = RANGE___CONTAINS__RANGE;
+	int COMMENT___CONTAINS__RANGE = SourcePackage.RANGE___CONTAINS__RANGE;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -1079,7 +946,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT___CONTAINS__POSITION = RANGE___CONTAINS__POSITION;
+	int COMMENT___CONTAINS__POSITION = SourcePackage.RANGE___CONTAINS__POSITION;
 
 	/**
 	 * The operation id for the '<em>Overlaps</em>' operation.
@@ -1088,7 +955,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT___OVERLAPS__RANGE = RANGE___OVERLAPS__RANGE;
+	int COMMENT___OVERLAPS__RANGE = SourcePackage.RANGE___OVERLAPS__RANGE;
 
 	/**
 	 * The number of operations of the '<em>Comment</em>' class.
@@ -1097,7 +964,7 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT_OPERATION_COUNT = RANGE_OPERATION_COUNT + 0;
+	int COMMENT_OPERATION_COUNT = SourcePackage.RANGE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.java.impl.LineCommentImpl <em>Line Comment</em>}' class.
@@ -1107,7 +974,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getLineComment()
 	 * @generated
 	 */
-	int LINE_COMMENT = 8;
+	int LINE_COMMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1198,7 +1065,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getJavadocComment()
 	 * @generated
 	 */
-	int JAVADOC_COMMENT = 9;
+	int JAVADOC_COMMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1289,7 +1156,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getBlockComment()
 	 * @generated
 	 */
-	int BLOCK_COMMENT = 10;
+	int BLOCK_COMMENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1418,6 +1285,33 @@ public interface JavaPackage extends EPackage {
 	int MEMBER__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__INDENT = NAMED_ELEMENT__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__INTERPOLATE = NAMED_ELEMENT__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1434,15 +1328,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEMBER__REFERENCES = NAMED_ELEMENT__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1569,7 +1454,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getReference()
 	 * @generated
 	 */
-	int REFERENCE = 12;
+	int REFERENCE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1617,6 +1502,33 @@ public interface JavaPackage extends EPackage {
 	int REFERENCE__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__INDENT = NAMED_ELEMENT__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__INTERPOLATE = NAMED_ELEMENT__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1633,15 +1545,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE__REFERENCES = NAMED_ELEMENT__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1759,7 +1662,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getGenericType()
 	 * @generated
 	 */
-	int GENERIC_TYPE = 13;
+	int GENERIC_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -1807,6 +1710,33 @@ public interface JavaPackage extends EPackage {
 	int GENERIC_TYPE__CHILDREN = REFERENCE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__INDENT = REFERENCE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__INTERPOLATE = REFERENCE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE__GENERATION_MODE = REFERENCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1823,15 +1753,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERIC_TYPE__REFERENCES = REFERENCE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERIC_TYPE__GENERATION_MODE = REFERENCE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1985,7 +1906,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotation()
 	 * @generated
 	 */
-	int ANNOTATION = 14;
+	int ANNOTATION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2033,6 +1954,33 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION__CHILDREN = REFERENCE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__INDENT = REFERENCE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__INTERPOLATE = REFERENCE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__GENERATION_MODE = REFERENCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2049,15 +1997,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION__REFERENCES = REFERENCE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION__GENERATION_MODE = REFERENCE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2184,7 +2123,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getTypeParameter()
 	 * @generated
 	 */
-	int TYPE_PARAMETER = 15;
+	int TYPE_PARAMETER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2232,6 +2171,33 @@ public interface JavaPackage extends EPackage {
 	int TYPE_PARAMETER__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__INDENT = NAMED_ELEMENT__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__INTERPOLATE = NAMED_ELEMENT__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2248,15 +2214,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_PARAMETER__REFERENCES = NAMED_ELEMENT__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_PARAMETER__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2374,7 +2331,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getTypedElement()
 	 * @generated
 	 */
-	int TYPED_ELEMENT = 16;
+	int TYPED_ELEMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2422,6 +2379,33 @@ public interface JavaPackage extends EPackage {
 	int TYPED_ELEMENT__CHILDREN = NAMED_ELEMENT__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__INDENT = NAMED_ELEMENT__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__INTERPOLATE = NAMED_ELEMENT__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2438,15 +2422,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPED_ELEMENT__REFERENCES = NAMED_ELEMENT__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPED_ELEMENT__GENERATION_MODE = NAMED_ELEMENT__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2602,6 +2577,33 @@ public interface JavaPackage extends EPackage {
 	int TYPE__CHILDREN = MEMBER__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__INDENT = MEMBER__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__INTERPOLATE = MEMBER__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2618,15 +2620,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE__REFERENCES = MEMBER__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__GENERATION_MODE = MEMBER__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2789,7 +2782,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterface()
 	 * @generated
 	 */
-	int ANNOTATION_INTERFACE = 18;
+	int ANNOTATION_INTERFACE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -2837,6 +2830,33 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE__CHILDREN = TYPE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__INDENT = TYPE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__INTERPOLATE = TYPE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2853,15 +2873,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE__REFERENCES = TYPE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_INTERFACE__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3024,7 +3035,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getAnnotationInterfaceMember()
 	 * @generated
 	 */
-	int ANNOTATION_INTERFACE_MEMBER = 19;
+	int ANNOTATION_INTERFACE_MEMBER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -3072,6 +3083,33 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE_MEMBER__CHILDREN = MEMBER__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__INDENT = MEMBER__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__INTERPOLATE = MEMBER__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3088,15 +3126,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE_MEMBER__REFERENCES = MEMBER__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_INTERFACE_MEMBER__GENERATION_MODE = MEMBER__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3261,6 +3290,33 @@ public interface JavaPackage extends EPackage {
 	int CLASS__CHILDREN = TYPE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__INDENT = TYPE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__INTERPOLATE = TYPE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3277,15 +3333,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS__REFERENCES = TYPE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3486,6 +3533,33 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE__CHILDREN = TYPE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__INDENT = TYPE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__INTERPOLATE = TYPE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3502,15 +3576,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE__REFERENCES = TYPE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3711,6 +3776,33 @@ public interface JavaPackage extends EPackage {
 	int CODE__CHILDREN = MEMBER__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__INDENT = MEMBER__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__INTERPOLATE = MEMBER__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3727,15 +3819,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CODE__REFERENCES = MEMBER__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE__GENERATION_MODE = MEMBER__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3909,6 +3992,33 @@ public interface JavaPackage extends EPackage {
 	int OPERATION__CHILDREN = CODE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__INDENT = CODE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__INTERPOLATE = CODE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__GENERATION_MODE = CODE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3925,15 +4035,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION__REFERENCES = CODE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__GENERATION_MODE = CODE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4161,6 +4262,33 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR__CHILDREN = OPERATION__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__INDENT = OPERATION__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__INTERPOLATE = OPERATION__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__GENERATION_MODE = OPERATION__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4177,15 +4305,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR__REFERENCES = OPERATION__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__GENERATION_MODE = OPERATION__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4413,6 +4532,33 @@ public interface JavaPackage extends EPackage {
 	int ENUM__CHILDREN = TYPE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__INDENT = TYPE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__INTERPOLATE = TYPE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4429,15 +4575,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM__REFERENCES = TYPE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4638,6 +4775,33 @@ public interface JavaPackage extends EPackage {
 	int ENUM_CONSTANT__CHILDREN = MEMBER__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__INDENT = MEMBER__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__INTERPOLATE = MEMBER__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT__GENERATION_MODE = MEMBER__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4654,15 +4818,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_CONSTANT__REFERENCES = MEMBER__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_CONSTANT__GENERATION_MODE = MEMBER__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4827,6 +4982,33 @@ public interface JavaPackage extends EPackage {
 	int FIELD__CHILDREN = CODE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__INDENT = CODE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__INTERPOLATE = CODE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__GENERATION_MODE = CODE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4843,15 +5025,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD__REFERENCES = CODE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__GENERATION_MODE = CODE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -5034,6 +5207,33 @@ public interface JavaPackage extends EPackage {
 	int MODULE__CHILDREN = SOURCE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__INDENT = SOURCE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__INTERPOLATE = SOURCE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__GENERATION_MODE = SOURCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5050,15 +5250,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULE__REFERENCES = SOURCE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE__GENERATION_MODE = SOURCE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -5149,7 +5340,7 @@ public interface JavaPackage extends EPackage {
 	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 32;
+	int PARAMETER = 28;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -5197,6 +5388,33 @@ public interface JavaPackage extends EPackage {
 	int PACKAGE__CHILDREN = SOURCE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__INDENT = SOURCE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__INTERPOLATE = SOURCE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__GENERATION_MODE = SOURCE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5213,15 +5431,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE__REFERENCES = SOURCE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__GENERATION_MODE = SOURCE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -5350,6 +5559,33 @@ public interface JavaPackage extends EPackage {
 	int METHOD__CHILDREN = OPERATION__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__INDENT = OPERATION__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__INTERPOLATE = OPERATION__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__GENERATION_MODE = OPERATION__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5366,15 +5602,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD__REFERENCES = OPERATION__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD__GENERATION_MODE = OPERATION__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -5620,6 +5847,33 @@ public interface JavaPackage extends EPackage {
 	int INITIALIZER__CHILDREN = CODE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__INDENT = CODE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__INTERPOLATE = CODE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER__GENERATION_MODE = CODE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5636,15 +5890,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZER__REFERENCES = CODE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZER__GENERATION_MODE = CODE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -5818,6 +6063,33 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER__CHILDREN = CODE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__INDENT = CODE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__INTERPOLATE = CODE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER__GENERATION_MODE = CODE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5834,15 +6106,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_INITIALIZER__REFERENCES = CODE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_INITIALIZER__GENERATION_MODE = CODE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -6016,6 +6279,33 @@ public interface JavaPackage extends EPackage {
 	int PARAMETER__CHILDREN = TYPED_ELEMENT__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__INDENT = TYPED_ELEMENT__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__INTERPOLATE = TYPED_ELEMENT__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__GENERATION_MODE = TYPED_ELEMENT__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6032,15 +6322,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER__REFERENCES = TYPED_ELEMENT__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__GENERATION_MODE = TYPED_ELEMENT__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -6214,6 +6495,33 @@ public interface JavaPackage extends EPackage {
 	int RECORD__CHILDREN = TYPE__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Indent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__INDENT = TYPE__INDENT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__INTERPOLATE = TYPE__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__GENERATION_MODE = TYPE__GENERATION_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6230,15 +6538,6 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD__REFERENCES = TYPE__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECORD__GENERATION_MODE = TYPE__GENERATION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -6395,17 +6694,6 @@ public interface JavaPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.java.GenerationMode <em>Generation Mode</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.java.GenerationMode
-	 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getGenerationMode()
-	 * @generated
-	 */
-	int GENERATION_MODE = 35;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Module <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6458,28 +6746,6 @@ public interface JavaPackage extends EPackage {
 	EClass getSource();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Source#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Source</em>'.
-	 * @see org.nasdanika.models.java.Source#getSource()
-	 * @see #getSource()
-	 * @generated
-	 */
-	EAttribute getSource_Source();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.Source#getChildren <em>Children</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Children</em>'.
-	 * @see org.nasdanika.models.java.Source#getChildren()
-	 * @see #getSource()
-	 * @generated
-	 */
-	EReference getSource_Children();
-
-	/**
 	 * Returns the meta object for the reference list '{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6500,17 +6766,6 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSource_References();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Source#getGenerationMode <em>Generation Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Generation Mode</em>'.
-	 * @see org.nasdanika.models.java.Source#getGenerationMode()
-	 * @see #getSource()
-	 * @generated
-	 */
-	EAttribute getSource_GenerationMode();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.java.Source#getAnnotations <em>Annotations</em>}'.
@@ -6535,16 +6790,6 @@ public interface JavaPackage extends EPackage {
 	EReference getSource_Comment();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.models.java.Source#generate(java.util.function.Function, int) <em>Generate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate</em>' operation.
-	 * @see org.nasdanika.models.java.Source#generate(java.util.function.Function, int)
-	 * @generated
-	 */
-	EOperation getSource__Generate__Function_int();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Record <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6553,132 +6798,6 @@ public interface JavaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRecord();
-
-	/**
-	 * Returns the meta object for enum '{@link org.nasdanika.models.java.GenerationMode <em>Generation Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Generation Mode</em>'.
-	 * @see org.nasdanika.models.java.GenerationMode
-	 * @generated
-	 */
-	EEnum getGenerationMode();
-
-	/**
-	 * Returns the meta object for class '{@link java.util.function.Function <em>Import Manager</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Import Manager</em>'.
-	 * @see java.util.function.Function
-	 * @model instanceClass="java.util.function.Function&lt;String, String&gt;"
-	 * @generated
-	 */
-	EClass getImportManager();
-
-	/**
-	 * Returns the meta object for class '{@link java.lang.Comparable <em>Comparable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Comparable</em>'.
-	 * @see java.lang.Comparable
-	 * @model instanceClass="java.lang.Comparable" typeParameters="T"
-	 * @generated
-	 */
-	EClass getComparable();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.models.java.Position <em>Position</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Position</em>'.
-	 * @see org.nasdanika.models.java.Position
-	 * @generated
-	 */
-	EClass getPosition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Position#getLine <em>Line</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Line</em>'.
-	 * @see org.nasdanika.models.java.Position#getLine()
-	 * @see #getPosition()
-	 * @generated
-	 */
-	EAttribute getPosition_Line();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.Position#getColumn <em>Column</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Column</em>'.
-	 * @see org.nasdanika.models.java.Position#getColumn()
-	 * @see #getPosition()
-	 * @generated
-	 */
-	EAttribute getPosition_Column();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.models.java.Range <em>Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Range</em>'.
-	 * @see org.nasdanika.models.java.Range
-	 * @generated
-	 */
-	EClass getRange();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Range#getBegin <em>Begin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Begin</em>'.
-	 * @see org.nasdanika.models.java.Range#getBegin()
-	 * @see #getRange()
-	 * @generated
-	 */
-	EReference getRange_Begin();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.java.Range#getEnd <em>End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>End</em>'.
-	 * @see org.nasdanika.models.java.Range#getEnd()
-	 * @see #getRange()
-	 * @generated
-	 */
-	EReference getRange_End();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.models.java.Range#contains(org.nasdanika.models.java.Range) <em>Contains</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Contains</em>' operation.
-	 * @see org.nasdanika.models.java.Range#contains(org.nasdanika.models.java.Range)
-	 * @generated
-	 */
-	EOperation getRange__Contains__Range();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.models.java.Range#contains(org.nasdanika.models.java.Position) <em>Contains</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Contains</em>' operation.
-	 * @see org.nasdanika.models.java.Range#contains(org.nasdanika.models.java.Position)
-	 * @generated
-	 */
-	EOperation getRange__Contains__Position();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.models.java.Range#overlaps(org.nasdanika.models.java.Range) <em>Overlaps</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Overlaps</em>' operation.
-	 * @see org.nasdanika.models.java.Range#overlaps(org.nasdanika.models.java.Range)
-	 * @generated
-	 */
-	EOperation getRange__Overlaps__Range();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.java.Member <em>Member</em>}'.
@@ -7361,22 +7480,6 @@ public interface JavaPackage extends EPackage {
 		EClass SOURCE = eINSTANCE.getSource();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOURCE__SOURCE = eINSTANCE.getSource_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCE__CHILDREN = eINSTANCE.getSource_Children();
-
-		/**
 		 * The meta object literal for the '<em><b>Coverage</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7391,14 +7494,6 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SOURCE__REFERENCES = eINSTANCE.getSource_References();
-
-		/**
-		 * The meta object literal for the '<em><b>Generation Mode</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOURCE__GENERATION_MODE = eINSTANCE.getSource_GenerationMode();
 
 		/**
 		 * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
@@ -7417,14 +7512,6 @@ public interface JavaPackage extends EPackage {
 		EReference SOURCE__COMMENT = eINSTANCE.getSource_Comment();
 
 		/**
-		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SOURCE___GENERATE__FUNCTION_INT = eINSTANCE.getSource__Generate__Function_int();
-
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.RecordImpl <em>Record</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7433,112 +7520,6 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RECORD = eINSTANCE.getRecord();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.models.java.GenerationMode <em>Generation Mode</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.models.java.GenerationMode
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getGenerationMode()
-		 * @generated
-		 */
-		EEnum GENERATION_MODE = eINSTANCE.getGenerationMode();
-
-		/**
-		 * The meta object literal for the '{@link java.util.function.Function <em>Import Manager</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.util.function.Function
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getImportManager()
-		 * @generated
-		 */
-		EClass IMPORT_MANAGER = eINSTANCE.getImportManager();
-
-		/**
-		 * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.Comparable
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getComparable()
-		 * @generated
-		 */
-		EClass COMPARABLE = eINSTANCE.getComparable();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.PositionImpl <em>Position</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.models.java.impl.PositionImpl
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getPosition()
-		 * @generated
-		 */
-		EClass POSITION = eINSTANCE.getPosition();
-
-		/**
-		 * The meta object literal for the '<em><b>Line</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POSITION__LINE = eINSTANCE.getPosition_Line();
-
-		/**
-		 * The meta object literal for the '<em><b>Column</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POSITION__COLUMN = eINSTANCE.getPosition_Column();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.RangeImpl <em>Range</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.models.java.impl.RangeImpl
-		 * @see org.nasdanika.models.java.impl.JavaPackageImpl#getRange()
-		 * @generated
-		 */
-		EClass RANGE = eINSTANCE.getRange();
-
-		/**
-		 * The meta object literal for the '<em><b>Begin</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RANGE__BEGIN = eINSTANCE.getRange_Begin();
-
-		/**
-		 * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RANGE__END = eINSTANCE.getRange_End();
-
-		/**
-		 * The meta object literal for the '<em><b>Contains</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RANGE___CONTAINS__RANGE = eINSTANCE.getRange__Contains__Range();
-
-		/**
-		 * The meta object literal for the '<em><b>Contains</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RANGE___CONTAINS__POSITION = eINSTANCE.getRange__Contains__Position();
-
-		/**
-		 * The meta object literal for the '<em><b>Overlaps</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RANGE___OVERLAPS__RANGE = eINSTANCE.getRange__Overlaps__Range();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.java.impl.MemberImpl <em>Member</em>}' class.

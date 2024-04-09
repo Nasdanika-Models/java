@@ -3,7 +3,6 @@
 package org.nasdanika.models.java.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -19,7 +18,6 @@ import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Constructor;
 import org.nasdanika.models.java.EnumConstant;
 import org.nasdanika.models.java.Field;
-import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.Initializer;
 import org.nasdanika.models.java.Interface;
@@ -30,8 +28,6 @@ import org.nasdanika.models.java.LineComment;
 import org.nasdanika.models.java.Method;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Parameter;
-import org.nasdanika.models.java.Position;
-import org.nasdanika.models.java.Range;
 import org.nasdanika.models.java.Reference;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.TypeParameter;
@@ -81,8 +77,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case JavaPackage.POSITION: return createPosition();
-			case JavaPackage.RANGE: return createRange();
 			case JavaPackage.SOURCE: return createSource();
 			case JavaPackage.NAMED_ELEMENT: return createNamedElement();
 			case JavaPackage.COMPILATION_UNIT: return createCompilationUnit();
@@ -114,58 +108,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case JavaPackage.GENERATION_MODE:
-				return createGenerationModeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case JavaPackage.GENERATION_MODE:
-				return convertGenerationModeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Position createPosition() {
-		PositionImpl position = new PositionImpl();
-		return position;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Range createRange() {
-		RangeImpl range = new RangeImpl();
-		return range;
 	}
 
 	/**
@@ -331,26 +273,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	public org.nasdanika.models.java.Record createRecord() {
 		RecordImpl record = new RecordImpl();
 		return record;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GenerationMode createGenerationModeFromString(EDataType eDataType, String initialValue) {
-		GenerationMode result = GenerationMode.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertGenerationModeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

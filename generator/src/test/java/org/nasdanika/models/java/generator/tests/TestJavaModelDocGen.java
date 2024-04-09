@@ -29,6 +29,7 @@ import org.nasdanika.models.ecore.graph.processors.EcoreActionGenerator;
 import org.nasdanika.models.ecore.graph.processors.EcoreNodeProcessorFactory;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.processors.ecore.EcoreGenJavaProcessorsFactory;
+import org.nasdanika.models.source.SourcePackage;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -44,7 +45,7 @@ public class TestJavaModelDocGen {
 		MutableContext context = Context.EMPTY_CONTEXT.fork();
 		Consumer<Diagnostic> diagnosticConsumer = d -> d.dump(System.out, 0);
 		List<Function<URI,Action>> actionProviders = new ArrayList<>();		
-		EcoreGenJavaProcessorsFactory ecoreGenFamilyProcessorFactory = new EcoreGenJavaProcessorsFactory(context);		
+		EcoreGenJavaProcessorsFactory ecoreGenJavaProcessorFactory = new EcoreGenJavaProcessorsFactory(context);		
 		EcoreNodeProcessorFactory ecoreNodeProcessorFactory = new EcoreNodeProcessorFactory(
 				context, 
 				(uri, pm) -> {
@@ -57,16 +58,16 @@ public class TestJavaModelDocGen {
 					return null;
 				},
 				diagnosticConsumer,
-				ecoreGenFamilyProcessorFactory);
+				ecoreGenJavaProcessorFactory);
 		
 		File actionModelsDir = new File("target\\action-models\\");
 		actionModelsDir.mkdirs();
-		File output = new File(actionModelsDir, "java.xmi");
-		
+		File output = new File(actionModelsDir, "java.xmi");	
 		
 		Map<EPackage, URI> packageURIMap = Map.ofEntries(
 				Map.entry(EcorePackage.eINSTANCE, URI.createURI("https://ecore.models.nasdanika.org/")),	
 				Map.entry(NcorePackage.eINSTANCE, URI.createURI("https://ncore.models.nasdanika.org/")),	
+				Map.entry(SourcePackage.eINSTANCE, URI.createURI("https://source-engineering.models.nasdanika.org/")),	
 				Map.entry(CoveragePackage.eINSTANCE, URI.createURI("https://coverage.models.nasdanika.org/"))	
 			);
 			

@@ -8,11 +8,10 @@ import java.util.function.Function;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Parameter;
-import org.nasdanika.models.java.Source;
+import org.nasdanika.models.source.Source;
 
 /**
  * <!-- begin-user-doc -->

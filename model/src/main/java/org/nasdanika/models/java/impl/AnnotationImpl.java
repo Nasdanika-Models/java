@@ -13,11 +13,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.java.Annotation;
-import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.JavaPackage;
-import org.nasdanika.models.java.Member;
 import org.nasdanika.models.java.NamedElement;
-import org.nasdanika.models.java.Source;
 
 /**
  * <!-- begin-user-doc -->
@@ -138,9 +135,9 @@ public class AnnotationImpl extends ReferenceImpl implements Annotation {
 	}
 	
 	@Override
-	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
-		List<Source> contents = super.generateContents(importManager, indent);
-		StringBuilder builder = indent(indent).append("@").append(interpolate(getName(), importManager));
+	protected List<org.nasdanika.models.source.Source> generateContents(Function<String, String> tokenSource, int indent) {
+		List<org.nasdanika.models.source.Source> contents = super.generateContents(tokenSource, indent);
+		StringBuilder builder = new StringBuilder("@").append(Util.interpolate(getName(), tokenSource));
 		EList<NamedElement> elements = getElements();
 		if (!elements.isEmpty()) {
 			builder.append("(");
@@ -150,21 +147,16 @@ public class AnnotationImpl extends ReferenceImpl implements Annotation {
 					builder.append(", ");
 				}
 				if (Util.isBlank(element.getName())) {
-					builder.append(interpolate(element.getSource(), importManager));
+					builder.append(Util.interpolate(element.getSource(), tokenSource));
 				} else {
-					builder.append(element.getName()).append(" = ").append(interpolate(element.getSource(), importManager));
+					builder.append(element.getName()).append(" = ").append(Util.interpolate(element.getSource(), tokenSource));
 				}
 				++position;
 			}
 			
 			builder.append(")");
 		}
-		
-		
-		if (getGenerationMode() != GenerationMode.MERGE && eContainer() instanceof Member) {
-			builder.append(System.lineSeparator());
-		}
-		contents.add(Source.create(builder, this));
+		contents.add(org.nasdanika.models.source.Source.create(builder, this));
 		return contents;
 	}
 

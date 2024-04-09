@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
-import org.nasdanika.models.java.Source;
+import org.nasdanika.models.source.Source;
 import org.nasdanika.models.java.TypeParameter;
 
 /**

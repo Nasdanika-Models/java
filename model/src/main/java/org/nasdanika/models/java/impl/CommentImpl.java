@@ -5,6 +5,7 @@ package org.nasdanika.models.java.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.models.java.Comment;
 import org.nasdanika.models.java.JavaPackage;
+import org.nasdanika.models.source.impl.RangeImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -23,6 +23,8 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface CompilationUnit extends NamedElement {
+	
+	String JAVA_EXTENSION = "java";
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
@@ -80,5 +82,8 @@ public interface CompilationUnit extends NamedElement {
 		return cu;
 	}
 
+	default String generate() {
+		return generate(null, 0);
+	}
 	
 } // CompilationUnit

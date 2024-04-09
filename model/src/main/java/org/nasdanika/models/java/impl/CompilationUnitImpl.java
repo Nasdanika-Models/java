@@ -16,10 +16,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.JavaPackage;
-import org.nasdanika.models.java.Position;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
 import org.nasdanika.models.java.util.SimpleImportManager;
+import org.nasdanika.models.source.Position;
+import org.nasdanika.models.source.SourceFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -202,23 +203,33 @@ public class CompilationUnitImpl extends NamedElementImpl implements Compilation
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	private static final String IMPORT_TOKEN_PREFIX = "import/";
 
 	@Override
-	protected List<Source> generateContents(Function<String, String> importManager, int indent) {
-		List<Source> contents = super.generateContents(importManager, indent);
+	protected List<org.nasdanika.models.source.Source> generateContents(Function<String, String> tokenSource, int indent) {
+		List<org.nasdanika.models.source.Source> contents = super.generateContents(tokenSource, indent);
 		SimpleImportManager simpleImportManager = new SimpleImportManager(null);
 		getImports().forEach(simpleImportManager::addImport);
+		
+		Function<String,String> simTokenSource = token -> {
+			if (token != null && token.startsWith(IMPORT_TOKEN_PREFIX)) {
+				String importStr = token.substring(IMPORT_TOKEN_PREFIX.length());
+				return simpleImportManager.addImport(importStr);
+			}
+			return null;
+		};
 		
 		List<Source> typeSources = new ArrayList<>();
 		for (Type type: getTypes()) {
 			Source typeSource = JavaFactory.eINSTANCE.createSource();
-			typeSource.setSource(type.generate(importManager == null ? simpleImportManager::addImport : importManager, indent));
+			typeSource.setSource(type.generate(tokenSource == null ? simTokenSource : tokenSource, indent));
 			typeSource.setBegin(EcoreUtil.copy(type.getBegin()));
 			typeSource.setEnd(EcoreUtil.copy(type.getEnd()));
 			typeSources.add(typeSource);
 		}
 		
-		if (importManager == null) {
+		if (tokenSource == null) {
 			getImports().clear();
 			getImports().addAll(simpleImportManager.getImports());
 		}
@@ -245,7 +256,7 @@ public class CompilationUnitImpl extends NamedElementImpl implements Compilation
 		header.setSource(headerBuilder.toString());
 		if (!typeSources.isEmpty()) {
 			// Making an assumption no the header "original" range
-			Position hBegin = JavaFactory.eINSTANCE.createPosition();
+			Position hBegin = SourceFactory.eINSTANCE.createPosition();
 			hBegin.setColumn(1);
 			hBegin.setLine(1);
 			header.setBegin(hBegin);

@@ -11,6 +11,8 @@ import java.util.Set;
 
 public class SimpleImportManager {
 	
+	private static final String STATIC_PREFIX = "static ";
+
 	// Short name -> Fully Qualified Name.
 	private Map<String, String> imports = new LinkedHashMap<>();
 	
@@ -26,23 +28,26 @@ public class SimpleImportManager {
 		}
 	}
 
-	public String addImport(String fullyQualifiedTypeName) {
-		int lastDotIdx = fullyQualifiedTypeName.lastIndexOf('.');
+	public String addImport(String fullyQualifiedName) {
+		int lastDotIdx = fullyQualifiedName.lastIndexOf('.');
 		if (lastDotIdx == -1) {
-			return fullyQualifiedTypeName;
+			return fullyQualifiedName;
 		}
-		int ltIdx = fullyQualifiedTypeName.indexOf('<', lastDotIdx);
-		String shortName = fullyQualifiedTypeName.substring(lastDotIdx + 1, ltIdx == -1 ? fullyQualifiedTypeName.length() : ltIdx);		
-		String pShortName = fullyQualifiedTypeName.substring(lastDotIdx + 1, fullyQualifiedTypeName.length());		
+		int ltIdx = fullyQualifiedName.indexOf('<', lastDotIdx);
+		String shortName = fullyQualifiedName.substring(lastDotIdx + 1, ltIdx == -1 ? fullyQualifiedName.length() : ltIdx);		
+		String pShortName = fullyQualifiedName.substring(lastDotIdx + 1, fullyQualifiedName.length());		
 		String efqn = imports.get(shortName);
 		if (efqn == null) {
-			imports.put(shortName, fullyQualifiedTypeName);
-			if ("java.lang".equals(fullyQualifiedTypeName.substring(0, lastDotIdx))) {
-				implicitImports.add(fullyQualifiedTypeName);
+			imports.put(shortName, fullyQualifiedName);
+			if ("java.lang".equals(fullyQualifiedName.substring(0, lastDotIdx))) {
+				implicitImports.add(fullyQualifiedName);
 			}
 			return pShortName;
 		}
-		return efqn.equals(fullyQualifiedTypeName) ? pShortName : fullyQualifiedTypeName;
+		if (efqn.equals(fullyQualifiedName)) {
+			return pShortName;
+		}
+		return fullyQualifiedName.startsWith(STATIC_PREFIX) ? fullyQualifiedName.substring(STATIC_PREFIX.length()) : fullyQualifiedName; 
 	}
 
 	public Collection<String> getImports() {

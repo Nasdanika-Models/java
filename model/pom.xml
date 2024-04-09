@@ -63,9 +63,9 @@
 		    <version>2.35.0</version>
 		</dependency> 		
 		<dependency>
-		    <groupId>org.nasdanika.core</groupId>
-		    <artifactId>ncore</artifactId>
-		    <version>${core.version}</version>
+		    <groupId>org.nasdanika.models.source</groupId>
+		    <artifactId>model</artifactId>
+		    <version>2024.4.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.nasdanika.models.coverage</groupId>

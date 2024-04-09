@@ -14,5 +14,6 @@ Export-Package: org.nasdanika.models.java,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.nasdanika.models.coverage;visibility:=reexport,
- org.nasdanika.ncore;visibility:=reexport
+ org.nasdanika.ncore;visibility:=reexport,
+ org.nasdanika.models.java;visibility:=reexport
 Bundle-ActivationPolicy: lazy

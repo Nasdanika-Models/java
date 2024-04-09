@@ -2,10 +2,7 @@
  */
 package org.nasdanika.models.java;
 
-import java.util.function.Function;
-
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.models.coverage.Coverage;
 
 /**
@@ -17,11 +14,8 @@ import org.nasdanika.models.coverage.Coverage;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.java.Source#getSource <em>Source</em>}</li>
- *   <li>{@link org.nasdanika.models.java.Source#getChildren <em>Children</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getReferences <em>References</em>}</li>
- *   <li>{@link org.nasdanika.models.java.Source#getGenerationMode <em>Generation Mode</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.nasdanika.models.java.Source#getComment <em>Comment</em>}</li>
  * </ul>
@@ -30,41 +24,7 @@ import org.nasdanika.models.coverage.Coverage;
  * @model
  * @generated
  */
-public interface Source extends Range {
-	/**
-	 * Returns the value of the '<em><b>Source</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source</em>' attribute.
-	 * @see #setSource(String)
-	 * @see org.nasdanika.models.java.JavaPackage#getSource_Source()
-	 * @model
-	 * @generated
-	 */
-	String getSource();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.java.Source#getSource <em>Source</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' attribute.
-	 * @see #getSource()
-	 * @generated
-	 */
-	void setSource(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.java.Source}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Children</em>' containment reference list.
-	 * @see org.nasdanika.models.java.JavaPackage#getSource_Children()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Source> getChildren();
-
+public interface Source extends org.nasdanika.models.source.Source {
 	/**
 	 * Returns the value of the '<em><b>Coverage</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.coverage.Coverage}.
@@ -88,32 +48,6 @@ public interface Source extends Range {
 	 * @generated
 	 */
 	EList<Reference> getReferences();
-
-	/**
-	 * Returns the value of the '<em><b>Generation Mode</b></em>' attribute.
-	 * The default value is <code>"MERGE"</code>.
-	 * The literals are from the enumeration {@link org.nasdanika.models.java.GenerationMode}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Generation Mode</em>' attribute.
-	 * @see org.nasdanika.models.java.GenerationMode
-	 * @see #setGenerationMode(GenerationMode)
-	 * @see org.nasdanika.models.java.JavaPackage#getSource_GenerationMode()
-	 * @model default="MERGE"
-	 * @generated
-	 */
-	GenerationMode getGenerationMode();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.java.Source#getGenerationMode <em>Generation Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Generation Mode</em>' attribute.
-	 * @see org.nasdanika.models.java.GenerationMode
-	 * @see #getGenerationMode()
-	 * @generated
-	 */
-	void setGenerationMode(GenerationMode value);
 
 	/**
 	 * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
@@ -148,31 +82,5 @@ public interface Source extends Range {
 	 * @generated
 	 */
 	void setComment(Comment value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Generates source code
-	 * <!-- end-model-doc -->
-	 * @model importManagerType="org.nasdanika.models.java.ImportManager"
-	 * @generated
-	 */
-	String generate(Function<String, String> importManager, int indent);
-	
-	static Source create(CharSequence source) {
-		Source ret = JavaFactory.eINSTANCE.createSource();
-		ret.setSource(source.toString());
-		return ret;
-	}
-	
-	static Source create(CharSequence source, Range range) {		
-		Source ret = create(source);
-		if (range != null) {
-			ret.setBegin(EcoreUtil.copy(range.getBegin()));
-			ret.setEnd(EcoreUtil.copy(range.getEnd()));
-		}
-		return ret;
-	}
 
 } // Source

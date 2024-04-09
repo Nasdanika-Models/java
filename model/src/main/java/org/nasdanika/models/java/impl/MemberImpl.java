@@ -152,5 +152,14 @@ public abstract class MemberImpl extends NamedElementImpl implements Member {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	protected String annotationSuffix(int indent) {
+		return isMerging() ? "" : System.lineSeparator();
+	}
+
+	protected String annotationPrefix(int indent) {
+		return isMerging() ?  "" : indent(indent).toString();
+	}
 
 } //MemberImpl

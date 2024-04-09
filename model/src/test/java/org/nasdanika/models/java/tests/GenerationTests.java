@@ -19,7 +19,6 @@ import org.nasdanika.common.PropertyComputer;
 import org.nasdanika.common.SimpleMutableContext;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.CompilationUnit;
-import org.nasdanika.models.java.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.NamedElement;
@@ -27,6 +26,7 @@ import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.TypeParameter;
 import org.nasdanika.models.java.util.JavaParserResourceFactory;
 import org.nasdanika.models.java.util.SimpleImportManager;
+import org.nasdanika.models.source.GenerationMode;
 
 public class GenerationTests {
 	
@@ -67,7 +67,6 @@ public class GenerationTests {
 			System.out.println(root);
 			org.nasdanika.models.java.CompilationUnit cu = (org.nasdanika.models.java.CompilationUnit) root;
 		}		
-
 		javaResource.save(null);
 	}		
 	

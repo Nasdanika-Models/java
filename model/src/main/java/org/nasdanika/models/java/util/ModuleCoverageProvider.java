@@ -29,7 +29,7 @@ import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaFactory;
 import org.nasdanika.models.java.Operation;
 import org.nasdanika.models.java.Parameter;
-import org.nasdanika.models.java.Position;
+import org.nasdanika.models.source.Position;
 import org.nasdanika.models.java.Source;
 import org.nasdanika.models.java.Type;
 import org.nasdanika.models.java.TypeParameter;
