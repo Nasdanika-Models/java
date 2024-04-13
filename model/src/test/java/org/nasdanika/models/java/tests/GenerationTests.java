@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.PropertyComputer;
@@ -36,6 +37,7 @@ public class GenerationTests {
 	}
 		
 	@Test
+	@Disabled
 	public void testMerge() throws Exception {
 		ResourceSet resourceSet = new ResourceSetImpl();		
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());

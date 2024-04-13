@@ -69,7 +69,7 @@ public class TestJavaModelDocGen {
 				Map.entry(NcorePackage.eINSTANCE, URI.createURI("https://ncore.models.nasdanika.org/")),	
 				Map.entry(SourcePackage.eINSTANCE, URI.createURI("https://source-engineering.models.nasdanika.org/")),	
 				Map.entry(CoveragePackage.eINSTANCE, URI.createURI("https://coverage.models.nasdanika.org/"))	
-			);
+		);
 			
 		EcoreActionGenerator eCoreActionGenerator = new EcoreActionGenerator(
 				JavaPackage.eINSTANCE, 
