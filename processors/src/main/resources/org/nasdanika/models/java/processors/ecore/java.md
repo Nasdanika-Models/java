@@ -26,6 +26,9 @@ Also, the model is somewhat loose on purpose to simplify code generation.
 For example, a [source](references/eClassifiers/Source/index.html) child can be added to any subclass of Source
 and source can be set to any text.
 
+"[All models are wrong, but some are useful]".
+By omitting low-level details this model is wrong to be useful for its intended purpose - high level analysis, cross-referencing with non-java entities and source code generation.
+
 The below diagram shows key model classes and their relationships. 
 Some intermediate classes are omitted in the inheritance hierarchy.
 See the [full diagram](diagram.html) for additional details.
