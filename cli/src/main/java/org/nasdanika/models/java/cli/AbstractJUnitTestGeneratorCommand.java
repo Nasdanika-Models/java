@@ -2,8 +2,6 @@ package org.nasdanika.models.java.cli;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -33,28 +31,16 @@ import org.nasdanika.models.java.util.ModuleCoverageProvider;
 import org.nasdanika.ncore.Tree;
 import org.nasdanika.ncore.TreeItem;
 import org.nasdanika.ncore.util.DirectoryContentFileURIHandler;
+import org.springframework.util.AntPathMatcher;
 
-import com.azure.ai.openai.OpenAIClient;
-import com.azure.ai.openai.OpenAIClientBuilder;
-import com.azure.ai.openai.models.ChatChoice;
-import com.azure.ai.openai.models.ChatCompletions;
-import com.azure.ai.openai.models.ChatCompletionsOptions;
-import com.azure.ai.openai.models.ChatRequestMessage;
-import com.azure.ai.openai.models.ChatRequestUserMessage;
-import com.azure.ai.openai.models.ChatResponseMessage;
-import com.azure.core.credential.KeyCredential;
-
-import picocli.CommandLine.Command;
 import picocli.CommandLine.Mixin;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-@Command(
-		description = "Generates JUnit tests",
-		versionProvider = VersionProvider.class,		
-		mixinStandardHelpOptions = true,		
-		name = "junit")
-public class JUnitTestGeneratorCommand extends CommandBase {
+/**
+ * Base class for command generating JUnit tests based on coverage results
+ */
+public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 		
 	@Mixin
 	private ProgressMonitorMixin progressMonitorMixin;	
@@ -67,7 +53,21 @@ public class JUnitTestGeneratorCommand extends CommandBase {
 	@Parameters(
 			index =  "1", 
 			description = "Coverage threshold")
-	private int threshold;
+	private int coverageThreshold;
+	
+	public enum CoverageType {
+		complexity, instruction, branch, line
+	}
+		
+	@Option(
+			names = {"-t", "--coverage-type"}, 
+			description = {
+					"Coverage type",
+					"Valid values: ${COMPLETION-CANDIDATES}",
+					"defaults to ${DEFAULT-VALUE}"
+				}, 
+			defaultValue = "line")
+	private CoverageType coverageType;			
 	
 	@Parameters(
 			index =  "2", 
@@ -106,47 +106,6 @@ public class JUnitTestGeneratorCommand extends CommandBase {
 				}, 
 			defaultValue = "src/main/java")
 	private String sources;		
-	
-	@Option(
-			names = {"-v", "--api-key-variable"}, 
-			description = {
-					"OpenAPI key environment variable",
-					"defaults to ${DEFAULT-VALUE}"
-				}, 
-			defaultValue = "OPEN_API_KEY")
-	private String apiKeyEnvironmentVariable;		
-	
-	@Option(
-			names = {"-k", "--api-key"}, 
-			description = "OpenAPI key")
-	private String apiKey;		
-	
-	@Option(
-			names = "--api-endpoint", 
-			description = {
-					"OpenAPI endpoint",
-					"defaults to ${DEFAULT-VALUE}"
-				}, 
-			defaultValue = "https://api.openai.com/v1/chat/completions")
-	private String apiEndpoint;
-		
-	@Option(
-			names = { "-m", "--model" }, 
-			description = {
-					"OpenAPI deployment or model",
-					"defaults to ${DEFAULT-VALUE}"
-				}, 
-			defaultValue = "gpt-4")
-	private String deploymentOrModelName;
-	
-	@Option(
-			names = { "-r", "--prompt" }, 
-			description = {
-					"Propmt",
-					"defaults to ${DEFAULT-VALUE}"
-				}, 
-			defaultValue = "Generate a JUnit 5 test method leveraging Mockito for the following Java method")
-	private String prompt;	
 		
 	@Option(
 			names = {"-e", "--exclude"},
@@ -193,15 +152,21 @@ public class JUnitTestGeneratorCommand extends CommandBase {
 	private String classSuffix;	
 	
 	@Option(
-			names = "--disables", 
+			names = "--disabled", 
 			description = "Generate disabled tests")
 	private boolean disabled;	
-	
+		
+	@Option(
+			names = { "-w", "--overwrite" }, 
+			description = "Overwrite existing tests")
+	private boolean overwrite;	
 	
 	// TODO 
 	// sorting
 	// coverage type - lines, instructions, branches
 	// generate explanation and recommendations 
+	// limit
+	// overwrite - policy?
 	
 	@Override
 	public Integer call() throws Exception {
@@ -224,21 +189,10 @@ public class JUnitTestGeneratorCommand extends CommandBase {
 			resourceSet.getURIConverter().getURIHandlers().add(0, new DirectoryContentFileURIHandler());
 			
 			File outputDir = new File(projectDir, output); 
-			
-			if (apiKey == null) {
-				apiKey = System.getenv(apiKeyEnvironmentVariable);
-			}
-			
-	    	// Loading API key from an environment variable 
-	    	OpenAIClient openAIClient = Util.isBlank(apiKey) ? null : new OpenAIClientBuilder()
-	    		    .credential(new KeyCredential(apiKey))
-	    		    .endpoint("https://api.openai.com/v1/chat/completions")
-	    		    .buildClient();
-	    	
 	    	URI sourceDirURI = URI.createFileURI(new File(projectDir, sources).getCanonicalPath());
 	    	Resource sourceDirResource = resourceSet.getResource(sourceDirURI, true);
 	    	for (EObject root: sourceDirResource.getContents()) {
-	    		 visit(root, outputDir, openAIClient, progressMonitor);
+	    		 visit(root, sourceDirURI, outputDir, progressMonitor);
 	    	}
 			
 			return 0;
@@ -247,72 +201,113 @@ public class JUnitTestGeneratorCommand extends CommandBase {
 	
 	/**
 	 * @param eObj
+	 * @param baseURI Used to deresolve compilation unit URI's to includes/excludes
 	 * @param outputDir
 	 * @param openAIClient
 	 * @throws IOException 
 	 */
-	private void visit(
+	protected void visit(
 			EObject eObj, 
+			URI baseURI,
 			File outputDir, 
-			OpenAIClient openAIClient,
 			ProgressMonitor progressMonitor) throws IOException {
 		
+		if (limit <= 0) {
+			return;
+		}
+		
 		if (eObj instanceof Tree) {
-			for (TreeItem treeItem: ((Tree) eObj).getTreeItems()) {
+			Z: for (TreeItem treeItem: ((Tree) eObj).getTreeItems()) {
 				URI itemURI = URI.createURI(treeItem.getName()).resolve(eObj.eResource().getURI().appendSegment(""));
+				String path = itemURI.deresolve(baseURI, true, true, true).toString();
+				
+				if (includes != null) {
+					boolean matched = false;
+					for (String include: includes) {
+						AntPathMatcher matcher = new AntPathMatcher();
+						if (matcher.match(include, path)) {
+							matched = true;
+							break;
+						}
+					}
+					if (!matched) {
+						continue;
+					}
+				}
+				
+				if (excludes != null) {
+					for (String exclude: excludes) {
+						AntPathMatcher matcher = new AntPathMatcher();
+						if (matcher.match(exclude, path)) {
+							continue Z;
+						}
+					}					
+				}
+				
 				Resource itemResource = eObj.eResource().getResourceSet().getResource(itemURI, true);
 		    	for (EObject root: itemResource.getContents()) {
-		    		 visit(root, outputDir, openAIClient, progressMonitor);
+		    		 visit(root, baseURI, outputDir, progressMonitor);
 		    	}
 			}
 		} else if (eObj instanceof CompilationUnit) {
 			CompilationUnit compilationUnit = (CompilationUnit) eObj;
 			// TODO - includes/excludes
-			
-			System.out.println(compilationUnit.getName()); // TODO - progress monitor, split
-			String sourcePackageName = compilationUnit.getPackageName();
-			for (Type type: compilationUnit.getTypes()) {
-				if ((type instanceof org.nasdanika.models.java.Class || type instanceof Interface)) {					
-					System.out.println("\t" + type.getName()); // TODO - progress monitor
-					
-					org.nasdanika.models.java.Class testClass = JavaFactory.eINSTANCE.createClass();
-					testClass.setName(type.getName() + classSuffix); // Variation point
-					
-					CompilationUnit testCompilationUnit = JavaFactory.eINSTANCE.createCompilationUnit();
-					testCompilationUnit.setPackageName(sourcePackageName + packageSuffix); // Variation point
-					testCompilationUnit.setName(testClass.getName() + "." + CompilationUnit.JAVA_EXTENSION);
-					testCompilationUnit.getTypes().add(testClass);
-					
-					for (Member member: type.getMembers()) {
-						// Just methods here, add constructors, static/instance/field initializers as needed  
-						if (member instanceof Method && member.getModifiers().contains(type instanceof Interface ? "default" : "public")) {
-							Method method = (Method) member;
-							int covered = 0;
-							int missed = 0;							
-							for (Coverage coverage: method.getCoverage()) {
-								// Using line coverage as more human-intuitive, change to other counter type as needed
-								Counter lineCounter = coverage.getLineCounter();
-								covered += lineCounter.getCovered();
-								missed += lineCounter.getMissed();
-							}
+			try (ProgressMonitor compilationUnitProgressMonitor = progressMonitor.split(compilationUnit.getName(), 1.0, compilationUnit)) {
+				String sourcePackageName = compilationUnit.getPackageName();
+				for (Type type: compilationUnit.getTypes()) {					
+					if ((type instanceof org.nasdanika.models.java.Class || type instanceof Interface)) {
+						try (ProgressMonitor typeProgressMonitor = compilationUnitProgressMonitor.split(type.getName(), 1.0, type)) {						
+							org.nasdanika.models.java.Class testClass = JavaFactory.eINSTANCE.createClass();
+							testClass.setName(type.getName() + classSuffix); // Variation point
 							
-							System.out.printf("\t\t%s - %d / %d%n", method.getName(), covered, missed); // TODO - progress monitor
-							int total = missed + covered;
-							// Variation points: Minimum method length and minimum coverage.
-							// For this demo - methods longer than 5  lines with less than 50% coverage
-							if (total > 5 && covered * 2 < total) {  
-								testClass.getMembers().add(generateTestMethod(method, openAIClient, progressMonitor));
+							CompilationUnit testCompilationUnit = JavaFactory.eINSTANCE.createCompilationUnit();
+							testCompilationUnit.setPackageName(sourcePackageName + packageSuffix); // Variation point
+							testCompilationUnit.setName(testClass.getName() + "." + CompilationUnit.JAVA_EXTENSION);
+							testCompilationUnit.getTypes().add(testClass);
+							File testCompilationUnitFile = new File(outputDir, testCompilationUnit.getPackageName().replace('.', '/') + "/" + testCompilationUnit.getName());
+							
+							if (overwrite || !testCompilationUnitFile.exists()) {
+								for (Member member: type.getMembers()) {
+									// Just methods here, add constructors, static/instance/field initializers as needed  
+									if (member instanceof Method && member.getModifiers().contains(type instanceof Interface ? "default" : "public")) {
+										Method method = (Method) member;
+										int covered = 0;
+										int missed = 0;							
+										for (Coverage coverage: method.getCoverage()) {
+											Counter counter =
+												switch (coverageType) {
+												case branch -> coverage.getBranchCounter();
+												case complexity -> coverage.getComplexityCounter();
+												case instruction -> coverage.getInstructionCounter();
+												case line -> coverage.getLineCounter();
+											};
+													
+											covered += counter.getCovered();
+											missed += counter.getMissed();
+										}
+										
+										int total = missed + covered;
+										if (total > 0 && covered * 100 / total < coverageThreshold) {
+											try (ProgressMonitor methodProgressMonitor = typeProgressMonitor.split(method.getName(), 1, method)) {
+												Member testMethod = generateTestMethod(method, testClass, methodProgressMonitor);
+												if (testMethod != null) {
+													testClass.getMembers().add(testMethod);
+												}
+											}
+										}
+									}
+								}
+								
+								// Saving non-empty compilation units to file resources.
+								if (!testClass.getMembers().isEmpty()) {
+									testCompilationUnitFile.getParentFile().mkdirs();
+									Resource testCompilationUnitResource = eObj.eResource().getResourceSet().createResource(URI.createFileURI(testCompilationUnitFile.getAbsolutePath()));
+									testCompilationUnitResource.getContents().add(testCompilationUnit);
+									testCompilationUnitResource.save(null);
+									--limit;
+								}
 							}
 						}
-					}
-					
-					// Saving non-empty compilation units to file resources.
-					if (!testClass.getMembers().isEmpty()) {
-						File testCompilationUnitFile = new File(outputDir, testCompilationUnit.getPackageName().replace('.', '/') + "/" + testCompilationUnit.getName());
-						testCompilationUnitFile.getParentFile().mkdirs();
-						Resource testCompilationUnitResource = eObj.eResource().getResourceSet().createResource(URI.createFileURI(testCompilationUnitFile.getAbsolutePath()));
-						testCompilationUnitResource.getContents().add(testCompilationUnit);
-						testCompilationUnitResource.save(null);
 					}
 				}
 			}
@@ -326,9 +321,9 @@ public class JUnitTestGeneratorCommand extends CommandBase {
 	 * @param openAIClient
 	 * @return
 	 */
-	private Member generateTestMethod(
+	protected Member generateTestMethod(
 			Method method, 
-			OpenAIClient openAIClient,
+			org.nasdanika.models.java.Class testClass,
 			ProgressMonitor progressMonitor) {
 		Method testMethod = JavaFactory.eINSTANCE.createMethod();
 		testMethod.setName("test" + StringUtils.capitalize(method.getName())); // Variation point
@@ -345,42 +340,9 @@ public class JUnitTestGeneratorCommand extends CommandBase {
 				
 		StringBuilder bodyBuilder = new StringBuilder("{").append(System.lineSeparator());
 		String indent = testMethod.getIndent();
-		if (openAIClient != null) {
-			bodyBuilder
-				.append(indent)
-				.append(indent)
-				.append("// *** Start generated test ***")
-				.append(System.lineSeparator());
-			
-			// Calling OpenAI to generate test code
-	        List<ChatRequestMessage> chatMessages = new ArrayList<>();
-	        chatMessages.add(new ChatRequestUserMessage(prompt + ": ")); 
-	        chatMessages.add(new ChatRequestUserMessage(method.getSource()));
-	        
-	        ChatCompletions chatCompletions = openAIClient.getChatCompletions(deploymentOrModelName, new ChatCompletionsOptions(chatMessages));
-	        for (ChatChoice choice : chatCompletions.getChoices()) {
-	            ChatResponseMessage message = choice.getMessage();
-	            String generatedTestCase = message.getContent();
-	            if (!Util.isBlank(generatedTestCase)) {
-	            	// The output might be "massaged" - stripped of backticks, parsed, imports added to the compilation unit
-	            	
-	            	String[] lines = generatedTestCase.split("\\R");					            	
-	            	for (String line: lines) {
-			            bodyBuilder
-			            	.append(indent)
-			            	.append(indent)
-			            	.append("// ") // Commenting generated code - it might not compile
-			            	.append(line)
-			            	.append(System.lineSeparator());
-	            	}
-	            }
-	        }
-	
-			bodyBuilder
-				.append(indent)
-				.append(indent)
-				.append("// *** End generated test ***")
-				.append(System.lineSeparator());
+		String body = generateTestMethodBody(method, indent, testClass, progressMonitor);
+		if (!Util.isBlank(body)) {
+			bodyBuilder.append(body);
 		}
 		
 		bodyBuilder
@@ -394,5 +356,19 @@ public class JUnitTestGeneratorCommand extends CommandBase {
 		
 		return testMethod;
 	}
+
+	/**
+	 * 
+	 * @param method
+	 * @param indent
+	 * @param testClass Receiving test class, can be used to add helper members.
+	 * @param progressMonitor
+	 * @return
+	 */
+	protected abstract String generateTestMethodBody(
+			Method method, 
+			String indent,
+			org.nasdanika.models.java.Class testClass,			
+			ProgressMonitor progressMonitor);
 
 }

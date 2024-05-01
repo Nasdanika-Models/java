@@ -10,7 +10,7 @@ import picocli.CommandLine.Command;
 		versionProvider = VersionProvider.class,		
 		mixinStandardHelpOptions = true,		
 		subcommands = {
-			JUnitTestGeneratorCommand.class
+			OpenAIJUnitTestGeneratorCommand.class
 		})
 public class JavaCommand extends CommandGroup {
 	
