@@ -148,7 +148,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 					"Test class suffix",
 					"defaults to ${DEFAULT-VALUE}"
 				}, 
-			defaultValue = "Rests")
+			defaultValue = "Tests")
 	private String classSuffix;	
 	
 	@Option(
