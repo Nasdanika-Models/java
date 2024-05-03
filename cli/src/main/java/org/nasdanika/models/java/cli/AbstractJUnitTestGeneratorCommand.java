@@ -191,8 +191,9 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 			File outputDir = new File(projectDir, output); 
 	    	URI sourceDirURI = URI.createFileURI(new File(projectDir, sources).getCanonicalPath());
 	    	Resource sourceDirResource = resourceSet.getResource(sourceDirURI, true);
+	    	int[] remaining = { limit };
 	    	for (EObject root: sourceDirResource.getContents()) {
-	    		 visit(root, sourceDirURI, outputDir, progressMonitor);
+	    		 visit(root, sourceDirURI, outputDir, remaining, progressMonitor);
 	    	}
 			
 			return 0;
@@ -209,10 +210,11 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 	protected void visit(
 			EObject eObj, 
 			URI baseURI,
-			File outputDir, 
+			File outputDir,
+			int[] remaining,
 			ProgressMonitor progressMonitor) throws IOException {
 		
-		if (limit <= 0) {
+		if (limit > 0 && remaining[0] <= 0) {
 			return;
 		}
 		
@@ -246,7 +248,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 				
 				Resource itemResource = eObj.eResource().getResourceSet().getResource(itemURI, true);
 		    	for (EObject root: itemResource.getContents()) {
-		    		 visit(root, baseURI, outputDir, progressMonitor);
+		    		 visit(root, baseURI, outputDir, remaining, progressMonitor);
 		    	}
 			}
 		} else if (eObj instanceof CompilationUnit) {
@@ -304,7 +306,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 									Resource testCompilationUnitResource = eObj.eResource().getResourceSet().createResource(URI.createFileURI(testCompilationUnitFile.getAbsolutePath()));
 									testCompilationUnitResource.getContents().add(testCompilationUnit);
 									testCompilationUnitResource.save(null);
-									--limit;
+									--remaining[0];
 								}
 							}
 						}

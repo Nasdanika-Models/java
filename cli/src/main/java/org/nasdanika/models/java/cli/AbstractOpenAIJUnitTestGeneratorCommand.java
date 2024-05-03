@@ -3,6 +3,7 @@ package org.nasdanika.models.java.cli;
 import java.util.List;
 
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Status;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.java.Method;
 
@@ -22,7 +23,7 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 	
 	protected abstract String getDeploymentOrModelName();
 	
-	protected abstract OpenAIClient getOpenAIClient();
+	protected abstract OpenAIClient getOpenAIClient(ProgressMonitor progressMonitor);
 
 	protected abstract List<ChatRequestMessage> generateChatMessages(Method method,	ProgressMonitor progressMonitor);
 		
@@ -54,7 +55,7 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 			org.nasdanika.models.java.Class testClass,			
 			ProgressMonitor progressMonitor) {
 		
-		OpenAIClient openAIClient = getOpenAIClient();
+		OpenAIClient openAIClient = getOpenAIClient(progressMonitor);
 		if (openAIClient == null) {
 			return null;
 		}
@@ -69,6 +70,7 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
         List<ChatRequestMessage> chatMessages = generateChatMessages(method, progressMonitor);
         
         ChatCompletions chatCompletions = openAIClient.getChatCompletions(getDeploymentOrModelName(), new ChatCompletionsOptions(chatMessages));
+        progressMonitor.worked(Status.SUCCESS, 1, "Received a response from OpenAI");
         for (ChatChoice choice : chatCompletions.getChoices()) {
             ChatResponseMessage message = choice.getMessage();
             String generatedTestCase = processResponse(message.getContent(), testClass, progressMonitor);

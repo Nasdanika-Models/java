@@ -8,15 +8,19 @@ import org.nasdanika.common.ProgressMonitor;
 
 import picocli.CommandLine;
 
-public class JavaCommandFactory extends SubCommandCapabilityFactory {
-
+public class JavaCommandFactory extends SubCommandCapabilityFactory<JavaCommand> {
 
 	@Override
-	protected Object createCommand(List<CommandLine> parentPath, ProgressMonitor progressMonitor) {
+	protected JavaCommand createCommand(List<CommandLine> parentPath, ProgressMonitor progressMonitor) {
 		if (parentPath != null && parentPath.size() == 1 && parentPath.get(0).getCommandSpec().userObject() instanceof RootCommand) {
 			return new JavaCommand();			
 		}
 		return null;
+	}
+
+	@Override
+	protected Class<JavaCommand> getCommandType() {
+		return JavaCommand.class;
 	}
 
 }

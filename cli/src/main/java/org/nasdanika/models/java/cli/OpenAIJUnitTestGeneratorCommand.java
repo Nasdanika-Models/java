@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Status;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.java.Method;
 
@@ -29,7 +30,7 @@ public class OpenAIJUnitTestGeneratorCommand extends AbstractOpenAIJUnitTestGene
 					"OpenAPI key environment variable",
 					"defaults to ${DEFAULT-VALUE}"
 				}, 
-			defaultValue = "OPEN_API_KEY")
+			defaultValue = "OPENAI_API_KEY")
 	private String apiKeyEnvironmentVariable;		
 	
 	@Option(
@@ -72,7 +73,7 @@ public class OpenAIJUnitTestGeneratorCommand extends AbstractOpenAIJUnitTestGene
 	private OpenAIClient openAIClient;
 	
 	@Override
-	protected OpenAIClient getOpenAIClient() {
+	protected OpenAIClient getOpenAIClient(ProgressMonitor progressMonitor) {
 		if (apiKey == null) {
 			apiKey = System.getenv(apiKeyEnvironmentVariable);
 		}
@@ -81,6 +82,7 @@ public class OpenAIJUnitTestGeneratorCommand extends AbstractOpenAIJUnitTestGene
 					.credential(new KeyCredential(apiKey))
 					.endpoint(apiEndpoint)
 					.buildClient();
+			progressMonitor.worked(Status.SUCCESS, 1, "Connected to OpenAI", apiEndpoint);
 		}
 			
 		return openAIClient;
