@@ -195,10 +195,20 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 	    	for (EObject root: sourceDirResource.getContents()) {
 	    		 visit(root, sourceDirURI, outputDir, remaining, progressMonitor);
 	    	}
-			
+
+	    	stats(progressMonitor);
+	    	
 			return 0;
 		}
 	}		
+	
+	/**
+	 * Override to outputstats such as token usage to progress monitor. 
+	 * @param progressMonitor
+	 */
+	protected void stats(ProgressMonitor progressMonitor) {
+		
+	}	
 	
 	/**
 	 * @param eObj
@@ -370,7 +380,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 	protected abstract String generateTestMethodBody(
 			Method method, 
 			String indent,
-			org.nasdanika.models.java.Class testClass,			
+			org.nasdanika.models.java.Class testClass,
 			ProgressMonitor progressMonitor);
 
 }

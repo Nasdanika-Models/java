@@ -1,5 +1,6 @@
 package org.nasdanika.models.java.cli;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.nasdanika.common.ProgressMonitor;
@@ -13,6 +14,7 @@ import com.azure.ai.openai.models.ChatCompletions;
 import com.azure.ai.openai.models.ChatCompletionsOptions;
 import com.azure.ai.openai.models.ChatRequestMessage;
 import com.azure.ai.openai.models.ChatResponseMessage;
+import com.azure.ai.openai.models.CompletionsUsage;
 
 import picocli.CommandLine.Option;
 
@@ -26,6 +28,8 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 	protected abstract OpenAIClient getOpenAIClient(ProgressMonitor progressMonitor);
 
 	protected abstract List<ChatRequestMessage> generateChatMessages(Method method,	ProgressMonitor progressMonitor);
+	
+	protected List<CompletionsUsage> usage = new ArrayList<>();
 		
 	@Option(
 			names = "--comment-response",
@@ -69,8 +73,10 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 		// Calling OpenAI to generate test code
         List<ChatRequestMessage> chatMessages = generateChatMessages(method, progressMonitor);
         
-        ChatCompletions chatCompletions = openAIClient.getChatCompletions(getDeploymentOrModelName(), new ChatCompletionsOptions(chatMessages));
-        progressMonitor.worked(Status.SUCCESS, 1, "Received a response from OpenAI");
+        ChatCompletions chatCompletions = openAIClient.getChatCompletions(getDeploymentOrModelName(), createChatCompletions(chatMessages));
+        CompletionsUsage usage = chatCompletions.getUsage();
+        progressMonitor.worked(Status.SUCCESS, 1, "Received a response from OpenAI", usage);
+        usage(usage);
         for (ChatChoice choice : chatCompletions.getChoices()) {
             ChatResponseMessage message = choice.getMessage();
             String generatedTestCase = processResponse(message.getContent(), testClass, progressMonitor);
@@ -99,6 +105,35 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 			.append(System.lineSeparator());
 		
 		return bodyBuilder.toString();
+	}
+	
+	protected void usage(CompletionsUsage usage) {
+		this.usage.add(usage);
+	}
+
+	/**
+	 * Creates chat completions. Override to customize, e.g. set model name.
+	 * @param chatMessages
+	 * @return
+	 */
+	protected ChatCompletionsOptions createChatCompletions(List<ChatRequestMessage> chatMessages) {
+		return new ChatCompletionsOptions(chatMessages);
+	}
+	
+	@Override
+	protected void stats(ProgressMonitor progressMonitor) {
+		super.stats(progressMonitor);
+		if (!usage.isEmpty()) {
+			int completionTokens = 0;
+			int promptTokens = 0;
+			int totalTokens = 0;
+			for (CompletionsUsage ue: usage) {
+				completionTokens += ue.getCompletionTokens();
+				promptTokens += ue.getPromptTokens();
+				totalTokens += ue.getTotalTokens();
+			}
+			progressMonitor.worked(Status.INFO, 1, "Token usage: prompt - " + promptTokens + ", completion - " + completionTokens + ", total - " + totalTokens,  promptTokens, completionTokens, totalTokens);
+		}
 	}
 
 }
