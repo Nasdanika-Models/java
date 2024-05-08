@@ -34,7 +34,10 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 	@Option(
 			names = "--comment-response",
 			negatable = true,
-			description = "Overwrite existing tests",
+			description = {
+					"Comment AI responses",
+					"defaults to ${DEFAULT-VALUE}"
+			},
 			defaultValue = "true")
 	private boolean commentResponse;		
 	
@@ -51,6 +54,13 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 			ProgressMonitor progressMonitor) {
 		return response;
 	}
+	
+	@Option(
+			names = "--ai",
+			negatable = true,
+			description = "Use AI, defaults to ${DEFAULT-VALUE}",
+			defaultValue = "true")
+	private boolean useAI;			
 		
 	@Override
 	protected String generateTestMethodBody(
@@ -59,6 +69,9 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 			org.nasdanika.models.java.Class testClass,			
 			ProgressMonitor progressMonitor) {
 		
+		if (!useAI) {
+			return null;
+		}
 		OpenAIClient openAIClient = getOpenAIClient(progressMonitor);
 		if (openAIClient == null) {
 			return null;
