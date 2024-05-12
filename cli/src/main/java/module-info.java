@@ -12,7 +12,7 @@ module org.nasdanika.models.java.cli {
 	requires transitive com.azure.ai.openai;
 	requires org.eclipse.emf.ecore.xmi;
 	
-	opens org.nasdanika.models.java.cli to info.picocli;
+	opens org.nasdanika.models.java.cli to info.picocli, org.nasdanika.html.model.app.gen.cli;
 	
 	provides CapabilityFactory with JavaCommandFactory;
 
