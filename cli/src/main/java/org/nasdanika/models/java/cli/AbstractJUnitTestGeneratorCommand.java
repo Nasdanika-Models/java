@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.nasdanika.cli.CommandBase;
-import org.nasdanika.cli.ProgressMonitorMixin;
+import org.nasdanika.cli.ProgressMonitorMixIn;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.coverage.Counter;
@@ -43,7 +43,7 @@ import picocli.CommandLine.Parameters;
 public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 		
 	@Mixin
-	private ProgressMonitorMixin progressMonitorMixin;	
+	private ProgressMonitorMixIn progressMonitorMixin;	
 		
 	@Parameters(		
 		index =  "0",	
