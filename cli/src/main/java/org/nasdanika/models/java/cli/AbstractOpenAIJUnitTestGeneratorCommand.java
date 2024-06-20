@@ -17,6 +17,7 @@ import com.azure.ai.openai.models.ChatResponseMessage;
 import com.azure.ai.openai.models.CompletionsUsage;
 
 import picocli.CommandLine.Option;
+import picocli.CommandLine.ParameterException;
 
 /**
  * Base class for commands leveraging OpenAI API to generate test method body
@@ -74,7 +75,7 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 		}
 		OpenAIClient openAIClient = getOpenAIClient(progressMonitor);
 		if (openAIClient == null) {
-			return null;
+			throw new ParameterException(spec.commandLine(), "Use AI is set to true, but OpenAI client is not available. Make sure that an API key is provided as an option or in an environment variable.");
 		}
 		StringBuilder bodyBuilder = new StringBuilder();
 		bodyBuilder
