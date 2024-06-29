@@ -26,7 +26,7 @@ public abstract class AbstractOpenAIJUnitTestGeneratorCommand extends AbstractJU
 	
 	protected abstract String getDeploymentOrModelName();
 	
-	protected abstract OpenAIClient getOpenAIClient(ProgressMonitor progressMonitor);
+	public abstract OpenAIClient getOpenAIClient(ProgressMonitor progressMonitor);
 
 	protected abstract List<ChatRequestMessage> generateChatMessages(Method method,	ProgressMonitor progressMonitor);
 	

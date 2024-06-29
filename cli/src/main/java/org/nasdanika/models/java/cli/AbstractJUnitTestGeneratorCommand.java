@@ -189,7 +189,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 			resourceSet.getURIConverter().getURIHandlers().add(0, new DirectoryContentFileURIHandler());
 			
 			File outputDir = new File(projectDir, output); 
-	    	URI sourceDirURI = URI.createFileURI(new File(projectDir, sources).getCanonicalPath());
+	    	URI sourceDirURI = URI.createFileURI(new File(projectDir, sources).getCanonicalPath()).appendSegment("");
 	    	Resource sourceDirResource = resourceSet.getResource(sourceDirURI, true);
 	    	int[] remaining = { limit };
 	    	for (EObject root: sourceDirResource.getContents()) {
@@ -229,39 +229,39 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 		}
 		
 		if (eObj instanceof Tree) {
-			Z: for (TreeItem treeItem: ((Tree) eObj).getTreeItems()) {
-				URI itemURI = URI.createURI(treeItem.getName()).resolve(eObj.eResource().getURI().appendSegment(""));
-				String path = itemURI.deresolve(baseURI, true, true, true).toString();
-				
-				if (includes != null) {
-					boolean matched = false;
-					for (String include: includes) {
-						AntPathMatcher matcher = new AntPathMatcher();
-						if (matcher.match(include, path)) {
-							matched = true;
-							break;
-						}
-					}
-					if (!matched) {
-						continue;
-					}
-				}
-				
-				if (excludes != null) {
-					for (String exclude: excludes) {
-						AntPathMatcher matcher = new AntPathMatcher();
-						if (matcher.match(exclude, path)) {
-							continue Z;
-						}
-					}					
-				}
-				
+			for (TreeItem treeItem: ((Tree) eObj).getTreeItems()) {
+				URI itemURI = URI.createURI(treeItem.getName()).resolve(eObj.eResource().getURI().appendSegment(""));				
 				Resource itemResource = eObj.eResource().getResourceSet().getResource(itemURI, true);
 		    	for (EObject root: itemResource.getContents()) {
 		    		 visit(root, baseURI, outputDir, remaining, progressMonitor);
 		    	}
 			}
-		} else if (eObj instanceof CompilationUnit) {
+		} else if (eObj instanceof CompilationUnit) {			
+			String path = eObj.eResource().getURI().deresolve(baseURI, true, true, true).toString();
+			
+			if (includes != null) {
+				boolean matched = false;
+				for (String include: includes) {
+					AntPathMatcher matcher = new AntPathMatcher();
+					if (matcher.match(include, path)) {
+						matched = true;
+						break;
+					}
+				}
+				if (!matched) {
+					return;
+				}
+			}
+			
+			if (excludes != null) {
+				for (String exclude: excludes) {
+					AntPathMatcher matcher = new AntPathMatcher();
+					if (matcher.match(exclude, path)) {
+						return;
+					}
+				}					
+			}			
+			
 			CompilationUnit compilationUnit = (CompilationUnit) eObj;
 			// TODO - includes/excludes
 			try (ProgressMonitor compilationUnitProgressMonitor = progressMonitor.split(compilationUnit.getName(), 1.0, compilationUnit)) {

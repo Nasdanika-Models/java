@@ -73,7 +73,7 @@ public class OpenAIJUnitTestGeneratorCommand extends AbstractOpenAIJUnitTestGene
 	private OpenAIClient openAIClient;
 	
 	@Override
-	protected OpenAIClient getOpenAIClient(ProgressMonitor progressMonitor) {
+	public OpenAIClient getOpenAIClient(ProgressMonitor progressMonitor) {
 		if (apiKey == null) {
 			apiKey = System.getenv(apiKeyEnvironmentVariable);
 		}
