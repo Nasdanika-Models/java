@@ -3,21 +3,27 @@ package org.nasdanika.models.java.cli;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.function.BiFunction;
 
 import org.apache.commons.lang3.StringUtils;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.nasdanika.cli.CommandBase;
+import org.nasdanika.cli.ParentCommands;
 import org.nasdanika.cli.ProgressMonitorMixIn;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.coverage.Counter;
 import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.coverage.ModuleCoverage;
+import org.nasdanika.models.gitlab.cli.GitLabContributorCommand;
+import org.nasdanika.models.gitlab.util.GitLabURIHandler;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.CompilationUnit;
 import org.nasdanika.models.java.Interface;
@@ -36,19 +42,29 @@ import org.springframework.util.AntPathMatcher;
 import picocli.CommandLine.Mixin;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+import picocli.CommandLine.ParentCommand;
 
 /**
  * Base class for command generating JUnit tests based on coverage results
  */
+@ParentCommands( GitLabContributorCommand.class)
 public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
+	
+	@ParentCommand
+	private GitLabContributorCommand parent;
 		
 	@Mixin
 	private ProgressMonitorMixIn progressMonitorMixin;	
 		
 	@Parameters(		
 		index =  "0",	
-		description = "Project directory")
-	private File projectDir;
+		description = "Project URI")
+	private String projectURI;
+	
+	@Option(
+			names = "-f", 
+			description = "Project URI is a file path")
+	private boolean isFileURI;				
 	
 	@Parameters(
 			index =  "1", 
@@ -76,26 +92,6 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 					"relative to the project directory"
 			})
 	private String output;
-		
-	@Option(
-			names = {"-J", "--jacoco"}, 
-			description = {
-					"jacoco.exec file path relative",
-					"to the project directory,",
-					"defaults to ${DEFAULT-VALUE}"
-				}, 
-			defaultValue = "target/jacoco.exec")
-	private String jacoco;		
-	
-	@Option(
-			names = {"-c", "--classes"}, 
-			description = {
-					"Classes directory path relative",
-					"to the project directory,",
-					"defaults to ${DEFAULT-VALUE}"
-				}, 
-			defaultValue = "target/classes")
-	private String classes;		
 	
 	@Option(
 			names = {"-s", "--sources"}, 
@@ -160,33 +156,43 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 			names = { "-w", "--overwrite" }, 
 			description = "Overwrite existing tests")
 	private boolean overwrite;	
-	
-	// TODO 
-	// sorting
-	// coverage type - lines, instructions, branches
-	// generate explanation and recommendations 
-	// limit
-	// overwrite - policy?
-	
+
 	@Override
 	public Integer call() throws Exception {
-		try (ProgressMonitor progressMonitor = progressMonitorMixin.createProgressMonitor(1)) {	
-			ResourceSet resourceSet = new ResourceSetImpl();
+		return call(null);
+	}
+	
+	public Integer call(BiFunction<URI, ProgressMonitor, ModuleCoverage> coverageProvider) {		
+		return call(coverageProvider, null);
+	}	
+	
+	public Integer call(BiFunction<URI, ProgressMonitor, ModuleCoverage> coverageProvider, GitLabURIHandler gitLabURIHandler) {		
+		try (ProgressMonitor progressMonitor = progressMonitorMixin.createProgressMonitor(1)) {
+			URI theProjectURI;			
+			if (isFileURI) {
+				theProjectURI = URI.createFileURI(new File(projectURI).getCanonicalPath()).appendSegment("");
+			} else {
+				URI base = URI.createFileURI(new File(".").getCanonicalPath());
+				theProjectURI = URI.createURI(projectURI).resolve(base);
+			}
 			
 			// Loading coverage data
-			ModuleCoverage moduleCoverage = ModuleCoverage.loadJacoco(
-					projectDir.getName(), 
-					new File(projectDir, jacoco),
-					new File(projectDir, classes));
+			ModuleCoverage moduleCoverage = coverageProvider == null ? null : coverageProvider.apply(theProjectURI, progressMonitor);
 			
+			ResourceSet resourceSet = new ResourceSetImpl(); // TODO - from capability
 			Map<String, Object> extensionFactoryMap = resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap();
 	
 			// Registering Java factory for loading java sources
-			extensionFactoryMap.put(CompilationUnit.JAVA_EXTENSION, new JavaParserResourceFactory(new ModuleCoverageProvider(moduleCoverage)));
+			extensionFactoryMap.put(CompilationUnit.JAVA_EXTENSION, new JavaParserResourceFactory(coverageProvider == null ? null : new ModuleCoverageProvider(moduleCoverage)));
 			
 			// Registering XMI factory & URI handler for loading directory contents
 			extensionFactoryMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-			resourceSet.getURIConverter().getURIHandlers().add(0, new DirectoryContentFileURIHandler());
+			EList<URIHandler> uriHandlers = resourceSet.getURIConverter().getURIHandlers();
+			uriHandlers.add(0, new DirectoryContentFileURIHandler());
+			if (gitLabURIHandler != null) {
+				uriHandlers.add(0, gitLabURIHandler);				
+			}
+			
 			
 			File outputDir = new File(projectDir, output); 
 	    	URI sourceDirURI = URI.createFileURI(new File(projectDir, sources).getCanonicalPath()).appendSegment("");
@@ -200,7 +206,14 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 	    	
 			return 0;
 		}
-	}		
+	}	
+	
+	// TODO 
+	// sorting
+	// coverage type - lines, instructions, branches
+	// generate explanation and recommendations 
+	// limit
+	// overwrite - policy?		
 	
 	/**
 	 * Override to outputstats such as token usage to progress monitor. 
@@ -220,7 +233,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 	protected void visit(
 			EObject eObj, 
 			URI baseURI,
-			File outputDir,
+			URI outputDir,
 			int[] remaining,
 			ProgressMonitor progressMonitor) throws IOException {
 		

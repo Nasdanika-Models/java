@@ -37,9 +37,9 @@
 	
 	<dependencies>
 		<dependency>
-			<groupId>org.nasdanika.core</groupId>
+			<groupId>org.nasdanika.models.gitlab</groupId>
 			<artifactId>cli</artifactId>
-			<version>${core.version}</version>
+			<version>2024.10.0</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
