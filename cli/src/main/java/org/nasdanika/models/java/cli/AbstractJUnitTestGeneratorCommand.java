@@ -88,16 +88,16 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 	@Parameters(
 			index =  "2", 
 			description = {
-					"Output directory",
-					"relative to the project directory"
+					"Output URI",
+					"relative to the project URI"
 			})
 	private String output;
 	
 	@Option(
 			names = {"-s", "--sources"}, 
 			description = {
-					"Sources directory path relative",
-					"to the project directory,",
+					"Sources URI path relative",
+					"to the project URIy,",
 					"defaults to ${DEFAULT-VALUE}"
 				}, 
 			defaultValue = "src/main/java")
@@ -194,12 +194,12 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 			}
 			
 			
-			File outputDir = new File(projectDir, output); 
-	    	URI sourceDirURI = URI.createFileURI(new File(projectDir, sources).getCanonicalPath()).appendSegment("");
-	    	Resource sourceDirResource = resourceSet.getResource(sourceDirURI, true);
+			URI outputURI = URI.createURI(output).resolve(theProjectURI).appendSegment(""); 
+	    	URI sourcesURI = URI.createURI(sources).resolve(theProjectURI).appendSegment("");
+	    	Resource sourceDirResource = resourceSet.getResource(sourcesURI, true);
 	    	int[] remaining = { limit };
 	    	for (EObject root: sourceDirResource.getContents()) {
-	    		 visit(root, sourceDirURI, outputDir, remaining, progressMonitor);
+	    		 visit(root, sourcesURI, outputURI, remaining, progressMonitor);
 	    	}
 
 	    	stats(progressMonitor);

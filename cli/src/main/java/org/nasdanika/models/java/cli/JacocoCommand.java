@@ -2,42 +2,17 @@ package org.nasdanika.models.java.cli;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.ParentCommands;
-import org.nasdanika.cli.ProgressMonitorMixIn;
+import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
-import org.nasdanika.models.coverage.Counter;
-import org.nasdanika.models.coverage.Coverage;
 import org.nasdanika.models.coverage.ModuleCoverage;
-import org.nasdanika.models.java.Annotation;
-import org.nasdanika.models.java.CompilationUnit;
-import org.nasdanika.models.java.Interface;
-import org.nasdanika.models.java.JavaFactory;
-import org.nasdanika.models.java.Member;
-import org.nasdanika.models.java.Method;
-import org.nasdanika.models.java.Source;
-import org.nasdanika.models.java.Type;
-import org.nasdanika.models.java.util.JavaParserResourceFactory;
-import org.nasdanika.models.java.util.ModuleCoverageProvider;
-import org.nasdanika.ncore.Tree;
-import org.nasdanika.ncore.TreeItem;
-import org.nasdanika.ncore.util.DirectoryContentFileURIHandler;
-import org.springframework.util.AntPathMatcher;
 
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Mixin;
 import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
 import picocli.CommandLine.ParentCommand;
 
 @Command(
@@ -74,42 +49,28 @@ public class JacocoCommand extends CommandBase {
 	private String moduleName;		
 	
 	public ModuleCoverage loadCoverage(URI projectURI, ProgressMonitor progressMonitor) {
-		projectURI.fi
-		ModuleCoverage moduleCoverage = ModuleCoverage.loadJacoco(
-				projectDir.getName(), 
-				new File(projectDir, jacoco),
-				new File(projectDir, classes));
-		return moduleCoverage;
+		URI jacocoURI = URI.createURI(jacoco).resolve(projectURI);
+		if (!jacocoURI.isFile()) {
+			throw new IllegalArgumentException("Not a file: " + jacocoURI);
+		}
+		URI classesURI = URI.createURI(classes).resolve(projectURI);
+		if (!classesURI.isFile()) {
+			throw new IllegalArgumentException("Not a file: " + classesURI);
+		}
+		
+		try {
+			return ModuleCoverage.loadJacoco(
+					Util.isBlank(moduleName) ? projectURI.toString() : moduleName, 
+					new File(jacocoURI.toFileString()),
+					new File(classesURI.toFileString()));
+		} catch (IOException e) {
+			throw new NasdanikaException("Error loading coverage from jacoco.exec and class files: " + e, e);
+		}
 	}
 	
 	@Override
 	public Integer call() throws Exception {
-		try (ProgressMonitor progressMonitor = progressMonitorMixin.createProgressMonitor(1)) {	
-			ResourceSet resourceSet = new ResourceSetImpl();
-			
-			// Loading coverage data
-			
-			Map<String, Object> extensionFactoryMap = resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap();
-	
-			// Registering Java factory for loading java sources
-			extensionFactoryMap.put(CompilationUnit.JAVA_EXTENSION, new JavaParserResourceFactory(new ModuleCoverageProvider(moduleCoverage)));
-			
-			// Registering XMI factory & URI handler for loading directory contents
-			extensionFactoryMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-			resourceSet.getURIConverter().getURIHandlers().add(0, new DirectoryContentFileURIHandler());
-			
-			File outputDir = new File(projectDir, output); 
-	    	URI sourceDirURI = URI.createFileURI(new File(projectDir, sources).getCanonicalPath()).appendSegment("");
-	    	Resource sourceDirResource = resourceSet.getResource(sourceDirURI, true);
-	    	int[] remaining = { limit };
-	    	for (EObject root: sourceDirResource.getContents()) {
-	    		 visit(root, sourceDirURI, outputDir, remaining, progressMonitor);
-	    	}
-
-	    	stats(progressMonitor);
-	    	
-			return 0;
-		}
+		return parent.call(this::loadCoverage);
 	}		
 
 }
