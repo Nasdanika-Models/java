@@ -47,11 +47,14 @@ import picocli.CommandLine.ParentCommand;
 /**
  * Base class for command generating JUnit tests based on coverage results
  */
-@ParentCommands( GitLabContributorCommand.class)
+@ParentCommands({
+	GitLabContributorCommand.class,
+	JavaCommand.class
+})
 public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 	
 	@ParentCommand
-	private GitLabContributorCommand parent;
+	private Object parent;
 		
 	@Mixin
 	private ProgressMonitorMixIn progressMonitorMixin;	
@@ -159,14 +162,24 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 
 	@Override
 	public Integer call() throws Exception {
+		if (parent instanceof GitLabContributorCommand) {
+			return ((GitLabContributorCommand) parent).apply(gitLabURIHandler -> {
+				return call(null, gitLabURIHandler);
+			}).functionResult();
+		}
 		return call(null);
 	}
 	
-	public Integer call(BiFunction<URI, ProgressMonitor, ModuleCoverage> coverageProvider) {		
+	public Integer call(BiFunction<URI, ProgressMonitor, ModuleCoverage> coverageProvider) throws Exception {		
+		if (parent instanceof GitLabContributorCommand) {
+			return ((GitLabContributorCommand) parent).apply(gitLabURIHandler -> {
+				return call(coverageProvider, gitLabURIHandler);
+			}).functionResult();
+		}
 		return call(coverageProvider, null);
 	}	
 	
-	public Integer call(BiFunction<URI, ProgressMonitor, ModuleCoverage> coverageProvider, GitLabURIHandler gitLabURIHandler) {		
+	public Integer call(BiFunction<URI, ProgressMonitor, ModuleCoverage> coverageProvider, GitLabURIHandler gitLabURIHandler) throws IOException {		
 		try (ProgressMonitor progressMonitor = progressMonitorMixin.createProgressMonitor(1)) {
 			URI theProjectURI;			
 			if (isFileURI) {
@@ -226,14 +239,14 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 	/**
 	 * @param eObj
 	 * @param baseURI Used to deresolve compilation unit URI's to includes/excludes
-	 * @param outputDir
+	 * @param outputURI
 	 * @param openAIClient
 	 * @throws IOException 
 	 */
 	protected void visit(
 			EObject eObj, 
 			URI baseURI,
-			URI outputDir,
+			URI outputURI,
 			int[] remaining,
 			ProgressMonitor progressMonitor) throws IOException {
 		
@@ -246,7 +259,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 				URI itemURI = URI.createURI(treeItem.getName()).resolve(eObj.eResource().getURI().appendSegment(""));				
 				Resource itemResource = eObj.eResource().getResourceSet().getResource(itemURI, true);
 		    	for (EObject root: itemResource.getContents()) {
-		    		 visit(root, baseURI, outputDir, remaining, progressMonitor);
+		    		 visit(root, baseURI, outputURI, remaining, progressMonitor);
 		    	}
 			}
 		} else if (eObj instanceof CompilationUnit) {			
@@ -289,9 +302,13 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 							testCompilationUnit.setPackageName(sourcePackageName + packageSuffix); // Variation point
 							testCompilationUnit.setName(testClass.getName() + "." + CompilationUnit.JAVA_EXTENSION);
 							testCompilationUnit.getTypes().add(testClass);
-							File testCompilationUnitFile = new File(outputDir, testCompilationUnit.getPackageName().replace('.', '/') + "/" + testCompilationUnit.getName());
+							URI testCompilationUnitURI = URI.createURI(testCompilationUnit.getPackageName().replace('.', '/') + "/" + testCompilationUnit.getName()).resolve(outputURI);
 							
-							if (overwrite || !testCompilationUnitFile.exists()) {
+							boolean generate = overwrite || !testCompilationUnitURI.isFile();
+							if (!generate) {
+								generate = !new File(testCompilationUnitURI.toFileString()).exists();
+							}
+							if (generate) {
 								for (Member member: type.getMembers()) {
 									// Just methods here, add constructors, static/instance/field initializers as needed  
 									if (member instanceof Method && member.getModifiers().contains(type instanceof Interface ? "default" : "public")) {
@@ -325,8 +342,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 								
 								// Saving non-empty compilation units to file resources.
 								if (!testClass.getMembers().isEmpty()) {
-									testCompilationUnitFile.getParentFile().mkdirs();
-									Resource testCompilationUnitResource = eObj.eResource().getResourceSet().createResource(URI.createFileURI(testCompilationUnitFile.getAbsolutePath()));
+									Resource testCompilationUnitResource = eObj.eResource().getResourceSet().createResource(testCompilationUnitURI);
 									testCompilationUnitResource.getContents().add(testCompilationUnit);
 									testCompilationUnitResource.save(null);
 									--remaining[0];
@@ -336,8 +352,7 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 					}
 				}
 			}
-		}
-		
+		}		
 	}
 
 	/**
