@@ -3,6 +3,7 @@ package org.nasdanika.models.java.cli;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.nasdanika.cli.Description;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Status;
 import org.nasdanika.common.Util;
@@ -22,6 +23,7 @@ import picocli.CommandLine.Option;
 		versionProvider = VersionProvider.class,		
 		mixinStandardHelpOptions = true,		
 		name = "junit")
+@Description(icon = "https://docs.nasdanika.org/images/JUnit.svg")
 public class OpenAIJUnitTestGeneratorCommand extends AbstractOpenAIJUnitTestGeneratorCommand {
 	
 	@Option(
