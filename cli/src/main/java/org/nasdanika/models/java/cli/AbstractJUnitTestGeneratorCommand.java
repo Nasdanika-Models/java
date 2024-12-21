@@ -14,6 +14,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.nasdanika.capability.ServiceCapabilityFactory;
+import org.nasdanika.capability.ServiceCapabilityFactory.Requirement;
+import org.nasdanika.capability.emf.ResourceSetRequirement;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.ParentCommands;
 import org.nasdanika.cli.ProgressMonitorMixIn;
@@ -192,14 +195,13 @@ public abstract class AbstractJUnitTestGeneratorCommand extends CommandBase {
 			// Loading coverage data
 			ModuleCoverage moduleCoverage = coverageProvider == null ? null : coverageProvider.apply(theProjectURI, progressMonitor);
 			
-			ResourceSet resourceSet = new ResourceSetImpl(); // TODO - from capability
+			Requirement<ResourceSetRequirement, ResourceSet> requirement = ServiceCapabilityFactory.createRequirement(ResourceSet.class);		
+			ResourceSet resourceSet = capabilityLoader.loadOne(requirement, progressMonitor);
 			Map<String, Object> extensionFactoryMap = resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap();
 	
 			// Registering Java factory for loading java sources
 			extensionFactoryMap.put(CompilationUnit.JAVA_EXTENSION, new JavaParserResourceFactory(coverageProvider == null ? null : new ModuleCoverageProvider(moduleCoverage)));
 			
-			// Registering XMI factory & URI handler for loading directory contents
-			extensionFactoryMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 			EList<URIHandler> uriHandlers = resourceSet.getURIConverter().getURIHandlers();
 			uriHandlers.add(0, new DirectoryContentFileURIHandler());
 			if (gitLabURIHandler != null) {

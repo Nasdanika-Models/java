@@ -36,6 +36,11 @@
 	</build>
 	
 	<dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-model</artifactId>
+            <version>3.9.9</version>
+        </dependency>
 		<dependency>
 			<groupId>org.nasdanika.models.gitlab</groupId>
 			<artifactId>cli</artifactId>
