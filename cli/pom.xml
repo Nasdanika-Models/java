@@ -4,7 +4,7 @@
 	  <parent>
 	    <artifactId>parent</artifactId>
 	    <groupId>org.nasdanika.models.java</groupId>
-	    <version>2024.11.0</version>
+	    <version>2024.12.0</version>
 	    <relativePath>..</relativePath>
 	  </parent>
 	<artifactId>cli</artifactId>
@@ -44,7 +44,7 @@
 		<dependency>
 			<groupId>org.nasdanika.models.gitlab</groupId>
 			<artifactId>cli</artifactId>
-			<version>2024.11.0</version>
+			<version>2024.12.0</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -54,7 +54,7 @@
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-ai-openai</artifactId>
-		    <version>1.0.0-beta.11</version>
+		    <version>1.0.0-beta.13</version>
 		</dependency>
 	</dependencies>
 </project>
