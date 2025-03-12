@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.java.Annotation;
 import org.nasdanika.models.java.Comment;
-import org.nasdanika.models.source.GenerationMode;
 import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.source.Source;

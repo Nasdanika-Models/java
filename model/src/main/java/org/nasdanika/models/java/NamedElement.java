@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.java.NamedElement#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.java.NamedElement#getFullyQualifiedName <em>Fully Qualified Name</em>}</li>
  *   <li>{@link org.nasdanika.models.java.NamedElement#getReferrers <em>Referrers</em>}</li>
  * </ul>
@@ -23,32 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface NamedElement extends Source {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Simple (short) name. E.g. Map
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.models.java.JavaPackage#getNamedElement_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.java.NamedElement#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface NamedElement extends Source, org.nasdanika.models.source.NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Fully Qualified Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

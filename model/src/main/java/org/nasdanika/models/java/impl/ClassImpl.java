@@ -12,7 +12,6 @@ import org.nasdanika.models.java.GenericType;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.Member;
 import org.nasdanika.models.java.TypeParameter;
-import org.nasdanika.models.source.GenerationMode;
 
 /**
  * <!-- begin-user-doc -->

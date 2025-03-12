@@ -453,6 +453,33 @@ public interface JavaPackage extends EPackage {
 	int SOURCE___OVERLAPS__RANGE = SourcePackage.SOURCE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___TEXT__STRING = SourcePackage.SOURCE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___TEXT__SOURCE = SourcePackage.SOURCE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___OFFSET__POSITION = SourcePackage.SOURCE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -650,6 +677,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT___TEXT__STRING = SOURCE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT___TEXT__SOURCE = SOURCE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT___OFFSET__POSITION = SOURCE___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -868,6 +922,33 @@ public interface JavaPackage extends EPackage {
 	int COMPILATION_UNIT___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___TEXT__STRING = NAMED_ELEMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___TEXT__SOURCE = NAMED_ELEMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT___OFFSET__POSITION = NAMED_ELEMENT___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -956,6 +1037,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMENT___OVERLAPS__RANGE = SourcePackage.RANGE___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT___TEXT__STRING = SourcePackage.RANGE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT___TEXT__SOURCE = SourcePackage.RANGE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT___OFFSET__POSITION = SourcePackage.RANGE___OFFSET__POSITION;
 
 	/**
 	 * The number of operations of the '<em>Comment</em>' class.
@@ -1049,6 +1157,33 @@ public interface JavaPackage extends EPackage {
 	int LINE_COMMENT___OVERLAPS__RANGE = COMMENT___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT___TEXT__STRING = COMMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT___TEXT__SOURCE = COMMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_COMMENT___OFFSET__POSITION = COMMENT___OFFSET__POSITION;
+
+	/**
 	 * The number of operations of the '<em>Line Comment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1140,6 +1275,33 @@ public interface JavaPackage extends EPackage {
 	int JAVADOC_COMMENT___OVERLAPS__RANGE = COMMENT___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT___TEXT__STRING = COMMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT___TEXT__SOURCE = COMMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVADOC_COMMENT___OFFSET__POSITION = COMMENT___OFFSET__POSITION;
+
+	/**
 	 * The number of operations of the '<em>Javadoc Comment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1229,6 +1391,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int BLOCK_COMMENT___OVERLAPS__RANGE = COMMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT___TEXT__STRING = COMMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT___TEXT__SOURCE = COMMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_COMMENT___OFFSET__POSITION = COMMENT___OFFSET__POSITION;
 
 	/**
 	 * The number of operations of the '<em>Block Comment</em>' class.
@@ -1427,6 +1616,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEMBER___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER___TEXT__STRING = NAMED_ELEMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER___TEXT__SOURCE = NAMED_ELEMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER___OFFSET__POSITION = NAMED_ELEMENT___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -1635,6 +1851,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE___TEXT__STRING = NAMED_ELEMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE___TEXT__SOURCE = NAMED_ELEMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE___OFFSET__POSITION = NAMED_ELEMENT___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -1881,6 +2124,33 @@ public interface JavaPackage extends EPackage {
 	int GENERIC_TYPE___OVERLAPS__RANGE = REFERENCE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE___TEXT__STRING = REFERENCE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE___TEXT__SOURCE = REFERENCE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERIC_TYPE___OFFSET__POSITION = REFERENCE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2098,6 +2368,33 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION___OVERLAPS__RANGE = REFERENCE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___TEXT__STRING = REFERENCE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___TEXT__SOURCE = REFERENCE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___OFFSET__POSITION = REFERENCE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2306,6 +2603,33 @@ public interface JavaPackage extends EPackage {
 	int TYPE_PARAMETER___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER___TEXT__STRING = NAMED_ELEMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER___TEXT__SOURCE = NAMED_ELEMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER___OFFSET__POSITION = NAMED_ELEMENT___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2512,6 +2836,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPED_ELEMENT___OVERLAPS__RANGE = NAMED_ELEMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT___TEXT__STRING = NAMED_ELEMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT___TEXT__SOURCE = NAMED_ELEMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT___OFFSET__POSITION = NAMED_ELEMENT___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -2755,6 +3106,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE___TEXT__STRING = MEMBER___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE___TEXT__SOURCE = MEMBER___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE___OFFSET__POSITION = MEMBER___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -3010,6 +3388,33 @@ public interface JavaPackage extends EPackage {
 	int ANNOTATION_INTERFACE___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE___TEXT__STRING = TYPE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE___TEXT__SOURCE = TYPE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE___OFFSET__POSITION = TYPE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3225,6 +3630,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_INTERFACE_MEMBER___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER___TEXT__STRING = MEMBER___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER___TEXT__SOURCE = MEMBER___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_INTERFACE_MEMBER___OFFSET__POSITION = MEMBER___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -3470,6 +3902,33 @@ public interface JavaPackage extends EPackage {
 	int CLASS___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___TEXT__STRING = TYPE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___TEXT__SOURCE = TYPE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___OFFSET__POSITION = TYPE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3713,6 +4172,33 @@ public interface JavaPackage extends EPackage {
 	int INTERFACE___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE___TEXT__STRING = TYPE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE___TEXT__SOURCE = TYPE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE___OFFSET__POSITION = TYPE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3927,6 +4413,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int CODE___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___TEXT__STRING = MEMBER___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___TEXT__SOURCE = MEMBER___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___OFFSET__POSITION = MEMBER___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -4199,6 +4712,33 @@ public interface JavaPackage extends EPackage {
 	int OPERATION___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___TEXT__STRING = CODE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___TEXT__SOURCE = CODE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___OFFSET__POSITION = CODE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4469,6 +5009,33 @@ public interface JavaPackage extends EPackage {
 	int CONSTRUCTOR___OVERLAPS__RANGE = OPERATION___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR___TEXT__STRING = OPERATION___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR___TEXT__SOURCE = OPERATION___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR___OFFSET__POSITION = OPERATION___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4712,6 +5279,33 @@ public interface JavaPackage extends EPackage {
 	int ENUM___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM___TEXT__STRING = TYPE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM___TEXT__SOURCE = TYPE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM___OFFSET__POSITION = TYPE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4917,6 +5511,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_CONSTANT___OVERLAPS__RANGE = MEMBER___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT___TEXT__STRING = MEMBER___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT___TEXT__SOURCE = MEMBER___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CONSTANT___OFFSET__POSITION = MEMBER___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -5144,6 +5765,33 @@ public interface JavaPackage extends EPackage {
 	int FIELD___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD___TEXT__STRING = CODE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD___TEXT__SOURCE = CODE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD___OFFSET__POSITION = CODE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5313,6 +5961,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULE___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE___TEXT__STRING = SOURCE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE___TEXT__SOURCE = SOURCE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE___OFFSET__POSITION = SOURCE___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -5494,6 +6169,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE___OVERLAPS__RANGE = SOURCE___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___TEXT__STRING = SOURCE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___TEXT__SOURCE = SOURCE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___OFFSET__POSITION = SOURCE___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -5784,6 +6486,33 @@ public interface JavaPackage extends EPackage {
 	int METHOD___OVERLAPS__RANGE = OPERATION___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___TEXT__STRING = OPERATION___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___TEXT__SOURCE = OPERATION___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___OFFSET__POSITION = OPERATION___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5998,6 +6727,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZER___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER___TEXT__STRING = CODE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER___TEXT__SOURCE = CODE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZER___OFFSET__POSITION = CODE___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -6216,6 +6972,33 @@ public interface JavaPackage extends EPackage {
 	int CLASS_INITIALIZER___OVERLAPS__RANGE = CODE___OVERLAPS__RANGE;
 
 	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER___TEXT__STRING = CODE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER___TEXT__SOURCE = CODE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INITIALIZER___OFFSET__POSITION = CODE___OFFSET__POSITION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6430,6 +7213,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER___OVERLAPS__RANGE = TYPED_ELEMENT___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___TEXT__STRING = TYPED_ELEMENT___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___TEXT__SOURCE = TYPED_ELEMENT___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___OFFSET__POSITION = TYPED_ELEMENT___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -6673,6 +7483,33 @@ public interface JavaPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECORD___OVERLAPS__RANGE = TYPE___OVERLAPS__RANGE;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD___TEXT__STRING = TYPE___TEXT__STRING;
+
+	/**
+	 * The operation id for the '<em>Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD___TEXT__SOURCE = TYPE___TEXT__SOURCE;
+
+	/**
+	 * The operation id for the '<em>Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD___OFFSET__POSITION = TYPE___OFFSET__POSITION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -7318,17 +8155,6 @@ public interface JavaPackage extends EPackage {
 	EClass getNamedElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.NamedElement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.models.java.NamedElement#getName()
-	 * @see #getNamedElement()
-	 * @generated
-	 */
-	EAttribute getNamedElement_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.java.NamedElement#getFullyQualifiedName <em>Fully Qualified Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7954,14 +8780,6 @@ public interface JavaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Fully Qualified Name</b></em>' attribute feature.

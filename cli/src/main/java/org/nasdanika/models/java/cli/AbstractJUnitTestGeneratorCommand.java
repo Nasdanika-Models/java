@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIHandler;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.nasdanika.capability.ServiceCapabilityFactory;
 import org.nasdanika.capability.ServiceCapabilityFactory.Requirement;
 import org.nasdanika.capability.emf.ResourceSetRequirement;

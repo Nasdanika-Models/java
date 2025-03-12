@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.java.JavaPackage;
 import org.nasdanika.models.java.NamedElement;
 import org.nasdanika.models.java.Reference;
+import org.nasdanika.models.source.SourcePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +39,6 @@ public class NamedElementImpl extends SourceImpl implements NamedElement {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
-
 	/**
 	 * The default value of the '{@link #getFullyQualifiedName() <em>Fully Qualified Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -75,7 +75,7 @@ public class NamedElementImpl extends SourceImpl implements NamedElement {
 	 */
 	@Override
 	public String getName() {
-		return (String)eDynamicGet(JavaPackage.NAMED_ELEMENT__NAME, JavaPackage.Literals.NAMED_ELEMENT__NAME, true, true);
+		return (String)eDynamicGet(JavaPackage.NAMED_ELEMENT__NAME, SourcePackage.Literals.NAMED_ELEMENT__NAME, true, true);
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class NamedElementImpl extends SourceImpl implements NamedElement {
 	 */
 	@Override
 	public void setName(String newName) {
-		eDynamicSet(JavaPackage.NAMED_ELEMENT__NAME, JavaPackage.Literals.NAMED_ELEMENT__NAME, newName);
+		eDynamicSet(JavaPackage.NAMED_ELEMENT__NAME, SourcePackage.Literals.NAMED_ELEMENT__NAME, newName);
 	}
 
 	/**
@@ -226,6 +226,38 @@ public class NamedElementImpl extends SourceImpl implements NamedElement {
 				return !getReferrers().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == org.nasdanika.models.source.NamedElement.class) {
+			switch (derivedFeatureID) {
+				case JavaPackage.NAMED_ELEMENT__NAME: return SourcePackage.NAMED_ELEMENT__NAME;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == org.nasdanika.models.source.NamedElement.class) {
+			switch (baseFeatureID) {
+				case SourcePackage.NAMED_ELEMENT__NAME: return JavaPackage.NAMED_ELEMENT__NAME;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	
 } //NamedElementImpl

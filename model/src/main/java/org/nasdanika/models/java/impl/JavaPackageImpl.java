@@ -986,7 +986,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNamedElement_Name() {
+	public EAttribute getNamedElement_FullyQualifiedName() {
 		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -996,18 +996,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNamedElement_FullyQualifiedName() {
-		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getNamedElement_Referrers() {
-		return (EReference)namedElementEClass.getEStructuralFeatures().get(2);
+		return (EReference)namedElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1046,7 +1036,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		createEReference(sourceEClass, SOURCE__COMMENT);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__FULLY_QUALIFIED_NAME);
 		createEReference(namedElementEClass, NAMED_ELEMENT__REFERRERS);
 
@@ -1173,6 +1162,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		// Add supertypes to classes
 		sourceEClass.getESuperTypes().add(theSourcePackage.getSource());
 		namedElementEClass.getESuperTypes().add(this.getSource());
+		namedElementEClass.getESuperTypes().add(theSourcePackage.getNamedElement());
 		compilationUnitEClass.getESuperTypes().add(this.getNamedElement());
 		commentEClass.getESuperTypes().add(theSourcePackage.getRange());
 		lineCommentEClass.getESuperTypes().add(this.getComment());
@@ -1213,7 +1203,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		initEReference(getSource_Comment(), this.getComment(), null, "comment", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamedElement_FullyQualifiedName(), ecorePackage.getEString(), "fullyQualifiedName", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNamedElement_Referrers(), this.getReference(), this.getReference_Target(), "referrers", null, 0, -1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1321,12 +1310,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 */
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";
-		addAnnotation
-		  (getNamedElement_Name(),
-		   source,
-		   new String[] {
-			   "documentation", "Simple (short) name. E.g. Map"
-		   });
 		addAnnotation
 		  (getNamedElement_FullyQualifiedName(),
 		   source,

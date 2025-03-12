@@ -3,7 +3,7 @@ package org.nasdanika.models.java.cli;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.nasdanika.cli.Description;
+import org.nasdanika.common.Description;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Status;
 import org.nasdanika.common.Util;

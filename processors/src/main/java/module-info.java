@@ -1,3 +1,6 @@
+import org.nasdanika.capability.CapabilityFactory;
+import org.nasdanika.models.java.processors.ecore.ECoreGenJavaProcessorsCapabilityFactory;
+
 module org.nasdanika.models.java.processors {
 		
 	requires transitive org.nasdanika.models.java;
@@ -5,5 +8,8 @@ module org.nasdanika.models.java.processors {
 	
 	exports org.nasdanika.models.java.processors.ecore;
 	opens org.nasdanika.models.java.processors.ecore; // For loading resources
+
+
+	provides CapabilityFactory with ECoreGenJavaProcessorsCapabilityFactory;
 	
 }
