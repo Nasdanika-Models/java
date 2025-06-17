@@ -4,7 +4,7 @@
 	  <parent>
 	    <artifactId>parent</artifactId>
 	    <groupId>org.nasdanika.models.java</groupId>
-	    <version>2025.5.0</version>
+	    <version>2025.6.0</version>
 	    <relativePath>..</relativePath>
 	  </parent>
 	<artifactId>cli</artifactId>
@@ -39,12 +39,12 @@
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-model</artifactId>
-            <version>3.9.9</version>
+            <version>3.9.10</version>
         </dependency>
 		<dependency>
 			<groupId>org.nasdanika.models.gitlab</groupId>
 			<artifactId>cli</artifactId>
-			<version>2025.5.0</version>
+			<version>2025.6.0</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
