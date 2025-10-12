@@ -17,7 +17,7 @@ module org.nasdanika.models.java.cli {
 	requires transitive maven.model;
 	requires plexus.utils;
 	
-	opens org.nasdanika.models.java.cli to info.picocli, org.nasdanika.models.app.gen.cli;
+	opens org.nasdanika.models.java.cli to info.picocli, org.nasdanika.models.app.gen.cli, org.nasdanika.cli;
 	
 	provides CapabilityFactory with 
 		JavaCommandFactory,
