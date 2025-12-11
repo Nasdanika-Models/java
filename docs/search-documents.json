@@ -1,477 +1,477 @@
 {
   "references/eClassifiers/TypedElement/references/eStructuralFeatures/type/index.html": {
     "path": "TypedElement/References/type",
-    "link-uuid": "ba6ea6d7-dc21-496c-8a28-33096c1661df",
+    "link-uuid": "dedb7f5e-1bce-4763-a3b6-32c567200f8c",
     "title": "type",
     "content": "Type GenericType Multiplicity 0..1",
-    "timestamp": 1749931345695
+    "timestamp": 1765406814729
   },
   "references/eClassifiers/Method/inheritance.html": {
     "path": "Method/Inheritance",
-    "link-uuid": "47ab01d5-16d0-4cb8-ad38-8a11353dae1c",
+    "link-uuid": "1270b3cf-4e8b-4ba3-8922-fd676c977ea6",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345441
+    "timestamp": 1765406814502
   },
   "references/eClassifiers/CompilationUnit/references/eStructuralFeatures/types/index.html": {
     "path": "CompilationUnit/References/types",
-    "link-uuid": "d7586059-efc9-4b03-b369-99b66769f71f",
+    "link-uuid": "6476f748-f87d-4428-b975-5b8a53a0bfda",
     "title": "types",
     "content": "Type Type Multiplicity 0..*",
-    "timestamp": 1749931345215
+    "timestamp": 1765406814282
   },
   "references/eClassifiers/NamedElement/references/eStructuralFeatures/fullyQualifiedName/index.html": {
     "path": "NamedElement/Attributes/fullyQualifiedName",
-    "link-uuid": "c418b230-c372-4905-89e7-84b1b0ca8fd7",
+    "link-uuid": "893f5ba3-3e73-41c2-8cfe-d2ea42800066",
     "title": "fullyQualifiedName",
     "content": "Type EString Multiplicity 0..1 Fully qualified name where applicable. E.g. java.util.Map",
-    "timestamp": 1749931345494
+    "timestamp": 1765406814555
   },
   "references/eClassifiers/Comment/references/eStructuralFeatures/comment/index.html": {
     "path": "Comment/Attributes/comment",
-    "link-uuid": "0d339953-cd5a-4ac3-9b40-e9a68b8460ab",
+    "link-uuid": "425586c9-c262-46e7-8c89-62a12a064866",
     "title": "comment",
     "content": "Type EString Multiplicity 0..1",
-    "timestamp": 1749931345190
+    "timestamp": 1765406814254
   },
   "references/eClassifiers/Source/references/eStructuralFeatures/comment/index.html": {
     "path": "Source/References/comment",
-    "link-uuid": "903bbec1-d9d0-493e-97f6-983f63189699",
+    "link-uuid": "c9f4ccb6-d4c3-49f7-b3bd-77b1cffe162e",
     "title": "comment",
     "content": "Type Comment Multiplicity 0..1",
-    "timestamp": 1749931345642
+    "timestamp": 1765406814678
   },
   "references/eClassifiers/Annotation/references/eStructuralFeatures/elements/index.html": {
     "path": "Annotation/References/elements",
-    "link-uuid": "ee74bbda-49f7-4099-9971-3af4de94f23f",
+    "link-uuid": "4961c695-2d5b-4c00-aa09-88764edc11df",
     "title": "elements",
     "content": "Type NamedElement Multiplicity 0..*",
-    "timestamp": 1749931345046
+    "timestamp": 1765406814085
   },
   "references/eClassifiers/LineComment/inheritance.html": {
     "path": "LineComment/Inheritance",
-    "link-uuid": "89dd204d-2ba3-4a2b-ae29-d6c318073bcb",
+    "link-uuid": "9f14b10f-df3b-47ad-9e53-4d05fa0c9ca0",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345396
+    "timestamp": 1765406814461
   },
   "references/eClassifiers/Operation/references/eStructuralFeatures/receiverParameter/index.html": {
     "path": "Operation/References/receiverParameter",
-    "link-uuid": "6a390a56-ad5c-4442-866f-e2a58e8bf1b3",
+    "link-uuid": "0ce97a97-cee8-49e3-9a4f-a471f3376712",
     "title": "receiverParameter",
     "content": "Type Parameter Multiplicity 0..1",
-    "timestamp": 1749931345523
+    "timestamp": 1765406814578
   },
   "references/eClassifiers/Package/inheritance.html": {
     "path": "Package/Inheritance",
-    "link-uuid": "d1ca8d02-12db-4743-9d16-872da739334b",
+    "link-uuid": "1b4ead02-e85e-4bb1-948f-8292f5c5b808",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345542
+    "timestamp": 1765406814595
   },
   "references/eClassifiers/Interface/inheritance.html": {
     "path": "Interface/Inheritance",
-    "link-uuid": "cb2b36a5-491d-4178-833c-b5f693610e4a",
+    "link-uuid": "de1c218a-5bb6-4401-b9d7-3966a7a31086",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345360
+    "timestamp": 1765406814429
   },
   "index.html": {
-    "link-uuid": "8108b861-daf6-47f0-bc53-c9e9c7c7b636",
+    "link-uuid": "3556492a-88ea-47cb-80d5-3fe3d243abc1",
     "title": "Java",
     "content": "Nasdanika Java model can be used for analysis and code generation. It can be loaded from source files, class files and jar files. Model elements can reference coverage results. Model elements can be referenced from other models. For example, Maven project may reference a Java Module. File/resource top-level model elements, such as compilation units for *.java files and types for *.class files, are loaded as resources. It allows to use custom URI handlers to load resources from different sources. For example, GitLabURIHandler can be used to load sources from GitLab repositories using REST API, without cloning, and commit modifications to GitLab. Logical URI&rsquo;s, e.g. java://classes/org/nasdanika/common/Util may be used to reference model elements. Such logical URI&rsquo;s would be resolved to physical URI&rsquo;s, which may be different in different contexts - java sources or class files. Java model elements may be extended (subclassed) and subclasses can be loaded instead of the base classes. In the above example of a Maven project referencing a Java module, instead of a reference there might be a class, say MavenJar, extending both Maven project and Java module. Another example might be a JavaTextRepositoryFile extending both GitLab TextRepositoryFile and CompilationUnit. Yet another example, which might be combined with the above examples, is a class extending Maven project, Java module, and Architecture element This model is coarse-grained - it provides classes representing high-level &ldquo;externally referenceable&rdquo; constructs of the Java language. Low-level constructs such as statements and expressions are not modeled. Also, the model is somewhat loose on purpose to simplify code generation. For example, a source child can be added to any subclass of Source and source can be set to any text. &ldquo;[All models are wrong, but some are useful]&rdquo;. By omitting low-level details this model is wrong to be useful for its intended purpose - high level analysis, cross-referencing with non-java entities and source code generation. The below diagram shows key model classes and their relationships. Some intermediate classes are omitted in the inheritance hierarchy. See the full diagram for additional details. Maven dependency Maven Central Entry &lt;dependency&gt;\n    &lt;groupId&gt;org.nasdanika.models.java&lt;/groupId&gt;\n    &lt;artifactId&gt;model&lt;/artifactId&gt;\n    &lt;version&gt;latest version from Maven Central&lt;/version&gt;\n&lt;/dependency&gt;\n Javadoc Latest Loading From sources Individual sources ResourceSet resourceSet = new ResourceSetImpl();\nresourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(&quot;java&quot;, new JavaParserResourceFactory());\t\t\n\t\t\nString javaPackagePath = new File(&quot;src/main/java/org/nasdanika/models/java/JavaPackage.java&quot;).getCanonicalPath();\nResource javaPackageResource = resourceSet.getResource(URI.createFileURI(javaPackagePath), true);\n Directory public void loadSourceDirectory() throws IOException {\n\tResourceSet resourceSet = new ResourceSetImpl();\n\tresourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(&quot;java&quot;, new JavaParserResourceFactory());\t\t\n\n\t// For loading directory contents\n\tresourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());\t\t\n\tURIHandler fileDirectoryURIHandler = new DirectoryContentFileURIHandler();\n\tresourceSet.getURIConverter().getURIHandlers().add(0, fileDirectoryURIHandler);\n\t\n\t\n\tString javaSourcesPath = new File(&quot;src/main/java&quot;).getCanonicalPath();\n\tResource javaSourcesResource = resourceSet.getResource(URI.createFileURI(javaSourcesPath), true);\n\tfor (EObject root: javaSourcesResource.getContents()) {\n\t\tvisit(root);\n\t}\t\t\n}\n\nprivate void visit(EObject eObject) {\n\tSystem.out.println(eObject);\n\tif (eObject instanceof TreeItem) {\n\t\tSystem.out.println(((TreeItem) eObject).getName());\n\t}\n\tif (eObject instanceof Tree) {\n\t\tfor (TreeItem treeItem: ((Tree) eObject).getTreeItems()) {\n\t\t\tURI itemURI = URI.createURI(treeItem.getName()).resolve(eObject.eResource().getURI().appendSegment(&quot;&quot;));\n\t\t\tResource itemResource = eObject.eResource().getResourceSet().getResource(itemURI, true);\n\t\t\tfor (EObject root: itemResource.getContents()) {\n\t\t\t\tvisit(root);\n\t\t\t}\t\t\n\t\t}\n\t}\t\t\n}\n\n With coverage File projectDir = new File(&quot;&lt;path to a Maven project directory&quot;);\nFile jacocoExec = new File(projectDir, &quot;target/jacoco.exec&quot;);\nResourceSet resourceSet = new ResourceSetImpl();\t\t\nresourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());\nModuleCoverage moduleCoverage = ModuleCoverage.loadJacoco(&quot;&lt;module name&gt;&quot;, jacocoExec, new File(projectDir, &quot;target/classes&quot;));\n\t\t\nresourceSet\n\t.getResourceFactoryRegistry()\n\t.getExtensionToFactoryMap()\n\t.put(\n\t\t&quot;java&quot;, \n\t\tnew JavaParserResourceFactory(new ModuleCoverageProvider(moduleCoverage)));\t\t\n\n...\n From class files TODO From jar files TODO Generation Source Low-level example - TODO - test case Compilation Unit Use Cases Analysis and documentation/code generation Nasdanika Rules has a demo of inspecting Java sources and then generating test classes using OpenAI chat completions. Sources are retrieved from GitLab and generated test classes are committed to GitLab. The Java model combines both source and bytecode information, such as calls method makes, fields it accesses, or callers of a method. This information may be used to generate documentation and visualizations such as UML diagrams. It can also be used as part of GenAI prompts to generate documentation, recommendations, or test code. In the later case coverage information can be used to generate tests for classes and methods with low coverage. Some insights which might be provided by Java analysis: Module - removal of direct dependencies if there is a transient dependency. Say C depends on A and B, B has A as a transitive dependency. There is no need for C to have a direct dependency on A - it doesn&rsquo;t hurt, though. Circular dependencies between packages. Sometimes such dependencies are inevitable, so this &ldquo;rule&rdquo; shall be parameterizable. E.g. exclude child packages, or have an annotation to indicate that a circular dependency is by design, similar to SuppressWarning annotation. Code generation Nasdanika Function Flow leverages the Java model to generate code for Java source activities. GenAI is used to generate code from high level descriptions (specification) and contextual information. Source Compilation Unit Package Module Member Type Field Code Operation Method Constructor Class Interface Enum Annotation Interface Record Annotation Interface Member EnumConstant Initializer Class Initializer Page-1",
-    "timestamp": 1749931345023
+    "timestamp": 1765406814056
   },
   "references/eClassifiers/GenericType/references/eStructuralFeatures/upperBound/index.html": {
     "path": "GenericType/References/upperBound",
-    "link-uuid": "0f21c3c5-cf11-4671-a0f6-8580edd18edd",
+    "link-uuid": "9fa91363-610f-4c4b-847a-54ea24b6adf6",
     "title": "upperBound",
     "content": "Type GenericType Multiplicity 0..1",
-    "timestamp": 1749931345327
+    "timestamp": 1765406814395
   },
   "references/eClassifiers/Operation/references/eStructuralFeatures/exceptions/index.html": {
     "path": "Operation/References/exceptions",
-    "link-uuid": "aca28d02-cf56-4900-8a24-ed6943149f37",
+    "link-uuid": "85097481-0490-43ba-8bba-3de7dc2ae62e",
     "title": "exceptions",
     "content": "Type GenericType Multiplicity 0..*",
-    "timestamp": 1749931345520
+    "timestamp": 1765406814576
   },
   "references/eClassifiers/Package/references/eStructuralFeatures/name/index.html": {
     "path": "Package/Attributes/name",
-    "link-uuid": "cdc67908-f612-4f6c-b7e5-e5d1064dfb57",
+    "link-uuid": "42bee4e2-5a3e-4a1b-b929-16041151ba38",
     "title": "name",
     "content": "Type EString Multiplicity 0..1",
-    "timestamp": 1749931345548
+    "timestamp": 1765406814600
   },
   "references/eClassifiers/Field/inheritance.html": {
     "path": "Field/Inheritance",
-    "link-uuid": "80ab4a40-6d66-49bf-ac56-e9d5b247d6a0",
+    "link-uuid": "4209c8cd-1725-4ce9-9d73-64dba1b3d1ab",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345293
+    "timestamp": 1765406814360
   },
   "references/eClassifiers/GenericType/inheritance.html": {
     "path": "GenericType/Inheritance",
-    "link-uuid": "a0334410-8364-49dc-850c-456bddad3782",
+    "link-uuid": "29d2f4f5-3f9b-4791-892b-1b6d97f0639e",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345316
+    "timestamp": 1765406814384
   },
   "references/eClassifiers/GenericType/references/eStructuralFeatures/primitive/index.html": {
     "path": "GenericType/Attributes/primitive",
-    "link-uuid": "5ccdc2f5-a8e6-4d99-8757-2e7234cb67f9",
+    "link-uuid": "14a408bd-a121-4224-973f-b117324ab49c",
     "title": "primitive",
     "content": "Type EBoolean Multiplicity 0..1",
-    "timestamp": 1749931345324
+    "timestamp": 1765406814391
   },
   "references/eClassifiers/Module/inheritance.html": {
     "path": "Module/Inheritance",
-    "link-uuid": "2058ef0e-72ce-4bd1-8bb7-38435c4eb5f7",
+    "link-uuid": "28bab5b6-9449-4251-b091-a66b60fe9c15",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345463
+    "timestamp": 1765406814526
   },
   "references/eClassifiers/Constructor/inheritance.html": {
     "path": "Constructor/Inheritance",
-    "link-uuid": "f912124e-6933-472a-8f71-a18570d6ec0e",
+    "link-uuid": "fad7b8a3-5ab3-4f68-8f84-1a304c5a01c9",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345229
+    "timestamp": 1765406814299
   },
   "references/eClassifiers/Method/references/eStructuralFeatures/overrides/index.html": {
     "path": "Method/References/overrides",
-    "link-uuid": "aa88424b-e084-4c2c-837d-673e4be5a116",
+    "link-uuid": "6eedcf05-7b9f-4a8e-ace4-1f00f5451b6c",
     "title": "overrides",
     "content": "Type Method Multiplicity 0..1",
-    "timestamp": 1749931345449
+    "timestamp": 1765406814511
   },
   "references/eClassifiers/TypedElement/inheritance.html": {
     "path": "TypedElement/Inheritance",
-    "link-uuid": "2976fb84-3d8f-4a14-85c5-4d46fac8d41a",
+    "link-uuid": "82872291-c47d-4116-bcbb-5c4c71916e89",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345690
+    "timestamp": 1765406814724
   },
   "references/eClassifiers/Type/references/eStructuralFeatures/members/index.html": {
     "path": "Type/References/members",
-    "link-uuid": "83782bb9-b1b9-4512-b0e1-d9fab8f9da03",
+    "link-uuid": "c9c5ab96-9112-487c-aae7-d338f3461a20",
     "title": "members",
     "content": "Type Member Multiplicity 0..*",
-    "timestamp": 1749931345667
+    "timestamp": 1765406814705
   },
   "references/eClassifiers/Member/inheritance.html": {
     "path": "Member/Inheritance",
-    "link-uuid": "01aca50a-d3ce-42f2-acbb-6570b4fdf803",
+    "link-uuid": "ba05cf0d-1c0f-4e34-b33d-85ecec80c062",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345421
+    "timestamp": 1765406814481
   },
   "references/eClassifiers/Source/references/eStructuralFeatures/references/index.html": {
     "path": "Source/References/references",
-    "link-uuid": "44f7703a-1742-4d88-bf43-c4168893c195",
+    "link-uuid": "281c427e-84e0-4c87-b87e-6b804376ef59",
     "title": "references",
     "content": "Type Reference Multiplicity 0..*",
-    "timestamp": 1749931345645
+    "timestamp": 1765406814681
   },
   "references/eClassifiers/Operation/inheritance.html": {
     "path": "Operation/Inheritance",
-    "link-uuid": "39db20b7-59f5-4c9f-a162-1f841d1e9db7",
+    "link-uuid": "089abcf6-379a-424f-9056-1701780f2efe",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345515
+    "timestamp": 1765406814572
   },
   "references/eClassifiers/CompilationUnit/references/eStructuralFeatures/imports/index.html": {
     "path": "CompilationUnit/Attributes/imports",
-    "link-uuid": "861664c3-1477-49ef-8bd9-72d9e4bf004b",
+    "link-uuid": "2d4ad952-a47b-4a4a-9ea7-dcc86d2a67d1",
     "title": "imports",
     "content": "Type EString Multiplicity 0..*",
-    "timestamp": 1749931345212
+    "timestamp": 1765406814278
   },
   "references/eClassifiers/Type/references/eStructuralFeatures/permits/index.html": {
     "path": "Type/References/permits",
-    "link-uuid": "c22f0cdc-e8ac-4416-aeb1-66a591f1cb40",
+    "link-uuid": "25961c4e-39a1-4947-ac02-824fb9163dec",
     "title": "permits",
     "content": "Type GenericType Multiplicity 0..* For classes the first element is the superclass and the rest are implemented interfaces",
-    "timestamp": 1749931345669
+    "timestamp": 1765406814706
   },
   "references/eClassifiers/Type/references/eStructuralFeatures/superTypes/index.html": {
     "path": "Type/References/superTypes",
-    "link-uuid": "2df1cccd-5a76-43db-a537-c67c00c37d98",
+    "link-uuid": "ecaf837b-feff-4d5e-9101-f6fade24d015",
     "title": "superTypes",
     "content": "Type GenericType Multiplicity 0..* For classes the first element is the superclass and the rest are implemented interfaces",
-    "timestamp": 1749931345670
+    "timestamp": 1765406814707
   },
   "references/eClassifiers/Annotation/inheritance.html": {
     "path": "Annotation/Inheritance",
-    "link-uuid": "9b575fe7-018d-49f3-814d-e59eb0928c12",
+    "link-uuid": "d9a47b55-843f-4193-98c4-2587ced74023",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345040
+    "timestamp": 1765406814076
   },
   "references/eClassifiers/NamedElement/references/eStructuralFeatures/referrers/index.html": {
     "path": "NamedElement/References/referrers",
-    "link-uuid": "a6a19ca7-48db-4304-a313-23e491dcdb4e",
+    "link-uuid": "3f94841c-0fb6-48f9-8583-43523111b77a",
     "title": "referrers",
     "content": "Type Reference Multiplicity 0..*",
-    "timestamp": 1749931345496
+    "timestamp": 1765406814557
   },
   "references/eClassifiers/Reference/inheritance.html": {
     "path": "Reference/Inheritance",
-    "link-uuid": "7476ea1a-c3a0-490e-b555-1a5f018ac7d3",
+    "link-uuid": "b2269e0c-6434-4d7e-ab50-f55e19de7c1b",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345608
+    "timestamp": 1765406814651
   },
   "references/eClassifiers/ClassInitializer/inheritance.html": {
     "path": "ClassInitializer/Inheritance",
-    "link-uuid": "0511ea89-bb2a-478e-8ec5-51940282e319",
+    "link-uuid": "eb83f59f-84a4-460d-b80a-ff60e71d64df",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345138
+    "timestamp": 1765406814198
   },
   "references/eClassifiers/Class/inheritance.html": {
     "path": "Class/Inheritance",
-    "link-uuid": "a71bc31b-0ae5-4a0c-91eb-65453825e617",
+    "link-uuid": "edd95cb0-9398-4e13-896b-c94be6f99ce9",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345118
+    "timestamp": 1765406814176
   },
   "references/eClassifiers/BlockComment/inheritance.html": {
     "path": "BlockComment/Inheritance",
-    "link-uuid": "d4e6cdb0-2985-4060-bdc7-c4ac40df9923",
+    "link-uuid": "3b14efc0-ac99-4329-9545-f40495ffb0da",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345098
+    "timestamp": 1765406814153
   },
   "references/eClassifiers/AnnotationInterfaceMember/inheritance.html": {
     "path": "AnnotationInterfaceMember/Inheritance",
-    "link-uuid": "1055faf4-852e-403e-9951-63373e9192dc",
+    "link-uuid": "2577a986-2aba-436a-b614-c1a5d481e787",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345081
+    "timestamp": 1765406814131
   },
   "references/eClassifiers/Parameter/inheritance.html": {
     "path": "Parameter/Inheritance",
-    "link-uuid": "6b103319-2cb5-4084-bb14-054ec6848167",
+    "link-uuid": "47bc5342-5028-4ce8-bc4e-cd0a445d7e43",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345563
+    "timestamp": 1765406814614
   },
   "references/eClassifiers/Operation/references/eStructuralFeatures/parameters/index.html": {
     "path": "Operation/References/parameters",
-    "link-uuid": "f8551d8e-1c8d-4074-b7f0-961660948240",
+    "link-uuid": "2b49ae22-15c4-411d-ba17-0fe4eb54334e",
     "title": "parameters",
     "content": "Type Parameter Multiplicity 0..*",
-    "timestamp": 1749931345522
+    "timestamp": 1765406814577
   },
   "references/eClassifiers/GenericType/references/eStructuralFeatures/lowerBound/index.html": {
     "path": "GenericType/References/lowerBound",
-    "link-uuid": "a92f03fe-edbd-4e18-aaf8-17294975fb33",
+    "link-uuid": "0b4a5f68-469f-4e33-b8d2-f62f04f356af",
     "title": "lowerBound",
     "content": "Type GenericType Multiplicity 0..1",
-    "timestamp": 1749931345322
+    "timestamp": 1765406814390
   },
   "references/eClassifiers/CompilationUnit/inheritance.html": {
     "path": "CompilationUnit/Inheritance",
-    "link-uuid": "d83b74bc-4440-49d8-8246-bfded8f429b7",
+    "link-uuid": "045c42f3-6272-4339-ab55-ebe5ae1018d3",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345205
+    "timestamp": 1765406814272
   },
   "references/eClassifiers/TypeParameter/inheritance.html": {
     "path": "TypeParameter/Inheritance",
-    "link-uuid": "7475c1b9-83ef-4a46-848e-22e3a0832d3a",
+    "link-uuid": "365f38bb-4a5b-4c16-bc89-5e79eb6738e7",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345715
+    "timestamp": 1765406814744
   },
   "references/eClassifiers/Member/references/eStructuralFeatures/modifiers/index.html": {
     "path": "Member/Attributes/modifiers",
-    "link-uuid": "61e6ffe6-bed2-4aa5-8a07-5566474c838e",
+    "link-uuid": "0e45bac8-657d-49df-8626-55b09d25e105",
     "title": "modifiers",
     "content": "Type EString Multiplicity 0..*",
-    "timestamp": 1749931345424
+    "timestamp": 1765406814484
   },
   "references/eClassifiers/Record/inheritance.html": {
     "path": "Record/Inheritance",
-    "link-uuid": "8f6835fb-973d-4800-af04-c4839cec426d",
+    "link-uuid": "ad22552b-aa02-401f-a258-dc084cce0799",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345587
+    "timestamp": 1765406814633
   },
   "references/eClassifiers/Code/references/eStructuralFeatures/body/index.html": {
     "path": "Code/References/body",
-    "link-uuid": "1a1a744e-6f06-43e2-9558-1ac10af0edd0",
+    "link-uuid": "b1713d47-0685-4db4-b122-ad7ca02f7ac9",
     "title": "body",
     "content": "Type Source Multiplicity 0..1",
-    "timestamp": 1749931345168
+    "timestamp": 1765406814230
   },
   "references/eClassifiers/Comment/inheritance.html": {
     "path": "Comment/Inheritance",
-    "link-uuid": "c685f86b-4dd7-495a-80e6-bc126e3ec2aa",
+    "link-uuid": "1aed4703-eefb-409d-b063-b454bfc311d4",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345184
+    "timestamp": 1765406814249
   },
   "references/eClassifiers/NamedElement/inheritance.html": {
     "path": "NamedElement/Inheritance",
-    "link-uuid": "13a9eecd-1bc6-4f84-b7cc-92ddbfdf25c9",
+    "link-uuid": "88c18f59-0d2a-4f1a-9ea0-360c4441018e",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345488
+    "timestamp": 1765406814550
   },
   "references/eClassifiers/Parameter/references/eStructuralFeatures/varArg/index.html": {
     "path": "Parameter/Attributes/varArg",
-    "link-uuid": "bb670172-2bfc-48bb-a6d0-37ffe1762e8f",
+    "link-uuid": "bb9cb16a-8d0f-4397-aeb1-5d19a99ede6e",
     "title": "varArg",
     "content": "Type EBoolean Multiplicity 0..1",
-    "timestamp": 1749931345573
+    "timestamp": 1765406814621
   },
   "references/eClassifiers/Source/references/eStructuralFeatures/annotations/index.html": {
     "path": "Source/References/annotations",
-    "link-uuid": "843b9e00-1e1e-4e22-9a7c-2bdc9e74e29d",
+    "link-uuid": "e9a8e19d-fa3a-435b-94b9-7ea7af7e664b",
     "title": "annotations",
     "content": "Type Annotation Multiplicity 0..*",
-    "timestamp": 1749931345640
+    "timestamp": 1765406814677
   },
   "references/eClassifiers/Parameter/references/eStructuralFeatures/modifiers/index.html": {
     "path": "Parameter/Attributes/modifiers",
-    "link-uuid": "bc567f81-dbea-4aed-8525-00ac0a6eb568",
+    "link-uuid": "fdfeeac4-d5c6-4a11-8582-4b0fed4b9ca3",
     "title": "modifiers",
     "content": "Type EString Multiplicity 0..*",
-    "timestamp": 1749931345571
+    "timestamp": 1765406814619
   },
   "references/eClassifiers/Code/inheritance.html": {
     "path": "Code/Inheritance",
-    "link-uuid": "b20966cd-6adf-4314-886b-3874738bfb84",
+    "link-uuid": "5044718b-7974-4f25-a054-e828050d5a54",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345161
+    "timestamp": 1765406814221
   },
   "references/eClassifiers/Reference/references/eStructuralFeatures/target/index.html": {
     "path": "Reference/References/target",
-    "link-uuid": "59f44478-0304-4a4b-a951-2d591b226c11",
+    "link-uuid": "ffcc7e5b-0047-433b-8112-2b4369d2df37",
     "title": "target",
     "content": "Type NamedElement Multiplicity 0..1 Referenced named element (symbol)",
-    "timestamp": 1749931345614
+    "timestamp": 1765406814656
   },
   "references/eClassifiers/Source/references/eStructuralFeatures/coverage/index.html": {
     "path": "Source/References/coverage",
-    "link-uuid": "0d94db98-8a19-43c9-a612-779dbd76c736",
+    "link-uuid": "bb55109f-e940-455c-abdb-cdacd58e088e",
     "title": "coverage",
     "content": "Type Coverage Multiplicity 0..*",
-    "timestamp": 1749931345644
+    "timestamp": 1765406814680
   },
   "references/eClassifiers/Type/references/eStructuralFeatures/typeParameters/index.html": {
     "path": "Type/References/typeParameters",
-    "link-uuid": "55d19b33-eee1-47bb-83fa-02def4558518",
+    "link-uuid": "90f83736-7371-4af6-97f6-34379cf80290",
     "title": "typeParameters",
     "content": "Type TypeParameter Multiplicity 0..*",
-    "timestamp": 1749931345672
+    "timestamp": 1765406814709
   },
   "references/eClassifiers/Method/references/eStructuralFeatures/overriddenBy/index.html": {
     "path": "Method/References/overriddenBy",
-    "link-uuid": "cdc57f54-4412-4cbe-a15e-dd6ca44c407e",
+    "link-uuid": "d00c0db3-860d-4d59-bcf4-4896908edff5",
     "title": "overriddenBy",
     "content": "Type Method Multiplicity 0..*",
-    "timestamp": 1749931345447
+    "timestamp": 1765406814509
   },
   "references/eClassifiers/EnumConstant/inheritance.html": {
     "path": "EnumConstant/Inheritance",
-    "link-uuid": "1c469361-cbd5-4bda-bc6a-8c64b1fdfb6f",
+    "link-uuid": "021d6b73-bcea-4881-ae46-ce397c8c6bc2",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345274
+    "timestamp": 1765406814342
   },
   "references/eClassifiers/Type/inheritance.html": {
     "path": "Type/Inheritance",
-    "link-uuid": "bbf4c841-6ce5-41a4-b9a1-d1798d4a01b5",
+    "link-uuid": "bb89a525-d1d0-47cc-ab94-0618f963c46c",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345663
+    "timestamp": 1765406814702
   },
   "references/eClassifiers/GenericType/references/eStructuralFeatures/typeArguments/index.html": {
     "path": "GenericType/References/typeArguments",
-    "link-uuid": "ab880ba6-176e-4770-9390-aeb167f9e1e4",
+    "link-uuid": "d7af269b-b7a7-4676-985e-5d14807eb118",
     "title": "typeArguments",
     "content": "Type GenericType Multiplicity 0..*",
-    "timestamp": 1749931345325
+    "timestamp": 1765406814393
   },
   "references/eClassifiers/Initializer/inheritance.html": {
     "path": "Initializer/Inheritance",
-    "link-uuid": "50c9dd45-f4ff-4126-84c6-0db6110d655e",
+    "link-uuid": "e137cbb0-e6c7-4d7b-b226-dc914dc54a09",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345342
+    "timestamp": 1765406814411
   },
   "references/eClassifiers/Module/references/eStructuralFeatures/packages/index.html": {
     "path": "Module/References/packages",
-    "link-uuid": "8d5e188a-e586-474a-a665-afc09bb96162",
+    "link-uuid": "ffaed021-d010-4476-94b7-5a7be4f8153b",
     "title": "packages",
     "content": "Type Package Multiplicity 0..*",
-    "timestamp": 1749931345469
+    "timestamp": 1765406814533
   },
   "references/eClassifiers/JavadocComment/inheritance.html": {
     "path": "JavadocComment/Inheritance",
-    "link-uuid": "6b9d2c66-444f-43d6-9515-13846cbd6581",
+    "link-uuid": "9cfe8d07-a785-403d-82e4-647ae272507c",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345380
+    "timestamp": 1765406814446
   },
   "references/eClassifiers/Source/inheritance.html": {
     "path": "Source/Inheritance",
-    "link-uuid": "f706d93f-cebd-4885-ad5a-a469345a5ecf",
+    "link-uuid": "d237fdfb-85c8-4a16-8afe-5fccfc65d214",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1749931345633
+    "timestamp": 1765406814672
   },
   "references/eClassifiers/TypeParameter/references/eStructuralFeatures/bounds/index.html": {
     "path": "TypeParameter/References/bounds",
-    "link-uuid": "29e711ca-723d-4c25-bc66-9ef514b4e15d",
+    "link-uuid": "d6c5816d-ca7e-41d7-95c8-1b1885ba4b37",
     "title": "bounds",
     "content": "Type GenericType Multiplicity 0..*",
-    "timestamp": 1749931345721
+    "timestamp": 1765406814749
   },
   "references/eClassifiers/Operation/references/eStructuralFeatures/signature/index.html": {
     "path": "Operation/Attributes/signature",
-    "link-uuid": "216e259c-eb47-4a0f-87cd-3fd7ef466450",
+    "link-uuid": "257eef17-477e-450b-b580-e3f1dc08f6b0",
     "title": "signature",
     "content": "Type EString Multiplicity 0..1",
-    "timestamp": 1749931345525
+    "timestamp": 1765406814580
   },
   "references/eClassifiers/Operation/references/eStructuralFeatures/typeParameters/index.html": {
     "path": "Operation/References/typeParameters",
-    "link-uuid": "6eab112d-0826-492e-a80a-e70734d1e756",
+    "link-uuid": "59bac81d-d51a-4b9c-b61b-b2038c4321f8",
     "title": "typeParameters",
     "content": "Type TypeParameter Multiplicity 0..*",
-    "timestamp": 1749931345526
+    "timestamp": 1765406814582
   },
   "references/eClassifiers/CompilationUnit/references/eStructuralFeatures/packageName/index.html": {
     "path": "CompilationUnit/Attributes/packageName",
-    "link-uuid": "76241440-14ea-4b83-8de3-de08e96890ba",
+    "link-uuid": "cf5acbb5-6d2a-4473-8ee7-a23a8eb80543",
     "title": "packageName",
     "content": "Type EString Multiplicity 0..1",
-    "timestamp": 1749931345213
+    "timestamp": 1765406814280
   },
   "references/eClassifiers/Enum/inheritance.html": {
     "path": "Enum/Inheritance",
-    "link-uuid": "38594a24-63e0-42d5-a1ee-d327f1e953d4",
+    "link-uuid": "3165817d-7e45-478b-9f76-d10180d792c9",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345250
+    "timestamp": 1765406814321
   },
   "references/eClassifiers/AnnotationInterface/inheritance.html": {
     "path": "AnnotationInterface/Inheritance",
-    "link-uuid": "7f0115e3-033a-47e3-bf8b-d97a920e52e6",
+    "link-uuid": "b28caf71-889a-4470-acbc-befb079866b5",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1749931345060
+    "timestamp": 1765406814103
   },
   "references/eClassifiers/Member/references/eStructuralFeatures/referencedTypes/index.html": {
     "path": "Member/References/referencedTypes",
-    "link-uuid": "a403b12f-9805-4be1-bd4a-2e30c2cb4ba9",
+    "link-uuid": "303cf3c5-fb7f-45b3-933a-07631892b647",
     "title": "referencedTypes",
     "content": "Type GenericType Multiplicity 0..* All types referenced by this member including types refernced from code",
-    "timestamp": 1749931345425
+    "timestamp": 1765406814486
   }
 }
